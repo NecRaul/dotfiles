@@ -1,0 +1,5 @@
+{
+    "suggest.noselect": true,
+    "clangd.checkUpdates": true,
+    "python.formatting.provider": "black"
+}

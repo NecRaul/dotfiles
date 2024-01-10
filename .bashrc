@@ -1,0 +1,141 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# vi mode
+set -o vi
+
+# Aliases
+alias sudo="sudo " # this is to make sudo vim do sudo nvim instead
+alias pacman="pacman --color=auto"
+alias vim="nvim"
+alias ls="ls -hN --color=auto --group-directories-first"
+alias la="ls -A"
+alias ll="ls -l"
+alias lla="ls -lA"
+alias mkdir="mkdir -p"
+alias yt-dlp="yt-dlp --embed-metadata"
+alias grep="grep -i --color=auto"
+alias diff="diff --color=auto"
+alias python="python3"
+alias pysetup="python3 setup.py sdist bdist_wheel"
+alias pip="pip3"
+alias pynps="pynps -c ps3 -r usa"
+alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
+
+# Colors
+export RED="\[\e[1;31m\]"
+export GREEN="\[\e[1;38;2;0;255;0m\]"
+export BLUE="\[\e[1;34m\]"
+export YELLOW="\[\e[1;33m\]"
+export PURPLE="\[\e[1;95m\]"
+export RESET="\[\e[0m\]"
+
+# PS1
+export PS1="${YELLOW}[${RED}\u${PURPLE}@${BLUE}\h ${PURPLE}\W${YELLOW}]${PURPLE}\$ ${BLUE}\$(__git_branch)${YELLOW}\$(__git_state)${RESET}"
+
+# git-neko/gist-neko
+export GITHUB_USERNAME=gu
+export GITHUB_PERSONAL_ACCESS_TOKEN=gpat
+
+# Default programs
+export EDITOR=/usr/bin/nvim
+export VISUAL=/usr/bin/nvim
+export MUSIC_DIR="$HOME/Music"
+
+# History
+export HISTTIMEFORMAT=$(echo -e "\033[0;33m"[%F %T] "\033[0m")
+export HISTSIZE=10000
+export HISTFILESIZE=50000
+export HISTCONTROL=ignoreboth
+
+# PATH
+export PATH=$PATH:"$HOME/.dotnet/"
+export PATH=$PATH:"$HOME/.dotnet/tools"
+export PATH=$PATH:"$HOME/.local/bin"
+export PATH=$PATH:"$HOME/.nuget/"
+export PATH=$PATH:"$XDG_DATA_HOME/go"
+
+# XDG Setup
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
+# XDG_CACHE_HOME
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
+export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
+
+# XDG_CONFIG_HOME
+export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
+export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
+export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
+# XDG_DATA_HOME
+export AZURE_CONFIG_DIR="$XDG_DATA_HOME/azure"
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export GOPATH="$XDG_DATA_HOME/go"
+export HISTFILE="$XDG_DATA_HOME/history"
+export KODI_DATA="$XDG_DATA_HOME/kodi"
+export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
+export UNISON="$XDG_DATA_HOME/unison"
+export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
+
+# Mozilla smooth scrolling/touchpads
+export MOZ_USE_XINPUT2="1"
+
+# External sources for bashrc
+source "$XDG_CONFIG_HOME/git/git-prompt.sh"
+source "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
+
+# Start a tmux session when bash starts
+if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
+    last_session=$(tmux ls | awk -F: '{print $1}' | tail -n 1)
+    if [ -z "$last_session" ]; then
+        session_name=0
+    else
+        session_name=$((last_session + 1))
+    fi
+    exec tmux new-session -s "$session_name" >/dev/null 2>&1
+fi
+
+# Macros to enable yanking, killing and putting
+# to and from the system clipboard in vi-mode.
+# Only supports yanking and killing the whole line.
+paste_from_clipboard() {
+    local shift=$1
+    local head=${READLINE_LINE:0:READLINE_POINT+shift}
+    local tail=${READLINE_LINE:READLINE_POINT+shift}
+    local paste=$(xclip -out -selection clipboard)
+    local paste_len=${#paste}
+    READLINE_LINE=${head}${paste}${tail}
+    let READLINE_POINT+=$paste_len+$shift-1
+}
+
+yank_line_to_clipboard() {
+    echo $READLINE_LINE | xclip -in -selection clipboard
+}
+
+kill_line_to_clipboard() {
+    yank_line_to_clipboard
+    READLINE_LINE=""
+}
+
+bind -m vi-command -x "\"P\": paste_from_clipboard 0"
+bind -m vi-command -x "\"p\": paste_from_clipboard 1"
+bind -m vi-command -x "\"yy\": yank_line_to_clipboard"
+bind -m vi-command -x "\"dd\": kill_line_to_clipboard"

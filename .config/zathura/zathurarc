@@ -1,0 +1,45 @@
+set sandbox none
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+set window-height 1350
+set window-width 1000
+set recolor "false"
+set completion-bg "#180a0d"
+set completion-fg "#f5def0"
+set completion-group-bg "#180a0d"
+set completion-group-fg "#926D8A"
+set completion-highlight-bg "#f5def0"
+set completion-highlight-fg "#180a0d"
+set recolor-lightcolor "#180a0d"
+set recolor-darkcolor "#f5def0"
+set default-bg "#180a0d"
+set inputbar-bg "#180a0d"
+set inputbar-fg "#f5def0"
+set notification-bg "#180a0d"
+set notification-fg "#f5def0"
+set notification-error-bg "#A2545C"
+set notification-error-fg "#f5def0"
+set notification-warning-bg "#A2545C"
+set notification-warning-fg "#f5def0"
+set statusbar-bg "#180a0d"
+set statusbar-fg "#f5def0"
+set index-bg "#180a0d"
+set index-fg "#f5def0"
+set index-active-bg "#f5def0"
+set index-active-fg "#180a0d"
+set render-loading-bg "#180a0d"
+set render-loading-fg "#f5def0"
+set window-title-home-tilde true
+set statusbar-basename true
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+map p print
+map g goto top
