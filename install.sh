@@ -86,6 +86,24 @@ install_pip_packages() {
     echo "$installed_packages/$attempted_packages installed."
 }
 
+clear_pacman_cache() {
+    echo "==================================================="
+    echo "Clearing pacman cache."
+    echo "==================================================="
+    sudo pacman -Scc --noconfirm
+    echo "==================================================="
+    echo "Cleared pacman cache."
+}
+
+clear_aur_cache() {
+    echo "==================================================="
+    echo "Clearing AUR cache."
+    echo "==================================================="
+    paru -Scc --noconfirm
+    echo "==================================================="
+    echo "Cleared AUR cache."
+}
+
 install_paru() {
     echo "==================================================="
     echo "Installing paru."
@@ -247,6 +265,8 @@ reset_package_count
 
 install_pacman_packages
 
+clear_pacman_cache
+
 install_paru
 
 reset_package_count
@@ -256,6 +276,8 @@ install_aur_packages
 reset_package_count
 
 install_aur_packages_2_electric_boogaloo
+
+clear_aur_cache
 
 create_symlinks
 
