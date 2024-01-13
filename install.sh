@@ -104,6 +104,15 @@ clear_aur_cache() {
     echo "Cleared AUR cache."
 }
 
+removing_unnecessary_dependencies() {
+    echo "==================================================="
+    echo "Removing unnecessary dependencies."
+    echo "==================================================="
+    sudo pacman -Rncs $(pacman -Qdtq) --noconfirm
+    echo "==================================================="
+    echo "Removed unnecessary dependencies."
+}
+
 install_paru() {
     echo "==================================================="
     echo "Installing paru."
@@ -278,6 +287,8 @@ reset_package_count
 install_aur_packages_2_electric_boogaloo
 
 clear_aur_cache
+
+removing_unnecessary_dependencies
 
 create_symlinks
 
