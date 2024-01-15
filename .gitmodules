@@ -4,6 +4,9 @@
 [submodule ".config/nvim/plugged/vim-css-color"]
 	path = .config/nvim/plugged/vim-css-color
 	url = git@github.com:ap/vim-css-color.git
+[submodule ".config/nvim/plugged/live-server.nvim"]
+	path = .config/nvim/plugged/live-server.nvim
+	url = git@github.com:barrett-ruth/live-server.nvim.git
 [submodule ".config/nvim/plugged/vim-bufferline"]
 	path = .config/nvim/plugged/vim-bufferline
 	url = git@github.com:bling/vim-bufferline.git

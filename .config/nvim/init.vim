@@ -11,6 +11,7 @@ endif
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
+Plug 'barrett-ruth/live-server.nvim'
 Plug 'bling/vim-bufferline'
 Plug 'dylanaraps/wal.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -179,6 +180,7 @@ autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 
 " Lua section
 lua << EOF
+    require("live-server").setup()
     require('nvim-tree').setup{
     view = {
         side = "left",
