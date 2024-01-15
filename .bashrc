@@ -56,6 +56,7 @@ export HISTCONTROL=ignoreboth
 export PATH=$PATH:"$HOME/.dotnet/"
 export PATH=$PATH:"$HOME/.dotnet/tools"
 export PATH=$PATH:"$HOME/.local/bin"
+export PATH=$PATH:"$HOME/.local/share/npm/bin"
 export PATH=$PATH:"$HOME/.nuget/"
 export PATH=$PATH:"$XDG_DATA_HOME/go"
 
@@ -70,29 +71,21 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 
 # XDG_CONFIG_HOME
-export ANSIBLE_CONFIG="$XDG_CONFIG_HOME/ansible/ansible.cfg"
+export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
-export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
-export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
-export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 # XDG_DATA_HOME
 export AZURE_CONFIG_DIR="$XDG_DATA_HOME/azure"
 export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export ELECTRUMDIR="$XDG_DATA_HOME/electrum"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GOPATH="$XDG_DATA_HOME/go"
 export HISTFILE="$XDG_DATA_HOME/history"
-export KODI_DATA="$XDG_DATA_HOME/kodi"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
-export UNISON="$XDG_DATA_HOME/unison"
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 
 # Mozilla smooth scrolling/touchpads
