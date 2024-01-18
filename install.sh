@@ -164,7 +164,6 @@ create_symlinks() {
     ln -sf $(pwd)/.config/python $HOME/.config/python
     ln -sf $(pwd)/.config/spectaclerc $HOME/.config/spectaclerc
     ln -sf $(pwd)/.config/tmux $HOME/.config/tmux
-    ln -sf $(pwd)/.config/wal $HOME/.config/wal
     ln -sf $(pwd)/.config/wget $HOME/.config/wget
     ln -sf $(pwd)/.config/zathura $HOME/.config/zathura
     # # # # # #
