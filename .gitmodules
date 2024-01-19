@@ -29,6 +29,9 @@
 [submodule ".config/nvim/plugged/nvim-web-devicons"]
 	path = .config/nvim/plugged/nvim-web-devicons
 	url = git@github.com:nvim-tree/nvim-web-devicons.git
+[submodule ".config/nvim/plugged/omnisharp-vim"]
+	path = .config/nvim/plugged/omnisharp-vim
+	url = git@github.com:OmniSharp/omnisharp-vim.git
 [submodule ".config/nvim/plugged/black"]
 	path = .config/nvim/plugged/black
 	url = git@github.com:psf/black.git

@@ -19,6 +19,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'psf/black'
 Plug 'rbong/vim-flog'
 Plug 'tpope/vim-fugitive'
@@ -48,7 +49,7 @@ set wildmenu
 set wildmode=list
 set splitbelow splitright
 set nocompatible
-filetype plugin on
+filetype plugin indent on
 syntax on
 
 " Keybindings
@@ -131,6 +132,9 @@ let g:coc_global_extensions =
   \  'coc-xml',
   \  'coc-yaml'
   \]
+
+" OmniSharp
+let g:OmniSharp_server_use_net6 = 1
 
 " Black format on save for Python
 autocmd BufWritePre *.py execute ':Black'
