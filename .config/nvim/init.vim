@@ -111,6 +111,7 @@ endfunction
 " CoC Extensions
 let g:coc_global_extensions =
   \[
+  \  '@yaegassy/coc-volar',
   \  'coc-clangd',
   \  'coc-css',
   \  'coc-cssmodules',
