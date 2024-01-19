@@ -71,7 +71,7 @@ nnoremap <silent><C-v> :vsp<CR>
 nnoremap <silent><C-h> :sp<CR>
 nnoremap <silent><C-f> :Telescope find_files<CR>
 nnoremap <silent><C-s> :Telescope live_grep<CR>
-nnoremap S :%s//g<Left><Left>
+nnoremap <leader>s :%s//<Left>
 
 " CoC Keybindings
 " Use tab for trigger completion with characters ahead and navigate
@@ -124,7 +124,7 @@ let g:coc_global_extensions =
   \  'coc-json',
   \  'coc-lua',
   \  'coc-prettier',
-  \  'coc-python',
+  \  'coc-pyright',
   \  'coc-sh',
   \  'coc-sql',
   \  'coc-tsserver',
