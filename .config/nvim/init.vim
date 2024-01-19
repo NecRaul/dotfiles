@@ -135,7 +135,7 @@ let g:coc_global_extensions =
 " Black format on save for Python
 autocmd BufWritePre *.py execute ':Black'
 " Prettier format on save for appropriate files
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.json,*.css,*.scss,*.html,*.yaml CocCommand prettier.formatFile
+autocmd BufWritePre *.js,*.jsx,*.vue,*.mjs,*.ts,*.tsx,*.json,*.css,*.scss,*.html,*.yaml CocCommand prettier.formatFile
 
 " Airline settings
 let g:bufferline_echo = 0
