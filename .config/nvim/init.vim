@@ -45,8 +45,6 @@ set number
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set wildmenu
-set wildmode=list
 set splitbelow splitright
 set nocompatible
 filetype plugin indent on
