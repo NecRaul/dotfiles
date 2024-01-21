@@ -3,16 +3,14 @@ betterdiscord-installer
 cemu
 citra-canary-git
 czkawka-git
-dotnet-targeting-pack-bin
+downgrade
 duckstation
 epub-thumbnailer-git
-extra-cmake-modules-git
 libbacktrace-git
 libpdfium-nojs
 mcomix
 megasync
 melonds
-netstandard-targeting-pack-bin
 paru
 pcsx2-git
 pkg2zip-fork
@@ -20,5 +18,4 @@ pywal-discord-git
 rpcs3-git
 ryujinx-bin
 soulseekqt
-ttf-ms-fonts
 visual-studio-code-bin
