@@ -71,13 +71,13 @@
       "password": null
     },
     "exhentai": {
-      "username": "AnonLikesHentai",
-      "password": "16112001NecRaul",
+      "username": "username",
+      "password": "password",
       "cookies": {
-        "ipb_member_id": "6145125",
-        "ipb_pass_hash": "d132b6900656d84c4a1ccbc88fa92419",
-        "sl": "dm_1",
-        "igneous": "541b7993b"
+        "ipb_member_id": "ipb_member_id",
+        "ipb_pass_hash": "ipb_pass_hash",
+        "sl": "sl",
+        "igneous": "igneous"
       },
       "domain": "auto",
       "limits": true,
@@ -148,8 +148,8 @@
       "password": null
     },
     "newgrounds": {
-      "username": "AnonLikesAnime",
-      "password": "16112001NecRaul",
+      "username": "username",
+      "password": "password",
       "flash": true,
       "format": "original",
       "include": "art"
@@ -232,8 +232,8 @@
       "reblogs": true
     },
     "twitter": {
-      "username": "AnonLikesAnime",
-      "password": "16112001NecRaul!",
+      "username": "username",
+      "password": "password",
       "cards": false,
       "conversations": false,
       "pinned": false,
