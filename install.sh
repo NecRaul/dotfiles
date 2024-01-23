@@ -90,7 +90,7 @@ clear_pacman_cache() {
     echo "==================================================="
     echo "Clearing pacman cache."
     echo "==================================================="
-    sudo pacman -Scc --noconfirm
+    sudo pacman -Sc --noconfirm
     echo "==================================================="
     echo "Cleared pacman cache."
 }
@@ -99,7 +99,7 @@ clear_aur_cache() {
     echo "==================================================="
     echo "Clearing AUR cache."
     echo "==================================================="
-    paru -Scc --noconfirm
+    paru -Sc --noconfirm
     echo "==================================================="
     echo "Cleared AUR cache."
 }
