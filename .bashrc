@@ -12,6 +12,8 @@ set -o vi
 alias sudo="sudo " # this is to make sudo vim do sudo nvim instead
 alias pacman="pacman --color=auto"
 alias vim="nvim"
+alias fzfvim="fzfvim.sh"
+alias fzfcode="fzfcode.sh"
 alias ls="ls -hN -1 --color=auto --group-directories-first"
 alias la="ls -A"
 alias ll="ls -l"
