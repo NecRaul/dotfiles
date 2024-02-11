@@ -91,11 +91,11 @@ multidict
 mutagen
 mypy-extensions
 neovim
-netsnmp-python
 nh3
 noise
 numpy
 oauthlib
+ordered-set
 outcome
 packaging
 pandas
@@ -179,11 +179,13 @@ tenacity
 termdown
 tldextract
 toml
+tomli
 tomlkit
 toolz
 tornado
 trio
 trio-websocket
+trove-classifiers
 tweepy
 twine
 Twisted
