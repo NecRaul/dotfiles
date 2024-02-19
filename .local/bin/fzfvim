@@ -1,0 +1,6 @@
+#!/bin/bash
+
+result=$(find ~ -maxdepth 4 -type d -not -path '*/\.*' -print | fzf)
+if [ -n "$result" ]; then
+    nvim "$result"
+fi

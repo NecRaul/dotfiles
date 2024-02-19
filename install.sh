@@ -177,6 +177,8 @@ create_symlinks() {
 
     # scripts #
     ln -sf $(pwd)/.local/bin/*.sh $HOME/.local/bin/
+    ln -sf $(pwd)/.local/bin/fzfcode $HOME/.local/bin/
+    ln -sf $(pwd)/.local/bin/fzfvim $HOME/.local/bin/
     ln -sf $(pwd)/.local/bin/4chan-pywal/4chan-pywal.sh $HOME/.local/bin/
     ln -sf $(pwd)/.local/bin/pywal-kde-plasma/pywal.sh $HOME/.local/bin/
     ln -sf $(pwd)/.local/bin/pywal-kde-plasma/zathurarc.template $HOME/.local/bin/
