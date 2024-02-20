@@ -79,8 +79,9 @@ install_pip_packages() {
     echo "==================================================="
     # Note: pip freeze | cut -d'=' -f1 gives installed pip packages
     pip install --no-warn-script-location -r install/pip.txt
-    pip install "$(pwd)/.local/bin/pyupload/"
-    pip install "$(pwd)/.local/bin/pywal-kde/"
+    # optional
+    # pip install "$(pwd)/.local/bin/pyupload/"
+    # pip install "$(pwd)/.local/bin/pywal-kde/"
     echo "==================================================="
     echo "Finished installing pip packages."
     echo "$installed_packages/$attempted_packages installed."
