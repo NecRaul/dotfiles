@@ -11,7 +11,6 @@ libpdfium-nojs
 mcomix
 megasync
 melonds
-noisetorch
 paru
 pcsx2-git
 pkg2zip-fork

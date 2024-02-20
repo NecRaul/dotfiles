@@ -62,6 +62,7 @@ inetutils
 iwd
 jdk-openjdk
 jq
+jupyter-notebook
 kdeconnect
 kdegraphics-thumbnailers
 kdesdk-thumbnailers
@@ -105,12 +106,12 @@ neofetch
 neovim
 netstandard-targeting-pack
 nodejs
-noisetorch
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 npm
 ntp
+nyancat
 obs-studio
 odt2txt
 openssh
@@ -165,7 +166,6 @@ ttf-liberation
 ttf-ms-fonts
 ttf-roboto
 ttf-sazanami
-ueberzug
 unrar
 unzip
 vim
