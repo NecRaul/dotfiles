@@ -172,6 +172,22 @@ let g:airline_symbols.colnr = ' cn:'
 let g:airline_symbols.dirty=' ⚡'
 let g:airline_symbols.notexists = ' ∄'
 let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_filetype_overrides = {
+      \ 'coc-explorer':  [ 'CoC Explorer', '' ],
+      \ 'defx':  ['defx', '%{b:defx.paths[0]}'],
+      \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
+      \ 'floggraph':  [ 'Flog', '%{get(b:, "flog_status_summary", "")}' ],
+      \ 'gundo': [ 'Gundo', '' ],
+      \ 'help':  [ 'Help', '%f' ],
+      \ 'minibufexpl': [ 'MiniBufExplorer', '' ],
+      \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', 'NERD'), '' ],
+      \ 'startify': [ 'startify', '' ],
+      \ 'vim-plug': [ 'Plugins', '' ],
+      \ 'vimfiler': [ 'vimfiler', '%{vimfiler#get_status_string()}' ],
+      \ 'vimshell': ['vimshell','%{vimshell#get_status_string()}'],
+      \ 'vaffle' : [ 'Vaffle', '%{b:vaffle.dir}' ],
+      \ 'NvimTree' : [ 'NvimTree', '']
+      \ }
 let g:airline_theme='wal'
 colorscheme wal
 
