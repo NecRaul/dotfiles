@@ -26,6 +26,7 @@ Plug 'rbong/vim-flog'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " Basic settings
@@ -190,6 +191,10 @@ let g:airline_filetype_overrides = {
       \ }
 let g:airline_theme='wal'
 colorscheme wal
+
+" Indent Line settings
+let g:indentLine_char='¦'
+let g:indentLine_setColors = 0
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 autocmd BufWritePre * let currPos = getpos('.')

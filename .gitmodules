@@ -50,6 +50,9 @@
 [submodule ".config/nvim/plugged/vim-airline"]
 	path = .config/nvim/plugged/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
+[submodule ".config/nvim/plugged/indentLine"]
+	path = .config/nvim/plugged/indentLine
+	url = git@github.com:Yggdroot/indentLine.git
 [submodule ".config/mpv"]
 	path = .config/mpv
 	url = git@github.com:NecRaul/mpv-configs.git
