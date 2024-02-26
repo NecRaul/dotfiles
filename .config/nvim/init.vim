@@ -26,6 +26,7 @@ Plug 'rbong/vim-flog'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
+Plug 'windwp/nvim-autopairs'
 Plug 'Yggdroot/indentLine'
 call plug#end()
 
@@ -276,4 +277,5 @@ lua << EOF
       enable = true,
     },
   }
+  require("nvim-autopairs").setup()
 EOF

@@ -50,6 +50,9 @@
 [submodule ".config/nvim/plugged/vim-airline"]
 	path = .config/nvim/plugged/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
+[submodule ".config/nvim/plugged/nvim-autopairs"]
+	path = .config/nvim/plugged/nvim-autopairs
+	url = git@github.com:windwp/nvim-autopairs.git
 [submodule ".config/nvim/plugged/indentLine"]
 	path = .config/nvim/plugged/indentLine
 	url = git@github.com:Yggdroot/indentLine.git
