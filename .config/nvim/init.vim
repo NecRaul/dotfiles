@@ -186,10 +186,30 @@ autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 lua << EOF
   require("live-server").setup()
   require('nvim-tree').setup{
+  filters = {
+    git_ignored = false,
+    custom = { '.git' },
+  },
   view = {
       side = "left",
       width = 40,
-    }
+    },
+    hijack_cursor = true,
+    sync_root_with_cwd = true,
+    update_focused_file = {
+      enable = true,
+      update_root = false,
+    },
+    renderer = {
+      group_empty = true,
+      highlight_git = true,
+      highlight_opened_files = 'all',
+      highlight_modified = 'all',
+      root_folder_modifier = '~',
+      indent_markers = {
+        enable = true,
+      },
+    },
   }
   require('nvim-web-devicons').setup()
   require('nvim-treesitter.configs').setup {
