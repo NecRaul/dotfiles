@@ -19,6 +19,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'psf/black'
 Plug 'rbong/vim-flog'
@@ -183,12 +184,55 @@ autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 
 " Lua section
 lua << EOF
-    require("live-server").setup()
-    require('nvim-tree').setup{
-    view = {
-        side = "left",
-        width = 40,
+  require("live-server").setup()
+  require('nvim-tree').setup{
+  view = {
+      side = "left",
+      width = 40,
     }
-}
-    require('nvim-web-devicons').setup()
+  }
+  require('nvim-web-devicons').setup()
+  require('nvim-treesitter.configs').setup {
+    ensure_installed = {
+      'bash',
+      'c',
+      'c_sharp',
+      'cmake',
+      'comment',
+      'css',
+      'diff',
+      'dockerfile',
+      'gdscript',
+      'git_config',
+      'git_rebase',
+      'gitattributes',
+      'gitcommit',
+      'gitignore',
+      'go',
+      'gomod',
+      'gosum',
+      'html',
+      'http',
+      'ini',
+      'java',
+      'javascript',
+      'json',
+      'lua',
+      'make',
+      'markdown',
+      'python',
+      'requirements',
+      'sql',
+      'typescript',
+      'xml',
+      'yaml'
+    },
+    auto_install = true,
+    highlight = {
+      enable = true,
+    },
+    indent = {
+      enable = true,
+    },
+  }
 EOF
