@@ -8,6 +8,9 @@
 # vi mode
 set -o vi
 
+# Completion ignore case
+bind "set completion-ignore-case on"
+
 # Aliases
 alias sudo="sudo " # this is to make sudo vim do sudo nvim instead
 alias pacman="pacman --color=auto"
