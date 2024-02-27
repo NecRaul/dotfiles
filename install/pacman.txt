@@ -21,6 +21,8 @@ cowsay
 cronie
 czkawka-gui-bin
 discord
+docker
+docker-compose
 docx2txt
 dolphin
 dos2unix
@@ -37,6 +39,7 @@ egl-wayland
 epub-thumbnailer-git
 expac
 extra-cmake-modules
+eza
 ffmpegthumbnailer
 ffmpegthumbs
 filezilla
@@ -62,7 +65,6 @@ inetutils
 iwd
 jdk-openjdk
 jq
-jupyter-notebook
 kdeconnect
 kdegraphics-thumbnailers
 kdesdk-thumbnailers
@@ -150,12 +152,12 @@ spotify-launcher
 sshfs
 steam
 swaybg
+syncthing
 texlive-basic
 texlive-fontsrecommended
 texlive-latex
 texlive-latexrecommended
 texlive-plaingeneric
-thunderbird
 tmux
 toilet
 traceroute
