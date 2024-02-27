@@ -70,6 +70,7 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 
 # XDG_CONFIG_HOME
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
@@ -84,6 +85,7 @@ export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export GOPATH="$XDG_DATA_HOME/go"
 export HISTFILE="$XDG_DATA_HOME/history"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 
