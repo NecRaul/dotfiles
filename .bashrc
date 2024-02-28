@@ -21,6 +21,7 @@ alias lla="eza --color=auto --icons=auto --no-quotes --group-directories-first -
 alias llt="eza --color=auto --icons=auto --no-quotes --group-directories-first -xlhT --git -I \".git\" -L 3"
 alias lta="eza --color=auto --icons=auto --no-quotes --group-directories-first -xaT -I \".git\" -L 3"
 alias llta="eza --color=auto --icons=auto --no-quotes --group-directories-first -xalhT --git -I \".git\" -L 3"
+alias cat="bat --theme base16"
 alias mkdir="mkdir -p"
 alias yt-dlp="yt-dlp --embed-metadata"
 alias grep="grep --color=auto"
