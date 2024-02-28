@@ -18,11 +18,13 @@ cycler
 dbus-python
 dill
 discid
+distlib
 distro
 docutils
 evdev
 fasteners
 fastjsonschema
+filelock
 Flask
 fonttools
 gallery_dl
@@ -95,7 +97,7 @@ PyUpload @ file:///home/necraul/Documents/Github/Repos/pyupload
 pywal @ file:///home/necraul/Documents/Github/Repos/pywal-kde
 pywalfox
 PyYAML
-readme-renderer
+readme_renderer
 requests
 requests-toolbelt
 rfc3986
@@ -113,6 +115,7 @@ typing_extensions
 url-normalize
 urllib3
 validate-pyproject
+virtualenv
 wcwidth
 websockets
 Werkzeug

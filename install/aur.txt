@@ -1,6 +1,7 @@
 azuredatastudio-bin
 betterdiscord-installer
 cemu
+cht.sh-git
 citra-canary-git
 czkawka-gui-bin
 downgrade
