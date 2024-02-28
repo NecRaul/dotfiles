@@ -225,7 +225,6 @@ lua << EOF
     renderer = {
       group_empty = true,
       highlight_git = true,
-      highlight_opened_files = 'all',
       highlight_modified = 'all',
       root_folder_modifier = '~',
       indent_markers = {
