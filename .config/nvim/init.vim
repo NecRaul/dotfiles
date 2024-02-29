@@ -61,8 +61,8 @@ nnoremap <silent><C-Right> <C-w>l
 nnoremap <C-n> :edit<Space>
 nnoremap <silent><C-w> :w<CR>
 nnoremap <silent><C-q> :q<CR>
-nnoremap <silent><C-x> :bd<CR>
-nnoremap <silent><C-X> :bw<CR>
+nnoremap <leader>q :w<CR>:bd<CR>:bn<CR>
+nnoremap <leader>Q :bd!<CR>:bn<CR>
 nnoremap <silent><leader><Left> :bp<CR>
 nnoremap <silent><leader><Right> :bn<CR>
 nnoremap <silent><C-t> :NvimTreeToggle<CR>
