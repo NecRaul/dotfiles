@@ -56,6 +56,12 @@
 [submodule ".config/nvim/plugged/indentLine"]
 	path = .config/nvim/plugged/indentLine
 	url = git@github.com:Yggdroot/indentLine.git
+[submodule ".config/tmux/plugins/tpm"]
+	path = .config/tmux/plugins/tpm
+	url = git@github.com:tmux-plugins/tpm.git
+[submodule ".config/tmux/plugins/tmux-power"]
+	path = .config/tmux/plugins/tmux-power
+	url = git@github.com:wfxr/tmux-power.git
 [submodule ".config/mpv"]
 	path = .config/mpv
 	url = git@github.com:NecRaul/mpv-configs.git
