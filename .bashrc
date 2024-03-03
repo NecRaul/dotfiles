@@ -96,11 +96,25 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 
+# LESS
+export LESS="R"
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
+
 # FZF_DEFAULT_OPTS
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height=75% --layout=reverse --info=inline --border --margin=1 --padding=1"
 
 # Mozilla smooth scrolling/touchpads
 export MOZ_USE_XINPUT2="1"
+
+# QT Theme
+export QT_QPA_PLATFORMTHEME="gtk2"
 
 # External sources for bashrc
 source "$XDG_CONFIG_HOME/git/git-prompt.sh"
