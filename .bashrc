@@ -96,26 +96,8 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 
-# FZF colors
-FG_COLOR="#D0D0D0"
-BG_COLOR="#121212"
-HL_COLOR="$(sed -n '6p' "${HOME}/.cache/wal/colors")"
-FG_PLUS_COLOR="#D0D0D0"
-BG_PLUS_COLOR="#262626"
-HL_PLUS_COLOR="$(sed -n '2p' "${HOME}/.cache/wal/colors")"
-INFO_COLOR="$(sed -n '2p' "${HOME}/.cache/wal/colors")"
-PROMPT_COLOR="$(sed -n '2p' "${HOME}/.cache/wal/colors")"
-POINTER_COLOR="$(sed -n '11p' "${HOME}/.cache/wal/colors")"
-MARKER_COLOR="$(sed -n '7p' "${HOME}/.cache/wal/colors")"
-SPINNER_COLOR="$(sed -n '4p' "${HOME}/.cache/wal/colors")"
-HEADER_COLOR="$(sed -n '11p' "${HOME}/.cache/wal/colors")"
-
-# FZF options
-export FZF_DEFAULT_OPTS="--height=75% --layout=reverse --info=inline --border --margin=1 --padding=1 \
---color=fg:$FG_COLOR,bg:$BG_COLOR,hl:$HL_COLOR \
---color=fg+:$FG_PLUS_COLOR,bg+:$BG_PLUS_COLOR,hl+:$HL_PLUS_COLOR \
---color=info:$INFO_COLOR,prompt:$PROMPT_COLOR,pointer:$POINTER_COLOR \
---color=marker:$MARKER_COLOR,spinner:$SPINNER_COLOR,header:$HEADER_COLOR"
+# FZF_DEFAULT_OPTS
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height=75% --layout=reverse --info=inline --border --margin=1 --padding=1"
 
 # Mozilla smooth scrolling/touchpads
 export MOZ_USE_XINPUT2="1"
@@ -124,6 +106,7 @@ export MOZ_USE_XINPUT2="1"
 source "$XDG_CONFIG_HOME/git/git-prompt.sh"
 source "$XDG_CONFIG_HOME/zoxide/zoxide.sh"
 source "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
+source "$XDG_CACHE_HOME/wal/colors.sh"
 
 # Start a tmux session when bash starts
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
