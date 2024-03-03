@@ -204,6 +204,12 @@ autocmd BufWritePre * %s/\n\+\%$//e
 autocmd BufWritePre *.[ch] %s/\%$/\r/e
 autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 
+" Run xrdb whenever Xdefaults or Xresources are updated.
+autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
+autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
+" Recompile dwmblocks on config edit.
+autocmd BufWritePost ~/Documents/Github/Repos/dwmblocks/config.h !cd ~/Documents/Github/Repos/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
+
 " Lua section
 lua << EOF
   require("live-server").setup()
