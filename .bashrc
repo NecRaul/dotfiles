@@ -59,9 +59,9 @@ export HISTFILESIZE=50000
 export HISTCONTROL=ignoreboth
 
 # PATH
+export PATH=$PATH:"$(find $HOME/.local/bin -type d | paste -sd ':' -)"
 export PATH=$PATH:"$HOME/.dotnet/"
 export PATH=$PATH:"$HOME/.dotnet/tools"
-export PATH=$PATH:"$HOME/.local/bin"
 export PATH=$PATH:"$HOME/.local/share/npm/bin"
 export PATH=$PATH:"$HOME/.nuget/"
 export PATH=$PATH:"$XDG_DATA_HOME/go"
