@@ -1,6 +1,7 @@
 #!/bin/bash
 
 no_password_sudoers() {
+    # This is unnecessary if you can already use sudo without using password and should be commented out
     sudo sed -i "/^root\sALL=(ALL:ALL)\sALL/a $USER ALL=(ALL) NOPASSWD: ALL" /etc/sudoers
     echo "==================================================="
     echo "Enabled $USER to use sudo without having to enter password."
@@ -171,8 +172,7 @@ create_symlinks() {
 
     # git #
     mkdir -p $HOME/.config/git
-    ln -sf $(pwd)/.config/git/* $HOME/.config/git/
-    rm $HOME/.config/git/config
+    ln -sf $(pwd)/.config/git/git-prompt.sh $HOME/.config/git/git-prompt.sh
     cp $(pwd)/.config/git/config $HOME/.config/git/config
     # # # #
 
