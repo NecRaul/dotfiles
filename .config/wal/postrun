@@ -1,0 +1,56 @@
+#!/bin/bash
+
+source "$XDG_CACHE_HOME/wal/colors.sh"
+
+if [[ -x "$(which zathura)" ]]; then
+    zathuraconf="$XDG_CONFIG_HOME/zathura/zathurarc"
+    zathura_template="$XDG_CACHE_HOME/wal/zathurarc"
+    mv -n "$zathuraconf" "$zathuraconf.bak"
+    cp -f "$zathura_template" "$zathuraconf"
+    sed -i 's/#background/'"$background"'/g' "$zathuraconf"
+    sed -i 's/#foreground/'"$foreground"'/g' "$zathuraconf"
+    sed -i 's/#color3/'"$color3"'/g' "$zathuraconf"
+    sed -i 's/#color4/'"$color4"'/g' "$zathuraconf"
+fi
+
+if [[ -x "$(which dunst)" ]]; then
+    dunstconf="$XDG_CONFIG_HOME/dunst/dunstrc"
+    dunst_template="$XDG_CACHE_HOME/wal/dunstrc"
+    mv -n "$dunstconf" "$dunstconf.bak"
+    cp -f "$dunst_template" "$dunstconf"
+    sed -i 's/#color0/'"$color0"'/g' "$dunstconf"
+    sed -i 's/#color1/'"$color1"'/g' "$dunstconf"
+    sed -i 's/#color4/'"$color4"'/g' "$dunstconf"
+    sed -i 's/#color8/'"$color8"'/g' "$dunstconf"
+    sed -i 's/#color11/'"$color11"'/g' "$dunstconf"
+    sed -i 's/#color15/'"$color15"'/g' "$dunstconf"
+fi
+
+if [[ -x "$(which pywalfox)" ]]; then
+    pywalfox update
+fi
+
+if [[ -x "$(which pywal-discord)" ]]; then
+    pywal-discord
+fi
+
+if [[ -x "$(which 4chan-pywal.sh)" ]]; then
+    4chan-pywal.sh
+fi
+
+xresources="$XDG_CONFIG_HOME/x11/xresources"
+
+cp -f "$XDG_CACHE_HOME/wal/colors.Xresources" $xresources
+
+cat <<EOF >>$xresources
+
+#Suckless
+*.alpha: 0.9" 
+*.alphaOffset: 0.1" 
+*.font: HackNerdFontMono:size=10"
+EOF
+
+xrdb $xresources
+
+pkill dunst
+setsid -f dunst

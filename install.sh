@@ -1,5 +1,26 @@
 #!/bin/bash
 
+create_folders() {
+    mkdir -p .cache
+    mkdir -p .config
+    mkdir -p .local/bin
+    mkdir -p .local/share
+    mkdir -p $HOME/Documents/Github/Gists
+    mkdir -p $HOME/Documents/Github/Repos
+    mkdir -p $HOME/Documents/LNs
+    mkdir -p $HOME/Documents/Notes
+    mkdir -p $HOME/Documents/Papers
+    mkdir -p $HOME/Documents/ROM
+    mkdir -p $HOME/Downloads
+    mkdir -p $HOME/Music
+    mkdir -p $HOME/Pictures/gallery-dl
+    mkdir -p $HOME/Pictures/mpv
+    mkdir -p $HOME/Pictures/Screenshots
+    mkdir -p $HOME/Pictures/Wallpapers
+    mkdir -p $HOME/Videos/Seasonals
+    mkdir -p $HOME/Videos/Temp
+}
+
 no_password_sudoers() {
     # This is unnecessary if you can already use sudo without using password and should be commented out
     sudo sed -i "/^root\sALL=(ALL:ALL)\sALL/a $USER ALL=(ALL) NOPASSWD: ALL" /etc/sudoers
@@ -158,7 +179,9 @@ create_symlinks() {
     for item in \
         ".config/blesh" \
         ".config/czkawka" \
+        ".config/dunst" \
         ".config/gallery-dl" \
+        ".config/git" \
         ".config/lf" \
         ".config/mpd" \
         ".config/mpv" \
@@ -169,20 +192,16 @@ create_symlinks() {
         ".config/pyNPS" \
         ".config/python" \
         ".config/tmux" \
+        ".config/wal" \
         ".config/wget" \
         ".config/zathura" \
+        ".config/zoxide" \
         ".config/spectaclerc"; do
         ln -sf "$(pwd)/$item" "$HOME/$item"
     done
     # # # # # #
 
-    # git #
-    mkdir -p $HOME/.config/git
-    ln -sf $(pwd)/.config/git/git-prompt.sh $HOME/.config/git/git-prompt.sh
-    cp $(pwd)/.config/git/config $HOME/.config/git/config
-    # # # #
-
-    # scripts #
+    # bin #
     dirs=(
         "$HOME/.local/bin/4chan-pywal"
         "$HOME/.local/bin/pyupload-devel"
@@ -196,6 +215,11 @@ create_symlinks() {
         ln -sf "$(pwd)/${dir#$HOME/}/"* "$dir"
     done
     # # # # # #
+
+    # cache #
+    ln -sf $(pwd)/.cache/wal/dunstrc $HOME/.cache/wal/dunstrc
+    ln -sf $(pwd)/.cache/wal/zathurarc $HOME/.cache/wal/zathurarc
+    # # # # #
 
     echo "==================================================="
     echo "Created symlinks."
@@ -250,6 +274,8 @@ no_install_packages_to_txt() {
     echo "Packages that couldn't be installed were written into text files in the no_install folder"
     echo "==================================================="
 }
+
+create_folders
 
 no_password_sudoers
 
