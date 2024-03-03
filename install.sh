@@ -201,34 +201,6 @@ reset_package_count() {
     declare -i attempted_packages=0
 }
 
-ssh_key() {
-    mkdir -p $HOME/.ssh/
-    echo "==================================================="
-    echo "Paste your public ssh key (Ed25519):"
-    echo "==================================================="
-    echo "Ctrl + D to finish."
-    echo "==================================================="
-    cat >$HOME/.ssh/id_ed25519.pub
-    echo "==================================================="
-    echo "Paste your private ssh key (Ed25519):"
-    echo "==================================================="
-    echo "Ctrl + D to finish."
-    echo "==================================================="
-    cat >$HOME/.ssh/id_ed25519
-}
-
-gpg_key() {
-    echo "==================================================="
-    echo "Paste your gpg key (Ed25519):"
-    echo "==================================================="
-    echo "Ctrl + D to finish."
-    echo "==================================================="
-    cat >gpg.asc
-    gpg --import gpg.asc
-    rm gpg.asc
-    mv $HOME/.gnupg $HOME/.config/gnupg
-}
-
 pypi_token() {
     echo "==================================================="
     echo "Paste your PyPI token and press Enter to finish:"
@@ -300,10 +272,6 @@ reset_package_count
 install_pip_packages
 
 install_blesh
-
-ssh_key
-
-gpg_key
 
 pypi_token
 
