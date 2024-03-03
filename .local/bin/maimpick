@@ -1,0 +1,45 @@
+#!/bin/bash
+
+output_dir="$HOME/Pictures/Screenshots"
+output="$(date '+%s %d-%m-%Y %H-%M-%S').png"
+xclip_cmd="xclip -sel clip -t image/png"
+
+# Ensure output directory exists
+mkdir -p "$output_dir"
+
+capture_screenshot() {
+    local area="$1"
+    local capture_command="maim -q -d 0.2"
+    local screenshot_output
+
+    case "$area" in
+        "area")
+            screenshot_output="$output_dir/$output"
+            capture_command="$capture_command -u -s"
+            ;;
+        "window")
+            screenshot_output="$output_dir/$output"
+            capture_command="$capture_command -i $(xdotool getactivewindow)"
+            ;;
+        "screen")
+            screenshot_output="$output_dir/$output"
+            ;;
+        *)
+            echo "Invalid capture area: $area" >&2
+            exit 1
+            ;;
+    esac
+
+    # Capture screenshot
+    $capture_command "$screenshot_output" >/dev/null
+
+    # Copy to clipboard
+    cat "$screenshot_output" | $xclip_cmd
+}
+
+if [ "$#" -eq 1 ]; then
+    capture_screenshot "$1"
+else
+    area=$(printf "area\\nwindow\\nfullscreen" | dmenu -l 3 -i -p "Screenshot which area?")
+    capture_screenshot "$area"
+fi
