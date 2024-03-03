@@ -48,8 +48,11 @@ export GITHUB_USERNAME=gu
 export GITHUB_PERSONAL_ACCESS_TOKEN=gpat
 
 # Default programs
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/nvim
+export TERMINAL="st"
+export TERMINAL_PROG="st"
+export EDITOR="nvim"
+export VISUAL="nvim"
+export BROWSER="firefox"
 export MUSIC_DIR="$HOME/Music"
 
 # History
