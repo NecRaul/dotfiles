@@ -122,8 +122,8 @@ export MOZ_USE_XINPUT2="1"
 
 # External sources for bashrc
 source "$XDG_CONFIG_HOME/git/git-prompt.sh"
+source "$XDG_CONFIG_HOME/zoxide/zoxide.sh"
 source "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
-source "$HOME/.local/bin/zoxide.sh"
 
 # Start a tmux session when bash starts
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then

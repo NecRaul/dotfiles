@@ -146,28 +146,34 @@ install_blesh() {
 create_symlinks() {
     echo "==================================================="
     echo "Creating symlinks."
+    # / #
+    sudo cp -f $(pwd)/profile /etc/profile
+
     # ~ #
     cp -f $(pwd)/.bashrc $HOME/.bashrc
     cp -f $(pwd)/.pypirc $HOME/.pypirc
     # # #
 
     # config #
-    ln -sf $(pwd)/.config/blesh $HOME/.config/blesh
-    ln -sf $(pwd)/.config/czkawka $HOME/.config/czkawka
-    ln -sf $(pwd)/.config/gallery-dl $HOME/.config/gallery-dl
-    ln -sf $(pwd)/.config/lf $HOME/.config/lf
-    ln -sf $(pwd)/.config/mpd $HOME/.config/mpd
-    ln -sf $(pwd)/.config/mpv $HOME/.config/mpv
-    ln -sf $(pwd)/.config/ncmpcpp $HOME/.config/ncmpcpp
-    ln -sf $(pwd)/.config/npm $HOME/.config/npm
-    ln -sf $(pwd)/.config/nvim $HOME/.config/nvim
-    ln -sf $(pwd)/.config/pip $HOME/.config/pip
-    ln -sf $(pwd)/.config/pyNPS $HOME/.config/pyNPS
-    ln -sf $(pwd)/.config/python $HOME/.config/python
-    ln -sf $(pwd)/.config/spectaclerc $HOME/.config/spectaclerc
-    ln -sf $(pwd)/.config/tmux $HOME/.config/tmux
-    ln -sf $(pwd)/.config/wget $HOME/.config/wget
-    ln -sf $(pwd)/.config/zathura $HOME/.config/zathura
+    for item in \
+        ".config/blesh" \
+        ".config/czkawka" \
+        ".config/gallery-dl" \
+        ".config/lf" \
+        ".config/mpd" \
+        ".config/mpv" \
+        ".config/ncmpcpp" \
+        ".config/npm" \
+        ".config/nvim" \
+        ".config/pip" \
+        ".config/pyNPS" \
+        ".config/python" \
+        ".config/tmux" \
+        ".config/wget" \
+        ".config/zathura" \
+        ".config/spectaclerc"; do
+        ln -sf "$(pwd)/$item" "$HOME/$item"
+    done
     # # # # # #
 
     # git #
@@ -177,12 +183,18 @@ create_symlinks() {
     # # # #
 
     # scripts #
-    ln -sf $(pwd)/.local/bin/*.sh $HOME/.local/bin/
-    ln -sf $(pwd)/.local/bin/fzfcode $HOME/.local/bin/
-    ln -sf $(pwd)/.local/bin/fzfvim $HOME/.local/bin/
-    ln -sf $(pwd)/.local/bin/4chan-pywal/4chan-pywal.sh $HOME/.local/bin/
-    ln -sf $(pwd)/.local/bin/pywal-kde-plasma/pywal.sh $HOME/.local/bin/
-    ln -sf $(pwd)/.local/bin/pywal-kde-plasma/zathurarc.template $HOME/.local/bin/
+    dirs=(
+        "$HOME/.local/bin/4chan-pywal"
+        "$HOME/.local/bin/pyupload-devel"
+        "$HOME/.local/bin/pywal-kde"
+        "$HOME/.local/bin/pywal-kde-plasma"
+        "$HOME/.local/bin/scripts"
+        "$HOME/.local/bin/statusbar"
+    )
+    for dir in "${dirs[@]}"; do
+        mkdir -p "$dir"
+        ln -sf "$(pwd)/${dir#$HOME/}/"* "$dir"
+    done
     # # # # # #
 
     echo "==================================================="
