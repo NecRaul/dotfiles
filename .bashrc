@@ -23,13 +23,14 @@ alias lta="eza --color=auto --icons=auto --no-quotes --group-directories-first -
 alias llta="eza --color=auto --icons=auto --no-quotes --group-directories-first -xalhT --git -I \".git\" -L 3"
 alias cat="bat --theme base16"
 alias mkdir="mkdir -p"
-alias yt-dlp="yt-dlp --embed-metadata"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
+alias lf="lfub"
 alias python="python3"
 alias pip="pip3"
 alias pynps="pynps -c ps3 -r usa"
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
+alias yt-dlp="yt-dlp --embed-metadata"
 
 # Colors
 export RED="\[\e[1;31m\]"
