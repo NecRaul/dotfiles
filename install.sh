@@ -197,6 +197,7 @@ create_symlinks() {
         ".config/shell" \
         ".config/tmux" \
         ".config/wal" \
+        ".config/weechat" \
         ".config/wget" \
         ".config/x11" \
         ".config/zathura" \
