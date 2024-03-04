@@ -1,10 +1,10 @@
 #!/bin/bash
 
 create_folders() {
-    mkdir -p .cache
-    mkdir -p .config
-    mkdir -p .local/bin
-    mkdir -p .local/share
+    mkdir -p $HOME/.cache
+    mkdir -p $HOME/.config
+    mkdir -p $HOME/.local/bin
+    mkdir -p $HOME/.local/share
     mkdir -p $HOME/Documents/Github/Gists
     mkdir -p $HOME/Documents/Github/Repos
     mkdir -p $HOME/Documents/LNs
@@ -188,12 +188,14 @@ create_symlinks() {
         ".config/ncmpcpp" \
         ".config/npm" \
         ".config/nvim" \
+        ".config/picom" \
         ".config/pip" \
         ".config/pyNPS" \
         ".config/python" \
         ".config/tmux" \
         ".config/wal" \
         ".config/wget" \
+        ".config/x11" \
         ".config/zathura" \
         ".config/zoxide" \
         ".config/spectaclerc"; do
