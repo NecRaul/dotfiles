@@ -27,6 +27,7 @@ alias grep="grep --color=auto"
 alias diff="diff --color=auto"
 alias paru="paru --batflags=\"--theme base16\""
 alias lf="lfub"
+alias nsxiv="nsxiv-rifle"
 alias python="python3"
 alias pip="pip3"
 alias pynps="pynps -c ps3 -r usa"
@@ -113,6 +114,9 @@ export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 
 # FZF_DEFAULT_OPTS
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height=75% --layout=reverse --info=inline --border --margin=1 --padding=1"
+
+# nsxiv default arguments
+export NSXIV_OPTS="-aqb"
 
 # Mozilla smooth scrolling/touchpads
 export MOZ_USE_XINPUT2="1"

@@ -188,11 +188,13 @@ create_symlinks() {
         ".config/mpv" \
         ".config/ncmpcpp" \
         ".config/npm" \
+        ".config/nsxiv" \
         ".config/nvim" \
         ".config/picom" \
         ".config/pip" \
         ".config/pyNPS" \
         ".config/python" \
+        ".config/shell" \
         ".config/tmux" \
         ".config/wal" \
         ".config/wget" \
