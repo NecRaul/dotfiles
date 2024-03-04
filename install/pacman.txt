@@ -128,6 +128,7 @@ pacman-contrib
 pandoc-cli
 paru
 pcsx2-git
+perl-file-mimeinfo
 picard
 picom
 piper

@@ -1,0 +1,5 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Exec=/usr/local/bin/st -e nvim %u
+Name=Neovim
+Type=Application

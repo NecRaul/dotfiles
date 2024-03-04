@@ -1,0 +1,5 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Exec=mcomix
+Name=Mcomix
+Type=Application

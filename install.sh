@@ -1,10 +1,10 @@
 #!/bin/bash
 
 create_folders() {
-    mkdir -p $HOME/.cache
+    mkdir -p $HOME/.cache/wal
     mkdir -p $HOME/.config
     mkdir -p $HOME/.local/bin
-    mkdir -p $HOME/.local/share
+    mkdir -p $HOME/.local/share/applications
     mkdir -p $HOME/Documents/Github/Gists
     mkdir -p $HOME/Documents/Github/Repos
     mkdir -p $HOME/Documents/LNs
@@ -201,6 +201,7 @@ create_symlinks() {
         ".config/x11" \
         ".config/zathura" \
         ".config/zoxide" \
+        ".config/mimeapps.list" \
         ".config/spectaclerc"; do
         ln -sf "$(pwd)/$item" "$HOME/$item"
     done
@@ -220,6 +221,13 @@ create_symlinks() {
         ln -sf "$(pwd)/${dir#$HOME/}/"* "$dir"
     done
     # # # # # #
+
+    # share #
+    for file in $(pwd)/.local/share/applications/*; do
+        filename=$(basename "$file")
+        ln -sf "$file" $HOME/.local/share/applications/"$filename"
+    done
+    # # # # #
 
     # cache #
     ln -sf $(pwd)/.cache/wal/dunstrc $HOME/.cache/wal/dunstrc
