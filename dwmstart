@@ -1,0 +1,22 @@
+#!/bin/sh
+
+xrandr --dpi 96
+xrandr --output DP-2 --mode 2560x1440 -r 144 --output HDMI-1 --mode 2560x1440 --left-of DP-2 -r 75
+setbg
+picom --config ~/.config/picom/dwm.conf &
+syncthing --no-browser &
+
+xrdb $XDG_CONFIG_HOME/x11/xresources & xrdbpid=$!
+
+autostart="steam discord mpd spotify-launcher qbittorrent megasync dunst unclutter pipewire"
+
+for program in $autostart; do
+	pidof -sx "$program" || "$program" &
+done >/dev/null 2>&1
+
+[ -n "$xrdbpid" ] && wait "$xrdbpid"
+
+# Activate dbus variables
+dbus-update-activation-environment --all
+ssh-agent dwm
+pgrep dwm && dwmblocks &

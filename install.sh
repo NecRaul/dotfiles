@@ -168,7 +168,8 @@ create_symlinks() {
     echo "==================================================="
     echo "Creating symlinks."
     # / #
-    sudo cp -f $(pwd)/profile /etc/profile
+    sudo ln -sf $(pwd)/profile /etc/profile
+    sudo ln -sf $(pwd)/dwmstart /usr/local/bin/dwmstart
 
     # ~ #
     cp -f $(pwd)/.bashrc $HOME/.bashrc
