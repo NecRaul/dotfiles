@@ -42,15 +42,10 @@ xresources="$XDG_CONFIG_HOME/x11/xresources"
 
 cp -f "$XDG_CACHE_HOME/wal/colors.Xresources" $xresources
 
-cat <<EOF >>$xresources
-
-#Suckless
-*.alpha: 0.9" 
-*.alphaOffset: 0.1" 
-*.font: HackNerdFontMono:size=10"
-EOF
-
 xrdb $xresources
 
 pkill dunst
 setsid -f dunst
+
+pkill picom
+picom --config "$XDG_CONFIG_HOME/picom/dwm.conf" &
