@@ -1,5 +1,7 @@
+annotated-types
 astroid
 attrs
+autocommand
 better-exceptions
 black
 blinker
@@ -20,6 +22,7 @@ dill
 discid
 distlib
 distro
+docopt
 docutils
 evdev
 fasteners
@@ -33,9 +36,13 @@ git_neko
 greenlet
 idna
 importlib-metadata
+inflect
 isort
 itsdangerous
 jaraco.classes
+jaraco.context
+jaraco.functools
+jaraco.text
 jeepney
 Jinja2
 keyring
@@ -59,6 +66,7 @@ mypy-extensions
 neovim
 nh3
 numpy
+ordered-set
 packaging
 pathspec
 picard
@@ -71,10 +79,13 @@ ply
 progressbar2
 prompt-toolkit
 psutil
+pulsemixer
 pycairo
 pycparser
 pycryptodome
 pycryptodomex
+pydantic
+pydantic_core
 PyExecJS
 pyfiglet
 Pygments
@@ -109,9 +120,12 @@ smbus
 speedtest-cli
 sqlitedict
 termdown
+tomli
 tomlkit
+trove-classifiers
 twine
 typing_extensions
+ueberzug
 url-normalize
 urllib3
 validate-pyproject

@@ -10,8 +10,10 @@ base
 base-devel
 bash-completion
 bat
+bc
 betterdiscord-installer
 catdoc
+cava
 cemu
 chafa
 cht.sh-git
@@ -35,6 +37,7 @@ dotnet-targeting-pack-7.0
 downgrade
 doxygen
 duckstation-git
+dunst
 efibootmgr
 egl-wayland
 epub-thumbnailer-git
@@ -93,11 +96,12 @@ libpulse
 linux
 linux-firmware
 lolcat
+lxappearance
 lynx
+maim
 man-db
 mcomix
 mediainfo
-megasync
 melonds
 misfortune
 mkvtoolnix-gui
@@ -113,6 +117,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 npm
+nsxiv
 ntp
 nyancat
 obs-studio
@@ -124,6 +129,7 @@ pandoc-cli
 paru
 pcsx2-git
 picard
+picom
 piper
 pipewire
 pipewire-alsa
@@ -135,17 +141,20 @@ plasma-wayland-session
 ponysay
 postgresql
 powerline-fonts
+pulsemixer
 python-chardet
 python-pip
 python-pywal
 pywal-discord-git
 qbittorrent
+qt5ct-kde
 qt6-tools
 ripgrep
 rpcs3-git
 rust
 samba
 screenkey
+slock
 smartmontools
 soulseekqt
 spectacle
@@ -169,6 +178,8 @@ ttf-liberation
 ttf-ms-fonts
 ttf-roboto
 ttf-sazanami
+ueberzug
+unclutter
 unrar
 unzip
 vim
@@ -184,6 +195,7 @@ xdg-utils
 xdotool
 xorg-xfd
 xorg-xwininfo
+xwallpaper
 yasm
 zathura
 zathura-pdf-mupdf

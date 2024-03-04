@@ -8,7 +8,7 @@ syncthing --no-browser &
 
 xrdb $XDG_CONFIG_HOME/x11/xresources & xrdbpid=$!
 
-autostart="steam discord mpd spotify-launcher qbittorrent megasync dunst unclutter pipewire"
+autostart="steam discord mpd spotify-launcher qbittorrent dunst unclutter pipewire"
 
 for program in $autostart; do
 	pidof -sx "$program" || "$program" &

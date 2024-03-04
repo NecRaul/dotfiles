@@ -1,5 +1,6 @@
 azuredatastudio-bin
 betterdiscord-installer
+cava
 cemu
 cht.sh-git
 citra-canary-git
@@ -8,14 +9,13 @@ downgrade
 duckstation-git
 epub-thumbnailer-git
 libbacktrace-git
-libpdfium-nojs
 mcomix
-megasync
 melonds
 paru
 pcsx2-git
 pkg2zip-fork
 pywal-discord-git
+qt5ct-kde
 rpcs3-git
 soulseekqt
 ttf-ms-fonts
