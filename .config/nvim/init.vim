@@ -208,7 +208,7 @@ autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
 autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
 " Recompile dwmblocks on config edit.
-autocmd BufWritePost ~/Documents/Github/Repos/dwmblocks/config.h !cd ~/Documents/Github/Repos/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
+autocmd BufWritePost ~/Documents/Github/Repos/dwmblocks/config.h !cd ~/Downloads/Github/Repos/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
 
 " Lua section
 lua << EOF
