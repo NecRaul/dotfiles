@@ -49,14 +49,6 @@ export PS1="${YELLOW}[${RED}\u${PURPLE}@${BLUE}\h ${PURPLE}\W${YELLOW}]${PURPLE}
 export GITHUB_USERNAME=gu
 export GITHUB_PERSONAL_ACCESS_TOKEN=gpat
 
-# Default programs
-export TERMINAL="st"
-export TERMINAL_PROG="st"
-export EDITOR="nvim"
-export VISUAL="nvim"
-export BROWSER="firefox"
-export MUSIC_DIR="$HOME/Music"
-
 # History
 export HISTTIMEFORMAT=$(echo -e "\033[0;33m"[%F %T] "\033[0m")
 export HISTSIZE=10000

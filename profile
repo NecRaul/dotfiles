@@ -2,12 +2,12 @@
 
 # Append "$1" to $PATH when not already in.
 # This function API is accessible to scripts in /etc/profile.d
-append_path () {
+append_path() {
     case ":$PATH:" in
-        *:"$1":*)
-            ;;
-        *)
-            PATH="${PATH:+$PATH:}$1"
+    *:"$1":*) ;;
+    *)
+        PATH="${PATH:+$PATH:}$1"
+        ;;
     esac
 }
 
@@ -27,23 +27,30 @@ export PATH=$PATH:"$XDG_DATA_HOME/go"
 
 # Load profiles from /etc/profile.d
 if test -d /etc/profile.d/; then
-	for profile in /etc/profile.d/*.sh; do
-		test -r "$profile" && . "$profile"
-	done
-	unset profile
+    for profile in /etc/profile.d/*.sh; do
+        test -r "$profile" && . "$profile"
+    done
+    unset profile
 fi
+
+# Default programs
+export TERMINAL="st"
+export TERMINAL_PROG="st"
+export EDITOR="nvim"
+export VISUAL="nvim"
+export BROWSER="firefox"
+export MUSIC_DIR="$HOME/Music"
 
 # Unload our profile API functions
 unset -f append_path
 
 # Source global bash config, when interactive but not posix or sh mode
-if test "$BASH" &&\
-   test "$PS1" &&\
-   test -z "$POSIXLY_CORRECT" &&\
-   test "${0#-}" != sh &&\
-   test -r /etc/bash.bashrc
-then
-	. /etc/bash.bashrc
+if test "$BASH" &&
+    test "$PS1" &&
+    test -z "$POSIXLY_CORRECT" &&
+    test "${0#-}" != sh &&
+    test -r /etc/bash.bashrc; then
+    . /etc/bash.bashrc
 fi
 
 # Termcap is outdated, old, and crusty, kill it.
