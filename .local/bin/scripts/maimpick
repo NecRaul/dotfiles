@@ -4,42 +4,67 @@ output_dir="$HOME/Pictures/Screenshots"
 output="$(date '+%s %d-%m-%Y %H-%M-%S').png"
 xclip_cmd="xclip -sel clip -t image/png"
 
-# Ensure output directory exists
+# ensure output screenshot directory exists
 mkdir -p "$output_dir"
 
-capture_screenshot() {
-    local area="$1"
-    local capture_command="maim -q -d 0.2"
-    local screenshot_output
+screenshot_output="$output_dir/$output"
+capture_command="maim -q -d 0.2"
+area=""
 
+get_monitor_geometry() {
+    # mouse coordinates
+    eval "$(xdotool getmouselocation --shell)"
+    mouse_x=$X
+    mouse_y=$Y
+
+    # get all connected monitors
+    monitor_info=$(xrandr | grep -w connected)
+
+    # loop over each line of monitor info
+    while IFS= read -r line; do
+        monitor_geometry=$(echo "$line" | awk '{print $3}')
+        monitor_width=$(echo "$monitor_geometry" | cut -d "x" -f 1)
+        monitor_height=$(echo "$monitor_geometry" | cut -d "x" -f 2 | cut -d "+" -f 1)
+        monitor_x=$(echo "$monitor_geometry" | cut -d "+" -f 2)
+        monitor_y=$(echo "$monitor_geometry" | cut -d "+" -f 3)
+        # find out which screen the mouse is on
+        if [ "$mouse_x" -ge "$monitor_x" ] && [ "$mouse_x" -le $(($monitor_x + $monitor_width)) ] &&
+            [ "$mouse_y" -ge "$monitor_y" ] && [ "$mouse_y" -le $(($monitor_y + $monitor_height)) ]; then
+            echo "$monitor_geometry"
+            break
+        fi
+    done <<<"$monitor_info"
+}
+
+capture_screenshot() {
     case "$area" in
-        "area")
-            screenshot_output="$output_dir/$output"
-            capture_command="$capture_command -u -s"
-            ;;
-        "window")
-            screenshot_output="$output_dir/$output"
-            capture_command="$capture_command -i $(xdotool getactivewindow)"
-            ;;
-        "screen")
-            screenshot_output="$output_dir/$output"
-            ;;
-        *)
-            echo "Invalid capture area: $area" >&2
-            exit 1
-            ;;
+    "area")
+        capture_command_args="-u -s"
+        ;;
+    "window")
+        capture_command_args="-i $(xdotool getactivewindow)"
+        ;;
+    "screen")
+        capture_command_args="-g $(get_monitor_geometry)"
+        ;;
+    "all screens") ;;
+    *)
+        echo "Invalid capture area: $area" >&2
+        exit 1
+        ;;
     esac
 
-    # Capture screenshot
-    $capture_command "$screenshot_output" >/dev/null
+    # capture screenshot
+    $capture_command $capture_command_args "$screenshot_output" >/dev/null
 
-    # Copy to clipboard
+    # copy to clipboard
     cat "$screenshot_output" | $xclip_cmd
 }
 
 if [ "$#" -eq 1 ]; then
-    capture_screenshot "$1"
+    area="$1"
+    capture_screenshot
 else
-    area=$(printf "area\\nwindow\\nfullscreen" | dmenu -l 3 -i -p "Screenshot which area?")
-    capture_screenshot "$area"
+    area=$(printf "area\\nwindow\\nscreen\\nall screens" | dmenu -l 4 -i -p "Screenshot which area?")
+    capture_screenshot
 fi
