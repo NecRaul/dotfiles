@@ -1,5 +1,0 @@
-#!/usr/bin/env xdg-open
-[Desktop Entry]
-Exec=dolphin
-Name=Dolphin
-Type=Application
