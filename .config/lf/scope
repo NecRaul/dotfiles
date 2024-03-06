@@ -29,7 +29,7 @@ text/troff)
     man ./ "$1" | col -b
     ;;
 text/* | */xml | application/json | application/x-ndjson)
-    bat -p --theme base16 --terminal-width "$(($4 - 2))" -f "$1"
+    bat --theme base16 --terminal-width "$(($4 - 2))" -f "$1"
     ;;
 audio/* | application/octet-stream)
     mediainfo "$1" || exit 1
