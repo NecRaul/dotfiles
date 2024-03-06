@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+1) notify-send -u low " CPU hogs" "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head -n 7)" ;;
+2) setsid -f "$TERMINAL" -e htop ;;
+3) notify-send -u low " CPU module " "\- Shows CPU usage.
+- Click to show intensive processes.
+- Middle click to open htop." ;;
+6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+echo "[  CPU: $(top -b -n 1 | grep "Cpu(s)" | awk '{printf "%.1f", $2+$4+$6}')% ]"

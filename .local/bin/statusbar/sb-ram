@@ -1,0 +1,12 @@
+#!/bin/sh
+
+case $BLOCK_BUTTON in
+1) notify-send -u low " Memory hogs" "$(ps axch -o cmd:15,%mem --sort=-%mem | head -n 7)" ;;
+2) setsid -f "$TERMINAL" -e htop ;;
+3) notify-send -u low " Memory module" "\- Shows Memory usage.
+- Click to show intensive processes.
+- Middle click to open htop." ;;
+	6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
+esac
+
+echo "[  RAM: $(free -m | awk '/Mem:/ {printf "%2.1f%%", $3/$2 * 100}') ]"
