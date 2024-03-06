@@ -169,6 +169,7 @@ create_symlinks() {
     echo "Creating symlinks."
     # / #
     sudo ln -sf $(pwd)/profile /etc/profile
+    sudo ln -sf $(pwd)/environment /etc/environment
     sudo ln -sf $(pwd)/dwmstart /usr/local/bin/dwmstart
     sudo cp -f $(pwd)/dwm.desktop /usr/share/xsessions/dwm.desktop
     # # #
