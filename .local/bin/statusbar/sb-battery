@@ -4,7 +4,7 @@
 # to charge status (󰂄  for plugged up, 󰁿 for discharging on battery, etc.).
 
 case $BLOCK_BUTTON in
-3) notify-send "󱟢 Battery module" "󰁿 : discharging
+3) notify-send -u low "󱟢 Battery module" "󰁿 : discharging
 󰂄 : charging
 󰁹 : charged
 󰂃 : battery very low!

@@ -3,8 +3,8 @@
 clock=$(date '+%I')
 
 case $BLOCK_BUTTON in
-1) notify-send "$(cal)" ;;
-3) notify-send " Time/date module" "\- Left click to show the month via \`cal\`" ;;
+1) notify-send -u low "$(cal)" ;;
+3) notify-send -u low " Time/date module" "\- Left click to show the month via \`cal\`" ;;
 6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
