@@ -2,14 +2,14 @@
 
 output_dir="$HOME/Pictures/Screenshots"
 output="$(date '+%s %d-%m-%Y %H-%M-%S').png"
+screenshot_output="$output_dir/$output"
+area=""
+
+capture_command="maim --hidecursor -q -d 0.2"
 xclip_cmd="xclip -sel clip -t image/png"
 
 # ensure output screenshot directory exists
 mkdir -p "$output_dir"
-
-screenshot_output="$output_dir/$output"
-capture_command="maim -q -d 0.2"
-area=""
 
 get_monitor_geometry() {
     # mouse coordinates
