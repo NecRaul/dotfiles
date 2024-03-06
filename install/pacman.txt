@@ -1,6 +1,7 @@
 adobe-source-han-sans-jp-fonts
 adobe-source-han-serif-jp-fonts
 amd-ucode
+amdgpu_top
 ark
 aspnet-runtime-7.0
 aspnet-targeting-pack-7.0
@@ -155,7 +156,6 @@ rpcs3-git
 rust
 samba
 screenkey
-slock
 smartmontools
 soulseekqt
 spectacle

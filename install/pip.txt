@@ -1,7 +1,10 @@
 annotated-types
+argcomplete
 astroid
 attrs
 autocommand
+Babel
+beautifulsoup4
 better-exceptions
 black
 blinker
@@ -25,6 +28,7 @@ distro
 docopt
 docutils
 evdev
+executing
 fasteners
 fastjsonschema
 filelock
@@ -34,9 +38,12 @@ gallery_dl
 gist_neko
 git_neko
 greenlet
+httpcore
+httpx
 idna
 importlib-metadata
 inflect
+ipython
 isort
 itsdangerous
 jaraco.classes
@@ -45,6 +52,7 @@ jaraco.functools
 jaraco.text
 jeepney
 Jinja2
+json5
 keyring
 kiwisolver
 lain_shorten
@@ -64,6 +72,7 @@ msgpack
 mutagen
 mypy-extensions
 neovim
+nest-asyncio
 nh3
 numpy
 ordered-set
@@ -113,15 +122,19 @@ requests
 requests-toolbelt
 rfc3986
 rich
+rpds-py
+ruamel.yaml
 screenkey
 SecretStorage
 six
 smbus
+sniffio
 speedtest-cli
 sqlitedict
 termdown
 tomli
 tomlkit
+tornado
 trove-classifiers
 twine
 typing_extensions
