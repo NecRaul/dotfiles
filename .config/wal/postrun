@@ -42,10 +42,103 @@ xresources="$XDG_CONFIG_HOME/x11/xresources"
 
 cp -f "$XDG_CACHE_HOME/wal/colors.Xresources" $xresources
 
+cat <<EOF >>$xresources
+
+Xcursor.size: 24
+EOF
+
 xrdb $xresources
 
-pkill dunst
-setsid -f dunst
+get_xres_rgb() {
+    hex=$(xrdb -query | grep "$1" | awk '{print $2}' | cut -d# -f2)
+    printf "%d,%d,%d\n" "0x${hex:0:2}" "0x${hex:2:2}" "0x${hex:4:2}"
+}
 
-pkill picom
-picom --config "$XDG_CONFIG_HOME/picom/dwm.conf" &
+[[ -d "$HOME/.local/share/color-schemes" ]] || mkdir -pv "$HOME/.local/share/color-schemes"
+
+output="$(
+    cat <<THEME
+[ColorEffects:Disabled]
+Color=$(get_xres_rgb color9:)
+
+[ColorEffects:Inactive]
+Color=$(get_xres_rgb color9:)
+
+[Colors:Button]
+BackgroundNormal=$(get_xres_rgb color8:)
+ForegroundNormal=$(get_xres_rgb background:)
+
+[Colors:Complementary]
+
+[Colors:Selection]
+BackgroundAlternate=
+BackgroundNormal=$(get_xres_rgb color2:)
+DecorationFocus=
+DecorationHover=
+ForegroundActive=
+ForegroundInactive=
+ForegroundLink=
+ForegroundNegative=
+ForegroundNeutral=
+ForegroundNormal=$(get_xres_rgb foreground:)
+ForegroundPositive=
+ForegroundVisited=
+
+[Colors:Tooltip]
+BackgroundAlternate=
+BackgroundNormal=$(get_xres_rgb color2:)
+DecorationFocus=
+DecorationHover=
+ForegroundActive=
+ForegroundInactive=
+ForegroundLink=
+ForegroundNegative=
+ForegroundNeutral=
+ForegroundNormal=$(get_xres_rgb foreground:)
+ForegroundPositive=
+ForegroundVisited=
+
+[Colors:View]
+# BackgroundAlternate=
+BackgroundNormal=$(get_xres_rgb color0:)
+# DecorationFocus=
+# DecorationHover=
+# ForegroundActive=
+# ForegroundInactive=
+# ForegroundLink=
+# ForegroundNegative=
+# ForegroundNeutral=
+ForegroundNormal=$(get_xres_rgb foreground:)
+# ForegroundPositive=
+# ForegroundVisited=
+
+[Colors:Window]
+# BackgroundAlternate=
+BackgroundNormal=$(get_xres_rgb color0:)
+# DecorationFocus=
+# DecorationHover=
+# ForegroundActive=
+# ForegroundInactive=
+# ForegroundLink=
+# ForegroundNegative=
+# ForegroundNeutral=
+ForegroundNormal=$(get_xres_rgb foreground:)
+# ForegroundPositive=
+# ForegroundVisited=
+
+[General]
+ColorScheme=${PLASMA_FILE}
+Name=${PLASMA_FILE}
+shadeSortColumn=true
+
+[KDE]
+contrast=0
+
+[WM]
+activeBackground=$(get_xres_rgb background:)
+activeForeground=$(get_xres_rgb foreground:)
+inactiveBackground=$(get_xres_rgb background:)
+inactiveForeground=$(get_xres_rgb color15:)
+THEME
+)"
+printf '%s' "$output" >"$HOME/.local/share/color-schemes/pywal.colors"
