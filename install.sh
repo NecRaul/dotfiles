@@ -132,6 +132,7 @@ removing_unnecessary_dependencies() {
     echo "Removing unnecessary dependencies."
     echo "==================================================="
     sudo pacman -Rncs $(pacman -Qdtq) --noconfirm
+    paru -Rncs $(paru -Qdtq) --noconfirm
     echo "==================================================="
     echo "Removed unnecessary dependencies."
 }
@@ -149,6 +150,9 @@ install_paru() {
         echo "==================================================="
         echo "Installed paru."
     else
+        cd ..
+        rm -rf paru
+        echo "==================================================="
         echo "paru is already installed."
     fi
 }
@@ -261,6 +265,16 @@ install_grub_theme() {
     echo "Installed GRUB theme."
 }
 
+enable_sddm() {
+    echo "==================================================="
+    echo "Enabling SDDM."
+
+    sudo systemctl enable sddm.service
+
+    echo "==================================================="
+    echo "Enable SDDM."
+}
+
 no_install_arrays() {
     # Array to hold pacman, AUR and pip packages that couldn't be installed
     declare -a no_install_pacman_packages=()
@@ -288,10 +302,6 @@ github_credentials() {
     echo "==================================================="
     read gu
     echo "==================================================="
-    echo "Paste your Github e-mail and press Enter to finish:"
-    echo "==================================================="
-    read gmail
-    echo "==================================================="
     echo "Paste your Github public access token and press Enter to finish: "
     echo "==================================================="
     read gpat
@@ -305,7 +315,7 @@ no_install_packages_to_txt() {
     printf "%s\n" "${no_install_aur_packages[@]}" >no_install/aur.txt
     printf "%s\n" "${no_install_pip_packages[@]}" >no_install/pip.txt
     echo "==================================================="
-    echo "Packages that couldn't be installed were written into text files in the no_install folder"
+    echo "Script has finished running. Packages that couldn't be installed were written into text files in the no_install folder."
     echo "==================================================="
 }
 
@@ -346,6 +356,8 @@ install_pip_packages
 install_blesh
 
 install_grub_theme
+
+enable_sddm
 
 pypi_token
 
