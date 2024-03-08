@@ -211,8 +211,7 @@ create_symlinks() {
         ".config/x11" \
         ".config/zathura" \
         ".config/zoxide" \
-        ".config/mimeapps.list" \
-        ".config/spectaclerc"; do
+        ".config/mimeapps.list"; do
         ln -sf "$(pwd)/$item" "$HOME/$item"
     done
     # # # # # #
