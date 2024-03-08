@@ -219,6 +219,7 @@ create_symlinks() {
     # bin #
     dirs=(
         "$HOME/.local/bin/4chan-pywal"
+        "$HOME/.local/bin/kuroneko-themes"
         "$HOME/.local/bin/pyupload-devel"
         "$HOME/.local/bin/pywal-kde"
         "$HOME/.local/bin/pywal-kde-plasma"
@@ -245,6 +246,16 @@ create_symlinks() {
 
     echo "==================================================="
     echo "Created symlinks."
+}
+
+install_grub_theme() {
+    echo "==================================================="
+    echo "Installing GRUB theme."
+
+    sudo bash "$(pwd)/.local/bin/kuroneko-themes/install.sh -t hide -i color -s 2k"
+
+    echo "==================================================="
+    echo "Installed GRUB theme."
 }
 
 no_install_arrays() {
@@ -283,8 +294,6 @@ github_credentials() {
     read gpat
     sed -i "s/gu/$gu/g" "$HOME/.bashrc"
     sed -i "s/gpat/$gpat/g" "$HOME/.bashrc"
-    sed -i "s/\(name\s*=\s*\)/\1 ${gu}/" "$HOME/.config/git/config"
-    sed -i "s/\(email\s*=\s*\)/\1 ${gmail}/" "$HOME/.config/git/config"
 }
 
 no_install_packages_to_txt() {
@@ -332,6 +341,8 @@ reset_package_count
 install_pip_packages
 
 install_blesh
+
+install_grub_theme
 
 pypi_token
 

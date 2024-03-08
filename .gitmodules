@@ -71,6 +71,9 @@
 [submodule ".local/bin/4chan-pywal"]
 	path = .local/bin/4chan-pywal
 	url = git@github.com:NecRaul/4chan-pywal.git
+[submodule ".local/bin/kuroneko-themes"]
+	path = .local/bin/kuroneko-themes
+	url = git@github.com:NecRaul/kuroneko-themes.git
 [submodule ".local/bin/pywal-kde-plasma"]
 	path = .local/bin/pywal-kde-plasma
 	url = git@github.com:NecRaul/pywal-kde-plasma.git
