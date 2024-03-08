@@ -183,6 +183,7 @@ create_symlinks() {
     # config #
     for item in \
         ".config/blesh" \
+        ".config/cava" \
         ".config/czkawka" \
         ".config/dunst" \
         ".config/gallery-dl" \
