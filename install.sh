@@ -188,6 +188,9 @@ create_symlinks() {
         ".config/dunst" \
         ".config/gallery-dl" \
         ".config/git" \
+        ".config/gtk-2.0" \
+        ".config/gtk-3.0" \
+        ".config/gtk-4.0" \
         ".config/lf" \
         ".config/mpd" \
         ".config/mpv" \
@@ -199,6 +202,7 @@ create_symlinks() {
         ".config/pip" \
         ".config/pyNPS" \
         ".config/python" \
+        ".config/qt6ct" \
         ".config/shell" \
         ".config/tmux" \
         ".config/wal" \
