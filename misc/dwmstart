@@ -6,12 +6,12 @@ setbg
 picom --config ~/.config/picom/dwm.conf &
 syncthing --no-browser &
 
-xrdb $XDG_CONFIG_HOME/x11/xresources & xrdbpid=$!
+xrdb ~/.config/x11/xresources & xrdbpid=$!
 
 autostart="steam discord mpd spotify-launcher qbittorrent dunst unclutter pipewire"
 
 for program in $autostart; do
-	pidof -sx "$program" || "$program" &
+    pidof -sx "$program" || "$program" &
 done >/dev/null 2>&1
 
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
