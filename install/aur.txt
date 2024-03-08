@@ -20,3 +20,4 @@ rpcs3-git
 soulseekqt
 ttf-ms-fonts
 visual-studio-code-bin
+where-is-my-sddm-theme-git
