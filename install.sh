@@ -167,16 +167,17 @@ install_blesh() {
 create_symlinks() {
     echo "==================================================="
     echo "Creating symlinks."
+
     # / #
-    sudo ln -sf $(pwd)/profile /etc/profile
-    sudo ln -sf $(pwd)/environment /etc/environment
-    sudo ln -sf $(pwd)/dwmstart /usr/local/bin/dwmstart
-    sudo cp -f $(pwd)/dwm.desktop /usr/share/xsessions/dwm.desktop
+    sudo ln -sf $(pwd)/misc/profile /etc/profile
+    sudo ln -sf $(pwd)/misc/environment /etc/environment
+    sudo ln -sf $(pwd)/misc/dwmstart /usr/local/bin/dwmstart
+    sudo cp -f $(pwd)/misc/dwm.desktop /usr/share/xsessions/dwm.desktop
     # # #
 
     # ~ #
-    cp -f $(pwd)/.bashrc $HOME/.bashrc
-    cp -f $(pwd)/.pypirc $HOME/.pypirc
+    cp -f $(pwd)/misc/.bashrc $HOME/.bashrc
+    cp -f $(pwd)/misc/.pypirc $HOME/.pypirc
     # # #
 
     # config #
