@@ -97,6 +97,7 @@ pydantic
 pydantic_core
 PyExecJS
 pyfiglet
+pygdbmi
 Pygments
 PyGObject
 PyJWT
@@ -126,6 +127,7 @@ rpds-py
 ruamel.yaml
 screenkey
 SecretStorage
+sentry-sdk
 six
 smbus
 sniffio
