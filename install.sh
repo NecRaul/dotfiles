@@ -17,8 +17,10 @@ create_folders() {
     mkdir -p $HOME/Pictures/mpv
     mkdir -p $HOME/Pictures/Screenshots
     mkdir -p $HOME/Pictures/Wallpapers
+    mkdir -p $HOME/Videos/Recordings
     mkdir -p $HOME/Videos/Seasonals
     mkdir -p $HOME/Videos/Temp
+    mkdir -p "/usr/share/xsessions"
 }
 
 no_password_sudoers() {
@@ -150,9 +152,6 @@ install_paru() {
         echo "==================================================="
         echo "Installed paru."
     else
-        cd ..
-        rm -rf paru
-        echo "==================================================="
         echo "paru is already installed."
     fi
 }
@@ -173,13 +172,13 @@ create_symlinks() {
     echo "Creating symlinks."
 
     # / #
-    sudo ln -sf $(pwd)/misc/profile /etc/profile
-    sudo ln -sf $(pwd)/misc/environment /etc/environment
-    sudo ln -sf $(pwd)/misc/dwmstart /usr/local/bin/dwmstart
+    sudo cp -f $(pwd)/misc/profile /etc/profile
+    sudo cp -f $(pwd)/misc/environment /etc/environment
+    sudo cp -f $(pwd)/misc/dwmstart /usr/local/bin/dwmstart
     sudo cp -f $(pwd)/misc/dwm.desktop /usr/share/xsessions/dwm.desktop
-    sudo mv -f $(pwd)/sddm.conf /etc/sddm.conf
-    sudo mv -f $(pwd)/misc/Background.png /usr/share/sddm/themes/where_is_my_sddm_theme/Background.png
-    sudo mv -f $(pwd)/misc/theme.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
+    sudo cp -f $(pwd)/misc/sddm.conf /etc/sddm.conf
+    sudo cp -f $(pwd)/misc/Background.png /usr/share/sddm/themes/where_is_my_sddm_theme/Background.png
+    sudo cp -f $(pwd)/misc/theme.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
     # # #
 
     # ~ #
@@ -244,6 +243,8 @@ create_symlinks() {
         filename=$(basename "$file")
         ln -sf "$file" $HOME/.local/share/applications/"$filename"
     done
+
+    ln -sf $(pwd)/.local/share/bg $HOME/.local/share/bg
     # # # # #
 
     # cache #
@@ -259,7 +260,7 @@ install_grub_theme() {
     echo "==================================================="
     echo "Installing GRUB theme."
 
-    sudo bash "$(pwd)/.local/bin/kuroneko-themes/install.sh -t hide -i color -s 2k"
+    sudo bash $(pwd)/.local/bin/kuroneko-themes/install.sh -t hide -i color -s 2k
 
     echo "==================================================="
     echo "Installed GRUB theme."
@@ -292,7 +293,6 @@ pypi_token() {
     echo "Paste your PyPI token and press Enter to finish:"
     echo "==================================================="
     read pypi
-    echo "==================================================="
     sed -i "s/placeholder/$pypi/g" "$HOME/.pypirc"
 }
 

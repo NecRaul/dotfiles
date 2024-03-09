@@ -4,7 +4,7 @@ betterdiscord-installer
 cava
 cemu
 cht.sh-git
-citra-canary-git
+citra-appimage
 czkawka-gui-bin
 downgrade
 duckstation-git

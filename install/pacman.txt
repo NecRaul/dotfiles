@@ -38,6 +38,7 @@ ffmpegthumbnailer
 ffmpegthumbs
 filezilla
 firefox
+fuse2
 gameconqueror
 gdb
 git
@@ -54,7 +55,6 @@ htop
 imagemagick
 imlib2
 inetutils
-iso-info
 iwd
 jdk-openjdk
 jq
@@ -98,7 +98,6 @@ odt2txt
 openssh
 pacman-contrib
 pandoc-cli
-pdftoppm
 perl-file-mimeinfo
 picard
 picom
@@ -114,12 +113,13 @@ pulsemixer
 python
 python-pip
 qbittorrent
+qt5-graphicaleffects
+qt5-quickcontrols2
 ripgrep
 rust
 samba
 sddm
 spotify-launcher
-ssconvert
 sshfs
 steam
 syncthing
@@ -133,7 +133,6 @@ toilet
 ttf-hack-nerd
 ttf-hanazono
 ttf-liberation
-ttf-ms-fonts
 ttf-roboto
 ttf-sazanami
 ueberzug
