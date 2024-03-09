@@ -20,7 +20,7 @@ create_folders() {
     mkdir -p $HOME/Videos/Recordings
     mkdir -p $HOME/Videos/Seasonals
     mkdir -p $HOME/Videos/Temp
-    mkdir -p "/usr/share/xsessions"
+    sudo mkdir -p /usr/share/xsessions
 }
 
 no_password_sudoers() {

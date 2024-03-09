@@ -9,7 +9,6 @@ better-exceptions
 black
 blinker
 Brotli
-btrfsutil
 build
 certifi
 cffi
@@ -114,8 +113,8 @@ pyrsistent
 PySocks
 python-dateutil
 python-utils
-PyUpload @ file:///home/necraul/Documents/Github/Repos/pyupload
-pywal @ file:///home/necraul/Documents/Github/Repos/pywal-kde
+PyUpload
+pywal
 pywalfox
 PyYAML
 readme_renderer
@@ -125,7 +124,6 @@ rfc3986
 rich
 rpds-py
 ruamel.yaml
-screenkey
 SecretStorage
 sentry-sdk
 six
