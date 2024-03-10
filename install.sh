@@ -176,7 +176,6 @@ create_symlinks() {
     sudo cp -f $(pwd)/misc/environment /etc/environment
     sudo cp -f $(pwd)/misc/dwmstart /usr/local/bin/dwmstart
     sudo cp -f $(pwd)/misc/dwm.desktop /usr/share/xsessions/dwm.desktop
-    sudo cp -f $(pwd)/misc/sddm.conf /etc/sddm.conf
     sudo cp -f $(pwd)/misc/Background.png /usr/share/sddm/themes/where_is_my_sddm_theme/Background.png
     sudo cp -f $(pwd)/misc/theme.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
     # # #
