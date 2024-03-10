@@ -223,19 +223,18 @@ create_symlinks() {
     # # # # # #
 
     # bin #
-    dirs=(
-        "$HOME/.local/bin/4chan-pywal"
-        "$HOME/.local/bin/kuroneko-themes"
-        "$HOME/.local/bin/pyupload-devel"
-        "$HOME/.local/bin/pywal-kde"
-        "$HOME/.local/bin/pywal-kde-plasma"
-        "$HOME/.local/bin/scripts"
-        "$HOME/.local/bin/statusbar"
-    )
-    for dir in "${dirs[@]}"; do
+    for dir in \
+        "$HOME/.local/bin/4chan-pywal" \
+        "$HOME/.local/bin/kuroneko-themes" \
+        "$HOME/.local/bin/pywal-kde" \
+        "$HOME/.local/bin/pywal-kde-plasma" \
+        "$HOME/.local/bin/scripts" \
+        "$HOME/.local/bin/statusbar"; do
         mkdir -p "$dir"
         ln -sf "$(pwd)/${dir#$HOME/}/"* "$dir"
     done
+    mkdir -p "$HOME/.local/bin/pyupload-devel"
+    ln -sf "$(pwd)/.local/bin/pyupload/"* "$HOME/.local/bin/pyupload-devel"
     # # # # # #
 
     # share #
