@@ -1,7 +1,6 @@
 bleopt keymap_vi_mode_show:=
 bleopt exec_elapsed_mark=
 bleopt exec_errexit_mark=
-bleopt history_share=1
 
 ble-face argument_error='fg=black,bg=red,underline'
 ble-face auto_complete='fg=1'
