@@ -1,16 +1,11 @@
 #!/bin/bash
 
-running_source=$(pactl list short sources | grep output | awk '/RUNNING/ {print $2}')
-running_sink=$(pactl list short sinks | awk '/RUNNING/ {print $2}')
+speakers_id=$(wpctl status | grep Speakers | grep -oE '[0-9]+' | head -1)
+headphones_id=$(wpctl status | grep Headphones | grep -oE '[0-9]+' | head -1)
+current_id=$(wpctl status | grep "*" | grep -oE '[0-9]+' | head -1)
 
-speakers=$(pactl list short sinks | grep alsa_output.pci-0000_06 | awk '{print $2}')
-
-headphones=$(pactl list short sinks | grep alsa_output.pci-0000_08 | awk '{print $2}')
-
-if [ "$running_source" = "$speakers.monitor" ] && [ "$running_sink" = "$speakers" ]; then
-    pactl set-default-source "$headphones.monitor"
-    pactl set-default-sink "$headphones"
-else
-    pactl set-default-source "$speakers.monitor"
-    pactl set-default-sink "$speakers"
+if [ "$current_id" = "$speakers_id" ]; then
+    wpctl set-default "$headphones_id"
+elif [ "$current_id" = "$headphones_id" ]; then
+    wpctl set-default "$speakers_id"
 fi
