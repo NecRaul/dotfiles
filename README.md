@@ -27,3 +27,7 @@ sudo pacman -Rncs zathura-pdf-mupdf
 sudo pacman -S zathura-pdf-mupdf
 # English is 30
 ```
+
+### fstab
+
+The `fstab1` file in the `misc` directory is a special case and isn't meant to replace anything. It's just a configuration of how I mount my hard drives after the install.
