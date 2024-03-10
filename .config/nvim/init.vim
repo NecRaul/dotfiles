@@ -66,7 +66,7 @@ nnoremap <leader>Q :bd!<CR>:bn<CR>
 nnoremap <silent><leader><Left> :bp<CR>
 nnoremap <silent><leader><Right> :bn<CR>
 nnoremap <silent><C-t> :NvimTreeToggle<CR>
-nnoremap <silent><C-d> :GitGutterDiffOrig<CR>
+nnoremap <silent><C-g> :GitGutterDiffOrig<CR>
 nnoremap <silent><C-l> :Flog<CR>
 nnoremap <silent><C-o> :setlocal spell! spelllang=en_us<CR>
 nnoremap <silent><C-v> :vsp<CR>
