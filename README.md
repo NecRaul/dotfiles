@@ -19,3 +19,11 @@ I excluded copying the sddm configuration, because it would cause a loop on my e
 ```Bash
 sudo cp -f $(pwd)/misc/sddm.conf /etc/sddm.conf
 ```
+
+I would also recommend uninstalling and reinstalling `zathura-pdf-mupdf` because `--noconfirm` flag automatically picks `afr` as the default `tessdata` (OCR data) language.
+
+```Bash
+sudo pacman -Rncs zathura-pdf-mupdf
+sudo pacman -S zathura-pdf-mupdf
+# English is 30
+```
