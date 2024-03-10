@@ -259,7 +259,7 @@ install_grub_theme() {
     echo "==================================================="
     echo "Installing GRUB theme."
 
-    sudo bash $(pwd)/.local/bin/kuroneko-themes/install.sh -t hide -i color -s 2k
+    sudo bash $(pwd)/.local/bin/kuroneko-themes/install.sh
 
     echo "==================================================="
     echo "Installed GRUB theme."
