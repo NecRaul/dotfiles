@@ -83,3 +83,6 @@
 [submodule ".local/bin/pywal-kde"]
 	path = .local/bin/pywal-kde
 	url = git@github.com:the404devs/pywal-kde.git
+[submodule ".local/bin/zathura-pywal"]
+	path = .local/bin/zathura-pywal
+	url = git@github.com:matthewlscarlson/zathura-pywal.git

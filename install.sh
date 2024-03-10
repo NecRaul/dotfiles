@@ -228,7 +228,8 @@ create_symlinks() {
         "$HOME/.local/bin/pywal-kde" \
         "$HOME/.local/bin/pywal-kde-plasma" \
         "$HOME/.local/bin/scripts" \
-        "$HOME/.local/bin/statusbar"; do
+        "$HOME/.local/bin/statusbar" \
+        "$HOME/.local/bin/zathura-pywal"; do
         mkdir -p "$dir"
         ln -sf "$(pwd)/${dir#$HOME/}/"* "$dir"
     done
