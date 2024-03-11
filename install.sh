@@ -246,7 +246,7 @@ create_symlinks() {
         filename=$(basename "$file")
         ln -sf "$file" $HOME/.local/share/applications/"$filename"
     done
-
+    ln -sf $(pwd)/.local/share/kio $HOME/.local/share/kio
     ln -sf $(pwd)/.local/share/bg $HOME/.local/share/bg
     # # # # #
 
