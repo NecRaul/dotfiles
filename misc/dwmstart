@@ -5,6 +5,7 @@ xrandr --output DP-2 --mode 2560x1440 -r 144 --output HDMI-1 --mode 2560x1440 --
 setbg
 picom --config ~/.config/picom/dwm.conf &
 syncthing --no-browser &
+/usr/lib/kdeconnectd &
 
 xrdb ~/.config/x11/xresources & xrdbpid=$!
 
