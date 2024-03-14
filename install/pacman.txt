@@ -32,6 +32,7 @@ dotnet-targeting-pack-7.0
 doxygen
 dunst
 efibootmgr
+exfatprogs
 expac
 eza
 ffmpeg
@@ -87,6 +88,8 @@ ncmpcpp
 neofetch
 neovim
 netstandard-targeting-pack
+networkmanager
+networkmanager-openvpn
 nodejs
 noto-fonts
 noto-fonts-cjk
@@ -95,10 +98,12 @@ noto-fonts-extra
 npm
 nsxiv
 ntp
+nvtop
 nyancat
 obs-studio
 odt2txt
 openssh
+openvpm
 pacman-contrib
 pandoc-cli
 perl-file-mimeinfo
