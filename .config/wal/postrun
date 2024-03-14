@@ -127,8 +127,8 @@ ForegroundNormal=$(get_xres_rgb foreground:)
 # ForegroundVisited=
 
 [General]
-ColorScheme=${PLASMA_FILE}
-Name=${PLASMA_FILE}
+ColorScheme=pywal
+Name=pywal
 shadeSortColumn=true
 
 [KDE]
