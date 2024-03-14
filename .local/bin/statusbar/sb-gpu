@@ -8,13 +8,7 @@ process_info=$(echo "$gpu_processes" | awk '{print $1, substr($8, 1, length($8)-
 
 case $BLOCK_BUTTON in
 1) notify-send -u low " GPU hogs" "$process_info" ;;
-# 1) notify-send " GPU hogs" "VRAM Usage: $vram_usage_value $vram_usage_unit
-# Total VRAM: $total_vram_value $total_vram_unit
-# Temperature: $temperature_value $temperature_unit
-# Power: $power_value $power_unit
-# Fan: $fan_value $fan_unit
-# Memory: $memory_value $memory_unit" ;;
-2) setsid -f "$TERMINAL" -e amdgpu_top ;;
+2) setsid -f "$TERMINAL" -e nvtop ;;
 3) notify-send -u low " GPU module " "\- Shows GPU usage.
 - Click to show extended GPU Information.
 - Middle click to open amdgpu_top." ;;
@@ -24,22 +18,8 @@ esac
 gpu_usage=$(amdgpu_top -d -J)
 
 # Extract Unit and Value for specified metrics and store them in variables
-#vram_usage_unit=$(echo "$gpu_usage" | jq -r '.[0].VRAM."Total VRAM Usage".unit')
 vram_usage_value=$(echo "$gpu_usage" | jq -r '.[0].VRAM."Total VRAM Usage".value')
 
-#total_vram_unit=$(echo "$gpu_usage" | jq -r '.[0].VRAM."Total VRAM".unit')
 total_vram_value=$(echo "$gpu_usage" | jq -r '.[0].VRAM."Total VRAM".value')
-
-#temperature_unit=$(echo "$gpu_usage" | jq -r '.[0].Sensors."Edge Temperature".unit')
-#temperature_value=$(echo "$gpu_usage" | jq -r '.[0].Sensors."Edge Temperature".value')
-
-#power_unit=$(echo "$gpu_usage" | jq -r '.[0].Sensors."Input Power".unit')
-#power_value=$(echo "$gpu_usage" | jq -r '.[0].Sensors."Input Power".value')
-
-#fan_unit=$(echo "$gpu_usage" | jq -r '.[0].Sensors.Fan.unit')
-#fan_value=$(echo "$gpu_usage" | jq -r '.[0].Sensors.Fan.value')
-
-#memory_unit=$(echo "$gpu_usage" | jq -r '.[0].gpu_activity.Memory.unit')
-#memory_value=$(echo "$gpu_usage" | jq -r '.[0].gpu_activity.Memory.value')
 
 echo "[  GPU: $(awk "BEGIN { printf \"%.1f%%\", ($vram_usage_value / $total_vram_value) * 100 }") ]"
