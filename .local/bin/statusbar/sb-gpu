@@ -11,7 +11,7 @@ case $BLOCK_BUTTON in
 2) setsid -f "$TERMINAL" -e nvtop ;;
 3) notify-send -u low " GPU module " "\- Shows GPU usage.
 - Click to show extended GPU Information.
-- Middle click to open amdgpu_top." ;;
+- Middle click to open nvtop." ;;
 6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 

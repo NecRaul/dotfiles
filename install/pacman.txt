@@ -25,7 +25,6 @@ docx2txt
 dolphin
 dos2unix
 dotnet-host
-dotnet-runtime
 dotnet-runtime-7.0
 dotnet-sdk-7.0
 dotnet-targeting-pack-7.0

@@ -1,5 +1,6 @@
 amdgpu_top
 azuredatastudio-bin
+balena-etcher-bin
 betterdiscord-installer
 cava
 cemu
@@ -16,7 +17,8 @@ pcsx2-git
 pkg2zip-fork
 pywal-discord-git
 qt6ct-kde
-rpcs3-git
+rar
+rpcs3-bin
 soulseekqt
 ttf-ms-fonts
 visual-studio-code-bin
