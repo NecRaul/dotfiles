@@ -114,7 +114,7 @@ PySocks
 python-dateutil
 python-utils
 PyUpload
-pywal
+pywal16
 pywalfox
 PyYAML
 readme_renderer

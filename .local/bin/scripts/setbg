@@ -32,7 +32,8 @@ trueloc="$(readlink -f "$1")" &&
 
 # If pywal is installed, use it.
 if command -v wal >/dev/null 2>&1; then
-	wal -n -i "$(readlink -f $bgloc)" -o "$XDG_CONFIG_HOME/wal/postrun"
+    wal -c
+	wal --cols16 lighten -n -i "$(readlink -f $bgloc)" -o "$XDG_CONFIG_HOME/wal/postrun"
 # If pywal is removed, return config files to normal.
 else
 	[ -f "$dunstconf.bak" ] && unlink "$dunstconf" && mv "$dunstconf.bak" "$dunstconf"
