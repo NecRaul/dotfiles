@@ -14,7 +14,7 @@ case $BLOCK_BUTTON in
 2) mpc toggle | filter ;; # right click, pause/unpause
 3)
     mpc status | filter
-    notify-send -u low "  Music module" "\- Shows mpd song playing.
+    notify-send "  Music module" "\- Shows mpd song playing.
 - Left click opens ncmpcpp.
 - Middle click pauses.
 - Scroll changes track."

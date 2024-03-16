@@ -40,7 +40,7 @@ showweather() {
 case $BLOCK_BUTTON in
 1) setsid -f "$TERMINAL" -e less -Srf "$weatherreport" ;;
 2) getforecast && showweather ;;
-3) notify-send -u low "󰼯 Weather module" "\- Left click for full forecast.
+3) notify-send "󰼯 Weather module" "\- Left click for full forecast.
 - Middle click to update forecast.
 
 󰖗: Chance of rain/snow

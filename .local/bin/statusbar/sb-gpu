@@ -7,9 +7,9 @@ gpu_processes=$(amdgpu_top -p | tail -n +4 | awk '!/Requested/ && !/Evicted/')
 process_info=$(echo "$gpu_processes" | awk '{print $1, substr($8, 1, length($8)-2)}')
 
 case $BLOCK_BUTTON in
-1) notify-send -u low " GPU hogs" "$process_info" ;;
+1) notify-send " GPU hogs" "$process_info" ;;
 2) setsid -f "$TERMINAL" -e nvtop ;;
-3) notify-send -u low " GPU module " "\- Shows GPU usage.
+3) notify-send " GPU module " "\- Shows GPU usage.
 - Click to show extended GPU Information.
 - Middle click to open nvtop." ;;
 6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;

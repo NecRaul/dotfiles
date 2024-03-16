@@ -4,13 +4,13 @@ while read -r file; do
     "w") setbg "$file" & ;;
     "c")
         [ -z "$destdir" ] && destdir="$(sed "s/#.*$//;/^\s*$/d" ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | awk '{print $2}' | dmenu -l 20 -i -p "Copy file(s) to where?" | sed "s|~|$HOME|g")"
-        [ ! -d "$destdir" ] && notify-send -u low "$destdir is not a directory, cancelled." && exit
-        cp "$file" "$destdir" && notify-send -u low -i "$(readlink -f "$file")" "$file copied to $destdir." &
+        [ ! -d "$destdir" ] && notify-send "$destdir is not a directory, cancelled." && exit
+        cp "$file" "$destdir" && notify-send -i "$(readlink -f "$file")" "$file copied to $destdir." &
         ;;
     "m")
         [ -z "$destdir" ] && destdir="$(sed "s/#.*$//;/^\s*$/d" ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | awk '{print $2}' | dmenu -l 20 -i -p "Move file(s) to where?" | sed "s|~|$HOME|g")"
-        [ ! -d "$destdir" ] && notify-send -u low "$destdir is not a directory, cancelled." && exit
-        mv "$file" "$destdir" && notify-send -u low -i "$(readlink -f "$file")" "$file moved to $destdir." &
+        [ ! -d "$destdir" ] && notify-send "$destdir is not a directory, cancelled." && exit
+        mv "$file" "$destdir" && notify-send -i "$(readlink -f "$file")" "$file moved to $destdir." &
         ;;
     "r")
         convert -rotate 90 "$file" "$file"
@@ -23,15 +23,15 @@ while read -r file; do
         ;;
     "y")
         printf "%s" "$file" | tr -d '\n' | xclip -selection clipboard &&
-            notify-send -u low "$file copied to clipboard" &
+            notify-send "$file copied to clipboard" &
         ;;
     "Y")
         readlink -f "$file" | tr -d '\n' | xclip -selection clipboard &&
-            notify-send -u low "$(readlink -f "$file") copied to clipboard" &
+            notify-send "$(readlink -f "$file") copied to clipboard" &
         ;;
     "d")
-        [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && notify-send -u low "$file deleted."
+        [ "$(printf "No\\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && notify-send "$file deleted."
         ;;
-    "i") notify-send -u low "File information" "$(mediainfo "$file" | sed "s/[ ]\+:/:/g;s/: /: <b>/;s/$/<\/b>/" | grep "<b>")" ;;
+    "i") notify-send "File information" "$(mediainfo "$file" | sed "s/[ ]\+:/:/g;s/: /: <b>/;s/$/<\/b>/" | grep "<b>")" ;;
     esac
 done
