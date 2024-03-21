@@ -59,8 +59,6 @@ nnoremap <silent><C-Down> <C-w>j
 nnoremap <silent><C-Up> <C-w>k
 nnoremap <silent><C-Right> <C-w>l
 nnoremap <C-n> :edit<Space>
-nnoremap <silent><C-w> :w<CR>
-nnoremap <silent><C-q> :q<CR>
 nnoremap <leader>q :w<CR>:bd<CR>:bn<CR>
 nnoremap <leader>Q :bd!<CR>:bn<CR>
 nnoremap <silent><leader><Left> :bp<CR>
@@ -69,8 +67,6 @@ nnoremap <silent><C-t> :NvimTreeToggle<CR>
 nnoremap <silent><C-g> :GitGutterDiffOrig<CR>
 nnoremap <silent><C-l> :Flog<CR>
 nnoremap <silent><C-o> :setlocal spell! spelllang=en_us<CR>
-nnoremap <silent><C-v> :vsp<CR>
-nnoremap <silent><C-h> :sp<CR>
 nnoremap <silent><C-f> :Telescope find_files<CR>
 nnoremap <silent><C-s> :Telescope live_grep<CR>
 nnoremap <leader>s :%s//<Left>
