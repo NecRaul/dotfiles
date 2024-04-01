@@ -1,6 +1,5 @@
 amdgpu_top
 azuredatastudio-bin
-balena-etcher-bin
 betterdiscord-installer
 cava
 cemu
@@ -21,5 +20,6 @@ rar
 rpcs3-bin
 soulseekqt
 ttf-ms-fonts
+ventoy-bin
 visual-studio-code-bin
 where-is-my-sddm-theme-git

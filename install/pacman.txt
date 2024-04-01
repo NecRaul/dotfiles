@@ -60,12 +60,13 @@ inetutils
 iwd
 jdk-openjdk
 jq
-jupyter-notebook
 kcmutils5
 kdeconnect
 kdegraphics-thumbnailers
 kdesdk-thumbnailers
 lf
+lib32-mesa
+lib32-vulkan-radeon
 libpulse
 libx11
 libxft
@@ -79,6 +80,7 @@ lynx
 maim
 man-db
 mediainfo
+mesa
 mkvtoolnix-gui
 mpc
 mpd
@@ -117,6 +119,7 @@ polkit-kde-agent
 ponysay
 postgresql
 powerline-fonts
+ppsspp
 pulsemixer
 python
 python-pip
@@ -155,6 +158,7 @@ wireless_tools
 wpa_supplicant
 xclip
 xdotool
+xf86-video-amdgpu
 xorg-fonts-encodings
 xorg-server
 xorg-server-common
