@@ -1,7 +1,7 @@
 #!/bin/sh
 
 xrandr --dpi 96
-xrandr --output DP-2 --mode 2560x1440 -r 144 --output HDMI-1 --mode 2560x1440 --left-of DP-2 -r 75
+xrandr --output DisplayPort-1 --mode 2560x1440 -r 144 --output HDMI-A-0 --mode 2560x1440 -r 75 --left-of DisplayPort-1
 setbg
 picom --config ~/.config/picom/dwm.conf &
 syncthing --no-browser &
