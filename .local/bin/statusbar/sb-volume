@@ -19,7 +19,7 @@ esac
 vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
 
 # If muted, print 󰖁 and exit.
-[ "$vol" != "${vol%\[MUTED\]}" ] && echo 󰖁 && exit
+[ "$vol" != "${vol%\[MUTED\]}" ] && echo [ 󰖁 000% ] && exit
 
 vol="${vol#Volume: }"
 
