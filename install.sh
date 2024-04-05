@@ -181,7 +181,6 @@ create_symlinks() {
     sudo cp -f $(pwd)/misc/Background.png /usr/share/sddm/themes/where_is_my_sddm_theme/Background.png
     sudo cp -f $(pwd)/misc/theme.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
     sudo cp -f $(pwd)/misc/51-necraul.rules /usr/share/polkit1/rules.d/51-necraul.rules
-    sudo cp -f $(pwd)/misc/51-device-rename.lue /usr/share/wireplumber/main.lua.d/51-device-rename.lua
     # # #
 
     # ~ #
@@ -217,6 +216,7 @@ create_symlinks() {
         ".config/wal" \
         ".config/weechat" \
         ".config/wget" \
+        ".config/wireplumber" \
         ".config/x11" \
         ".config/zathura" \
         ".config/zoxide" \
