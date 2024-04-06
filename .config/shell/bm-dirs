@@ -1,23 +1,27 @@
-home ~
+Home ~
 Documents ~/Documents
 Downloads ~/Downloads
 Pictures ~/Pictures
 Music ~/Music
 Videos ~/Videos
 
+Github ~/Documents/Github
+LNs ~/Documents/LNs
 Notes ~/Documents/Notes
 Papers ~/Documents/Papers
 Gists ~/Documents/Github/Gists
 Repos ~/Documents/Github/Repos
 
+4chan ~/Pictures/4chan
 gallery-dl ~/Pictures/gallery-dl
 mpv ~/Pictures/mpv
 Screenshots ~/Pictures/Screenshots
 Wallpapers ~/Pictures/Wallpapers
 
+Anime ~/Videos/Anime
+Movies ~/Videos/Movies
 Recordings ~/Videos/Recordings
 Seasonals ~/Videos/Seasonals
-Temp ~/Videos/Temp
 
 Cache ~/.cache
 Config ~/.config
@@ -27,8 +31,5 @@ Data ~/.local/share
 Root /
 RootHome /root
 
-Anime /run/media/necraul/Anime
-Other /run/media/necraul/Other
-4chan /run/media/necraul/4chan
-Movies /run/media/necraul/Other/Movies
-Torrent /run/media/necraul/Other/Torrent
+Anime /mnt/Anime
+Other /mnt/Other
