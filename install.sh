@@ -21,6 +21,7 @@ create_folders() {
     mkdir -p $HOME/Videos/Seasonals
     mkdir -p $HOME/Videos/Temp
     sudo mkdir -p /usr/share/xsessions
+    sudo mkdir -p /etc/modprobe.d
 }
 
 no_password_sudoers() {
@@ -175,6 +176,7 @@ create_symlinks() {
     sudo cp -f $(pwd)/misc/profile /etc/profile
     sudo cp -f $(pwd)/misc/environment /etc/environment
     sudo cp -f $(pwd)/misc/fstab1 /etc/fstab1
+    sudo cp -f $(pwd)/misc/blacklist.conf /etc/modprobe.d/blacklist.conf
     sudo cp -f $(pwd)/misc/polkit-start.service /etc/systemd/system/polkit-start.service
     sudo cp -f $(pwd)/misc/dwmstart /usr/local/bin/dwmstart
     sudo cp -f $(pwd)/misc/dwm.desktop /usr/share/xsessions/dwm.desktop
