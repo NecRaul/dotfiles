@@ -49,6 +49,9 @@ EOF
 
 xrdb $xresources
 
+xcolor4=$(grep -E '^\*.color4:' $xresources | cut -d':' -f2 | tr -d ' ')
+sed -i "s/set -g @tmux_power_theme '[^']*'/set -g @tmux_power_theme '$xcolor4'/" $XDG_CONFIG_HOME/tmux/tmux.conf
+
 get_xres_rgb() {
     hex=$(xrdb -query | grep "$1" | awk '{print $2}' | cut -d# -f2)
     printf "%d,%d,%d\n" "0x${hex:0:2}" "0x${hex:2:2}" "0x${hex:4:2}"
