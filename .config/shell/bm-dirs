@@ -31,5 +31,5 @@ Data ~/.local/share
 Root /
 RootHome /root
 
-Anime /mnt/Anime
 Other /mnt/Other
+Torrent /mnt/Other/Torrent
