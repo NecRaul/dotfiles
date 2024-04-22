@@ -304,12 +304,12 @@
     "shorten": true,
     "skip": true,
     "errorfile": {
-      "path": "/home/necraul/.cache/gallery-dl/errors.log",
+      "path": "~/.cache/gallery-dl/errors.log",
       "mode": "a"
     },
     "log": "[{name}][{levelname}] {message}",
     "logfile": {
-      "path": "/home/necraul/.cache/gallery-dl/gallery-dl.log",
+      "path": "~/.cache/gallery-dl/gallery-dl.log",
       "mode": "a",
       "format": {
         "debug": "[{asctime}][{levelname}] {message}",
