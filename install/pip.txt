@@ -1,8 +1,6 @@
-annotated-types
 argcomplete
 astroid
 attrs
-autocommand
 beautifulsoup4
 better-exceptions
 black
@@ -27,7 +25,6 @@ docopt
 docutils
 evdev
 fasteners
-fastjsonschema
 filelock
 flake8
 Flask
@@ -38,13 +35,10 @@ git_neko
 greenlet
 idna
 importlib_metadata
-inflect
 isort
 itsdangerous
 jaraco.classes
 jaraco.context
-jaraco.functools
-jaraco.text
 jeepney
 Jinja2
 keyring
@@ -62,14 +56,12 @@ mccabe
 mcomix
 mdurl
 moddb
-more-itertools
 msgpack
 mutagen
 mypy-extensions
 neovim
 nh3
 numpy
-ordered-set
 packaging
 pathspec
 picard
@@ -78,7 +70,6 @@ pip-autoremove
 pipdeptree
 pkginfo
 platformdirs
-ply
 progressbar2
 prompt-toolkit
 pulsemixer
@@ -87,8 +78,6 @@ pycodestyle
 pycparser
 pycryptodome
 pycryptodomex
-pydantic
-pydantic_core
 PyExecJS
 pyfiglet
 pyflakes
@@ -123,10 +112,8 @@ soupsieve
 speedtest-cli
 sqlitedict
 termdown
-tomli
 tomlkit
 toolz
-trove-classifiers
 twine
 typing_extensions
 ueberzug

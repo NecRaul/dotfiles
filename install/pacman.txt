@@ -68,6 +68,10 @@ lf
 lib32-mesa
 lib32-vulkan-radeon
 libpulse
+libva
+libva-mesa-driver
+libva-utils
+libva-vdpau-driver
 libx11
 libxft
 libxinerama
