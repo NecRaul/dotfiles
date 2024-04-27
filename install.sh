@@ -262,6 +262,17 @@ create_symlinks() {
     echo "Created symlinks."
 }
 
+install_zathura_pywal() {
+    echo "==================================================="
+    echo "Installing zathura-pywal."
+
+    sudo make install -C $HOME/.local/bin/zathura-pywal
+    zathura-pywal -a 0.8
+
+    echo "==================================================="
+    echo "Installed zathura-pywal."
+}
+
 install_grub_theme() {
     echo "==================================================="
     echo "Installing GRUB theme."
@@ -355,6 +366,8 @@ clear_aur_cache
 removing_unnecessary_dependencies
 
 create_symlinks
+
+install_zathura_pywal
 
 reset_package_count
 
