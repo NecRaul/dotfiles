@@ -4,7 +4,7 @@
 gpu_processes=$(amdgpu_top -p | tail -n +4 | awk '!/Requested/ && !/Evicted/')
 
 # Extract process name and percentage using awk, and print them
-process_info=$(echo "$gpu_processes" | awk '{print $1, substr($8, 1, length($8)-2)}')
+process_info=$(echo "$gpu_processes" | awk '{print $1, substr($10, 1, length($10)-2)}')
 
 case $BLOCK_BUTTON in
 1) notify-send " GPU hogs" "$process_info" ;;
