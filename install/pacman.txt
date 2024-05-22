@@ -33,6 +33,7 @@ dunst
 efibootmgr
 exfatprogs
 expac
+extra-cmake-modules
 eza
 ffmpeg
 ffmpegthumbnailer
@@ -99,9 +100,9 @@ nodejs
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
-noto-fonts-extra
 npm
 nsxiv
+ntfs-3g
 ntp
 nvtop
 nyancat
@@ -146,12 +147,14 @@ texlive-plaingeneric
 tmux
 toilet
 torbrowser-launcher
+traceroute
 ttf-hack-nerd
 ttf-hanazono
 ttf-liberation
 ttf-roboto
 ttf-sazanami
 ueberzug
+ufw
 unclutter
 unzip
 vulkan-radeon
