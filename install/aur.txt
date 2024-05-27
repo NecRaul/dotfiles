@@ -1,7 +1,7 @@
 amdgpu_top
 azuredatastudio-bin
 betterdiscord-installer
-cava
+cava-git
 cemu
 cht.sh-git
 citra-appimage
