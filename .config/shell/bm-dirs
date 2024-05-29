@@ -15,6 +15,7 @@ Repos ~/Documents/Github/Repos
 4chan ~/Pictures/4chan
 gallery-dl ~/Pictures/gallery-dl
 mpv ~/Pictures/mpv
+Phone ~/Pictures/Phone
 Screenshots ~/Pictures/Screenshots
 Wallpapers ~/Pictures/Wallpapers
 
@@ -25,8 +26,10 @@ Seasonals ~/Videos/Seasonals
 
 Cache ~/.cache
 Config ~/.config
+Local ~/.local
 Bin ~/.local/bin
 Data ~/.local/share
+State ~/.local/state
 
 Root /
 RootHome /root
