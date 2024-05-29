@@ -145,3 +145,5 @@ inactiveForeground=$(get_xres_rgb color15:)
 THEME
 )"
 printf '%s' "$output" >"$HOME/.local/share/color-schemes/pywal.colors"
+
+sed -i 's/bg:0/bg:-1/g' colors.sh
