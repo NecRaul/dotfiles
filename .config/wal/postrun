@@ -146,4 +146,4 @@ THEME
 )"
 printf '%s' "$output" >"$HOME/.local/share/color-schemes/pywal.colors"
 
-sed -i 's/bg:0/bg:-1/g' colors.sh
+sed -i 's/bg:0/bg:-1/g' "$HOME/.cache/wal/colors.sh"
