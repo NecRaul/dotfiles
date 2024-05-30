@@ -206,6 +206,7 @@ create_symlinks() {
         ".config/mpd" \
         ".config/mpv" \
         ".config/ncmpcpp" \
+        ".config/neofetch"
         ".config/npm" \
         ".config/nsxiv" \
         ".config/nvim" \
