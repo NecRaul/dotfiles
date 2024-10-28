@@ -16,6 +16,12 @@ append_path '/usr/local/sbin'
 append_path '/usr/local/bin'
 append_path '/usr/bin'
 
+# XDG Setup
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+
 # PATH
 export PATH
 export PATH=$PATH:"$HOME/.dotnet/"
@@ -23,7 +29,7 @@ export PATH=$PATH:"$HOME/.dotnet/tools"
 export PATH=$PATH:"$(find $HOME/.local/bin -type d | paste -sd ':' -)"
 export PATH=$PATH:"$HOME/.local/share/npm/bin"
 export PATH=$PATH:"$HOME/.nuget/"
-export PATH=$PATH:"$XDG_DATA_HOME/go"
+export PATH=$PATH:"$XDG_DATA_HOME/go/bin"
 
 # Load profiles from /etc/profile.d
 if test -d /etc/profile.d/; then
