@@ -3,8 +3,8 @@ adobe-source-han-serif-jp-fonts
 amd-ucode
 amdvlk
 ark
-aspnet-runtime-7.0
-aspnet-targeting-pack-7.0
+aspnet-runtime
+aspnet-targeting-pack
 atool
 base
 base-devel
@@ -15,6 +15,7 @@ breeze
 breeze-gtk
 catdoc
 cmatrix
+corectrl
 cowsay
 cronie
 dialog
@@ -25,9 +26,9 @@ docx2txt
 dolphin
 dos2unix
 dotnet-host
-dotnet-runtime-7.0
-dotnet-sdk-7.0
-dotnet-targeting-pack-7.0
+dotnet-runtime
+dotnet-sdk
+dotnet-targeting-pack
 doxygen
 dunst
 efibootmgr
@@ -45,10 +46,12 @@ fzf
 gameconqueror
 gdb
 git
+git-lfs
 gnome-epub-thumbnailer
 gnome-keyring
 gnumeric
 go
+gopls
 gparted
 grub
 gst-plugin-pipewire
@@ -60,8 +63,9 @@ imlib2
 inetutils
 iwd
 jdk-openjdk
+jellyfin-server
 jq
-kcmutils5
+kcmutils
 kdeconnect
 kdegraphics-thumbnailers
 kdesdk-thumbnailers
@@ -109,7 +113,7 @@ nyancat
 obs-studio
 odt2txt
 openssh
-openvpm
+openvpn
 pacman-contrib
 pandoc-cli
 perl-file-mimeinfo
@@ -129,8 +133,6 @@ pulsemixer
 python
 python-pip
 qbittorrent
-qt5-graphicaleffects
-qt5-quickcontrols2
 ripgrep
 rust
 samba

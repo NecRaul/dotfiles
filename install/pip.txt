@@ -1,3 +1,4 @@
+appdirs
 argcomplete
 astroid
 attrs
@@ -86,7 +87,8 @@ pipdeptree
 pkginfo
 platformdirs
 progressbar2
-prompt-toolkit
+prompt_toolkit
+psycopg2
 pulsemixer
 pycairo
 pycodestyle
@@ -107,9 +109,10 @@ pyparsing
 pyperclip
 pyproject_hooks
 PyQt5
-PyQt5-sip
+PyQt5_sip
 pyrate-limiter
 PySocks
+pyszuru
 python-dateutil
 python-utils
 PyUpload
@@ -118,6 +121,7 @@ pywalfox
 PyYAML
 readme_renderer
 regex
+rentry
 requests
 requests-toolbelt
 rfc3986
@@ -141,6 +145,7 @@ twine
 typeguard
 typing_extensions
 ueberzug
+ufw
 url-normalize
 urllib3
 validate-pyproject
@@ -149,5 +154,7 @@ wcwidth
 websockets
 Werkzeug
 wheel
+xmltodict
+yq
 yt-dlp
 zipp
