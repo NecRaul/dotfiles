@@ -188,6 +188,7 @@ create_symlinks() {
 
     # ~ #
     cp -f $(pwd)/misc/.bashrc $HOME/.bashrc
+    cp -f $(pwd)/misc/.prettierrc $HOME/.prettierrc
     cp -f $(pwd)/misc/.pypirc $HOME/.pypirc
     # # #
 
