@@ -1,5 +1,6 @@
 {
-    "suggest.noselect": true,
-    "clangd.checkUpdates": true,
-    "python.formatting.provider": "black"
+  "suggest.noselect": true,
+  "clangd.checkUpdates": true,
+  "python.formatting.provider": "black",
+  "prettier.configPath": "~/.prettierrc"
 }
