@@ -13,6 +13,9 @@
 [submodule ".config/nvim/plugged/wal.vim"]
 	path = .config/nvim/plugged/wal.vim
 	url = git@github.com:dylanaraps/wal.vim.git
+[submodule ".config/nvim/plugged/indent-blankline.nvim"]
+	path = .config/nvim/plugged/indent-blankline.nvim
+	url = git@github.com:lukas-reineke/indent-blankline.nvim.git
 [submodule ".config/nvim/plugged/coc.nvim"]
 	path = .config/nvim/plugged/coc.nvim
 	url = git@github.com:neoclide/coc.nvim.git
@@ -53,9 +56,6 @@
 [submodule ".config/nvim/plugged/nvim-autopairs"]
 	path = .config/nvim/plugged/nvim-autopairs
 	url = git@github.com:windwp/nvim-autopairs.git
-[submodule ".config/nvim/plugged/indentLine"]
-	path = .config/nvim/plugged/indentLine
-	url = git@github.com:Yggdroot/indentLine.git
 [submodule ".config/tmux/plugins/tpm"]
 	path = .config/tmux/plugins/tpm
 	url = git@github.com:tmux-plugins/tpm.git
