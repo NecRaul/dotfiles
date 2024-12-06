@@ -137,6 +137,7 @@ ripgrep
 rust
 samba
 sddm
+shaderc
 spotify-launcher
 sshfs
 steam
