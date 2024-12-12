@@ -1,11 +1,12 @@
 [global]
     monitor = 0
-    follow = keyboard
-    width = 205
-    height = 350
-    offset = 9x30
-    padding = 2
-    horizontal_padding = 2
+    follow = none
+    width = (200, 250)
+    height = (50, 250)
+    origin = top-right
+    offset = (10, 30)
+    padding = 10
+    horizontal_padding = 10
     transparency = 25
     font = Monospace 12
     format = "<b>%s</b>\n%b"
@@ -13,15 +14,17 @@
 [urgency_low]
     background = "#color0"
     foreground = "#color8"
+    frame_color = "#color11"
     timeout = 3
 
 [urgency_normal]
-    foreground = "#color15"
-    background = "#color4"
+    background = "#color0"
+    foreground = "#color8"
+    frame_color = "#color11"
     timeout = 5
 
 [urgency_critical]
-    background = "#color1"
-    foreground = "#color15"
+    background = "#color0"
+    foreground = "#color8"
     frame_color = "#color11"
     timeout = 10

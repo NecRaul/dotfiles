@@ -19,11 +19,8 @@ if [[ -x "$(which dunst)" ]]; then
     mv -n "$dunstconf" "$dunstconf.bak"
     cp -f "$dunst_template" "$dunstconf"
     sed -i 's/#color0/'"$color0"'/g' "$dunstconf"
-    sed -i 's/#color1/'"$color1"'/g' "$dunstconf"
-    sed -i 's/#color4/'"$color4"'/g' "$dunstconf"
     sed -i 's/#color8/'"$color8"'/g' "$dunstconf"
     sed -i 's/#color11/'"$color11"'/g' "$dunstconf"
-    sed -i 's/#color15/'"$color15"'/g' "$dunstconf"
 fi
 
 if [[ -x "$(which pywalfox)" ]]; then
