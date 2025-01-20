@@ -2,5 +2,5 @@
   "suggest.noselect": true,
   "clangd.checkUpdates": true,
   "python.formatting.provider": "black",
-  "prettier.configPath": "~/.prettierrc"
+  "prettier.configPath": "/home/necraul/.prettierrc"
 }
