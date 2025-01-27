@@ -39,12 +39,15 @@ gist_neko
 git_neko
 gpg
 greenlet
+id
 idna
 importlib_metadata
 inflect
+installer
 isort
 itsdangerous
 jaraco.classes
+jaraco.collections
 jaraco.context
 jaraco.functools
 jaraco.text

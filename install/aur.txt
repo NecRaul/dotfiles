@@ -7,10 +7,12 @@ cemu
 cht.sh-git
 citra-git
 czkawka-gui-bin
+dolphin-megasync-bin
 downgrade
 duckstation-git
 epub-thumbnailer-git
 mcomix
+megasync-bin
 melonds
 paru
 pcsx2-git
