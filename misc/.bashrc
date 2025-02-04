@@ -121,7 +121,6 @@ source "$XDG_CONFIG_HOME/git/git-prompt.sh"
 source "$XDG_CONFIG_HOME/zoxide/zoxide.sh"
 source "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
 source "$XDG_CACHE_HOME/wal/colors.sh"
-source "/opt/asdf-vm/asdf.sh"
 
 # Start a tmux session when bash starts
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
