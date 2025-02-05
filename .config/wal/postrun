@@ -71,35 +71,35 @@ ForegroundNormal=$(get_xres_rgb background:)
 [Colors:Complementary]
 
 [Colors:Selection]
-BackgroundAlternate=
+# BackgroundAlternate=
 BackgroundNormal=$(get_xres_rgb color2:)
-DecorationFocus=
-DecorationHover=
-ForegroundActive=
-ForegroundInactive=
-ForegroundLink=
-ForegroundNegative=
-ForegroundNeutral=
+# DecorationFocus=
+# DecorationHover=
+# ForegroundActive=
+# ForegroundInactive=
+# ForegroundLink=
+# ForegroundNegative=
+# ForegroundNeutral=
 ForegroundNormal=$(get_xres_rgb foreground:)
-ForegroundPositive=
-ForegroundVisited=
+# ForegroundPositive=
+# ForegroundVisited=
 
 [Colors:Tooltip]
-BackgroundAlternate=
+# BackgroundAlternate=
 BackgroundNormal=$(get_xres_rgb color2:)
-DecorationFocus=
-DecorationHover=
-ForegroundActive=
-ForegroundInactive=
-ForegroundLink=
-ForegroundNegative=
-ForegroundNeutral=
+# DecorationFocus=
+# DecorationHover=
+# ForegroundActive=
+# ForegroundInactive=
+# ForegroundLink=
+# ForegroundNegative=
+# ForegroundNeutral=
 ForegroundNormal=$(get_xres_rgb foreground:)
-ForegroundPositive=
-ForegroundVisited=
+# ForegroundPositive=
+# ForegroundVisited=
 
 [Colors:View]
-# BackgroundAlternate=
+BackgroundAlternate=$(get_xres_rgb color0:)
 BackgroundNormal=$(get_xres_rgb color0:)
 # DecorationFocus=
 # DecorationHover=
