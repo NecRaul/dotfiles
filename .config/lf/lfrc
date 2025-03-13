@@ -4,7 +4,7 @@ set ifs "\n"
 set scrolloff 10
 set icons
 set period 1
-set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
+set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml:lost+found"
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
 set autoquit true
@@ -140,6 +140,7 @@ map a :rename; cmd-right
 map A :rename; cmd-end
 map B bulkrename
 
+map t $printf "\033c"; cd "$PWD"; exec $SHELL
 map T $setsid -f $TERMINAL >/dev/null 2>&1
 map Y $printf "%s" "$fx" | xclip -selection clipboard
 map V push :!nvim<space>
