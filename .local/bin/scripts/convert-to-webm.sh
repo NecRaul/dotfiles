@@ -13,6 +13,14 @@ if [ "$#" -lt 3 ]; then
     exit 1
 fi
 
+metadata_title=$(ffprobe -loglevel error -show_entries format_tags=title -of default=noprint_wrappers=1:nokey=1 "$input")
+
+if [ -n "$metadata_title" ]; then
+    metadata_title="$metadata_title"
+else
+    metadata_title="$output"
+fi
+
 if [ -z "$4" ]; then
     audio="-an"
 else
@@ -25,5 +33,5 @@ else
     scale="-vf scale=-1:$5"
 fi
 
-ffmpeg -i "$input" -pass 1 -metadata title="$output" -y $scale -profile:v 2 -g 300 -pix_fmt yuv420p10le -lag-in-frames 25 -threads 4 -speed 1 -auto-alt-ref 6 -row-mt 1 -tile-columns 2 -tile-rows 2 -sn -c:v libvpx-vp9 -b:v $video -crf $crf -an -f webm /dev/null
-ffmpeg -i "$input" -pass 2 -metadata title="$output" -y $scale -profile:v 2 -g 300 -pix_fmt yuv420p10le -lag-in-frames 25 -threads 4 -speed 1 -auto-alt-ref 6 -row-mt 1 -tile-columns 2 -tile-rows 2 -sn -c:v libvpx-vp9 -b:v $video -crf $crf $audio "$output.webm"
+ffmpeg -i "$input" -pass 1 -metadata title="$metadata_title" -y $scale -profile:v 2 -g 300 -pix_fmt yuv420p10le -lag-in-frames 25 -threads 4 -speed 1 -auto-alt-ref 6 -row-mt 1 -tile-columns 2 -tile-rows 2 -sn -c:v libvpx-vp9 -b:v $video -crf $crf -an -f webm /dev/null
+ffmpeg -i "$input" -pass 2 -metadata title="$metadata_title" -y $scale -profile:v 2 -g 300 -pix_fmt yuv420p10le -lag-in-frames 25 -threads 4 -speed 1 -auto-alt-ref 6 -row-mt 1 -tile-columns 2 -tile-rows 2 -sn -c:v libvpx-vp9 -b:v $video -crf $crf $audio "$output.webm"
