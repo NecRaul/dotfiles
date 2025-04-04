@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 if pactl list modules short | grep -q "module-null-sink"; then
     pactl unload-module module-null-sink
     pactl unload-module module-loopback

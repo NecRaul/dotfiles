@@ -25,6 +25,6 @@ fi
 for ((i = 0; i < ${#titles[@]}; i++)); do
     old_title="${mkv_files[i]}"
     new_title="$(printf "%02d" "$((i + 1))"). ${titles[i]}.mkv"
-    mv "$old_title" "$new_title"
+    mv -n "$old_title" "$new_title"
     echo "Renamed $old_title to $new_title"
 done
