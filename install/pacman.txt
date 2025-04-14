@@ -1,6 +1,7 @@
 adobe-source-han-sans-jp-fonts
 adobe-source-han-serif-jp-fonts
 amd-ucode
+amdgpu_top
 amdvlk
 ark
 aspnet-runtime
@@ -15,6 +16,7 @@ breeze
 breeze-gtk
 breeze-icons
 catdoc
+cava
 cmatrix
 corectrl
 cowsay
@@ -26,6 +28,7 @@ docker
 docker-compose
 docx2txt
 dolphin
+dolphin-plugins
 dos2unix
 dotnet-host
 dotnet-runtime
@@ -74,13 +77,16 @@ kdegraphics-thumbnailers
 kdesdk-thumbnailers
 konsole
 lf
+lib32-amdvlk
+lib32-libva
 lib32-mesa
 lib32-vulkan-radeon
 libpulse
 libva
-libva-mesa-driver
 libva-utils
 libva-vdpau-driver
+libvdpau
+libvdpau-va-gl
 libx11
 libxft
 libxinerama
@@ -121,6 +127,7 @@ openvpn
 pacman-contrib
 pandoc-cli
 perl-file-mimeinfo
+perl-image-exiftool
 picard
 picom
 piper
@@ -170,6 +177,7 @@ ueberzug
 ufw
 unclutter
 unzip
+vdpauinfo
 vulkan-radeon
 vulkan-tools
 weechat
@@ -196,6 +204,7 @@ xorg-xset
 xorg-xwininfo
 xorgproto
 xwallpaper
+yt-dlp
 zathura
 zathura-pdf-mupdf
 zip

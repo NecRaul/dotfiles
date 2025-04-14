@@ -49,8 +49,6 @@ itsdangerous
 jaraco.classes
 jaraco.collections
 jaraco.context
-jaraco.functools
-jaraco.text
 jeepney
 Jinja2
 joblib
@@ -83,6 +81,7 @@ opensimplex
 ordered-set
 packaging
 pathspec
+pexpect
 picard
 pillow
 pip-autoremove
@@ -92,6 +91,7 @@ platformdirs
 progressbar2
 prompt_toolkit
 psycopg2
+ptyprocess
 pulsemixer
 pycairo
 pycodestyle
@@ -139,7 +139,6 @@ speedtest-cli
 sqlitedict
 termdown
 tomli
-tomlkit
 toolz
 torbrowser-launcher
 tqdm
@@ -157,7 +156,5 @@ wcwidth
 websockets
 Werkzeug
 wheel
-xmltodict
-yq
 yt-dlp
 zipp
