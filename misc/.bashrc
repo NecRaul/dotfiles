@@ -124,13 +124,16 @@ source "$XDG_CACHE_HOME/wal/colors.sh"
 
 # Start a tmux session when bash starts
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
-    last_session=$(tmux ls | awk -F: '{print $1}' | tail -n 1)
-    if [ -z "$last_session" ]; then
-        session_name=0
-    else
-        session_name=$((last_session + 1))
+    parent=$(ps -o comm= -p $(ps -o ppid= -p $$))
+    if [ "$parent" = "st" ]; then
+        last_session=$(tmux ls 2>/dev/null | awk -F: '{print $1}' | tail -n 1)
+        if [ -z "$last_session" ]; then
+            session_name=0
+        else
+            session_name=$((last_session + 1))
+        fi
+        exec tmux new-session -s "$session_name" >/dev/null 2>&1
     fi
-    exec tmux new-session -s "$session_name" >/dev/null 2>&1
 fi
 
 # Macros to enable yanking, killing and putting

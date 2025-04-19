@@ -1,3 +1,5 @@
+# shellcheck shell=bash
+
 # =============================================================================
 #
 # Utility functions for zoxide.
@@ -38,6 +40,23 @@ if [[ ${PROMPT_COMMAND:=} != *'__zoxide_hook'* ]]; then
     PROMPT_COMMAND="__zoxide_hook;${PROMPT_COMMAND#;}"
 fi
 
+# Report common issues.
+function __zoxide_doctor() {
+    [[ ${_ZO_DOCTOR:-1} -ne 0 ]] || return 0
+    [[ ${PROMPT_COMMAND:=} != *'__zoxide_hook'* ]] || return 0
+
+    _ZO_DOCTOR=0
+    \builtin printf '%s\n' \
+        'zoxide: detected a possible configuration issue.' \
+        'Please ensure that zoxide is initialized right at the end of your shell configuration file (usually ~/.bashrc).' \
+        '' \
+        'If the issue persists, consider filing an issue at:' \
+        'https://github.com/ajeetdsouza/zoxide/issues' \
+        '' \
+        'Disable this message by setting _ZO_DOCTOR=0.' \
+        '' >&2
+}
+
 # =============================================================================
 #
 # When using zoxide with --no-cmd, alias these internal functions as desired.
@@ -47,6 +66,8 @@ __zoxide_z_prefix='z#'
 
 # Jump to a directory using only keywords.
 function __zoxide_z() {
+    __zoxide_doctor
+
     # shellcheck disable=SC2199
     if [[ $# -eq 0 ]]; then
         __zoxide_cd ~
@@ -54,6 +75,8 @@ function __zoxide_z() {
         __zoxide_cd "${OLDPWD}"
     elif [[ $# -eq 1 && -d $1 ]]; then
         __zoxide_cd "$1"
+    elif [[ $# -eq 2 && $1 == '--' ]]; then
+        __zoxide_cd "$2"
     elif [[ ${@: -1} == "${__zoxide_z_prefix}"?* ]]; then
         # shellcheck disable=SC2124
         \builtin local result="${@: -1}"
@@ -68,6 +91,7 @@ function __zoxide_z() {
 
 # Jump to a directory using interactive search.
 function __zoxide_zi() {
+    __zoxide_doctor
     \builtin local result
     result="$(\command zoxide query --interactive -- "$@")" && __zoxide_cd "${result}"
 }
@@ -77,15 +101,18 @@ function __zoxide_zi() {
 # Commands for zoxide. Disable these using --no-cmd.
 #
 
-\builtin unalias cd &>/dev/null || \builtin true
-function cd() {
-    __zoxide_z "$@"
-}
+parent=$(ps -o comm= -p $(ps -o ppid= -p $$))
+if [ "$parent" = "tmux: server" ]; then
+    \builtin unalias cd &>/dev/null || \builtin true
+    function cd() {
+        __zoxide_z "$@"
+    }
 
-\builtin unalias cdi &>/dev/null || \builtin true
-function cdi() {
-    __zoxide_zi "$@"
-}
+    \builtin unalias cdi &>/dev/null || \builtin true
+    function cdi() {
+        __zoxide_zi "$@"
+    }
+fi
 
 # Load completions.
 # - Bash 4.4+ is required to use `@Q`.
@@ -122,6 +149,6 @@ fi
 
 # =============================================================================
 #
-# To initialize zoxide, add this to your configuration (usually ~/.bashrc):
+# To initialize zoxide, add this to your shell configuration file (usually ~/.bashrc):
 #
-eval "$(zoxide init bash)"
+# eval "$(zoxide init bash)"
