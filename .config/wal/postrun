@@ -2,20 +2,13 @@
 
 source "$XDG_CACHE_HOME/wal/colors.sh"
 
-if [[ -x "$(which zathura)" ]]; then
-    zathuraconf="$XDG_CONFIG_HOME/zathura/zathurarc"
-    zathura_template="$XDG_CACHE_HOME/wal/zathurarc"
-    mv -n "$zathuraconf" "$zathuraconf.bak"
-    cp -f "$zathura_template" "$zathuraconf"
-    sed -i 's/#background/'"$background"'/g' "$zathuraconf"
-    sed -i 's/#foreground/'"$foreground"'/g' "$zathuraconf"
-    sed -i 's/#color3/'"$color3"'/g' "$zathuraconf"
-    sed -i 's/#color4/'"$color4"'/g' "$zathuraconf"
+if [[ -x "$(which zathura)" && -x "$(which zathura-pywal)" ]]; then
+    zathura-pywal -a 0.8
 fi
 
 if [[ -x "$(which dunst)" ]]; then
     dunstconf="$XDG_CONFIG_HOME/dunst/dunstrc"
-    dunst_template="$XDG_CACHE_HOME/wal/dunstrc"
+    dunst_template="$XDG_CONFIG_HOME/dunst/dunstrc.template"
     mv -n "$dunstconf" "$dunstconf.bak"
     cp -f "$dunst_template" "$dunstconf"
     sed -i 's/#color0/'"$color0"'/g' "$dunstconf"
@@ -147,4 +140,3 @@ sed -i 's/bg:0/bg:-1/g' "$HOME/.cache/wal/colors.sh"
 
 killall dunst
 dunst &
-zathura-pywal -a 0.8

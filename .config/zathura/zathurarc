@@ -5,7 +5,6 @@ set page-padding 1
 set selection-clipboard clipboard
 set window-height 1350
 set window-width 1000
-set recolor "false"
 set window-title-home-tilde true
 set statusbar-basename true
 map f toggle_fullscreen
@@ -17,27 +16,5 @@ map r reload
 map R rotate
 map K zoom in
 map J zoom out
-map i recolor
 map p print
 map g goto top
-
-set default-bg                     "#040406"
-set default-fg                     "#c0c0c0"
-set statusbar-bg                   "#040406"
-set statusbar-fg                   "#c0c0c0"
-set inputbar-bg                    "#040406"
-set inputbar-fg                    "#c0c0c0"
-set notification-bg                "#040406"
-set notification-fg                "#c0c0c0"
-set notification-error-bg          "#040406"
-set notification-error-fg          "#c0c0c0"
-set notification-warning-bg        "#040406"
-set notification-warning-fg        "#c0c0c0"
-set highlight-color                "#895185"
-set highlight-active-color         "#AB98A7"
-set completion-bg                  "#895185"
-set completion-fg                  "#AB98A7"
-set completion-highlight-bg        "#895185"
-set completion-highlight-fg        "#AB98A7"
-set recolor-lightcolor             "#040406"
-set recolor-darkcolor              "#c0c0c0"
