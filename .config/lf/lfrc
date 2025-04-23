@@ -15,7 +15,7 @@ cmd open ${{
     text/*|application/json|application/pgp-encrypted|application/x-subrip|inode/x-empty) $EDITOR $fx ;;
     audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
     video/*) mpv --no-terminal --quiet "$f" ;;
-    image/*) nsxiv -a -- "$(dirname "$f")"/*.* ;;
+    image/*) nsxiv-rifle "$f" ;;
     application/pdf|application/epub+zip|application/octet-stream|application/postscript|application/vnd.djvu|image/vnd.djvu) zathura $fx ;;
     application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint|application/vnd.oasis.opendocument.graphics|application/vnd.oasis.opendocument.graphics-template|application/vnd.oasis.opendocument.formula|application/vnd.oasis.opendocument.database) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
         *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
