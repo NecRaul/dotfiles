@@ -177,7 +177,7 @@ create_symlinks() {
     sudo cp -f $(pwd)/misc/fstab1 /etc/fstab1
     sudo cp -f $(pwd)/misc/profile /etc/profile
     sudo cp -f $(pwd)/misc/blacklist.conf /etc/modprobe.d/blacklist.conf
-    sudo cp -f $(pwd)/misc/polkit-start.service /etc/systemd/system/polkit-start.service
+    sudo cp -f $(pwd)/misc/polkit-start.service /usr/lib/systemd/user/polkit-start.service
     sudo cp -f $(pwd)/misc/dwmstart /usr/local/bin/dwmstart
     sudo cp -f $(pwd)/misc/51-necraul.rules /usr/share/polkit1/rules.d/51-necraul.rules
     sudo cp -f $(pwd)/misc/Xsetup /usr/share/sddm/scripts/Xsetup
@@ -290,7 +290,7 @@ enable_services() {
     echo "Enabling systemd services."
 
     sudo systemctl enable sddm.service
-    sudo systemctl enable polkit-start.service
+    systemctl --user enable polkit-start.service
 
     echo "==================================================="
     echo "Enabled systemd services."

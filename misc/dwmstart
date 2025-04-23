@@ -2,20 +2,27 @@
 
 setbg
 picom --config ~/.config/picom/dwm.conf &
-syncthing --no-browser &
-/usr/lib/kdeconnectd &
-
 xrdb ~/.config/x11/xresources & xrdbpid=$!
 
-autostart="steam discord mpd spotify-launcher qbittorrent dunst unclutter pipewire"
+autostart=(
+    "syncthing --no-browser"
+    "/usr/lib/kdeconnectd"
+    "steam"
+    "discord"
+    "spotify-launcher"
+    "qbittorrent"
+    "dunst"
+    "unclutter"
+    "pipewire"
+)
 
-for program in $autostart; do
-    pidof -sx "$program" || "$program" &
+for program in "${autostart[@]}"; do
+    cmd=$(echo "$program" | awk '{print $1}')
+    pidof -sx "$cmd" || $program &
 done >/dev/null 2>&1
 
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
 
-# Activate dbus variables
 dbus-update-activation-environment --all
 ssh-agent dwm
 pgrep dwm && dwmblocks &
