@@ -1,7 +1,6 @@
 #!/bin/bash
 
 create_folders() {
-    mkdir -p $HOME/.cache/wal
     mkdir -p $HOME/.config
     mkdir -p $HOME/.local/bin
     mkdir -p $HOME/.local/share/applications
@@ -117,6 +116,7 @@ clear_pacman_cache() {
     echo "Clearing pacman cache."
     echo "==================================================="
     sudo pacman -Sc --noconfirm
+    paccache -rk0
     echo "==================================================="
     echo "Cleared pacman cache."
 }
@@ -126,6 +126,7 @@ clear_aur_cache() {
     echo "Clearing AUR cache."
     echo "==================================================="
     paru -Sc --noconfirm
+    paccache -rk0
     echo "==================================================="
     echo "Cleared AUR cache."
 }
@@ -255,11 +256,6 @@ create_symlinks() {
     ln -sf $(pwd)/.local/share/bg $HOME/.local/share/bg
     # # # # #
 
-    # cache #
-    ln -sf $(pwd)/.cache/wal/dunstrc $HOME/.cache/wal/dunstrc
-    ln -sf $(pwd)/.cache/wal/zathurarc $HOME/.cache/wal/zathurarc
-    # # # # #
-
     echo "==================================================="
     echo "Created symlinks."
 }
@@ -291,6 +287,9 @@ enable_services() {
 
     sudo systemctl enable sddm.service
     systemctl --user enable polkit-start.service
+    systemctl --user enable syncthing.service
+    systemctl --user enable mpd.service
+    systemctl --user enable mpd-discord-rpc.service
 
     echo "==================================================="
     echo "Enabled systemd services."

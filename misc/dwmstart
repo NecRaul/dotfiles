@@ -5,7 +5,6 @@ picom --config ~/.config/picom/dwm.conf &
 xrdb ~/.config/x11/xresources & xrdbpid=$!
 
 autostart=(
-    "syncthing --no-browser"
     "/usr/lib/kdeconnectd"
     "steam"
     "discord"
