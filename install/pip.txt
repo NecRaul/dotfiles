@@ -49,6 +49,8 @@ itsdangerous
 jaraco.classes
 jaraco.collections
 jaraco.context
+jaraco.functools
+jaraco.text
 jeepney
 Jinja2
 joblib
@@ -71,7 +73,7 @@ more-itertools
 MorshuTalk
 msgpack
 mutagen
-mypy-extensions
+mypy_extensions
 neovim
 nh3
 nltk
@@ -119,6 +121,7 @@ pyszuru
 python-dateutil
 python-utils
 PyUpload
+pywal
 pywal16
 pywalfox
 PyYAML
