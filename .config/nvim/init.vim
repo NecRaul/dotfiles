@@ -11,6 +11,7 @@ endif
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
+Plug 'atiladefreitas/dooing'
 Plug 'barrett-ruth/live-server.nvim'
 Plug 'bling/vim-bufferline'
 Plug 'dylanaraps/wal.vim'
@@ -205,12 +206,12 @@ autocmd BufWritePost ~/Documents/Github/Repos/dwmblocks/config.h !cd ~/Downloads
 " Lua section
 lua << EOF
   require("live-server").setup()
-  require('nvim-tree').setup{
-  filters = {
-    git_ignored = false,
-    custom = { '.git' },
-  },
-  view = {
+  require('nvim-tree').setup {
+    filters = {
+      git_ignored = false,
+      custom = { '.git' },
+    },
+    view = {
       side = "left",
       width = 40,
     },
@@ -289,4 +290,15 @@ lua << EOF
   }
   require("nvim-autopairs").setup()
   require("ibl").setup()
+  vim.defer_fn(function()
+    require("dooing").setup {
+      window = {
+        width = 75,
+        height = 30,
+      },
+      timestamp = {
+          enabled = false,
+      },
+    }
+  end, 50)
 EOF
