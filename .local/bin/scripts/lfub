@@ -4,6 +4,10 @@
 # ueberzug. This works in concert with the lf configuration file and the
 # lf-cleaner script.
 
+[ -f "$HOME/.cache/wal/colors.sh" ] && . "$HOME/.cache/wal/colors.sh"
+
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height=75% --layout=reverse --info=inline --border --margin=1 --padding=1"
+
 set -e
 
 cleanup() {
