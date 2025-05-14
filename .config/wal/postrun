@@ -47,7 +47,7 @@ get_xres_rgb() {
     printf "%d,%d,%d\n" "0x${hex:0:2}" "0x${hex:2:2}" "0x${hex:4:2}"
 }
 
-[[ -d "$HOME/.local/share/color-schemes" ]] || mkdir -pv "$HOME/.local/share/color-schemes"
+[[ -d "$XDG_DATA_HOME/color-schemes" ]] || mkdir -pv "$XDG_DATA_HOME/color-schemes"
 
 output="$(
     cat <<THEME
@@ -134,9 +134,11 @@ inactiveBackground=$(get_xres_rgb background:)
 inactiveForeground=$(get_xres_rgb color15:)
 THEME
 )"
-printf '%s' "$output" >"$HOME/.local/share/color-schemes/pywal.colors"
+printf '%s' "$output" >"$XDG_DATA_HOME/color-schemes/pywal.colors"
+sed -i -e "s/Opacity=.*/Opacity=0.8/g" "$XDG_CACHE_HOME/wal/colors-konsole.colorscheme"
+cp -f "$XDG_CACHE_HOME/wal/colors-konsole.colorscheme" "$XDG_DATA_HOME/konsole/pywal.colorscheme"
 
-sed -i 's/bg:0/bg:-1/g' "$HOME/.cache/wal/colors.sh"
+sed -i 's/bg:0/bg:-1/g' "$XDG_CACHE_HOME/wal/colors.sh"
 
 killall dunst
 dunst &
