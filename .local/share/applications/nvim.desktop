@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=/usr/local/bin/st -e nvim
+Exec=/usr/local/bin/st-xterm -e nvim
 Name=Neovim
 Icon=nvim
 NoDisplay=true
