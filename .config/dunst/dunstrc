@@ -1,27 +1,30 @@
 [global]
     monitor = 0
-    follow = keyboard
-    width = 205
-    height = 350
-    offset = 9x30
-    padding = 2
-    horizontal_padding = 2
+    follow = none
+    width = (200, 250)
+    height = (50, 250)
+    origin = top-right
+    offset = (10, 30)
+    padding = 10
+    horizontal_padding = 10
     transparency = 25
     font = Monospace 12
     format = "<b>%s</b>\n%b"
 
 [urgency_low]
-    background = "#040406"
-    foreground = "#424244"
+    background = "#0a0c09"
+    foreground = "#566956"
+    frame_color = "#b9895c"
     timeout = 3
 
 [urgency_normal]
-    foreground = "#A8817E5"
-    background = "#AB98A7"
+    background = "#0a0c09"
+    foreground = "#566956"
+    frame_color = "#b9895c"
     timeout = 5
 
 [urgency_critical]
-    background = "#A8817E"
-    foreground = "#A8817E5"
-    frame_color = "#A8817E1"
+    background = "#0a0c09"
+    foreground = "#566956"
+    frame_color = "#b9895c"
     timeout = 10
