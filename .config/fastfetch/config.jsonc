@@ -1,115 +1,115 @@
 {
-    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": {
-        "source": "arch3",
-        "padding": {
-            "top": 1,
-            "left": 3,
-            "right": 3
-        }
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "arch3",
+    "padding": {
+      "top": 1,
+      "left": 3,
+      "right": 3,
     },
-    "display": {
-        "separator": "-> "
+  },
+  "display": {
+    "separator": "-> ",
+  },
+  "modules": [
+    "title",
+    "separator",
+
+    {
+      "type": "os",
+      "key": " OS ",
+      "keyColor": "yellow",
+      "format": "{1}",
     },
-    "modules": [
-        "title",
-        "separator",
+    {
+      "type": "os",
+      "key": "├─ ",
+      "keyColor": "yellow",
+      "format": "{2} {12}",
+    },
+    {
+      "type": "kernel",
+      "key": "├─ ",
+      "keyColor": "yellow",
+      "format": "{2}",
+    },
+    {
+      "type": "packages",
+      "key": "└─󰏖 ",
+      "keyColor": "yellow",
+    },
 
-        {
-            "type": "os",
-            "key": " OS ",
-            "keyColor": "yellow",
-            "format": "{1}"
-        },
-        {
-            "type": "os",
-            "key": "├─ ",
-            "keyColor": "yellow",
-            "format": "{2} {12}"
-        },
-        {
-            "type": "kernel",
-            "key": "├─ ",
-            "keyColor": "yellow",
-            "format": "{2}"
-        },
-        {
-            "type": "packages",
-            "key": "└─󰏖 ",
-            "keyColor": "yellow"
-        },
+    "break",
 
-        "break",
+    {
+      "type": "wm",
+      "key": " DE/WM ",
+      "keyColor": "blue",
+    },
+    {
+      "type": "lm",
+      "key": "├─󰧨 ",
+      "keyColor": "blue",
+      "format": "{1} {3}",
+    },
+    {
+      "type": "editor",
+      "key": "├─󱞎 ",
+      "keyColor": "blue",
+    },
+    {
+      "type": "shell",
+      "key": "├─ ",
+      "keyColor": "yellow",
+    },
+    {
+      "type": "terminal",
+      "key": "└─ ",
+      "keyColor": "blue",
+    },
 
-        {
-            "type": "wm",
-            "key": " DE/WM ",
-            "keyColor": "blue"
-        },
-        {
-            "type": "lm",
-            "key": "├─󰧨 ",
-            "keyColor": "blue",
-            "format": "{1} {3}"
-        },
-        {
-            "type": "editor",
-            "key": "├─󱞎 ",
-            "keyColor": "blue"
-        },
-        {
-            "type": "shell",
-            "key": "├─ ",
-            "keyColor": "yellow"
-        },
-        {
-            "type": "terminal",
-            "key": "└─ ",
-            "keyColor": "blue"
-        },
+    "break",
 
-        "break",
+    {
+      "type": "host",
+      "key": " PC ",
+      "keyColor": "green",
+    },
+    {
+      "type": "cpu",
+      "key": "├─󰍛 ",
+      "keyColor": "green",
+      "showPeCoreCount": true,
+      "temp": true,
+    },
+    {
+      "type": "gpu",
+      "key": "├─󰾲 ",
+      "keyColor": "green",
+      "driverSpecific": true,
+      "detectionMethod": "pci",
+      "format": "{2} @ {12} - {4}",
+      "temp": true,
+    },
+    {
+      "type": "memory",
+      "key": "├─ ",
+      "keyColor": "green",
+    },
+    {
+      "type": "disk",
+      "key": "├─󰉉 ",
+      "keyColor": "green",
+      "folders": "/",
+      "format": "{1} / {2} ({3})",
+    },
+    {
+      "type": "uptime",
+      "key": "└─󰅐 ",
+      "keyColor": "green",
+    },
 
-        {
-            "type": "host",
-            "key": " PC ",
-            "keyColor": "green"
-        },
-        {
-            "type": "cpu",
-            "key": "├─󰍛 ",
-            "keyColor": "green",
-            "showPeCoreCount": true,
-            "temp": true
-        },
-        {
-            "type": "gpu",
-            "key": "├─󰾲 ",
-            "keyColor": "green",
-            "driverSpecific": true,
-            "detectionMethod": "pci",
-            "format": "{2} @ {12} - {4}",
-            "temp": true
-        },
-        {
-            "type": "memory",
-            "key": "├─ ",
-            "keyColor": "green"
-        },
-        {
-            "type": "disk",
-            "key": "├─󰉉 ",
-            "keyColor": "green",
-            "folders": "/",
-            "format": "{1} / {2} ({3})"
-        },
-        {
-            "type": "uptime",
-            "key": "└─󰅐 ",
-            "keyColor": "green"
-        },
-
-        "break",
-        "colors"
-    ]
+    "break",
+    "colors",
+  ],
 }

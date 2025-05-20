@@ -10,7 +10,7 @@
   "vueIndentScriptAndStyle": false,
   "overrides": [
     {
-      "files": "*.json",
+      "files": ["*.json", "*.jsonc"],
       "options": {
         "printWidth": 1
       }
