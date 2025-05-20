@@ -199,6 +199,7 @@ create_symlinks() {
         ".config/cava" \
         ".config/czkawka" \
         ".config/dunst" \
+        ".config/fastfetch"
         ".config/gallery-dl" \
         ".config/git" \
         ".config/gtk-2.0" \
@@ -208,7 +209,6 @@ create_symlinks() {
         ".config/mpd" \
         ".config/mpv" \
         ".config/ncmpcpp" \
-        ".config/neofetch"
         ".config/npm" \
         ".config/nsxiv" \
         ".config/nvim" \

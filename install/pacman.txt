@@ -43,6 +43,7 @@ exfat-utils
 expac
 extra-cmake-modules
 eza
+fastfetch
 ffmpeg
 ffmpegthumbnailer
 ffmpegthumbs
@@ -108,7 +109,6 @@ mpc
 mpd
 mpv
 ncmpcpp
-neofetch
 neovim
 netstandard-targeting-pack
 networkmanager
