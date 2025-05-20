@@ -17,6 +17,8 @@ mpd-discord-rpc
 paru
 pcsx2-git
 pkg2zip-fork
+plutosvg
+plutovg
 pywal-discord-git
 qt6ct-kde
 rar

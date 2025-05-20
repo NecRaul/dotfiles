@@ -149,6 +149,8 @@ python
 python-dbus
 python-pip
 qbittorrent
+qt5-graphicaleffects
+qt5ct
 ripgrep
 rust
 samba
@@ -210,5 +212,6 @@ xwallpaper
 yt-dlp
 zathura
 zathura-pdf-mupdf
+zig
 zip
 zoxide

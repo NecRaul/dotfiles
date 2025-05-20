@@ -8,6 +8,7 @@ better-exceptions
 black
 blinker
 Brotli
+bs4
 build
 certifi
 cffi
@@ -121,7 +122,6 @@ pyszuru
 python-dateutil
 python-utils
 PyUpload
-pywal
 pywal16
 pywalfox
 PyYAML
@@ -140,8 +140,11 @@ sounddevice
 soupsieve
 speedtest-cli
 sqlitedict
+tbb
+tcmlib
 termdown
 tomli
+tomlkit
 toolz
 torbrowser-launcher
 tqdm
@@ -151,6 +154,7 @@ typeguard
 typing_extensions
 ueberzug
 ufw
+unrpa
 url-normalize
 urllib3
 validate-pyproject
