@@ -17,7 +17,10 @@ ignore_leading_the = no
 
 ### Interface ###
 user_interface = alternative
-startup_screen = media_library
+startup_screen = visualizer
+startup_slave_screen = media_library
+startup_slave_screen_focus = yes
+locked_screen_width_part = 20
 browser_display_mode = columns
 playlist_display_mode = columns
 display_volume_level = yes
@@ -56,11 +59,12 @@ selected_item_prefix = "* "
 ### Visualizer ###
 visualizer_type = "wave"
 visualizer_autoscale = yes
+visualizer_look	= "  "
 
 ### Misc ###
 external_editor = nvim
 use_console_editor = yes
 
-### Scripts ###
-execute_on_song_change="pkill -RTMIN+11 dwmblocks && notify.sh"
+### Script ###
+execute_on_song_change="pkill -RTMIN+11 dwmblocks && notify.sh && ueberzug.sh"
 execute_on_player_state_change="pkill -RTMIN+11 dwmblocks"
