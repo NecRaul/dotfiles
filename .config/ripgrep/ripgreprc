@@ -1,0 +1,14 @@
+--max-columns=150
+--max-columns-preview
+--follow
+--hidden
+--glob=!.git/*
+--smart-case
+
+--type-add=config:*{conf*,vim*,rc*,.json,.jsonc,.yaml,.yml}
+--type-add=docker:{docker-compose.*.yml,docker-compose.yml}
+--type-add=dockercompose:Dockerfile
+--type-add=go:{*.go,go.mod,go.sum}
+--type-add=py:{requirements.txt}
+--type-add=python:{requirements.txt}
+--type-add=web:*.{htm,css,sass,scss,js,ts,vue,ph,env}*

@@ -217,6 +217,7 @@ create_symlinks() {
         ".config/pyNPS" \
         ".config/python" \
         ".config/qt6ct" \
+        ".config/ripgrep" \
         ".config/shell" \
         ".config/tmux" \
         ".config/wal" \
