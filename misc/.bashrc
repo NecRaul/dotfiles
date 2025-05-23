@@ -9,9 +9,17 @@
 set -o vi
 
 # Aliases
-alias sudo="sudo " # this is to make sudo vim do sudo nvim instead
+alias sudo="sudo "
 alias pacman="pacman --color=auto"
+alias paru="paru --batflags='--theme base16'"
 alias vim="nvim"
+alias mkdir="mkdir -p"
+alias grep="grep --color=auto"
+alias diff="diff --color=auto"
+alias pynps="pynps -c ps3 -r usa"
+alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
+alias yt-dlp="yt-dlp --embed-metadata"
+## Coreutil replacements
 alias ls="eza --color=auto --icons=auto --no-quotes --group-directories-first -x"
 alias ld="eza --color=auto --icons=auto --no-quotes --group-directories-first -xa | grep -E \"^\.\""
 alias la="eza --color=auto --icons=auto --no-quotes --group-directories-first -xa"
@@ -22,18 +30,10 @@ alias llt="eza --color=auto --icons=auto --no-quotes --group-directories-first -
 alias lta="eza --color=auto --icons=auto --no-quotes --group-directories-first -xaT -I \".git\" -L 3"
 alias llta="eza --color=auto --icons=auto --no-quotes --group-directories-first -xalhT --git -I \".git\" -L 3"
 alias cat="bat --theme base16"
-alias mkdir="mkdir -p"
-alias grep="grep --color=auto"
-alias diff="diff --color=auto"
-alias paru="paru --batflags=\"--theme base16\""
+## Wrapper scripts
 alias lf="lfub"
 alias ncmpcpp="ncmpcpp-art"
 alias nsxiv="nsxiv-rifle"
-alias python="python3"
-alias pip="pip3"
-alias pynps="pynps -c ps3 -r usa"
-alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
-alias yt-dlp="yt-dlp --embed-metadata"
 
 # Colors
 export RED="\[\e[1;31m\]"
