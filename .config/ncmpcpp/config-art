@@ -66,5 +66,5 @@ external_editor = nvim
 use_console_editor = yes
 
 ### Script ###
-execute_on_song_change="pkill -RTMIN+11 dwmblocks && notify.sh && ueberzug.sh"
+execute_on_song_change="pkill -RTMIN+11 dwmblocks && ncmpcpp-notify.sh && ncmpcpp-cover.sh"
 execute_on_player_state_change="pkill -RTMIN+11 dwmblocks"
