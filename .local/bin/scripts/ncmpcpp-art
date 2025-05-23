@@ -1,10 +1,11 @@
 #!/usr/bin/bash
 
-export FIFO_UEBERZUG="/tmp/mpd-ueberzug-${PPID}"
+[[ ! -d "$XDG_CACHE_HOME/ncmpcpp" ]] && mkdir -p "$XDG_CACHE_HOME/ncmpcpp"
+
+export FIFO_UEBERZUG="$XDG_CACHE_HOME/ncmpcpp/mpd-ueberzug-${PPID}"
 
 cleanup() {
     rm "$FIFO_UEBERZUG" 2>/dev/null
-    rm /tmp/mpd_cover.jpg 2>/dev/null
     pkill -P $$ 2>/dev/null
     pkill album-art
 }

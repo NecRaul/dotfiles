@@ -10,9 +10,10 @@ force_square="true"
 square_alignment="top"
 left_aligned="true"
 padding_left=0
-
 font_height=17
 font_width=8
+
+cover_path="$XDG_CACHE_HOME/ncmpcpp/$(mpc --format "%albumartist%_%album%" current | sed "s/[\/:*~!?,.'\"<>| ]//g").jpg"
 
 kill_previous_instances() {
     script_name=$(basename "$0")
@@ -28,7 +29,7 @@ display_cover_image() {
     send_to_ueberzug \
         action "add" \
         identifier "mpd_cover" \
-        path "/tmp/mpd_cover.jpg" \
+        path "$cover_path" \
         x "$ueber_left" \
         y "$padding_top" \
         height "$ueber_height" \
