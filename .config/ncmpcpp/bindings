@@ -21,38 +21,104 @@ def_key "g"
     move_home
 def_key "G"
     move_end
+def_key "down"
+    scroll_down
+def_key "up"
+    scroll_up
+def_key "left"
+    previous_column
+def_key "right"
+    next_column
+def_key "page_up"
+    page_up
+def_key "page_down"
+    page_down
+def_key "home"
+    move_home
+def_key "end"
+    move_end
 
-# Player
+# Selection
+def_key "insert"
+    select_item
+def_key "J"
+    select_item
+    scroll_down
+def_key "K"
+    select_item
+    scroll_up
+def_key "shift-down"
+    select_item
+    scroll_down
+def_key "shift-up"
+    select_item
+    scroll_up
+def_key "A"
+    select_album
+def_key "ctrl-v"
+    select_range
+def_key "ctrl-_"
+    select_found_items
+def_key "v"
+    reverse_selection
+def_key "V"
+    remove_selection
+def_key "M"
+    move_selected_items_up
+def_key "N"
+    move_selected_items_down
+
+# Actions
 def_key "enter"
-  play_item
-def_key "space"
-  add_item_to_playlist
-def_key "p"
-    pause
-def_key ">"
-    next
-def_key "<"
-    previous
-def_key "="
-    volume_up
-def_key "-"
-    volume_down
-def_key "c"
-    clear_main_playlist
-def_key "x"
-    delete_playlist_items
-def_key "r"
-  toggle_repeat
-def_key "z"
-  toggle_random
-def_key "y"
-  toggle_single
+    enter_directory
+def_key "enter"
+    toggle_output
+def_key "enter"
+    run_action
+def_key ":"
+    execute_command
+def_key "~"
+    jump_to_media_library
+def_key "B"
+    jump_to_browser
+def_key "G"
+    jump_to_playlist_editor
+def_key "E"
+    jump_to_tag_editor
+def_key "H"
+    jump_to_parent_directory
+def_key "o"
+    jump_to_playing_song
+def_key "N"
+    move_sort_order_up
+def_key "n"
+    move_sort_order_down
+def_key "i"
+    show_song_info
+def_key "I"
+    show_artist_info
+def_key "Y"
+    toggle_replay_gain_mode
+def_key "T"
+    toggle_add_mode
+def_key "|"
+    toggle_mouse
+def_key "#"
+    toggle_bitrate_visibility
+def_key "P"
+    toggle_display_mode
+def_key "!"
+    toggle_separators_between_albums
 def_key "U"
     update_database
 
 # Search
 def_key "ctrl-f"
     apply_filter
+def_key "/"
+    find
+def_key "?"
+    find
 def_key "/"
     find_item_forward
 def_key "?"
@@ -61,10 +127,72 @@ def_key "n"
     next_found_item
 def_key "N"
     previous_found_item
+def_key "."
+    next_found_item
+def_key ","
+    previous_found_item
+def_key "w"
+    toggle_find_mode
 def_key "s"
     show_search_engine
 def_key "s"
+    start_searching
+def_key "r"
     reset_search_engine
+
+# Player
+def_key "enter"
+    play_item
+def_key "space"
+    add_item_to_playlist
+def_key "backspace"
+    replay_song
+def_key "backspace"
+    play
+def_key "p"
+    pause
+def_key "S"
+    stop
+def_key ">"
+    next
+def_key "<"
+    previous
+def_key "="
+    volume_up
+def_key "-"
+    volume_down
+def_key "f"
+    seek_forward
+def_key "b"
+    seek_backward
+def_key "c"
+    clear_main_playlist
+def_key "x"
+    delete_playlist_items
+def_key "C"
+    crop_main_playlist
+def_key "Z"
+    shuffle
+def_key "`"
+    add_random_items
+def_key "ctrl-s"
+    sort_playlist
+def_key "ctrl-r"
+    reverse_playlist
+
+# Modes
+def_key "r"
+    toggle_repeat
+def_key "z"
+    toggle_random
+def_key "y"
+    toggle_single
+def_key "R"
+    toggle_consume
+def_key "x"
+    toggle_crossfade
+def_key "X"
+    set_crossfade
 
 # Primary tabs
 def_key "m"
@@ -78,7 +206,7 @@ def_key "v"
 def_key "space"
     toggle_visualization_type
 
-# Secondary Tabs
+# Secondary tabs
 def_key "tab"
     next_screen
 def_key "shift-tab"
