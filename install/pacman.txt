@@ -44,6 +44,7 @@ expac
 extra-cmake-modules
 eza
 fastfetch
+fd
 ffmpeg
 ffmpegthumbnailer
 ffmpegthumbs
@@ -61,6 +62,7 @@ gnumeric
 go
 gopls
 gparted
+gradle
 grub
 gst-plugin-pipewire
 helvum
