@@ -67,6 +67,6 @@ if [ "$#" -eq 1 ]; then
     area="$1"
     capture_screenshot
 else
-    area=$(printf "area\\nwindow\\nscreen\\nall screens" | dmenu -l 4 -i -p "Screenshot which area?")
+    area=$(printf "area\\nwindow\\nscreen\\nall screens" | dmenu -l 4 -p "Screenshot which area?")
     capture_screenshot
 fi

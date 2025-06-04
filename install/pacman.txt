@@ -18,6 +18,7 @@ breeze-gtk
 breeze-icons
 catdoc
 cava
+clipmenu
 cloudflared
 cmatrix
 corectrl

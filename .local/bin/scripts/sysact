@@ -24,7 +24,7 @@ renew_all() {
     kill -USR1 "$(picompid)" # Reload picom
 }
 
-case "$(printf "lock\nleave $WM\nrenew all\nhibernate\nreboot\nshutdown\nsleep\ndisplay off" | dmenu -i -p 'Action: ')" in
+case "$(printf "lock\nleave $WM\nrenew all\nhibernate\nreboot\nshutdown\nsleep\ndisplay off" | dmenu -p 'Action: ')" in
 'lock') slock ;;
 "leave $WM") kill -TERM "$(wmpid)" ;;
 "renew all") renew_all ;;
