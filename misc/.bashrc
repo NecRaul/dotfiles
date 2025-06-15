@@ -44,7 +44,8 @@ export PURPLE="\[\e[1;95m\]"
 export RESET="\[\e[0m\]"
 
 # PS1
-export PS1="${YELLOW}[${RED}\u${PURPLE}@${BLUE}\h ${PURPLE}\W${YELLOW}]${PURPLE}\$ ${BLUE}\$(__git_branch)${YELLOW}\$(__git_state)${RESET}"
+# export PS1="${YELLOW}[${RED}\u${PURPLE}@${BLUE}\h ${PURPLE}\W${YELLOW}]${PURPLE}\$ ${BLUE}\$(__git_branch)${YELLOW}\$(__git_state)${RESET}"
+eval "$(starship init bash)"
 
 # git-neko/gist-neko
 export GITHUB_USERNAME=gu
@@ -119,7 +120,7 @@ export MOZ_USE_XINPUT2="1"
 export QT_QPA_PLATFORMTHEME="gtk2"
 
 # External sources for bashrc
-source "$XDG_CONFIG_HOME/git/git-prompt.sh"
+# source "$XDG_CONFIG_HOME/git/git-prompt.sh"
 source "$XDG_CONFIG_HOME/zoxide/zoxide.sh"
 source "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
 source "$XDG_CACHE_HOME/wal/colors.sh"

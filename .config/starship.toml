@@ -1,0 +1,280 @@
+format = """
+${custom.opening}\
+$username\
+${custom.at}\
+$hostname \
+$directory\
+${custom.closing}\
+${custom.dollar} \
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$docker_context\
+$package\
+$c\
+$cpp\
+$cmake\
+$dotnet\
+$golang\
+$haskell\
+$java\
+$kotlin\
+$gradle\
+$lua\
+$meson\
+$nix_shell\
+$nodejs\
+$perl\
+$php\
+$python\
+$ruby\
+$rust\
+$zig\
+"""
+
+add_newline = false
+
+[custom.opening]
+command ='echo ['
+when = true
+style ='bold yellow'
+format ='[$output]($style)'
+
+[username]
+show_always = true
+style_user ='bold red'
+format ='[$user]($style)'
+
+[custom.at]
+command ='echo @'
+when = true
+style ='bold purple'
+format ='[$output]($style)'
+
+[hostname]
+ssh_only = false
+ssh_symbol =' '
+style ='bold blue'
+format ='[$ssh_symbol$hostname]($style)'
+
+[directory]
+truncation_length = 1
+read_only =' 󰌾'
+style ='bold purple'
+format ='[$path$read_only]($style)'
+
+[custom.closing]
+command ='echo ]'
+when = true
+style ='bold yellow'
+format ='[$output]($style)'
+
+[custom.dollar]
+command ='echo $'
+when = true
+style ='bold purple'
+format ='[$output]($style)'
+
+[custom.number]
+command ='echo \#'
+when = true
+style ='bold purple'
+format ='[$output]($style)'
+
+[git_branch]
+always_show_remote = true
+style ='bold blue'
+format ='[$symbol$branch( ⎇  $remote_name/$remote_branch)]($style) '
+
+[git_commit]
+only_detached = true
+tag_disabled = false
+tag_symbol ='  '
+style ='bold green'
+format ='[($hash$tag )]($style)'
+
+[git_state]
+style ='bold yellow'
+format ='\([$state( $progress_current/$progress_total)]($style)\) '
+
+[git_metrics]
+disabled = false
+added_style ='bold green'
+deleted_style ='bold red'
+format ='([+$added ]($added_style))([-$deleted ]($deleted_style))'
+
+[git_status]
+conflicted ='=${count}'
+ahead ='↑${count}'
+behind ='↓${count}'
+diverged ='↕${count}'
+up_to_date ='${count}'
+untracked ='?${count}'
+stashed ='\$${count}'
+modified ='!${count}'
+staged ='+${count}'
+renamed ='»${count}'
+deleted ='✘${count}'
+typechanged ='${count}'
+style ='bold black'
+format ='([\[$all_status$ahead_behind\] ]($style))'
+
+[docker_context]
+only_with_files = false
+symbol =' '
+style = 'bold blue'
+format = '[$symbol$context ]($style)'
+
+[package]
+symbol ='󰏗 '
+style = 'bold 208'
+format = '[$symbol$version ]($style)'
+
+[c]
+symbol =' '
+style = 'bold 149'
+format = '[$symbol$version ]($style)'
+
+[cpp]
+disabled = false
+symbol =' '
+style = 'bold 149'
+format = '[$symbol$version ]($style)'
+
+[cmake]
+symbol =' '
+style = 'bold blue'
+format = '[$symbol$version ]($style)'
+
+[dotnet]
+symbol ='󰪮 '
+style = 'bold blue'
+format = '[$symbol$version ]($style)'
+
+[golang]
+symbol =' '
+style = 'bold red'
+format = '[$symbol$version ]($style)'
+
+[haskell]
+symbol =' '
+style = 'bold purple'
+format = '[$symbol$version ]($style)'
+
+[java]
+symbol =' '
+style = 'bold red'
+format = '[$symbol$version ]($style)'
+
+[kotlin]
+symbol =' '
+style = 'bold blue'
+format = '[$symbol$version ]($style)'
+
+[gradle]
+symbol =' '
+style = 'bold cyan'
+format = '[$symbol$version ]($style)'
+
+[lua]
+symbol =' '
+style = 'bold blue'
+format = '[$symbol$version ]($style)'
+
+[meson]
+symbol ='󰔷 '
+style = 'bold blue'
+format = '[$symbol$project ]($style)'
+
+[nix_shell]
+symbol =' '
+style = 'bold blue'
+format = '[$symbol$state ($name )]($style)'
+
+[nodejs]
+symbol =' '
+style = 'bold green'
+format = '[$symbol$version ]($style)'
+
+[perl]
+symbol =' '
+style = 'bold 149'
+format = '[$symbol$version ]($style)'
+
+[php]
+symbol =' '
+style = 'bold 147'
+format = '[$symbol$version ]($style)'
+
+[python]
+symbol =' '
+style = 'bold yellow'
+format = '[$symbol$version ]($style)'
+
+[ruby]
+symbol =' '
+style = 'bold red'
+format = '[$symbol$version ]($style)'
+
+[rust]
+symbol ='󱘗 '
+style = 'bold red'
+format = '[$symbol$version ]($style)'
+
+[zig]
+symbol =' '
+style = 'bold yellow'
+format = '[$symbol$version ]($style)'
+
+[os]
+disabled = true
+style ='bold white'
+format ='[$symbol]($style)'
+
+[os.symbols]
+Alpaquita = ' '
+Alpine = ' '
+AlmaLinux = ' '
+Amazon = ' '
+Android = ' '
+Arch = ' '
+Artix = ' '
+CachyOS = ' '
+CentOS = ' '
+Debian = ' '
+DragonFly = ' '
+Emscripten = ' '
+EndeavourOS = ' '
+Fedora = ' '
+FreeBSD = ' '
+Garuda = '󰛓 '
+Gentoo = ' '
+HardenedBSD = '󰞌 '
+Illumos = '󰈸 '
+Kali = ' '
+Linux = ' '
+Mabox = ' '
+Macos = ' '
+Manjaro = ' '
+Mariner = ' '
+MidnightBSD = ' '
+Mint = ' '
+NetBSD = ' '
+NixOS = ' '
+Nobara = ' '
+OpenBSD = '󰈺 '
+openSUSE = ' '
+OracleLinux = '󰌷 '
+Pop = ' '
+Raspbian = ' '
+Redhat = ' '
+RedHatEnterprise = ' '
+RockyLinux = ' '
+Redox = '󰀘 '
+Solus = '󰠳 '
+SUSE = ' '
+Ubuntu = ' '
+Unknown = ' '
+Void = ' '
+Windows = '󰍲 '

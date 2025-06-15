@@ -172,6 +172,7 @@ shaderc
 smartmontools
 spotify-launcher
 sshfs
+starship
 steam
 syncthing
 telegram-desktop
