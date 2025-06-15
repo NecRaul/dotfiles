@@ -20,6 +20,7 @@ catdoc
 cava
 clipmenu
 cloudflared
+cmake
 cmatrix
 corectrl
 cowsay
@@ -54,7 +55,9 @@ firefox
 fuse2
 fzf
 gameconqueror
+gcc
 gdb
+ghc
 git
 git-lfs
 gnome-epub-thumbnailer
@@ -83,6 +86,7 @@ kdeconnect
 kdegraphics-thumbnailers
 kdesdk-thumbnailers
 konsole
+kotlin
 lf
 lib32-amdvlk
 lib32-libva
@@ -100,13 +104,16 @@ libxinerama
 linux
 linux-firmware
 lolcat
+lua
 lutris
 lxappearance
 lynx
 maim
+make
 man-db
 mediainfo
 mesa
+meson
 mkvtoolnix-gui
 mpc
 mpd
@@ -132,8 +139,10 @@ openssh
 openvpn
 pacman-contrib
 pandoc-cli
+perl
 perl-file-mimeinfo
 perl-image-exiftool
+php
 picard
 picom
 piper
@@ -155,6 +164,7 @@ qbittorrent
 qt5-graphicaleffects
 qt5ct
 ripgrep
+ruby
 rust
 samba
 sddm
