@@ -4,6 +4,7 @@
 --hidden
 --glob=!.git/*
 --smart-case
+--pretty
 
 --type-add=config:*{conf*,vim*,rc*,.json,.jsonc,.yaml,.yml}
 --type-add=docker:{docker-compose.*.yml,docker-compose.yml}
