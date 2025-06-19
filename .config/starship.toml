@@ -2,7 +2,7 @@ format = """
 ${custom.opening}\
 $username\
 ${custom.at}\
-$hostname \
+$hostname\
 $directory\
 ${custom.closing}\
 ${custom.dollar} \
@@ -54,9 +54,9 @@ format ='[$output]($style)'
 
 [hostname]
 ssh_only = false
-ssh_symbol =' '
+ssh_symbol =' 󰛳'
 style ='bold blue'
-format ='[$ssh_symbol$hostname]($style)'
+format ='[$hostname$ssh_symbol ]($style)'
 
 [directory]
 truncation_length = 1
@@ -117,7 +117,7 @@ staged ='+${count}'
 renamed ='»${count}'
 deleted ='✘${count}'
 typechanged ='${count}'
-style ='bold black'
+style ='bold white'
 format ='([\[$all_status$ahead_behind\] ]($style))'
 
 [docker_context]
