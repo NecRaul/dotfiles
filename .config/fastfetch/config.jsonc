@@ -60,7 +60,7 @@
     {
       "type": "shell",
       "key": "├─ ",
-      "keyColor": "yellow",
+      "keyColor": "blue",
     },
     {
       "type": "terminal",
