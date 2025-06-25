@@ -199,7 +199,7 @@ create_symlinks() {
         ".config/cava" \
         ".config/czkawka" \
         ".config/dunst" \
-        ".config/fastfetch"
+        ".config/fastfetch" \
         ".config/gallery-dl" \
         ".config/git" \
         ".config/gtk-2.0" \
