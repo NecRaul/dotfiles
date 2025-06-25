@@ -197,18 +197,18 @@ autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
 autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
 autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
 " Recompile dwmblocks on config edit.
-autocmd BufWritePost ~/Documents/Github/Repos/dwmblocks/config.h !cd ~/Downloads/Github/Repos/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
+autocmd BufWritePost ~/Documents/Github/Repos/dwmblocks/config.h !cd ~/Documents/Github/Repos/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid dwmblocks & }
 
 " Lua section
 lua << EOF
-  require("live-server").setup()
+  require('live-server').setup()
   require('nvim-tree').setup {
     filters = {
-      git_ignored = false,
-      custom = { '.git' },
+      git_ignored = true,
+      custom = { '.git$' },
     },
     view = {
-      side = "left",
+      side = 'left',
       width = 40,
     },
     hijack_cursor = true,
@@ -231,7 +231,7 @@ lua << EOF
     defaults = {
       file_ignore_patterns = {
           'node_modules',
-          '.git',
+          '.git$',
       },
     },
     pickers = {
@@ -284,10 +284,10 @@ lua << EOF
       enable = true,
     },
   }
-  require("nvim-autopairs").setup()
-  require("ibl").setup()
+  require('nvim-autopairs').setup()
+  require('ibl').setup()
   vim.defer_fn(function()
-    require("dooing").setup {
+    require('dooing').setup {
       window = {
         width = 75,
         height = 30,
