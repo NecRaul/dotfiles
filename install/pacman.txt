@@ -41,6 +41,7 @@ dotnet-targeting-pack
 doxygen
 dunst
 efibootmgr
+entr
 exfat-utils
 expac
 extra-cmake-modules
@@ -57,7 +58,6 @@ fzf
 gameconqueror
 gcc
 gdb
-ghc
 git
 git-lfs
 gnome-epub-thumbnailer
@@ -86,7 +86,6 @@ kdeconnect
 kdegraphics-thumbnailers
 kdesdk-thumbnailers
 konsole
-kotlin
 lf
 lib32-amdvlk
 lib32-libva
@@ -142,7 +141,6 @@ pandoc-cli
 perl
 perl-file-mimeinfo
 perl-image-exiftool
-php
 picard
 picom
 piper
@@ -201,8 +199,6 @@ vulkan-radeon
 vulkan-tools
 weechat
 wget
-wine
-winetricks
 wireless_tools
 wireplumber
 wpa_supplicant
