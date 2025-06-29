@@ -20,7 +20,7 @@ alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
 alias yt-dlp="yt-dlp --embed-metadata"
 ## Coreutil replacements
 alias ls="eza --color=auto --icons=auto --no-quotes --group-directories-first -x"
-alias ld="eza --color=auto --icons=auto --no-quotes --group-directories-first -xa | grep -E \"^\.\""
+alias ld="eza --color=auto --icons=auto --no-quotes --group-directories-first -xa | grep \"^\.\""
 alias la="eza --color=auto --icons=auto --no-quotes --group-directories-first -xa"
 alias ll="eza --color=auto --icons=auto --no-quotes --group-directories-first -xlh --git"
 alias lt="eza --color=auto --icons=auto --no-quotes --group-directories-first -xT -L 3"
