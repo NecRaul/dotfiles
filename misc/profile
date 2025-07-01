@@ -41,7 +41,6 @@ fi
 
 # Default programs
 export TERMINAL="st"
-export TERMINAL_XTERM="st-xterm"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="firefox"
