@@ -48,6 +48,14 @@ cmd extract ${{
     }
 }}
 
+cmd on-select &{{
+    lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
+
+cmd on-cd &{{
+    zoxide add "$PWD"
+}}
+
 cmd delete ${{
     clear; tput cup $(($(tput lines)/3)); tput bold
     set -f
@@ -100,6 +108,16 @@ cmd bulkrename ${{
 
     rm -f "$tmpfile_old" "$tmpfile_new"
     lf -remote "send $id unselect"
+}}
+
+cmd z %{{
+    result="$(zoxide query --exclude "$PWD" "$@" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
+}}
+
+cmd zi ${{
+    result="$(zoxide query -i | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    lf -remote "send $id cd \"$result\""
 }}
 
 # Bindings
