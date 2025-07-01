@@ -105,7 +105,7 @@ function __zoxide_zi() {
 #
 
 parent=$(ps -o comm= -p $(ps -o ppid= -p $$))
-if [ "$parent" = "tmux: server" ]; then
+if [[ "$parent" == "tmux: server" || "$parent" == "st" ]]; then
     \builtin unalias cd &>/dev/null || \builtin true
     function cd() {
         __zoxide_z "$@"
