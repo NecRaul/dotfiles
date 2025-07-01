@@ -45,6 +45,7 @@ export RESET="\[\e[0m\]"
 
 # PS1
 # export PS1="${YELLOW}[${RED}\u${PURPLE}@${BLUE}\h ${PURPLE}\W${YELLOW}]${PURPLE}\$ ${BLUE}\$(__git_branch)${YELLOW}\$(__git_state)${RESET}"
+PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD/#$HOME/\~}\007"'
 eval "$(starship init bash)"
 
 # git-neko/gist-neko
