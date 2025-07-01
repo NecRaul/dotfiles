@@ -32,9 +32,9 @@ Plug 'windwp/nvim-autopairs'
 call plug#end()
 
 " Basic settings
-set title
 set autoindent
 set bg=dark
+set notermguicolors
 set mouse=a
 set nohlsearch
 set clipboard+=unnamedplus
