@@ -135,4 +135,4 @@ map T $setsid -f $TERMINAL >/dev/null 2>&1
 map <c-t> $nsxiv -t "$(pwd)"
 map <c-y> $printf "%s" "$fx" | sed 's/.*\///' | xclip -selection clipboard
 map Y $printf "%s" "$fx" | xclip -selection clipboard
-map V push :!nvim<space>
+map V push :!$EDITOR<space>
