@@ -185,6 +185,10 @@ let g:airline_filetype_overrides = {
       \ }
 let g:airline_theme='wal'
 colorscheme wal
+highlight statusline cterm=NONE gui=NONE
+highlight statuslinenc cterm=NONE gui=NONE
+highlight tabline cterm=NONE gui=NONE
+highlight winbar cterm=NONE gui=NONE
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
 autocmd BufWritePre * let currPos = getpos('.')
