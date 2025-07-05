@@ -54,6 +54,8 @@ filetype plugin indent on
 syntax on
 
 " Keybindings
+nnoremap c "_c
+nnoremap x "_x
 nnoremap <silent><C-Left> <C-w>h
 nnoremap <silent><C-Down> <C-w>j
 nnoremap <silent><C-Up> <C-w>k
