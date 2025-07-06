@@ -64,6 +64,7 @@ export PATH=$PATH:"$HOME/.dotnet/"
 export PATH=$PATH:"$HOME/.dotnet/tools"
 export PATH=$PATH:"$HOME/.local/share/npm/bin"
 export PATH=$PATH:"$HOME/.nuget/"
+export PATH=$PATH:"$PYENV_ROOT/bin"
 export PATH=$PATH:"$XDG_DATA_HOME/go/bin"
 
 # XDG_CACHE_HOME
@@ -76,6 +77,7 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
@@ -125,6 +127,7 @@ export QT_QPA_PLATFORMTHEME="gtk2"
 source "$XDG_CONFIG_HOME/zoxide/zoxide.sh"
 source "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
 source "$XDG_CACHE_HOME/wal/colors.sh"
+eval "$(pyenv init - bash)"
 
 # Start a tmux session when bash starts
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then

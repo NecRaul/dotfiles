@@ -155,6 +155,7 @@ powerline-fonts
 ppsspp
 prettier
 pulsemixer
+pyenv
 python
 python-dbus
 python-pip
