@@ -59,6 +59,7 @@ gcc
 gdb
 git
 git-lfs
+glow
 gnome-epub-thumbnailer
 gnome-keyring
 gnumeric
