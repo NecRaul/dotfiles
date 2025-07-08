@@ -9,7 +9,6 @@ dolphin-megasync-bin
 downgrade
 duckstation-git
 epub-thumbnailer-git
-kddockwidgets-qt6
 libva-vdpau-driver
 mcomix
 megasync-bin
@@ -17,8 +16,6 @@ mpd-discord-rpc
 paru
 pcsx2-git
 pkg2zip-fork
-plutosvg
-plutovg
 pywal-discord-git
 qt6ct-kde
 rar
