@@ -27,7 +27,6 @@ cowsay
 cronie
 desmume
 dialog
-discord
 docker
 docker-compose
 docx2txt

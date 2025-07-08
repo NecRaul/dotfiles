@@ -1,6 +1,5 @@
 asdf-vm
 azuredatastudio-bin
-betterdiscord-installer
 borked3ds
 cemu
 cht.sh-git
@@ -25,5 +24,6 @@ soulseekqt
 spicetify-cli
 ttf-ms-fonts
 ventoy-bin
+vesktop
 visual-studio-code-bin
 where-is-my-sddm-theme-git
