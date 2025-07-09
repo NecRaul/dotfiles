@@ -7,7 +7,7 @@ xrdb ~/.config/x11/xresources & xrdbpid=$!
 autostart=(
     "/usr/lib/kdeconnectd"
     "steam"
-    "discord"
+    "vesktop"
     "spotify-launcher"
     "qbittorrent"
     "dunst"
