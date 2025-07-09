@@ -33,5 +33,7 @@ else
     scale="-vf scale=-1:$5"
 fi
 
-ffmpeg -i "$input" -pass 1 -metadata title="$metadata_title" -y $scale -profile:v 2 -g 300 -pix_fmt yuv420p10le -lag-in-frames 25 -threads 4 -speed 1 -auto-alt-ref 6 -row-mt 1 -tile-columns 2 -tile-rows 2 -sn -c:v libvpx-vp9 -b:v $video -crf $crf -an -f webm /dev/null
-ffmpeg -i "$input" -pass 2 -metadata title="$metadata_title" -y $scale -profile:v 2 -g 300 -pix_fmt yuv420p10le -lag-in-frames 25 -threads 4 -speed 1 -auto-alt-ref 6 -row-mt 1 -tile-columns 2 -tile-rows 2 -sn -c:v libvpx-vp9 -b:v $video -crf $crf $audio "$output.webm"
+ffmpeg_args="-y -profile:v 2 -g 300 -pix_fmt yuv420p10le -lag-in-frames 25 -threads 4 -speed 1 -auto-alt-ref 6 -row-mt 1 -tile-columns 2 -tile-rows 2 -sn"
+
+ffmpeg -i "$input" -pass 1 $ffmpeg_args -metadata title="$metadata_title" $scale -c:v libvpx-vp9 -b:v $video -crf $crf -an -f webm /dev/null
+ffmpeg -i "$input" -pass 2 $ffmpeg_args -metadata title="$metadata_title" $scale -c:v libvpx-vp9 -b:v $video -crf $crf $audio "$output.webm"
