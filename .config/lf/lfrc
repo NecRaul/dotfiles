@@ -121,7 +121,7 @@ cmd zi ${{
 }}
 
 # Bindings
-map <c-f> $lf -remote "send $id select \"$(fd . -d 5 -H -I | fzf)\""
+map <c-f> $lf -remote "send $id select \"$(fd . -L -d 5 -H -I | fzf)\""
 map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
 map H cd ~
 map g top
