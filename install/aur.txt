@@ -20,7 +20,6 @@ qt6ct-kde
 rar
 rpcs3-bin
 rusty-psn-bin
-soulseekqt
 spicetify-cli
 ttf-ms-fonts
 ventoy-bin
