@@ -41,6 +41,7 @@ set clipboard+=unnamedplus
 set updatetime=100
 set noshowmode
 set noruler
+set showtabline=0
 set laststatus=0
 set noshowcmd
 set encoding=utf-8
