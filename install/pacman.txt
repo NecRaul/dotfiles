@@ -57,6 +57,7 @@ fzf
 gameconqueror
 gcc
 gdb
+gist
 git
 git-lfs
 glow
