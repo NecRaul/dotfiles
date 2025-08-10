@@ -1,11 +1,10 @@
-
 [Default Applications]
 application/epub+zip=org.pwmt.zathura.desktop;
 application/javascript=nvim.desktop;
 application/json=nvim.desktop;
 application/pdf=org.pwmt.zathura.desktop;
 application/pgp-keys=nvim.desktop;
-application/vnd.comicbook+zip=mcomix.desktop;
+application/vnd.comicbook+zip=org.pwmt.zathura.desktop;
 application/vnd.rar=org.kde.dolphin.desktop;
 application/x-7z-compressed=org.kde.dolphin.desktop;
 application/x-bzip2=org.kde.dolphin.desktop;
@@ -52,5 +51,6 @@ video/vnd.avi=mpv.desktop;
 video/webm=mpv.desktop;
 video/x-matroska=mpv.desktop;
 x-scheme-handler/chrome=firefox.desktop;
+x-scheme-handler/discord=vesktop.desktop
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
