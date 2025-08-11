@@ -50,7 +50,28 @@ video/*)
     image "$CACHE.jpg" "$2" "$3" "$4" "$5" "$1"
     ;;
 application/*zip)
-    atool --list -- "$1"
+    case "$1" in
+    *.cbz|*.cbr)
+        CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/lf/thumb.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | cut -d' ' -f1)"
+        [ ! -f "$CACHE.jpg" ] && unzip -Z1 "$1" | \grep -iE '\.(jpe?g|png)$' | head -n1 | xargs -r unzip -p "$1" > "$CACHE.jpg"
+        [ -f "$CACHE.jpg" ] && image "$CACHE.jpg" "$2" "$3" "$4" "$5" "$1"
+        ;;
+    *)
+        atool --list -- "$1"
+        ;;
+    esac
+    ;;
+application/x-rar|application/vnd.rar)
+    case "$1" in
+    *.cbr)
+        CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/lf/thumb.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | cut -d' ' -f1)"
+        [ ! -f "$CACHE.jpg" ] && unrar lb "$1" | \grep -iE '\.(jpe?g|png)$' | sort -V | head -n1 | xargs -r -I{} unrar p -inul "$1" "{}" > "$CACHE.jpg"
+        [ -f "$CACHE.jpg" ] && image "$CACHE.jpg" "$2" "$3" "$4" "$5" "$1"
+        ;;
+    *)
+        atool --list -- "$1"
+        ;;
+    esac
     ;;
 *opendocument*)
     odt2txt "$1"
