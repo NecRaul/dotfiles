@@ -25,6 +25,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 # PATH
 export PATH
 export PATH=$PATH:"$(find $HOME/.local/bin -type d | paste -sd ':' -)"
+export PATH=$PATH:"$(find $HOME/Documents/Github/Gists -type d | paste -sd ':' -)"
 export PATH=$PATH:"$HOME/.dotnet/"
 export PATH=$PATH:"$HOME/.dotnet/tools"
 export PATH=$PATH:"$HOME/.nuget/"
