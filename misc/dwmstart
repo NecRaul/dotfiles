@@ -1,5 +1,6 @@
 #!/bin/sh
 
+dwmblocks &
 setbg
 picom --config ~/.config/picom/dwm.conf &
 xrdb ~/.config/x11/xresources & xrdbpid=$!
@@ -23,5 +24,4 @@ done >/dev/null 2>&1
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
 
 dbus-update-activation-environment --all
-ssh-agent dwm
-pgrep dwm && dwmblocks &
+exec ssh-agent dwm
