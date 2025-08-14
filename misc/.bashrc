@@ -11,7 +11,7 @@ set -o vi
 # Aliases
 alias sudo="sudo "
 alias pacman="pacman --color=auto"
-alias paru="paru --batflags='--theme base16'"
+alias paru="paru --batflags='--theme base16-256'"
 alias vim="nvim"
 alias mkdir="mkdir -p"
 alias diff="diff --color=auto"
@@ -28,7 +28,7 @@ alias lla="eza --color=auto --icons=auto --no-quotes --group-directories-first -
 alias llt="eza --color=auto --icons=auto --no-quotes --group-directories-first -xlT --git -I \".git\" -L 3"
 alias lta="eza --color=auto --icons=auto --no-quotes --group-directories-first -xaT -I \".git\" -L 3"
 alias llta="eza --color=auto --icons=auto --no-quotes --group-directories-first -xalT --git -I \".git\" -L 3"
-alias cat="bat --theme base16"
+alias cat="bat --theme base16-256"
 alias grep="rg"
 ## Wrapper scripts
 alias lf="lfub"
