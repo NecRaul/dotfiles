@@ -84,6 +84,7 @@ mutagen
 mypy_extensions
 neovim
 nh3
+nicotine-plus
 ninja
 nltk
 nodeenv
@@ -139,6 +140,7 @@ PyUpload
 pywal16==3.8.6
 pywalfox
 PyYAML
+qbittorrent-api
 readme_renderer
 regex
 rentry

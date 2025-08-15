@@ -103,6 +103,7 @@ libxft
 libxinerama
 linux
 linux-firmware
+linux-headers
 lolcat
 lua
 lutris
@@ -165,6 +166,7 @@ qbittorrent
 qt5-graphicaleffects
 qt5ct
 ripgrep
+rsync
 ruby
 rust
 samba
