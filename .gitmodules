@@ -1,91 +1,120 @@
 [submodule ".config/nvim/plugged/vim-gitgutter"]
 	path = .config/nvim/plugged/vim-gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
+	branch = main
 [submodule ".config/nvim/plugged/vim-css-color"]
 	path = .config/nvim/plugged/vim-css-color
 	url = git@github.com:ap/vim-css-color.git
+	branch = master
 [submodule ".config/nvim/plugged/dooing"]
 	path = .config/nvim/plugged/dooing
 	url = git@github.com:atiladefreitas/dooing.git
+	branch = main
 [submodule ".config/nvim/plugged/live-server.nvim"]
 	path = .config/nvim/plugged/live-server.nvim
 	url = git@github.com:barrett-ruth/live-server.nvim.git
+	branch = main
 [submodule ".config/nvim/plugged/vim-bufferline"]
 	path = .config/nvim/plugged/vim-bufferline
 	url = git@github.com:bling/vim-bufferline.git
+	branch = master
 [submodule ".config/nvim/plugged/wal.vim"]
 	path = .config/nvim/plugged/wal.vim
 	url = git@github.com:dylanaraps/wal.vim.git
+	branch = master
 [submodule ".config/nvim/plugged/indent-blankline.nvim"]
 	path = .config/nvim/plugged/indent-blankline.nvim
 	url = git@github.com:lukas-reineke/indent-blankline.nvim.git
+	branch = master
 [submodule ".config/nvim/plugged/coc.nvim"]
 	path = .config/nvim/plugged/coc.nvim
 	url = git@github.com:neoclide/coc.nvim.git
-	branch = release
+	branch = master
 [submodule ".config/nvim/plugged/plenary.nvim"]
 	path = .config/nvim/plugged/plenary.nvim
 	url = git@github.com:nvim-lua/plenary.nvim.git
+	branch = master
 [submodule ".config/nvim/plugged/telescope.nvim"]
 	path = .config/nvim/plugged/telescope.nvim
 	url = git@github.com:nvim-telescope/telescope.nvim.git
+	branch = master
 [submodule ".config/nvim/plugged/nvim-tree.lua"]
 	path = .config/nvim/plugged/nvim-tree.lua
 	url = git@github.com:nvim-tree/nvim-tree.lua.git
+	branch = master
 [submodule ".config/nvim/plugged/nvim-web-devicons"]
 	path = .config/nvim/plugged/nvim-web-devicons
 	url = git@github.com:nvim-tree/nvim-web-devicons.git
+	branch = master
 [submodule ".config/nvim/plugged/nvim-treesitter"]
 	path = .config/nvim/plugged/nvim-treesitter
 	url = git@github.com:nvim-treesitter/nvim-treesitter.git
+	branch = master
 [submodule ".config/nvim/plugged/omnisharp-vim"]
 	path = .config/nvim/plugged/omnisharp-vim
 	url = git@github.com:OmniSharp/omnisharp-vim.git
+	branch = master
 [submodule ".config/nvim/plugged/black"]
 	path = .config/nvim/plugged/black
 	url = git@github.com:psf/black.git
+	branch = main
 [submodule ".config/nvim/plugged/vim-flog"]
 	path = .config/nvim/plugged/vim-flog
 	url = git@github.com:rbong/vim-flog.git
+	branch = master
 [submodule ".config/nvim/plugged/vim-fugitive"]
 	path = .config/nvim/plugged/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+	branch = master
 [submodule ".config/nvim/plugged/vim-surround"]
 	path = .config/nvim/plugged/vim-surround
 	url = git@github.com:tpope/vim-surround.git
+	branch = master
 [submodule ".config/nvim/plugged/vim-airline"]
 	path = .config/nvim/plugged/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
+	branch = master
 [submodule ".config/nvim/plugged/nvim-autopairs"]
 	path = .config/nvim/plugged/nvim-autopairs
 	url = git@github.com:windwp/nvim-autopairs.git
+	branch = master
 [submodule ".config/tmux/plugins/tpm"]
 	path = .config/tmux/plugins/tpm
 	url = git@github.com:tmux-plugins/tpm.git
+	branch = master
 [submodule ".config/tmux/plugins/tmux-power"]
 	path = .config/tmux/plugins/tmux-power
 	url = git@github.com:wfxr/tmux-power.git
+	branch = master
 [submodule ".config/mpv"]
 	path = .config/mpv
 	url = git@github.com:NecRaul/mpv-configs.git
+	branch = main
 [submodule ".config/git"]
 	path = .config/git
 	url = git@github.com:NecRaul/gitconfig.git
+	branch = main
 [submodule ".local/bin/4chan-pywal"]
 	path = .local/bin/4chan-pywal
 	url = git@github.com:NecRaul/4chan-pywal.git
+	branch = main
 [submodule ".local/bin/kuroneko-themes"]
 	path = .local/bin/kuroneko-themes
 	url = git@github.com:NecRaul/kuroneko-themes.git
+	branch = main
 [submodule ".local/bin/pywal-kde-plasma"]
 	path = .local/bin/pywal-kde-plasma
 	url = git@github.com:NecRaul/pywal-kde-plasma.git
+	branch = main
 [submodule ".local/bin/pyupload"]
 	path = .local/bin/pyupload
 	url = git@github.com:NecRaul/pyupload.git
+	branch = master
 [submodule ".local/bin/pywal-kde"]
 	path = .local/bin/pywal-kde
 	url = git@github.com:the404devs/pywal-kde.git
+	branch = master
 [submodule ".local/bin/zathura-pywal"]
 	path = .local/bin/zathura-pywal
 	url = git@github.com:matthewlscarlson/zathura-pywal.git
+	branch = master
