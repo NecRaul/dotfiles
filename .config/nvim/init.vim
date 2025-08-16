@@ -16,7 +16,7 @@ Plug 'barrett-ruth/live-server.nvim'
 Plug 'bling/vim-bufferline'
 Plug 'dylanaraps/wal.vim'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'do': 'npm ci'}
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
