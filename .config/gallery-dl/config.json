@@ -2,7 +2,18 @@
   "extractor": {
     "base-directory": "~/Pictures/gallery-dl/",
     "parent-directory": false,
-    "postprocessors": null,
+    "postprocessors": [
+      {
+        "name": "ugoira",
+        "extension": "mp4",
+        "ffmpeg-args": [
+          "-c",
+          "copy"
+        ],
+        "libx264-prevent-odd": false,
+        "repeat-last-frame": false
+      }
+    ],
     "archive": null,
     "cookies": null,
     "cookies-update": true,
@@ -93,6 +104,10 @@
       "descriptions": "text",
       "external": false,
       "include": "gallery"
+    },
+    "gelbooru": {
+      "api-key": "",
+      "user-id": ""
     },
     "gfycat": {
       "format": [
@@ -291,7 +306,7 @@
     },
     "ytdl": {
       "format": null,
-      "forward-cookies": false,
+      "forward-cookies": true,
       "logging": true,
       "module": "yt_dlp",
       "outtmpl": null,
