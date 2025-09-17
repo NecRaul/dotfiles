@@ -104,6 +104,7 @@ libxinerama
 linux
 linux-firmware
 linux-headers
+lld
 lolcat
 lua
 lutris
@@ -141,6 +142,7 @@ openssh
 openvpn
 pacman-contrib
 pandoc-cli
+patchelf
 perl
 perl-file-mimeinfo
 perl-image-exiftool
@@ -204,6 +206,8 @@ vulkan-radeon
 vulkan-tools
 weechat
 wget
+wine
+winetricks
 wireless_tools
 wireplumber
 wpa_supplicant
@@ -224,6 +228,7 @@ xorg-xset
 xorg-xwininfo
 xorgproto
 xwallpaper
+yq
 yt-dlp
 zathura
 zathura-cb
