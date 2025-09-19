@@ -9,7 +9,7 @@ scale=$5
 output="$(basename -- "$1" | sed 's/\.[^.]*$//')"
 
 if [ "$#" -lt 3 ]; then
-    echo -e "\e[1mUsage: $script video crf vb\e[0m ab (optional) scale (optional)"
+    echo -e "\e[1mUsage: $script input crf vb\e[0m ab (optional) scale (optional)"
     exit 1
 fi
 
@@ -30,7 +30,7 @@ fi
 if [ -z "$5" ]; then
     scale=""
 else
-    scale="-vf scale=-1:$5"
+    scale="-vf scale=$5"
 fi
 
 ffmpeg_args="-y -profile:v 2 -g 300 -pix_fmt yuv420p10le -lag-in-frames 25 -threads 4 -speed 1 -auto-alt-ref 6 -row-mt 1 -tile-columns 2 -tile-rows 2 -sn"
