@@ -216,6 +216,10 @@
         "gif"
       ]
     },
+    "rule34": {
+      "api-key": "",
+      "user-id": ""
+    },
     "sankakucomplex": {
       "embeds": false,
       "videos": true
