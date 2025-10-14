@@ -47,7 +47,7 @@ if [ "$video_bitrate" != "N/A" ]; then
                 audio_bitrate=0
             fi
         fi
-        audio="-c:a libvorbis -b:a ${audio_bitrate}k"
+        audio="-c:a libopus -b:a ${audio_bitrate}k"
     else
         audio="-an"
     fi
@@ -60,7 +60,7 @@ else
         audio_bitrate=$(( overall_bitrate / 20 ))
         [ "$audio_bitrate" -lt 45 ] && audio_bitrate=45
         video="-b:v ${video_bitrate}k"
-        audio="-c:a libvorbis -b:a ${audio_bitrate}k"
+        audio="-c:a libopus -b:a ${audio_bitrate}k"
     else
         video="${overall_bitrate}k"
         audio="-an"

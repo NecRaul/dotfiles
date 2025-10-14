@@ -24,7 +24,7 @@ fi
 if [ -z "$4" ]; then
     audio="-an"
 else
-    audio="-c:a libvorbis -b:a $4"
+    audio="-c:a libopus -b:a $4"
 fi
 
 if [ -z "$5" ]; then
