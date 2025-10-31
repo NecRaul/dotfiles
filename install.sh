@@ -292,6 +292,10 @@ enable_services() {
     systemctl --user enable syncthing.service
     systemctl --user enable mpd.service
     systemctl --user enable mpd-discord-rpc.service
+    systemctl --user enable clipmenud.service
+    systemctl --user enable cloudflared.service
+    systemctl --user enable aw-qt.service
+    systemctl --user enable sunshine.service
 
     echo "==================================================="
     echo "Enabled systemd services."

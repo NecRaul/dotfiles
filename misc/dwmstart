@@ -6,7 +6,7 @@ picom --config ~/.config/picom/dwm.conf &
 xrdb ~/.config/x11/xresources & xrdbpid=$!
 
 autostart=(
-    "/usr/lib/kdeconnectd"
+    "kdeconnectd"
     "steam"
     "vesktop"
     "spotify-launcher"

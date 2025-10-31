@@ -1,10 +1,10 @@
+activitywatch-bin
 asdf-vm
 azuredatastudio-bin
 borked3ds
 cemu
 cht.sh-git
 czkawka-gui-bin
-dolphin-megasync-bin
 downgrade
 duckstation-git
 epub-thumbnailer-git
@@ -21,6 +21,7 @@ rar
 rpcs3-bin
 rusty-psn-bin
 spicetify-cli
+sunshine-bin
 ttf-ms-fonts
 ventoy-bin
 vesktop
