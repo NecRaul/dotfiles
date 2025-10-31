@@ -178,7 +178,6 @@ create_symlinks() {
     sudo cp -f $(pwd)/misc/fstab1 /etc/fstab1
     sudo cp -f $(pwd)/misc/profile /etc/profile
     sudo cp -f $(pwd)/misc/blacklist.conf /etc/modprobe.d/blacklist.conf
-    sudo cp -f $(pwd)/misc/polkit-start.service /usr/lib/systemd/user/polkit-start.service
     sudo cp -f $(pwd)/misc/dwmstart /usr/local/bin/dwmstart
     sudo cp -f $(pwd)/misc/51-necraul.rules /usr/share/polkit1/rules.d/51-necraul.rules
     sudo cp -f $(pwd)/misc/Xsetup /usr/share/sddm/scripts/Xsetup
@@ -186,6 +185,20 @@ create_symlinks() {
     sudo cp -f $(pwd)/misc/theme.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
     sudo cp -f $(pwd)/misc/dwm.desktop /usr/share/xsessions/dwm.desktop
     # # #
+    
+    # Services #
+    for service in \
+        "polkit-start.service" \
+        "syncthing.service" \
+        "mpd.service" \
+        "mpd-discord-rpc.service" \
+        "clipmenud.service" \
+        "cloudflared.service" \
+        "aw-qt.service" \
+        "sunshine.service"; do
+        sudo cp -n "$(pwd)/misc/services/${service}" "/usr/lib/systemd/user/${service}"
+    done
+    # # # # # # #
 
     # ~ #
     cp -f $(pwd)/misc/.bashrc $HOME/.bashrc
@@ -247,7 +260,7 @@ create_symlinks() {
     done
     mkdir -p "$HOME/.local/bin/pyupload-devel"
     ln -sf "$(pwd)/.local/bin/pyupload/"* "$HOME/.local/bin/pyupload-devel"
-    # # # # # #
+    # # # #
 
     # share #
     for file in $(pwd)/.local/share/applications/*; do
@@ -288,15 +301,17 @@ enable_services() {
     echo "Enabling systemd services."
 
     sudo systemctl enable sddm.service
-    systemctl --user enable polkit-start.service
-    systemctl --user enable syncthing.service
-    systemctl --user enable mpd.service
-    systemctl --user enable mpd-discord-rpc.service
-    systemctl --user enable clipmenud.service
-    systemctl --user enable cloudflared.service
-    systemctl --user enable aw-qt.service
-    systemctl --user enable sunshine.service
-
+    for service in \
+        "polkit-start.service" \
+        "syncthing.service" \
+        "mpd.service" \
+        "mpd-discord-rpc.service" \
+        "clipmenud.service" \
+        "cloudflared.service" \
+        "aw-qt.service" \
+        "sunshine.service"; do
+        systemctl --user enable "$service"
+    done
     echo "==================================================="
     echo "Enabled systemd services."
 }
