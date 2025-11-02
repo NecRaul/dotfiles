@@ -11,4 +11,4 @@ RestartSec=5
 ExecStart=/usr/bin/mpd-discord-rpc
 
 [Install]
-WantedBy=mpd.service
+WantedBy=default.target
