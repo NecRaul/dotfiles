@@ -140,5 +140,4 @@ cp -f "$XDG_CACHE_HOME/wal/colors-konsole.colorscheme" "$XDG_DATA_HOME/konsole/p
 
 sed -i 's/bg:0/bg:-1/g' "$XDG_CACHE_HOME/wal/colors.sh"
 
-killall dunst
-dunst &
+systemctl --user restart dunst.service

@@ -185,19 +185,9 @@ create_symlinks() {
     sudo cp -f $(pwd)/misc/theme.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
     sudo cp -f $(pwd)/misc/dwm.desktop /usr/share/xsessions/dwm.desktop
     # # #
-    
+
     # Services #
-    for service in \
-        "polkit-start.service" \
-        "syncthing.service" \
-        "mpd.service" \
-        "mpd-discord-rpc.service" \
-        "clipmenud.service" \
-        "cloudflared.service" \
-        "aw-qt.service" \
-        "sunshine.service"; do
-        sudo cp -n "$(pwd)/misc/services/${service}" "/usr/lib/systemd/user/${service}"
-    done
+    sudo cp -n $(pwd)/misc/services/* /usr/lib/systemd/user/
     # # # # # # #
 
     # ~ #
@@ -248,24 +238,25 @@ create_symlinks() {
 
     # bin #
     for dir in \
-        "$HOME/.local/bin/4chan-pywal" \
-        "$HOME/.local/bin/kuroneko-themes" \
-        "$HOME/.local/bin/pywal-kde" \
-        "$HOME/.local/bin/pywal-kde-plasma" \
-        "$HOME/.local/bin/scripts" \
-        "$HOME/.local/bin/statusbar" \
-        "$HOME/.local/bin/zathura-pywal"; do
-        mkdir -p "$dir"
-        ln -sf "$(pwd)/${dir#$HOME/}/"* "$dir"
+        ".local/bin/4chan-pywal" \
+        ".local/bin/kuroneko-themes" \
+        ".local/bin/pywal-kde" \
+        ".local/bin/pywal-kde-plasma" \
+        ".local/bin/scripts" \
+        ".local/bin/statusbar" \
+        ".local/bin/zathura-pywal"; do
+        mkdir -p $HOME/$dir
+        ln -sf "$(pwd)/$dir/"* "$HOME/$dir"
     done
-    mkdir -p "$HOME/.local/bin/pyupload-devel"
+    mkdir -p $HOME/.local/bin/pyupload-devel
     ln -sf "$(pwd)/.local/bin/pyupload/"* "$HOME/.local/bin/pyupload-devel"
     # # # #
 
     # share #
-    for file in $(pwd)/.local/share/applications/*; do
-        filename=$(basename "$file")
-        ln -sf "$file" $HOME/.local/share/applications/"$filename"
+
+    for app in $(pwd)/.local/share/applications/*; do
+        app_name=$(basename "$application")
+        ln -sf "$file" "$HOME/.local/share/applications/$app_name"
     done
     ln -sf $(pwd)/.local/share/kio $HOME/.local/share/kio
     ln -sf $(pwd)/.local/share/bg $HOME/.local/share/bg
@@ -301,17 +292,11 @@ enable_services() {
     echo "Enabling systemd services."
 
     sudo systemctl enable sddm.service
-    for service in \
-        "polkit-start.service" \
-        "syncthing.service" \
-        "mpd.service" \
-        "mpd-discord-rpc.service" \
-        "clipmenud.service" \
-        "cloudflared.service" \
-        "aw-qt.service" \
-        "sunshine.service"; do
-        systemctl --user enable "$service"
+    for service in $(pwd)/misc/services/*; do
+        service_name=$(basename "$service")
+        systemctl --user enable "$service_name"
     done
+
     echo "==================================================="
     echo "Enabled systemd services."
 }

@@ -1,0 +1,9 @@
+[Unit]
+Description=KDE Connect Daemon
+
+[Service]
+ExecStart=/usr/lib/kdeconnectd
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

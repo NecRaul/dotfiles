@@ -1,0 +1,9 @@
+[Unit]
+Description=Unclutter mouse cursor when idle
+
+[Service]
+ExecStart=/usr/bin/unclutter
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

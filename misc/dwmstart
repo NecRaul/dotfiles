@@ -6,14 +6,10 @@ picom --config ~/.config/picom/dwm.conf &
 xrdb ~/.config/x11/xresources & xrdbpid=$!
 
 autostart=(
-    "kdeconnectd"
     "steam"
     "vesktop"
     "spotify-launcher"
     "qbittorrent"
-    "dunst"
-    "unclutter"
-    "pipewire"
 )
 
 for program in "${autostart[@]}"; do
