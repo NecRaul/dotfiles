@@ -2,7 +2,6 @@ adobe-source-han-sans-jp-fonts
 adobe-source-han-serif-jp-fonts
 amd-ucode
 amdgpu_top
-amdvlk
 ark
 aspnet-runtime
 aspnet-targeting-pack
@@ -88,7 +87,6 @@ kdegraphics-thumbnailers
 kdesdk-thumbnailers
 konsole
 lf
-lib32-amdvlk
 lib32-libva
 lib32-mesa
 lib32-vulkan-radeon
