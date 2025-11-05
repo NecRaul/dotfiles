@@ -24,8 +24,12 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # PATH
 export PATH
-export PATH=$PATH:"$(find $HOME/.local/bin -type d | paste -sd ':' -)"
-export PATH=$PATH:"$(find $HOME/Documents/Github/Gists -type d | paste -sd ':' -)"
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH=$PATH:"$(find "$HOME/.local/bin" -type d ! -name '.*' | paste -sd ':' -)"
+fi
+if [ -d "$HOME/Documents/Github/Gists" ]; then
+    export PATH=$PATH:"$(find "$HOME/Documents/Github/Gists" -type d ! -name '.*' | paste -sd ':' -)"
+fi
 export PATH=$PATH:"$HOME/.dotnet/"
 export PATH=$PATH:"$HOME/.dotnet/tools"
 export PATH=$PATH:"$HOME/.nuget/"
