@@ -106,6 +106,7 @@ install_pip_packages() {
     # optional
     # pip install "$(pwd)/.local/bin/pyupload/"
     # pip install "$(pwd)/.local/bin/pywal-kde/"
+    # pip install "$(pwd)/.local/bin/unrpyc/"
     echo "==================================================="
     echo "Finished installing pip packages."
     echo "$installed_packages/$attempted_packages installed."

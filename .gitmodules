@@ -110,6 +110,10 @@
 	path = .local/bin/pywal-kde
 	url = git@github.com:the404devs/pywal-kde.git
 	branch = master
+[submodule ".local/bin/unrpyc"]
+	path = .local/bin/unrpyc
+	url = git@github.com:CensoredUsername/unrpyc.git
+	branch = master
 [submodule ".local/bin/zathura-pywal"]
 	path = .local/bin/zathura-pywal
 	url = git@github.com:matthewlscarlson/zathura-pywal.git
