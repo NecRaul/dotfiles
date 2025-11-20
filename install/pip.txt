@@ -29,7 +29,6 @@ dill
 discid
 Distance
 distlib
-distro
 docopt
 docutils
 evdev
@@ -65,7 +64,6 @@ keyring
 kiwisolver
 lain_shorten
 lain_upload
-libtorrent
 lit
 lxml
 Markdown
