@@ -10,8 +10,6 @@ set -o vi
 
 # Aliases
 alias sudo="sudo "
-alias pacman="pacman --color=auto"
-alias paru="paru --batflags='--theme base16-256'"
 alias vim="nvim"
 alias mkdir="mkdir -p"
 alias diff="diff --color=auto"
@@ -19,15 +17,15 @@ alias pynps="pynps -c ps3 -r usa"
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
 alias yt-dlp="yt-dlp --embed-metadata"
 ## Coreutil replacements
-alias ls="eza --color=auto --icons=auto --no-quotes --group-directories-first -x"
-alias ld="eza --color=auto --icons=auto --no-quotes --group-directories-first -xa | grep \"^\.\""
-alias la="eza --color=auto --icons=auto --no-quotes --group-directories-first -xa"
-alias ll="eza --color=auto --icons=auto --no-quotes --group-directories-first -xl --git"
-alias lt="eza --color=auto --icons=auto --no-quotes --group-directories-first -xT -L 3"
-alias lla="eza --color=auto --icons=auto --no-quotes --group-directories-first -xal --git"
-alias llt="eza --color=auto --icons=auto --no-quotes --group-directories-first -xlT --git -I \".git\" -L 3"
-alias lta="eza --color=auto --icons=auto --no-quotes --group-directories-first -xaT -I \".git\" -L 3"
-alias llta="eza --color=auto --icons=auto --no-quotes --group-directories-first -xalT --git -I \".git\" -L 3"
+alias ls="eza --icons=auto --no-quotes --group-directories-first -x"
+alias ld="eza --icons=auto --no-quotes --group-directories-first -xa | grep \"^\.\""
+alias la="eza --icons=auto --no-quotes --group-directories-first -xa"
+alias ll="eza --icons=auto --no-quotes --group-directories-first -xl --git"
+alias lt="eza --icons=auto --no-quotes --group-directories-first -xT -L 3"
+alias lla="eza --icons=auto --no-quotes --group-directories-first -xal --git"
+alias llt="eza --icons=auto --no-quotes --group-directories-first -xlT --git -I \".git\" -L 3"
+alias lta="eza --icons=auto --no-quotes --group-directories-first -xaT -I \".git\" -L 3"
+alias llta="eza --icons=auto --no-quotes --group-directories-first -xalT --git -I \".git\" -L 3"
 alias cat="bat --theme base16-256"
 alias grep="rg"
 ## Wrapper scripts
@@ -47,6 +45,7 @@ export RESET="\[\e[0m\]"
 # export PS1="${YELLOW}[${RED}\u${PURPLE}@${BLUE}\h ${PURPLE}\W${YELLOW}]${PURPLE}\$ ${BLUE}\$(__git_branch)${YELLOW}\$(__git_state)${RESET}"
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD/#$HOME/\~}\007"'
 eval "$(starship init bash)"
+eval "$(glow completion bash)"
 
 # git-neko/gist-neko
 export GITHUB_USERNAME=gu
