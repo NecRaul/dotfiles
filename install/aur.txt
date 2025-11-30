@@ -6,7 +6,7 @@ cemu
 cht.sh-git
 czkawka-gui-bin
 downgrade
-duckstation-git
+duckstation-qt-bin
 epub-thumbnailer-git
 libva-vdpau-driver
 mcomix

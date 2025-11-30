@@ -81,6 +81,7 @@ msgpack
 mutagen
 mypy_extensions
 neovim
+nftables
 nh3
 nicotine-plus
 ninja

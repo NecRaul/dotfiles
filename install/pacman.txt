@@ -79,7 +79,6 @@ iptraf-ng
 iwd
 jdk-openjdk
 jq
-kcmutils
 kdeconnect
 kdegraphics-thumbnailers
 kdesdk-thumbnailers
