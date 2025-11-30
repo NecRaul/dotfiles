@@ -40,7 +40,7 @@ install_pacman_packages() {
     echo "==================================================="
     echo "Installing pacman packages."
     echo "==================================================="
-    # Note: pacman -Qeq gives explicitly installed pacman packages
+    # Note: pacman -Qenq gives explicitly installed pacman packages
     while IFS= read -r package || [ -n "$package" ]; do
         if ! pacman -Qq "$package" &>/dev/null; then
             ((attempted_packages++))
@@ -60,7 +60,7 @@ install_aur_packages() {
     echo "==================================================="
     echo "Installing AUR packages."
     echo "==================================================="
-    # Note: pacman -Qmq gives explicitly installed AUR packages
+    # Note: pacman -Qemq gives explicitly installed AUR packages
     while IFS= read -r package || [ -n "$package" ]; do
         if ! pacman -Qm "$package" &>/dev/null; then
             ((attempted_packages++))
@@ -198,66 +198,27 @@ create_symlinks() {
     # # #
 
     # config #
-    for item in \
-        ".config/blesh" \
-        ".config/cava" \
-        ".config/czkawka" \
-        ".config/dunst" \
-        ".config/fastfetch" \
-        ".config/gallery-dl" \
-        ".config/git" \
-        ".config/gtk-2.0" \
-        ".config/gtk-3.0" \
-        ".config/gtk-4.0" \
-        ".config/lf" \
-        ".config/mpd" \
-        ".config/mpv" \
-        ".config/ncmpcpp" \
-        ".config/npm" \
-        ".config/nsxiv" \
-        ".config/nvim" \
-        ".config/picom" \
-        ".config/pip" \
-        ".config/pyNPS" \
-        ".config/python" \
-        ".config/qt6ct" \
-        ".config/ripgrep" \
-        ".config/shell" \
-        ".config/tmux" \
-        ".config/wal" \
-        ".config/weechat" \
-        ".config/wget" \
-        ".config/wireplumber" \
-        ".config/x11" \
-        ".config/zathura" \
-        ".config/zoxide" \
-        ".config/mimeapps.list" \
-        ".config/starship.toml"; do
-        ln -sf "$(pwd)/$item" "$HOME/$item"
+    for item in $(pwd)/.config/*; do
+        item_name=$(basename "$item")
+        ln -sf "$item" "$HOME/.config/$item_name"
     done
     # # # # # #
 
     # bin #
-    for dir in \
-        ".local/bin/4chan-pywal" \
-        ".local/bin/kuroneko-themes" \
-        ".local/bin/pywal-kde" \
-        ".local/bin/pywal-kde-plasma" \
-        ".local/bin/scripts" \
-        ".local/bin/statusbar" \
-        ".local/bin/zathura-pywal"; do
-        mkdir -p $HOME/$dir
-        ln -sf "$(pwd)/$dir/"* "$HOME/$dir"
+    for dir in $(pwd)/.local/bin/*; do
+        dir_name = $(basename "$dir")
+        [ "$dir_name" = "pyupload" ] && continue
+        mkdir -p "$HOME/.local/bin/$dir_name"
+        ln -sf "$dir/"* "$HOME/.local/bin/$dir_name"
     done
     mkdir -p $HOME/.local/bin/pyupload-devel
     ln -sf "$(pwd)/.local/bin/pyupload/"* "$HOME/.local/bin/pyupload-devel"
     # # # #
 
     # share #
-
     for app in $(pwd)/.local/share/applications/*; do
         app_name=$(basename "$application")
-        ln -sf "$file" "$HOME/.local/share/applications/$app_name"
+        ln -sf "$app" "$HOME/.local/share/applications/$app_name"
     done
     ln -sf $(pwd)/.local/share/kio $HOME/.local/share/kio
     ln -sf $(pwd)/.local/share/bg $HOME/.local/share/bg
