@@ -1,0 +1,51 @@
+MenuBar=Disabled
+
+[CompactMode]
+IconSize=48
+
+[ContentDisplay]
+UseShortRelativeDates=false
+
+[DetailsMode]
+IconSize=32
+PreviewSize=32
+RightPadding=15
+
+[ExtractDialog]
+2 screens: Height=480
+2 screens: Width=858
+
+[General]
+BrowseThroughArchives=true
+CloseActiveSplitView=false
+ConfirmClosingMultipleTabs=false
+EditableUrl=true
+FilterBar=true
+RememberOpenedTabs=false
+ShowFullPathInTitlebar=true
+ShowStatusBar=FullWidth
+ShowZoomSlider=true
+UseTabForSwitchingSplitView=true
+Version=202
+ViewPropsTimestamp=2024,3,10,13,10,1.69
+
+[IconsMode]
+IconSize=96
+PreviewSize=96
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[PreviewSettings]
+Plugins=ffmpegthumbnailer,appimagethumbnail,audiothumbnail,blenderthumbnail,comicbookthumbnail,cursorthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,fontthumbnail,pothumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,gnome-mobi-thumbnailer,mobithumbnail,opendocumentthumbnail,gsthumbnail,rawthumbnail,svgthumbnail,textthumbnail,ffmpegthumbs,gdk-pixbuf-thumbnailer,gsf-office
+
+[Search]
+Location=Everywhere
+
+[VersionControl]
+enabledPlugins=Git
+
+[ViewPropertiesDialog]
+2 screens: Height=334
+2 screens: Width=379
