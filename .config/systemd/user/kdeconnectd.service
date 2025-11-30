@@ -2,7 +2,7 @@
 Description=KDE Connect Daemon
 
 [Service]
-ExecStart=/usr/lib/kdeconnectd
+ExecStart=/usr/bin/kdeconnectd
 Restart=on-failure
 
 [Install]

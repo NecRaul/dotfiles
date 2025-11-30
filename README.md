@@ -17,7 +17,7 @@ source ~/.bashrc
 I excluded copying the sddm configuration, because it would cause a loop on my end. After rebooting your computer and logging in, to set the sddm settings run the command below (from this repo's root).
 
 ```Bash
-sudo cp -f $(pwd)/misc/sddm.conf /etc/sddm.conf
+sudo cp -f $(pwd)/etc/sddm.conf /etc/sddm.conf
 ```
 
 I would also recommend uninstalling and reinstalling `zathura-pdf-mupdf` because `--noconfirm` flag automatically picks `afr` as the default `tessdata` (OCR data) language.
@@ -30,4 +30,4 @@ sudo pacman -S zathura-pdf-mupdf
 
 ### fstab
 
-The `fstab1` file in the `misc` directory is a special case and isn't meant to replace anything. It's just a configuration of how I mount my hard drives after the install.
+The `fstab1` file in the `etc` directory is a special case and isn't meant to replace anything. It's just a configuration of how I mount my hard drives after the install.

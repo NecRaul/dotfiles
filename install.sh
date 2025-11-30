@@ -175,33 +175,24 @@ create_symlinks() {
     echo "Creating symlinks."
 
     # / #
-    sudo cp -f $(pwd)/misc/environment /etc/environment
-    sudo cp -f $(pwd)/misc/fstab1 /etc/fstab1
-    sudo cp -f $(pwd)/misc/profile /etc/profile
-    sudo cp -f $(pwd)/misc/blacklist.conf /etc/modprobe.d/blacklist.conf
-    sudo cp -f $(pwd)/misc/dwmstart /usr/local/bin/dwmstart
-    sudo cp -f $(pwd)/misc/51-necraul.rules /usr/share/polkit1/rules.d/51-necraul.rules
-    sudo cp -f $(pwd)/misc/Xsetup /usr/share/sddm/scripts/Xsetup
-    sudo cp -f $(pwd)/misc/Background.png /usr/share/sddm/themes/where_is_my_sddm_theme/Background.png
-    sudo cp -f $(pwd)/misc/theme.conf /usr/share/sddm/themes/where_is_my_sddm_theme/theme.conf
-    sudo cp -f $(pwd)/misc/dwm.desktop /usr/share/xsessions/dwm.desktop
+    [ -f /etc/sddm.conf ] && sudo cp /etc/sddm.conf /etc/sddm.conf.bak
+    sudo cp -rf "$(pwd)"/{etc,usr} /
+    [ -f /etc/sddm.conf.bak ] && sudo mv /etc/sddm.conf.bak /etc/sddm.conf
     # # #
 
-    # Services #
-    sudo cp -n $(pwd)/misc/services/* /usr/lib/systemd/user/
-    # # # # # # #
-
     # ~ #
-    cp -f $(pwd)/misc/.bashrc $HOME/.bashrc
-    cp -f $(pwd)/misc/.pypirc $HOME/.pypirc
-    ln -sf $(pwd)/misc/.prettierrc $HOME/.prettierrc
+    cp -rf --remove-destination "$(pwd)/home/". "$HOME"
+    ln -sf "$(pwd)/home/.prettierrc" "$HOME/.prettierrc"
     # # #
 
     # config #
     for item in $(pwd)/.config/*; do
         item_name=$(basename "$item")
+        [ "$item_name" = "systemd" ] && continue
         ln -sf "$item" "$HOME/.config/$item_name"
     done
+    mkdir -p $HOME/.config/systemd/user
+    ln -sf "$(pwd)/.config/systemd/user/"* "$HOME/.config/systemd/user"
     # # # # # #
 
     # bin #
@@ -254,7 +245,7 @@ enable_services() {
     echo "Enabling systemd services."
 
     sudo systemctl enable sddm.service
-    for service in $(pwd)/misc/services/*; do
+    for service in $(pwd)/.config/systemd/user/*; do
         service_name=$(basename "$service")
         systemctl --user enable "$service_name"
     done
