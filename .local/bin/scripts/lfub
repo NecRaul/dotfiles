@@ -7,6 +7,7 @@
 [ -f "$HOME/.cache/wal/colors.sh" ] && . "$HOME/.cache/wal/colors.sh"
 
 export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height=75% --layout=reverse --info=inline --border --margin=1 --padding=1"
+export PYTHONWARNINGS="ignore::SyntaxWarning"
 
 set -e
 
