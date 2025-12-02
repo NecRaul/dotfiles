@@ -24,9 +24,11 @@ cmatrix
 corectrl
 cowsay
 cronie
+deno
 desmume
 dialog
 docker
+docker-buildx
 docker-compose
 docx2txt
 dolphin
@@ -40,7 +42,7 @@ doxygen
 dunst
 efibootmgr
 entr
-exfat-utils
+exfatprogs
 expac
 extra-cmake-modules
 eza

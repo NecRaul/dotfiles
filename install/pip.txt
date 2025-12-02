@@ -8,7 +8,7 @@ beautifulsoup4
 better-exceptions
 black
 blinker
-Brotli
+brotli
 bs4
 build
 certifi
@@ -182,4 +182,5 @@ wheel
 xmltodict
 yq
 yt-dlp
+yt-dlp-ejs
 zipp
