@@ -16,6 +16,8 @@ alias diff="diff --color=auto"
 alias pynps="pynps -c ps3 -r usa"
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
 alias yt-dlp="yt-dlp --embed-metadata"
+alias dps="docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}'"
+alias dpsp="docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}\t{{.Ports}}'"
 ## Coreutil replacements
 alias ls="eza --icons=auto --no-quotes --group-directories-first -x"
 alias ld="eza --icons=auto --no-quotes --group-directories-first -xa | grep \"^\.\""
