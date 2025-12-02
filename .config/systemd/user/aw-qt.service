@@ -3,6 +3,7 @@ Description=ActivityWatch Qt GUI
 After=graphical-session.target
 
 [Service]
+ExecStartPre=/bin/sleep 10
 ExecStart=/usr/bin/aw-qt --no-gui
 Restart=on-failure
 RestartSec=5
