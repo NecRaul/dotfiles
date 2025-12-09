@@ -9,6 +9,7 @@ endif
 
 " Plug
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+Plug 'ActivityWatch/aw-watcher-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-css-color'
 Plug 'barrett-ruth/live-server.nvim'
