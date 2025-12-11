@@ -2,6 +2,7 @@ adobe-source-han-sans-jp-fonts
 adobe-source-han-serif-jp-fonts
 amd-ucode
 amdgpu_top
+android-tools
 ark
 aspnet-runtime
 aspnet-targeting-pack
@@ -12,6 +13,7 @@ bash-completion
 bat
 bc
 bind
+bitwarden
 breeze
 breeze-gtk
 breeze-icons
@@ -225,6 +227,7 @@ xorgproto
 xwallpaper
 yq
 yt-dlp
+yt-dlp-ejs
 zathura
 zathura-cb
 zathura-pdf-mupdf
