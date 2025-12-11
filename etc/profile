@@ -51,6 +51,9 @@ export VISUAL="nvim"
 export BROWSER="firefox"
 export MUSIC_DIR="$HOME/Music"
 
+# Misc
+export QT_QPA_PLATFORMTHEME=qt6ct
+
 # Unload our profile API functions
 unset -f append_path
 
