@@ -9,7 +9,6 @@ autostart=(
     "steam"
     "vesktop"
     "spotify-launcher"
-    "qbittorrent"
 )
 
 for program in "${autostart[@]}"; do
