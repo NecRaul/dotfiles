@@ -120,9 +120,6 @@ export NSXIV_OPTS="-aqb"
 # Mozilla smooth scrolling/touchpads
 export MOZ_USE_XINPUT2="1"
 
-# QT Theme
-export QT_QPA_PLATFORMTHEME="gtk2"
-
 # External sources for bashrc
 # source "$XDG_CONFIG_HOME/git/git-prompt.sh"
 source "$XDG_CONFIG_HOME/zoxide/zoxide.sh"
