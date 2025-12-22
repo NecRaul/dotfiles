@@ -19,6 +19,7 @@ breeze-gtk
 breeze-icons
 catdoc
 cava
+chromium
 clipmenu
 cloudflared
 cmake
@@ -106,7 +107,6 @@ lld
 lolcat
 lua
 lxappearance
-lynx
 maim
 make
 man-db
