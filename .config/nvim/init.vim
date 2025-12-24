@@ -142,6 +142,10 @@ autocmd BufWritePre *.py execute ':Black'
 " Prettier format on save for appropriate files
 autocmd BufWritePre *.js,*.jsx,*.vue,*.mjs,*.ts,*.tsx,*.json,*.css,*.scss,*.html,*.yaml CocCommand prettier.formatFile
 
+" Language providers
+let g:loaded_perl_provider = 0
+let g:loaded_ruby_provider = 0
+
 " Airline settings
 let g:bufferline_echo = 0
 let g:airline#extensions#branch#enabled = 1
