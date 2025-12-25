@@ -89,6 +89,7 @@ kdeconnect
 kdegraphics-thumbnailers
 kdesdk-thumbnailers
 konsole
+kotlin
 lf
 lib32-libva
 lib32-mesa
@@ -168,14 +169,18 @@ ripgrep
 rsync
 ruby
 rust
+rust-src
 samba
 sddm
 shaderc
+shellcheck
+shfmt
 smartmontools
 spotify-launcher
 sshfs
 starship
 steam
+stylua
 syncthing
 telegram-desktop
 texlive-basic
@@ -219,6 +224,7 @@ xorg-setxkbmap
 xorg-xauth
 xorg-xfd
 xorg-xkbcomp
+xorg-xlsclients
 xorg-xprop
 xorg-xrandr
 xorg-xrdb
