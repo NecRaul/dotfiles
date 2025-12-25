@@ -53,6 +53,20 @@ set nocompatible
 filetype plugin indent on
 syntax on
 
+" Clipboard
+let g:clipboard = {
+  \   'name': 'xsel',
+  \   'copy': {
+  \      '+': 'xsel --nodetach -i -b',
+  \      '*': 'xsel --nodetach -i -p',
+  \    },
+  \   'paste': {
+  \      '+': 'xsel -o -b',
+  \      '*': 'xsel -o -p',
+  \   },
+  \   'cache_enabled': 1,
+  \ }
+
 " Keybindings
 nnoremap c "_c
 nnoremap x "_x

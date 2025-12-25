@@ -5,7 +5,7 @@ Description=Clipmenu daemon
 ExecStart=/usr/bin/clipmenud
 Restart=always
 RestartSec=500ms
-
+Environment=CM_SELECTIONS=clipboard
 MemoryDenyWriteExecute=yes
 NoNewPrivileges=yes
 ProtectControlGroups=yes
