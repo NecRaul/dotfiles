@@ -70,18 +70,18 @@ let g:clipboard = {
 " Keybindings
 nnoremap c "_c
 nnoremap x "_x
-nnoremap <silent><C-Left> <C-w>h
-nnoremap <silent><C-Down> <C-w>j
-nnoremap <silent><C-Up> <C-w>k
-nnoremap <silent><C-Right> <C-w>l
+nnoremap <silent><C-h> <C-w>h
+nnoremap <silent><C-j> <C-w>j
+nnoremap <silent><C-k> <C-w>k
+nnoremap <silent><C-l> <C-w>l
 nnoremap <C-n> :edit<Space>
 nnoremap <leader>q :w<CR>:bd<CR>:bn<CR>
 nnoremap <leader>Q :bd!<CR>:bn<CR>
-nnoremap <silent><leader><Left> :bp<CR>
-nnoremap <silent><leader><Right> :bn<CR>
+nnoremap <silent><leader>h :bp<CR>
+nnoremap <silent><leader>l :bn<CR>
 nnoremap <silent><C-t> :NvimTreeToggle<CR>
 nnoremap <silent><C-g> :GitGutterDiffOrig<CR>
-nnoremap <silent><C-l> :Flog<CR>
+nnoremap <silent><C-b> :Flog<CR>
 nnoremap <silent><C-o> :setlocal spell! spelllang=en_us<CR>
 nnoremap <silent><C-f> :Telescope find_files<CR>
 nnoremap <silent><C-s> :Telescope live_grep<CR>
