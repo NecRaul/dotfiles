@@ -112,32 +112,43 @@ endfunction
 " CoC Extensions
 let g:coc_global_extensions =
   \[
+  \  '@yaegassy/coc-nginx',
   \  '@yaegassy/coc-volar',
+  \  'coc-clang-format-style-options',
   \  'coc-clangd',
+  \  'coc-cmake',
   \  'coc-css',
   \  'coc-cssmodules',
   \  'coc-docker',
   \  'coc-eslint',
+  \  'coc-gist',
+  \  'coc-git',
   \  'coc-go',
+  \  'coc-highlight',
   \  'coc-html',
   \  'coc-html-css-support',
   \  'coc-java',
   \  'coc-json',
   \  'coc-lua',
+  \  'coc-markdownlint',
   \  'coc-prettier',
   \  'coc-pyright',
+  \  'coc-rust-analyzer',
   \  'coc-sh',
   \  'coc-sql',
+  \  'coc-stylua',
+  \  'coc-toml',
   \  'coc-tsserver',
   \  'coc-xml',
-  \  'coc-yaml'
+  \  'coc-yaml',
+  \  'coc-zig'
   \]
 
 " OmniSharp
 let g:OmniSharp_server_use_net6 = 1
 
-" Prettier format on save for appropriate files
-autocmd BufWritePre *.js,*.jsx,*.vue,*.mjs,*.ts,*.tsx,*.json,*.css,*.scss,*.html,*.yaml CocCommand prettier.formatFile
+" Markdown formatting
+autocmd BufWritePre *.md silent! call CocAction('runCommand', 'markdownlint.fixAll')
 
 " Language providers
 let g:loaded_perl_provider = 0
@@ -256,10 +267,10 @@ lua << EOF
       'c_sharp',
       'cmake',
       'comment',
+      'cpp',
       'css',
       'diff',
       'dockerfile',
-      'gdscript',
       'git_config',
       'git_rebase',
       'gitattributes',
@@ -274,15 +285,21 @@ lua << EOF
       'java',
       'javascript',
       'json',
+      'json5',
       'lua',
       'make',
       'markdown',
       'python',
       'requirements',
+      'rust',
       'sql',
+      'toml',
+      'tsx',
       'typescript',
+      'vue',
       'xml',
-      'yaml'
+      'yaml',
+      'zig'
     },
     auto_install = true,
     highlight = {
