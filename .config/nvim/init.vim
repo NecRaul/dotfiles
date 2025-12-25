@@ -23,7 +23,6 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'OmniSharp/omnisharp-vim'
-Plug 'psf/black'
 Plug 'rbong/vim-flog'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -137,8 +136,6 @@ let g:coc_global_extensions =
 " OmniSharp
 let g:OmniSharp_server_use_net6 = 1
 
-" Black format on save for Python
-autocmd BufWritePre *.py execute ':Black'
 " Prettier format on save for appropriate files
 autocmd BufWritePre *.js,*.jsx,*.vue,*.mjs,*.ts,*.tsx,*.json,*.css,*.scss,*.html,*.yaml CocCommand prettier.formatFile
 

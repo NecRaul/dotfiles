@@ -54,10 +54,6 @@
 	path = .config/nvim/plugged/omnisharp-vim
 	url = git@github.com:OmniSharp/omnisharp-vim.git
 	branch = master
-[submodule ".config/nvim/plugged/black"]
-	path = .config/nvim/plugged/black
-	url = git@github.com:psf/black.git
-	branch = main
 [submodule ".config/nvim/plugged/vim-flog"]
 	path = .config/nvim/plugged/vim-flog
 	url = git@github.com:rbong/vim-flog.git
