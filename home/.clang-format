@@ -1,0 +1,31 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 8
+UseTab: Never
+ColumnLimit: 120
+
+BreakBeforeBraces: Custom
+BraceWrapping:
+  BeforeElse: true
+  BeforeCatch: true
+  BeforeWhile: true
+InsertBraces: true
+InsertNewlineAtEOF: true
+
+AllowShortBlocksOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortCaseExpressionOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+
+KeepEmptyLines:
+  AtStartOfFile: false
+  AtStartOfBlock: false
+  AtEndOfFile: false
+MaxEmptyLinesToKeep: 1
+
+PointerAlignment: Right
+IndentExternBlock: Indent
+NamespaceIndentation: All
+BreakAfterAttributes: Always
+AlignArrayOfStructures: Left
+AlignConsecutiveMacros: Consecutive

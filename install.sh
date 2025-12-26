@@ -183,6 +183,8 @@ create_symlinks() {
     # ~ #
     cp -rf --remove-destination "$(pwd)/home/". "$HOME"
     ln -sf "$(pwd)/home/.prettierrc" "$HOME/.prettierrc"
+    ln -sf "$(pwd)/home/.clang-format" "$HOME/.clang-format"
+    ln -sf "$(pwd)/home/.editorconfig" "$HOME/.editorconfig"
     # # #
 
     # config #
