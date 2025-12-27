@@ -12,19 +12,19 @@
     format = "<b>%s</b>\n%b"
 
 [urgency_low]
-    background = "#color0"
-    foreground = "#color8"
-    frame_color = "#color11"
+    background = "{color0}"
+    foreground = "{color8}"
+    frame_color = "{color11}"
     timeout = 3
 
 [urgency_normal]
-    background = "#color0"
-    foreground = "#color8"
-    frame_color = "#color11"
+    background = "{color0}"
+    foreground = "{color8}"
+    frame_color = "{color11}"
     timeout = 5
 
 [urgency_critical]
-    background = "#color0"
-    foreground = "#color8"
-    frame_color = "#color11"
+    background = "{color0}"
+    foreground = "{color8}"
+    frame_color = "{color11}"
     timeout = 10

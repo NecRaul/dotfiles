@@ -1,143 +1,41 @@
 #!/bin/bash
 
-source "$XDG_CACHE_HOME/wal/colors.sh"
+# Xresources
+if [[ -x "$(command -v xrdb)" ]]; then
+    cp -f "$XDG_CACHE_HOME/wal/colors.Xresources" "$XDG_CONFIG_HOME/x11/xresources"
+    xrdb "$XDG_CONFIG_HOME/x11/xresources"
+fi
 
-if [[ -x "$(which zathura)" && -x "$(which zathura-pywal)" ]]; then
+# Tmux
+if [[ -x "$(command -v tmux)" ]]; then
+    cp -f "$XDG_CACHE_HOME/wal/colors-tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
+    tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf" 2>/dev/null
+fi
+
+# Qt / KDE Colors
+if [[ -x "$(command -v qt6ct)" ]]; then
+    mkdir -p "$XDG_DATA_HOME/color-schemes"
+    cp -f "$XDG_CACHE_HOME/wal/colors-qt.colors" "$XDG_DATA_HOME/color-schemes/colors-qt.colors"
+fi
+
+# Konsole
+if [[ -x "$(command -v konsole)" ]]; then
+    mkdir -p "$XDG_DATA_HOME/konsole"
+    cp -f "$XDG_CACHE_HOME/wal/colors-konsole.colorscheme" "$XDG_DATA_HOME/konsole/colors-konsole.colorscheme"
+fi
+
+# Dunst
+if [[ -x "$(command -v dunst)" ]]; then
+    cp -f "$XDG_CACHE_HOME/wal/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
+    systemctl --user restart dunst.service
+fi
+
+# Zathura
+if [[ -x "$(command -v zathura-pywal)" ]]; then
     zathura-pywal -a 0.8
 fi
 
-if [[ -x "$(which dunst)" ]]; then
-    dunstconf="$XDG_CONFIG_HOME/dunst/dunstrc"
-    dunst_template="$XDG_CONFIG_HOME/dunst/dunstrc.template"
-    mv -n "$dunstconf" "$dunstconf.bak"
-    cp -f "$dunst_template" "$dunstconf"
-    sed -i 's/#color0/'"$color0"'/g' "$dunstconf"
-    sed -i 's/#color8/'"$color8"'/g' "$dunstconf"
-    sed -i 's/#color11/'"$color11"'/g' "$dunstconf"
-fi
-
-if [[ -x "$(which pywalfox)" ]]; then
-    pywalfox update
-fi
-
-if [[ -x "$(which pywal-discord)" ]]; then
-    pywal-discord
-fi
-
-if [[ -x "$(which 4chan-pywal.sh)" ]]; then
-    4chan-pywal.sh
-fi
-
-xresources="$XDG_CONFIG_HOME/x11/xresources"
-
-cp -f "$XDG_CACHE_HOME/wal/colors.Xresources" $xresources
-
-cat <<EOF >>$xresources
-
-Xcursor.size: 24
-EOF
-
-xrdb $xresources
-
-xcolor4=$(grep -E '^\*.color4:' $xresources | cut -d':' -f2 | tr -d ' ')
-sed -i "s/set -g @tmux_power_theme '[^']*'/set -g @tmux_power_theme '$xcolor4'/" $XDG_CONFIG_HOME/tmux/tmux.conf
-
-get_xres_rgb() {
-    hex=$(xrdb -query | grep "$1" | awk '{print $2}' | cut -d# -f2)
-    printf "%d,%d,%d\n" "0x${hex:0:2}" "0x${hex:2:2}" "0x${hex:4:2}"
-}
-
-[[ -d "$XDG_DATA_HOME/color-schemes" ]] || mkdir -pv "$XDG_DATA_HOME/color-schemes"
-
-output="$(
-    cat <<THEME
-[ColorEffects:Disabled]
-Color=$(get_xres_rgb color9:)
-
-[ColorEffects:Inactive]
-Color=$(get_xres_rgb color9:)
-
-[Colors:Button]
-BackgroundNormal=$(get_xres_rgb color8:)
-ForegroundNormal=$(get_xres_rgb background:)
-
-[Colors:Complementary]
-
-[Colors:Selection]
-# BackgroundAlternate=
-BackgroundNormal=$(get_xres_rgb color2:)
-# DecorationFocus=
-# DecorationHover=
-# ForegroundActive=
-# ForegroundInactive=
-# ForegroundLink=
-# ForegroundNegative=
-# ForegroundNeutral=
-ForegroundNormal=$(get_xres_rgb foreground:)
-# ForegroundPositive=
-# ForegroundVisited=
-
-[Colors:Tooltip]
-# BackgroundAlternate=
-BackgroundNormal=$(get_xres_rgb color2:)
-# DecorationFocus=
-# DecorationHover=
-# ForegroundActive=
-# ForegroundInactive=
-# ForegroundLink=
-# ForegroundNegative=
-# ForegroundNeutral=
-ForegroundNormal=$(get_xres_rgb foreground:)
-# ForegroundPositive=
-# ForegroundVisited=
-
-[Colors:View]
-BackgroundAlternate=$(get_xres_rgb color0:)
-BackgroundNormal=$(get_xres_rgb color0:)
-# DecorationFocus=
-# DecorationHover=
-# ForegroundActive=
-# ForegroundInactive=
-# ForegroundLink=
-# ForegroundNegative=
-# ForegroundNeutral=
-ForegroundNormal=$(get_xres_rgb foreground:)
-# ForegroundPositive=
-# ForegroundVisited=
-
-[Colors:Window]
-# BackgroundAlternate=
-BackgroundNormal=$(get_xres_rgb color0:)
-# DecorationFocus=
-# DecorationHover=
-# ForegroundActive=
-# ForegroundInactive=
-# ForegroundLink=
-# ForegroundNegative=
-# ForegroundNeutral=
-ForegroundNormal=$(get_xres_rgb foreground:)
-# ForegroundPositive=
-# ForegroundVisited=
-
-[General]
-ColorScheme=pywal
-Name=pywal
-shadeSortColumn=true
-
-[KDE]
-contrast=0
-
-[WM]
-activeBackground=$(get_xres_rgb background:)
-activeForeground=$(get_xres_rgb foreground:)
-inactiveBackground=$(get_xres_rgb background:)
-inactiveForeground=$(get_xres_rgb color15:)
-THEME
-)"
-printf '%s' "$output" >"$XDG_DATA_HOME/color-schemes/pywal.colors"
-sed -i -e "s/Opacity=.*/Opacity=0.8/g" "$XDG_CACHE_HOME/wal/colors-konsole.colorscheme"
-cp -f "$XDG_CACHE_HOME/wal/colors-konsole.colorscheme" "$XDG_DATA_HOME/konsole/pywal.colorscheme"
-
-sed -i 's/bg:0/bg:-1/g' "$XDG_CACHE_HOME/wal/colors.sh"
-
-systemctl --user restart dunst.service
+# Extensions
+[[ -x "$(command -v pywalfox)" ]] && pywalfox update
+[[ -x "$(command -v pywal-discord)" ]] && pywal-discord
+[[ -x "$(command -v 4chan-pywal.sh)" ]] && 4chan-pywal.sh

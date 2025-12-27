@@ -1,0 +1,81 @@
+[General]
+ColorScheme=pywal
+Name=pywal
+shadeSortColumn=true
+
+[ColorEffects:Disabled]
+Color={color9.rgb}
+
+[ColorEffects:Inactive]
+Color={color9.rgb}
+
+[Colors:Button]
+BackgroundNormal={color8.rgb}
+ForegroundNormal={background.rgb}
+
+[Colors:Complementary]
+
+[Colors:Selection]
+# BackgroundAlternate=
+BackgroundNormal={color2.rgb}
+# DecorationFocus=
+# DecorationHover=
+# ForegroundActive=
+# ForegroundInactive=
+# ForegroundLink=
+# ForegroundNegative=
+# ForegroundNeutral=
+ForegroundNormal={foreground.rgb}
+# ForegroundPositive=
+# ForegroundVisited=
+
+[Colors:Tooltip]
+# BackgroundAlternate=
+BackgroundNormal={color2.rgb}
+# DecorationFocus=
+# DecorationHover=
+# ForegroundActive=
+# ForegroundInactive=
+# ForegroundLink=
+# ForegroundNegative=
+# ForegroundNeutral=
+ForegroundNormal={foreground.rgb}
+# ForegroundPositive=
+# ForegroundVisited=
+
+[Colors:View]
+BackgroundAlternate={color0.rgb}
+BackgroundNormal={color0.rgb}
+# DecorationFocus=
+# DecorationHover=
+# ForegroundActive=
+# ForegroundInactive=
+# ForegroundLink=
+# ForegroundNegative=
+# ForegroundNeutral=
+ForegroundNormal={foreground.rgb}
+# ForegroundPositive=
+# ForegroundVisited=
+
+[Colors:Window]
+# BackgroundAlternate=
+BackgroundNormal={color0.rgb}
+# DecorationFocus=
+# DecorationHover=
+# ForegroundActive=
+# ForegroundInactive=
+# ForegroundLink=
+# ForegroundNegative=
+# ForegroundNeutral=
+ForegroundNormal={foreground.rgb}
+# ForegroundPositive=
+# ForegroundVisited=
+
+[KDE]
+contrast=0
+
+[WM]
+activeBackground={background.rgb}
+activeForeground={foreground.rgb}
+inactiveBackground={background.rgb}
+inactiveForeground={color15.rgb}

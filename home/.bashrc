@@ -12,23 +12,23 @@ set -o vi
 alias sudo="sudo "
 alias vim="nvim"
 alias mkdir="mkdir -p"
-alias diff="diff --color=auto"
+alias diff="diff --color=always"
 alias pynps="pynps -c ps3 -r usa"
 alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
 alias yt-dlp="yt-dlp --embed-metadata"
 alias dps="docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}'"
 alias dpsp="docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}\t{{.Ports}}'"
 ## Coreutil replacements
-alias ls="eza --icons=auto --no-quotes --group-directories-first -x"
-alias ld="eza --icons=auto --no-quotes --group-directories-first -xa | grep \"^\.\""
-alias la="eza --icons=auto --no-quotes --group-directories-first -xa"
-alias ll="eza --icons=auto --no-quotes --group-directories-first -xl --git"
-alias lt="eza --icons=auto --no-quotes --group-directories-first -xT -L 3"
-alias lla="eza --icons=auto --no-quotes --group-directories-first -xal --git"
-alias llt="eza --icons=auto --no-quotes --group-directories-first -xlT --git -I \".git\" -L 3"
-alias lta="eza --icons=auto --no-quotes --group-directories-first -xaT -I \".git\" -L 3"
-alias llta="eza --icons=auto --no-quotes --group-directories-first -xalT --git -I \".git\" -L 3"
-alias cat="bat --theme base16-256"
+alias ls="eza --color=always --icons=always --no-quotes --group-directories-first -x"
+alias ld="eza --color=always --icons=always --no-quotes --group-directories-first -xa | grep \"^\.\""
+alias la="eza --color=always --icons=always --no-quotes --group-directories-first -xa"
+alias ll="eza --color=always --icons=always --no-quotes --group-directories-first -xl --git"
+alias lt="eza --color=always --icons=always --no-quotes --group-directories-first -xT -L 3"
+alias lla="eza --color=always --icons=always --no-quotes --group-directories-first -xal --git"
+alias llt="eza --color=always --icons=always --no-quotes --group-directories-first -xlT --git -I \".git\" -L 3"
+alias lta="eza --color=always --icons=always --no-quotes --group-directories-first -xaT -I \".git\" -L 3"
+alias llta="eza --color=always --icons=always --no-quotes --group-directories-first -xalT --git -I \".git\" -L 3"
+alias cat="bat --color=always --theme base16-256"
 alias grep="rg"
 ## Wrapper scripts
 alias lf="lfub"
@@ -111,9 +111,6 @@ export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
 export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
 export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
 
-# FZF_DEFAULT_OPTS
-export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height=75% --layout=reverse --info=inline --border --margin=1 --padding=1"
-
 # nsxiv default arguments
 export NSXIV_OPTS="-aqb"
 
@@ -124,7 +121,7 @@ export MOZ_USE_XINPUT2="1"
 # source "$XDG_CONFIG_HOME/git/git-prompt.sh"
 source "$XDG_CONFIG_HOME/zoxide/zoxide.sh"
 source "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
-source "$XDG_CACHE_HOME/wal/colors.sh"
+source "$XDG_CONFIG_HOME/fzf/fzfrc"
 eval "$(pyenv init - bash)"
 
 # Start a tmux session when bash starts

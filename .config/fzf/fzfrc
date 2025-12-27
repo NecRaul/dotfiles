@@ -1,0 +1,21 @@
+#!/bin/bash
+
+FZF_LAYOUT="--layout=reverse \
+--style=full \
+--height=75% \
+--border=rounded \
+--input-border=rounded \
+--preview-border=bold \
+--margin=1% \
+--padding=1% \
+--preview='fzf-scope.sh {} \$FZF_PREVIEW_COLUMNS \$FZF_PREVIEW_LINES' \
+--preview-window=right,50%,border-left,50% \
+--cycle \
+--wrap \
+--multi"
+
+FZF_COLORS="--color fg:7,bg:-1,hl:1,fg+:232,bg+:1,hl+:255 --color info:7,prompt:2,spinner:1,pointer:232,marker:1"
+
+FZF_BINDS="--bind alt-k:preview-up --bind alt-j:preview-down"
+
+export FZF_DEFAULT_OPTS="${FZF_LAYOUT} ${FZF_COLORS} ${FZF_BINDS}"
