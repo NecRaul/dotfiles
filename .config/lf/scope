@@ -14,10 +14,6 @@ image() {
     fi
 }
 
-# Note that the cache file name is a function of file information, meaning if
-# an image appears in multiple places across the machine, it will not have to
-# be regenerated once seen.
-
 case "$(file --dereference --brief --mime-type -- "$1")" in
 image/*)
     image "$1" "$2" "$3" "$4" "$5" "$1"
@@ -25,7 +21,7 @@ image/*)
 text/troff)
     man ./ "$1" | col -b
     ;;
-text/* | */xml | application/json | application/javascript )
+text/* | */xml | application/json | application/javascript)
     bat --theme base16 --terminal-width "$(($4 - 2))" -f "$1"
     ;;
 audio/* | application/octet-stream)
@@ -48,25 +44,25 @@ video/*)
     ;;
 application/*zip)
     case "$1" in
-    *.cbz|*.cbr)
+    *.cbz | *.cbr)
         CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/lf/thumb.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | cut -d' ' -f1)"
-        [ ! -f "$CACHE.jpg" ] && unzip -Z1 "$1" | \grep -iE '\.(jpe?g|png)$' | head -n1 | xargs -r unzip -p "$1" > "$CACHE.jpg"
+        [ ! -f "$CACHE.jpg" ] && unzip -Z1 "$1" | \grep -iE '\.(jpe?g|png)$' | head -n1 | xargs -r unzip -p "$1" >"$CACHE.jpg"
         [ -f "$CACHE.jpg" ] && image "$CACHE.jpg" "$2" "$3" "$4" "$5" "$1"
         ;;
     *)
-        atool --list -- "$1"
+        atool -l "$1"
         ;;
     esac
     ;;
-application/x-rar|application/vnd.rar)
+application/x-7z-compressed | application/x-rar | application/vnd.rar)
     case "$1" in
     *.cbr)
         CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/lf/thumb.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | cut -d' ' -f1)"
-        [ ! -f "$CACHE.jpg" ] && unrar lb "$1" | \grep -iE '\.(jpe?g|png)$' | sort -V | head -n1 | xargs -r -I{} unrar p -inul "$1" "{}" > "$CACHE.jpg"
+        [ ! -f "$CACHE.jpg" ] && unrar lb "$1" | \grep -iE '\.(jpe?g|png)$' | sort -V | head -n1 | xargs -r -I{} unrar p -inul "$1" "{}" >"$CACHE.jpg"
         [ -f "$CACHE.jpg" ] && image "$CACHE.jpg" "$2" "$3" "$4" "$5" "$1"
         ;;
     *)
-        atool --list -- "$1"
+        atool -l "$1"
         ;;
     esac
     ;;
@@ -87,6 +83,10 @@ application/vnd.openxmlformats-officedocument.spreadsheetml.sheet)
     ;;
 application/x-iso9660-image)
     iso-info --no-header -l "$1"
+    ;;
+*)
+    file -b "$1"
+    stat "$1" | tail -n +2
     ;;
 esac
 exit 1
