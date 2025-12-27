@@ -135,8 +135,9 @@ PySocks
 pyszuru
 python-dateutil
 python-utils
+pytokens
 PyUpload
-pywal16==3.8.6
+pywal16
 pywalfox
 PyYAML
 qbittorrent-api
