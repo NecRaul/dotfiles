@@ -49,6 +49,9 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD/#$HOME/\~}\007"'
 eval "$(starship init bash)"
 eval "$(glow completion bash)"
 
+# LS_COLORS
+export LS_COLORS="$LS_COLORS:su=30;41:ow=30;42:st=30;44:"
+
 # git-neko/gist-neko
 export GITHUB_USERNAME=gu
 export GITHUB_PERSONAL_ACCESS_TOKEN=gpat
