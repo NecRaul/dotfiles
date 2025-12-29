@@ -265,6 +265,8 @@ lua << EOF
       file_ignore_patterns = {
           'node_modules',
           '.git$',
+          ".stfolder",
+          ".stversions"
       },
     },
     pickers = {
