@@ -26,7 +26,7 @@ fi
 
 # Dunst
 if [[ -x "$(command -v dunst)" ]]; then
-    cp -f "$XDG_CACHE_HOME/wal/dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
+    cp -f "$XDG_CACHE_HOME/wal/colors-dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
     systemctl --user restart dunst.service
 fi
 
