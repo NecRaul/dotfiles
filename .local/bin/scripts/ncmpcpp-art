@@ -2,19 +2,21 @@
 
 [[ ! -d "$XDG_CACHE_HOME/ncmpcpp" ]] && mkdir -p "$XDG_CACHE_HOME/ncmpcpp"
 
-export FIFO_UEBERZUG="$XDG_CACHE_HOME/ncmpcpp/mpd-ueberzug-${PPID}"
+export FIFO_UEBERZUG="$XDG_CACHE_HOME/ncmpcpp/mpd-ueberzug-$$"
 
-cleanup() {
-    rm "$FIFO_UEBERZUG" 2>/dev/null
-    pkill -P $$ 2>/dev/null
-    pkill album-art
-}
-
-pkill -P $$ 2>/dev/null
 rm "$FIFO_UEBERZUG" 2>/dev/null
 mkfifo "$FIFO_UEBERZUG" >/dev/null
-trap cleanup EXIT 2>/dev/null
-tail --follow "$FIFO_UEBERZUG" | ueberzug layer --silent --parser simple >/dev/null 2>&1 &
 
-ncmpcpp --quiet --config "$XDG_CONFIG_HOME/ncmpcpp/config-art"
-cleanup
+tail --follow "$FIFO_UEBERZUG" | ueberzug layer --silent --parser simple >/dev/null 2>&1 &
+UEBER_PID=$!
+
+(
+    while kill -0 $$ 2>/dev/null; do
+        sleep 0.1
+    done
+    rm "$FIFO_UEBERZUG" 2>/dev/null
+    kill "$UEBER_PID" 2>/dev/null
+    pkill album-art 2>/dev/null
+) &
+
+exec ncmpcpp --quiet --config "$XDG_CONFIG_HOME/ncmpcpp/config-art"
