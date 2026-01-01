@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Universal FZF previewer based on LF scope
 
 set -C -f

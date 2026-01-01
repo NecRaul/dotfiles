@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 
 artist="$(mpc --format "%artist%" current)"
 title="$(mpc --format "%title%" current)"

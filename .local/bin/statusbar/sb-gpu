@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Run amdgpu_top -p, skip the first three lines, and filter out the unnecessary lines
 gpu_processes=$(amdgpu_top -p | tail -n +4 | awk '!/Requested/ && !/Evicted/')
