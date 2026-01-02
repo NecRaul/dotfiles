@@ -46,7 +46,7 @@ application/*zip)
     case "$1" in
     *.cbz | *.cbr)
         CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/lf/thumb.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | cut -d' ' -f1)"
-        [ ! -f "$CACHE.jpg" ] && unzip -Z1 "$1" | \grep -iE '\.(jpe?g|png)$' | head -n1 | xargs -r unzip -p "$1" >"$CACHE.jpg"
+        [ ! -f "$CACHE.jpg" ] && unzip -Z1 "$1" | \grep -iE '\.(jpe?g|png)$' | head -n1 | xargs -r -I{} unzip -p "$1" "{}" >"$CACHE.jpg"
         [ -f "$CACHE.jpg" ] && image "$CACHE.jpg" "$2" "$3" "$4" "$5" "$1"
         ;;
     *)
