@@ -1,0 +1,104 @@
+{
+  "document": {
+    "block_prefix": "\n",
+    "block_suffix": "\n",
+    "margin": 2,
+    "color": "7"
+  },
+  "paragraph": {},
+  "heading": {
+    "block_suffix": "\n",
+    "bold": true,
+    "color": "12"
+  },
+  "h1": {
+    "prefix": " ",
+    "suffix": " ",
+    "background_color": "11",
+    "color": "255"
+  },
+  "h2": {
+    "prefix": "## "
+  },
+  "h3": {
+    "prefix": "### "
+  },
+  "h4": {
+    "prefix": "#### "
+  },
+  "h5": {
+    "prefix": "##### "
+  },
+  "h6": {
+    "prefix": "###### ",
+    "bold": false
+  },
+  "block_quote": {
+    "indent": 1,
+    "indent_token": "│ "
+  },
+  "list": {
+    "level_indent": 2
+  },
+  "code_block": {
+    "margin": 2,
+    "theme": "github-dark",
+    "color": "7"
+  },
+  "table": {},
+  "text": {},
+  "item": {
+    "block_prefix": "• "
+  },
+  "enumeration": {
+    "block_prefix": ". "
+  },
+  "task": {
+    "ticked": "[✓] ",
+    "unticked": "[ ] "
+  },
+  "link": {
+    "underline": true,
+    "color": "1"
+  },
+  "link_text": {
+    "format": "{{.text}} →",
+    "bold": true,
+    "color": "13"
+  },
+  "image": {
+    "underline": true,
+    "color": "1"
+  },
+  "image_text": {
+    "format": "{{.text}} →",
+    "bold": true,
+    "color": "10"
+  },
+  "code": {
+    "prefix": " ",
+    "suffix": " ",
+    "background_color": "8",
+    "color": "255"
+  },
+  "emph": {
+    "italic": true
+  },
+  "strong": {
+    "bold": true
+  },
+  "strikethrough": {
+    "crossed_out": true
+  },
+  "hr": {
+    "format": "\n--------\n",
+    "color": "14"
+  },
+  "definition_list": {},
+  "definition_term": {},
+  "definition_description": {
+    "block_prefix": "\n🠶 "
+  },
+  "html_block": {},
+  "html_span": {}
+}

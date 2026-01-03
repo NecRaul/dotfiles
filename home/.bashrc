@@ -78,6 +78,7 @@ export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 # XDG_CONFIG_HOME
 export ASDF_CONFIG_FILE="$XDG_CONFIG_HOME/asdf/asdfrc"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+export GLOW_STYLE="$XDG_CONFIG_HOME/glow/kuroneko.json"
 export GTK_RC_FILES="$XDG_CONFIG_HOME/gtk-1.0/gtkrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
