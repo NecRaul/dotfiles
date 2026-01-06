@@ -177,12 +177,14 @@ shaderc
 shellcheck
 shfmt
 smartmontools
+songrec
 spotify-launcher
 sshfs
 starship
 steam
 stylua
 syncthing
+tealdeer
 telegram-desktop
 texlive-basic
 texlive-fontsrecommended
