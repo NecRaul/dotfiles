@@ -315,8 +315,7 @@
 
     "booru": {
       "tags": false,
-      "notes": false,
-      "url": "file_url"
+      "notes": false
     },
     "gelbooru": {
       "api-key": "",
