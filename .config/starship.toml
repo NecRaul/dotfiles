@@ -36,201 +36,201 @@ $zig\
 add_newline = false
 
 [custom.opening]
-command ='echo ['
+command = 'echo ['
 when = true
-style ='bold yellow'
-format ='[$output]($style)'
+style = 'bold yellow'
+format = '[$output]($style)'
 
 [username]
 show_always = true
-style_user ='bold red'
-format ='[$user]($style)'
+style_user = 'bold red'
+format = '[$user]($style)'
 
 [custom.at]
-command ='echo @'
+command = 'echo @'
 when = true
-style ='bold purple'
-format ='[$output]($style)'
+style = 'bold purple'
+format = '[$output]($style)'
 
 [hostname]
 ssh_only = false
-ssh_symbol =' 󰛳'
-style ='bold blue'
-format ='[$hostname$ssh_symbol ]($style)'
+ssh_symbol = ' 󰛳'
+style = 'bold blue'
+format = '[$hostname$ssh_symbol ]($style)'
 
 [directory]
 truncation_length = 1
-read_only =' 󰌾'
-style ='bold purple'
-format ='[$path$read_only]($style)'
+read_only = ' 󰌾'
+style = 'bold purple'
+format = '[$path$read_only]($style)'
 
 [custom.closing]
-command ='echo ]'
+command = 'echo ]'
 when = true
-style ='bold yellow'
-format ='[$output]($style)'
+style = 'bold yellow'
+format = '[$output]($style)'
 
 [custom.dollar]
-command ='echo $'
+command = 'echo $'
 when = true
-style ='bold purple'
-format ='[$output]($style)'
+style = 'bold purple'
+format = '[$output]($style)'
 
 [custom.number]
-command ='echo \#'
+command = 'echo \#'
 when = true
-style ='bold purple'
-format ='[$output]($style)'
+style = 'bold purple'
+format = '[$output]($style)'
 
 [git_branch]
 always_show_remote = true
-style ='bold green'
-format ='[$symbol$branch( ⎇  $remote_name/$remote_branch)]($style) '
+style = 'bold green'
+format = '[$symbol$branch( ⎇  $remote_name/$remote_branch)]($style) '
 
 [git_commit]
 only_detached = true
 tag_disabled = false
-tag_symbol ='  '
-style ='bold green'
-format ='[($hash$tag )]($style)'
+tag_symbol = '  '
+style = 'bold green'
+format = '[($hash$tag )]($style)'
 
 [git_state]
-style ='bold yellow'
-format ='\([$state( $progress_current/$progress_total)]($style)\) '
+style = 'bold yellow'
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
 
 [git_metrics]
 disabled = false
-added_style ='bold green'
-deleted_style ='bold red'
-format ='([+$added ]($added_style))([-$deleted ]($deleted_style))'
+added_style = 'bold green'
+deleted_style = 'bold red'
+format = '([+$added ]($added_style))([-$deleted ]($deleted_style))'
 
 [git_status]
-conflicted ='=${count}'
-ahead ='↑${count}'
-behind ='↓${count}'
-diverged ='↕${count}'
-up_to_date ='${count}'
-untracked ='?${count}'
-stashed ='\$${count}'
-modified ='!${count}'
-staged ='+${count}'
-renamed ='»${count}'
-deleted ='✘${count}'
-typechanged ='${count}'
-style ='bold white'
-format ='([\[$all_status$ahead_behind\] ]($style))'
+conflicted = '=${count}'
+ahead = '↑${count}'
+behind = '↓${count}'
+diverged = '↕${count}'
+up_to_date = '${count}'
+untracked = '?${count}'
+stashed = '\$${count}'
+modified = '!${count}'
+staged = '+${count}'
+renamed = '»${count}'
+deleted = '✘${count}'
+typechanged = '${count}'
+style = 'bold white'
+format = '([\[$all_status$ahead_behind\] ]($style))'
 
 [docker_context]
 only_with_files = false
-symbol =' '
+symbol = ' '
 style = 'bold blue'
 format = '[$symbol$context ]($style)'
 
 [package]
-symbol ='󰏗 '
+symbol = '󰏗 '
 style = 'bold 208'
 format = '[$symbol$version ]($style)'
 
 [c]
-symbol =' '
+symbol = ' '
 style = 'bold 149'
 format = '[$symbol$version ]($style)'
 
 [cpp]
 disabled = false
-symbol =' '
+symbol = ' '
 style = 'bold 149'
 format = '[$symbol$version ]($style)'
 
 [cmake]
-symbol =' '
+symbol = ' '
 style = 'bold blue'
 format = '[$symbol$version ]($style)'
 
 [dotnet]
-symbol ='󰪮 '
+symbol = '󰪮 '
 style = 'bold blue'
 format = '[$symbol$version ]($style)'
 
 [golang]
-symbol =' '
+symbol = ' '
 style = 'bold red'
 format = '[$symbol$version ]($style)'
 
 [haskell]
-symbol =' '
+symbol = ' '
 style = 'bold purple'
 format = '[$symbol$version ]($style)'
 
 [java]
-symbol =' '
+symbol = ' '
 style = 'bold red'
 format = '[$symbol$version ]($style)'
 
 [kotlin]
-symbol =' '
+symbol = ' '
 style = 'bold blue'
 format = '[$symbol$version ]($style)'
 
 [gradle]
-symbol =' '
+symbol = ' '
 style = 'bold cyan'
 format = '[$symbol$version ]($style)'
 
 [lua]
-symbol =' '
+symbol = ' '
 style = 'bold blue'
 format = '[$symbol$version ]($style)'
 
 [meson]
-symbol ='󰔷 '
+symbol = '󰔷 '
 style = 'bold blue'
 format = '[$symbol$project ]($style)'
 
 [nix_shell]
-symbol =' '
+symbol = ' '
 style = 'bold blue'
 format = '[$symbol$state ($name )]($style)'
 
 [nodejs]
-symbol =' '
+symbol = ' '
 style = 'bold green'
 format = '[$symbol$version ]($style)'
 
 [perl]
-symbol =' '
+symbol = ' '
 style = 'bold 149'
 format = '[$symbol$version ]($style)'
 
 [php]
-symbol =' '
+symbol = ' '
 style = 'bold 147'
 format = '[$symbol$version ]($style)'
 
 [python]
-symbol =' '
+symbol = ' '
 style = 'bold yellow'
 format = '[$symbol$version (\($virtualenv\) )]($style)'
 
 [ruby]
-symbol =' '
+symbol = ' '
 style = 'bold red'
 format = '[$symbol$version ]($style)'
 
 [rust]
-symbol ='󱘗 '
+symbol = '󱘗 '
 style = 'bold red'
 format = '[$symbol$version ]($style)'
 
 [zig]
-symbol =' '
+symbol = ' '
 style = 'bold yellow'
 format = '[$symbol$version ]($style)'
 
 [os]
 disabled = true
-style ='bold white'
-format ='[$symbol]($style)'
+style = 'bold white'
+format = '[$symbol]($style)'
 
 [os.symbols]
 Alpaquita = ' '
