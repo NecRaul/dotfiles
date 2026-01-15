@@ -166,6 +166,7 @@ python-dbus
 python-pip
 qt5-graphicaleffects
 qt5ct
+reflector
 ripgrep
 rsync
 ruby
@@ -202,7 +203,7 @@ ttf-hanazono
 ttf-liberation
 ttf-roboto
 ttf-sazanami
-ueberzug
+ueberzugpp
 ufw
 unclutter
 unzip

@@ -10,7 +10,6 @@ duckstation-qt-bin
 epub-thumbnailer-git
 icu76
 libva-vdpau-driver
-mcomix
 megasync-bin
 mpd-discord-rpc
 paru

@@ -60,6 +60,8 @@ jaraco.text
 jeepney
 Jinja2
 joblib
+jsonschema
+jsonschema-specifications
 keyring
 kiwisolver
 lain_shorten
@@ -71,7 +73,6 @@ markdown-it-py
 MarkupSafe
 matplotlib
 mccabe
-mcomix
 mdurl
 meson
 moddb
@@ -142,12 +143,15 @@ pywalfox
 PyYAML
 qbittorrent-api
 readme_renderer
+referencing
+Reflector
 regex
 rentry
 requests
 requests-toolbelt
 rfc3986
 rich
+rpds-py
 SecretStorage
 setuptools
 six
@@ -159,6 +163,7 @@ sqlitedict
 tbb
 tcmlib
 termdown
+toml
 tomli
 tomlkit
 toolz
@@ -169,7 +174,6 @@ twine
 typeguard
 typing-inspection
 typing_extensions
-ueberzug
 ufw
 unrpa
 url-normalize
