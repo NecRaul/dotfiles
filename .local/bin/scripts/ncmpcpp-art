@@ -1,22 +1,19 @@
 #!/bin/bash
 
-[[ ! -d "$XDG_CACHE_HOME/ncmpcpp" ]] && mkdir -p "$XDG_CACHE_HOME/ncmpcpp"
-
-export FIFO_UEBERZUG="$XDG_CACHE_HOME/ncmpcpp/mpd-ueberzug-$$"
-
-rm "$FIFO_UEBERZUG" 2>/dev/null
-mkfifo "$FIFO_UEBERZUG" >/dev/null
-
-tail --follow "$FIFO_UEBERZUG" | ueberzug layer --silent --parser simple >/dev/null 2>&1 &
-UEBER_PID=$!
-
-(
-    while kill -0 $$ 2>/dev/null; do
-        sleep 0.1
-    done
-    rm "$FIFO_UEBERZUG" 2>/dev/null
-    kill "$UEBER_PID" 2>/dev/null
-    pkill album-art 2>/dev/null
-) &
-
-exec ncmpcpp --quiet --config "$XDG_CONFIG_HOME/ncmpcpp/config-art"
+if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    exec ncmpcpp --quiet --config "$XDG_CONFIG_HOME/ncmpcpp/config"
+else
+    [ ! -d "$XDG_CACHE_HOME/ncmpcpp" ] && mkdir -p "$XDG_CACHE_HOME/ncmpcpp"
+    export NCMPCPP_UEBERZUG_FIFO="$XDG_CACHE_HOME/ncmpcpp/ncmpcpp-ueberzug-$$"
+    mkfifo "$NCMPCPP_UEBERZUG_FIFO"
+    ueberzug layer -s -p json <"$NCMPCPP_UEBERZUG_FIFO" &
+    NCMPCPP_UEBERZUG_FIFO_PID=$!
+    exec 3>"$NCMPCPP_UEBERZUG_FIFO"
+    (
+        while kill -0 $$ 2>/dev/null; do
+            sleep 0.1
+        done
+        kill "$NCMPCPP_UEBERZUG_FIFO_PID"
+    ) &
+    exec ncmpcpp --quiet --config "$XDG_CONFIG_HOME/ncmpcpp/config-art"
+fi
