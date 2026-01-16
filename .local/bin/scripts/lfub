@@ -9,6 +9,7 @@ else
     ueberzug layer -s -p json <"$LF_UEBERZUG_FIFO" &
     LF_UEBERZUG_FIFO_PID=$!
     exec 3>"$LF_UEBERZUG_FIFO"
+    # shellcheck disable=SC1091
     [ -f "$XDG_CONFIG_HOME/fzf/fzfrc" ] && source "$XDG_CONFIG_HOME/fzf/fzfrc"
     (
         while kill -0 $$ 2>/dev/null; do

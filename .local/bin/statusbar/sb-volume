@@ -26,12 +26,14 @@ vol="${vol#Volume: }"
 split() {
     # For ommiting the . without calling and external program.
     IFS=$2
+    # shellcheck disable=SC2086
     set -- $1
     printf '%s' "$@"
 }
 
 vol="$(printf "%.0f" "$(split "$vol" ".")")"
 
+# shellcheck disable=SC2194
 case 1 in
 $((vol >= 70))) icon="󰕾 " ;;
 $((vol >= 30))) icon="󰖀 " ;;

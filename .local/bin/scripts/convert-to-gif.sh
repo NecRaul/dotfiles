@@ -18,8 +18,8 @@ fi
 
 fps=$(ffprobe -v 0 -of csv=p=0 -select_streams v:0 -show_entries stream=r_frame_rate "$input" | bc -l | awk '{print int($1)}')
 
-palette_args="fps=$fps$scale,palettegen"
-gif_args="fps=$fps$scale[x];[x][1:v]paletteuse=dither=bayer:bayer_scale=5"
+palette_args="fps=${fps}${scale},palettegen"
+gif_args="fps=${fps}${scale}[x];[x][1:v]paletteuse=dither=bayer:bayer_scale=5"
 
 ffmpeg -y -i "$input" -vf "$palette_args" "$output.png"
 ffmpeg -y -i "$input" -i "$output.png" -lavfi "$gif_args" "$output.gif"

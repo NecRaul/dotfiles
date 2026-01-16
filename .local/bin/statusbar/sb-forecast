@@ -34,6 +34,8 @@ readfile() { weatherdata="$(cat "$weatherreport")"; }
 
 showweather() {
     readfile
+    # shellcheck disable=SC2183
+    # shellcheck disable=SC2046
     printf "[ 󰖗 %s 󰖘 %s° 󰖙 %s° ]\n" "$(getprecipchance)" $(getdailyhighlow)
 }
 

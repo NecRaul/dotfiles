@@ -3,13 +3,13 @@
 # A dmenu wrapper script for system functions.
 export WM="dwm"
 case "$(readlink -f /sbin/init)" in
-*systemd*) ctl='systemctl' ;;
-*) ctl='loginctl' ;;
+*systemd*) ctl="systemctl" ;;
+*) ctl="loginctl" ;;
 esac
 
 wmpid() { # This function is needed if there are multiple instances of the window manager.
     tree="$(pstree -ps $$)"
-    tree="${tree#*$WM(}"
+    tree="${tree#*"$WM"(}"
     echo "${tree%%)*}"
 }
 
@@ -24,14 +24,26 @@ renew_all() {
     kill -USR1 "$(picompid)" # Reload picom
 }
 
-case "$(printf "lock\nleave $WM\nrenew all\nhibernate\nreboot\nshutdown\nsleep\ndisplay off" | dmenu -p 'Action: ')" in
-'lock') slock ;;
+actions=(
+    "lock"
+    "leave $WM"
+    "renew all"
+    "hibernate"
+    "reboot"
+    "shutdown"
+    "sleep"
+    "display off"
+)
+action=$(printf '%s\n' "${actions[@]}" | dmenu -p 'Action: ')
+
+case "$action" in
+"lock") slock ;;
 "leave $WM") kill -TERM "$(wmpid)" ;;
 "renew all") renew_all ;;
-'hibernate') slock $ctl hibernate -i ;;
-'reboot') $ctl reboot -i ;;
-'shutdown') $ctl poweroff -i ;;
-'sleep') slock $ctl suspend -i ;;
-'display off') xset dpms force off ;;
+"hibernate") slock $ctl hibernate -i ;;
+"reboot") $ctl reboot -i ;;
+"shutdown") $ctl poweroff -i ;;
+"sleep") slock $ctl suspend -i ;;
+"display off") xset dpms force off ;;
 *) exit 1 ;;
 esac

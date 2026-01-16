@@ -7,6 +7,7 @@ IFS="${IFS%_}"
 
 path="$1"
 width="$2"
+# shellcheck disable=SC2034
 height="$3"
 
 [ -z "$path" ] && exit 1

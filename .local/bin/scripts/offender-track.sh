@@ -5,4 +5,4 @@ fd --type f --extension mp3 --extension flac . | sort | while read -r song; do
     if echo "$track" | grep -qP '^(0[0-9]*/[0-9]+|[0-9]+/0[0-9]+)$'; then
         echo "$song: $track"
     fi
-done > offender-track.txt
+done >offender-track

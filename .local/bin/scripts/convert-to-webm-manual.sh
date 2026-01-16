@@ -15,9 +15,7 @@ fi
 
 metadata_title=$(ffprobe -loglevel error -show_entries format_tags=title -of default=noprint_wrappers=1:nokey=1 "$input")
 
-if [ -n "$metadata_title" ]; then
-    metadata_title="$metadata_title"
-else
+if [ -z "$metadata_title" ]; then
     metadata_title="$output"
 fi
 
@@ -35,5 +33,7 @@ fi
 
 ffmpeg_args="-y -profile:v 2 -g 300 -pix_fmt yuv420p10le -lag-in-frames 25 -threads 4 -speed 1 -auto-alt-ref 6 -row-mt 1 -tile-columns 2 -tile-rows 2 -sn"
 
+# shellcheck disable=SC2086
 ffmpeg -i "$input" -pass 1 $ffmpeg_args -metadata title="$metadata_title" $scale -c:v libvpx-vp9 -b:v $video -crf $crf -an -f webm /dev/null
+# shellcheck disable=SC2086
 ffmpeg -i "$input" -pass 2 $ffmpeg_args -metadata title="$metadata_title" $scale -c:v libvpx-vp9 -b:v $video -crf $crf $audio "$output.webm"

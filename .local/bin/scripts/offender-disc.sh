@@ -5,4 +5,4 @@ fd --type f --extension mp3 --extension song . | sort | while read -r song; do
     if echo "$disc" | grep -qP '^(0[0-9]*/[0-9]+|[0-9]+/0[0-9]+)$'; then
         echo "$song: $disc"
     fi
-done > offender-disc.txt
+done >offender-disc

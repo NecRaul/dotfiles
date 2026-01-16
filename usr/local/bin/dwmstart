@@ -3,7 +3,8 @@
 dwmblocks &
 setbg
 picom --config ~/.config/picom/dwm.conf &
-xrdb ~/.config/x11/xresources & xrdbpid=$!
+xrdb ~/.config/x11/xresources &
+xrdbpid=$!
 
 autostart=(
     "steam"

@@ -24,14 +24,14 @@ get_monitor_geometry() {
     while [[ $monitor_info =~ [0-9]+x[0-9]+\+[0-9]+\+[0-9]+ ]]; do
         monitor_geometry="${BASH_REMATCH[0]}"
         # remove the matched pattern to avoid duplicate matches
-        monitor_info="${monitor_info#*$monitor_geometry}"
+        monitor_info="${monitor_info#*"$monitor_geometry"}"
         monitor_width=$(echo "$monitor_geometry" | cut -d "x" -f 1)
         monitor_height=$(echo "$monitor_geometry" | cut -d "x" -f 2 | cut -d "+" -f 1)
         monitor_x=$(echo "$monitor_geometry" | cut -d "+" -f 2)
         monitor_y=$(echo "$monitor_geometry" | cut -d "+" -f 3)
         # find out which screen the mouse is on
-        if [ "$mouse_x" -ge "$monitor_x" ] && [ "$mouse_x" -le $(($monitor_x + $monitor_width)) ] &&
-            [ "$mouse_y" -ge "$monitor_y" ] && [ "$mouse_y" -le $(($monitor_y + $monitor_height)) ]; then
+        if [ "$mouse_x" -ge "$monitor_x" ] && [ "$mouse_x" -le $((monitor_x + monitor_width)) ] &&
+            [ "$mouse_y" -ge "$monitor_y" ] && [ "$mouse_y" -le $((monitor_y + monitor_height)) ]; then
             echo "$monitor_geometry"
             break
         fi
@@ -57,6 +57,7 @@ capture_screenshot() {
     esac
 
     # capture screenshot
+    # shellcheck disable=SC2086
     $capture_command $capture_command_args "$screenshot_output" >/dev/null
 
     # copy to clipboard

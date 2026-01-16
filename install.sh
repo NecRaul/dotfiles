@@ -1,24 +1,24 @@
 #!/bin/bash
 
 create_folders() {
-    mkdir -p $HOME/.config
-    mkdir -p $HOME/.local/bin
-    mkdir -p $HOME/.local/share/applications
-    mkdir -p $HOME/Documents/Github/Gists
-    mkdir -p $HOME/Documents/Github/Repos
-    mkdir -p $HOME/Documents/LNs
-    mkdir -p $HOME/Documents/Notes
-    mkdir -p $HOME/Documents/Papers
-    mkdir -p $HOME/Documents/ROM
-    mkdir -p $HOME/Downloads
-    mkdir -p $HOME/Music
-    mkdir -p $HOME/Pictures/gallery-dl
-    mkdir -p $HOME/Pictures/mpv
-    mkdir -p $HOME/Pictures/Screenshots
-    mkdir -p $HOME/Pictures/Wallpapers
-    mkdir -p $HOME/Videos/Recordings
-    mkdir -p $HOME/Videos/Seasonals
-    mkdir -p $HOME/Videos/Temp
+    mkdir -p "$HOME/.config"
+    mkdir -p "$HOME/.local/bin"
+    mkdir -p "$HOME/.local/share/applications"
+    mkdir -p "$HOME/Documents/Github/Gists"
+    mkdir -p "$HOME/Documents/Github/Repos"
+    mkdir -p "$HOME/Documents/LNs"
+    mkdir -p "$HOME/Documents/Notes"
+    mkdir -p "$HOME/Documents/Papers"
+    mkdir -p "$HOME/Documents/ROM"
+    mkdir -p "$HOME/Downloads"
+    mkdir -p "$HOME/Music"
+    mkdir -p "$HOME/Pictures/gallery-dl"
+    mkdir -p "$HOME/Pictures/mpv"
+    mkdir -p "$HOME/Pictures/Screenshots"
+    mkdir -p "$HOME/Pictures/Wallpapers"
+    mkdir -p "$HOME/Videos/Recordings"
+    mkdir -p "$HOME/Videos/Seasonals"
+    mkdir -p "$HOME/Videos/Temp"
     sudo mkdir -p /etc/modprobe.d
     sudo mkdir -p /usr/share/xsessions
 }
@@ -136,7 +136,9 @@ removing_unnecessary_dependencies() {
     echo "==================================================="
     echo "Removing unnecessary dependencies."
     echo "==================================================="
+    # shellcheck disable=SC2046
     sudo pacman -Rncs $(pacman -Qdtq) --noconfirm
+    # shellcheck disable=SC2046
     paru -Rncs $(paru -Qdtq) --noconfirm
     echo "==================================================="
     echo "Removed unnecessary dependencies."
@@ -148,7 +150,7 @@ install_paru() {
     echo "==================================================="
     if ! pacman -Qq paru &>/dev/null; then
         git clone https://aur.archlinux.org/paru.git
-        cd paru
+        cd paru || exit
         makepkg -si --noconfirm --needed
         cd ..
         rm -rf paru
@@ -188,33 +190,33 @@ create_symlinks() {
     # # #
 
     # config #
-    for item in $(pwd)/.config/*; do
+    for item in "$(pwd)/.config/"*; do
         item_name=$(basename "$item")
         [ "$item_name" = "systemd" ] && continue
         ln -sf "$item" "$HOME/.config/$item_name"
     done
-    mkdir -p $HOME/.config/systemd/user
+    mkdir -p "$HOME/.config/systemd/user"
     ln -sf "$(pwd)/.config/systemd/user/"* "$HOME/.config/systemd/user"
     # # # # # #
 
     # bin #
-    for dir in $(pwd)/.local/bin/*; do
-        dir_name = $(basename "$dir")
+    for dir in "$(pwd)/.local/bin/"*; do
+        dir_name="$(basename "$dir")"
         [ "$dir_name" = "pyupload" ] && continue
         mkdir -p "$HOME/.local/bin/$dir_name"
         ln -sf "$dir/"* "$HOME/.local/bin/$dir_name"
     done
-    mkdir -p $HOME/.local/bin/pyupload-devel
+    mkdir -p "$HOME/.local/bin/pyupload-devel"
     ln -sf "$(pwd)/.local/bin/pyupload/"* "$HOME/.local/bin/pyupload-devel"
     # # # #
 
     # share #
-    for app in $(pwd)/.local/share/applications/*; do
-        app_name=$(basename "$application")
+    for app in "$(pwd)/.local/share/applications/"*; do
+        app_name="$(basename "$app")"
         ln -sf "$app" "$HOME/.local/share/applications/$app_name"
     done
-    ln -sf $(pwd)/.local/share/kio $HOME/.local/share/kio
-    ln -sf $(pwd)/.local/share/bg $HOME/.local/share/bg
+    ln -sf "$(pwd)/.local/share/kio" "$HOME/.local/share/kio"
+    ln -sf "$(pwd)/.local/share/bg" "$HOME/.local/share/bg"
     # # # # #
 
     echo "==================================================="
@@ -225,7 +227,7 @@ install_zathura_pywal() {
     echo "==================================================="
     echo "Installing zathura-pywal."
 
-    sudo make install -C $HOME/.local/bin/zathura-pywal
+    sudo make install -C "$HOME/.local/bin/zathura-pywal"
     zathura-pywal -a 0.8
 
     echo "==================================================="
@@ -236,7 +238,7 @@ install_grub_theme() {
     echo "==================================================="
     echo "Installing GRUB theme."
 
-    sudo bash $(pwd)/.local/bin/kuroneko-themes/install.sh
+    sudo bash "$(pwd)/.local/bin/kuroneko-themes/install.sh"
 
     echo "==================================================="
     echo "Installed GRUB theme."
@@ -247,7 +249,7 @@ enable_services() {
     echo "Enabling systemd services."
 
     sudo systemctl enable sddm.service
-    for service in $(pwd)/.config/systemd/user/*; do
+    for service in "$(pwd)/.config/systemd/user/"*; do
         service_name=$(basename "$service")
         systemctl --user enable "$service_name"
     done
@@ -272,7 +274,7 @@ pypi_token() {
     echo "==================================================="
     echo "Paste your PyPI token and press Enter to finish:"
     echo "==================================================="
-    read pypi
+    read -r pypi
     sed -i "s/placeholder/$pypi/g" "$HOME/.pypirc"
 }
 
@@ -280,11 +282,11 @@ github_credentials() {
     echo "==================================================="
     echo "Paste your Github username and press Enter to finish:"
     echo "==================================================="
-    read gu
+    read -r gu
     echo "==================================================="
     echo "Paste your Github public access token and press Enter to finish: "
     echo "==================================================="
-    read gpat
+    read -r gpat
     sed -i "s/gu/$gu/g" "$HOME/.bashrc"
     sed -i "s/gpat/$gpat/g" "$HOME/.bashrc"
 }
