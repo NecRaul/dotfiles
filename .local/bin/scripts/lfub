@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     exec lf "$@"
@@ -10,7 +10,7 @@ else
     LF_UEBERZUG_FIFO_PID=$!
     exec 3>"$LF_UEBERZUG_FIFO"
     # shellcheck disable=SC1091
-    [ -f "$XDG_CONFIG_HOME/fzf/fzfrc" ] && source "$XDG_CONFIG_HOME/fzf/fzfrc"
+    [ -f "$XDG_CONFIG_HOME/fzf/fzfrc" ] && . "$XDG_CONFIG_HOME/fzf/fzfrc"
     (
         while kill -0 $$ 2>/dev/null; do
             sleep 0.1

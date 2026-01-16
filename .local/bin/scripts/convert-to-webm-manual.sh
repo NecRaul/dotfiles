@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 script=$(basename "$0")
 input=$1
@@ -9,7 +9,7 @@ scale=$5
 output="$(basename -- "$1" | sed 's/\.[^.]*$//')"
 
 if [ "$#" -lt 3 ]; then
-    echo -e "\e[1mUsage: $script input crf vb\e[0m ab (optional) scale (optional)"
+    printf '\033[1mUsage: %s input crf vb\033[0m ab (optional) scale (optional)\n' "$script"
     exit 1
 fi
 

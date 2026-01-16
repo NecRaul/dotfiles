@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 padding_top=3
 padding_bottom=0

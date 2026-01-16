@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 for file in *.mkv; do
     mkvpropedit "$file" \

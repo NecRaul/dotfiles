@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 script=$(basename "$0")
 input=$1
@@ -7,7 +7,7 @@ scale=$3
 output="$(basename -- "$input" | sed 's/\.[^.]*$//')"
 
 if [ "$#" -lt 2 ]; then
-    echo -e "\e[1mUsage: $script input crf\e[0m scale (optional)"
+    printf '\033[1mUsage: %s input crf\033[0m scale (optional)\n' "$script"
     exit 1
 fi
 

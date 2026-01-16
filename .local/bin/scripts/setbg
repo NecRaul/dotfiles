@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 bgloc="$XDG_DATA_HOME/bg"
 postrun="$XDG_CONFIG_HOME/wal/postrun"

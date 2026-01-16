@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Prints all batteries, their percentage remaining and an emoji corresponding
 # to charge status (󰂄  for plugged up, 󰁿 for discharging on battery, etc.).
@@ -34,4 +34,4 @@ for battery in /sys/class/power_supply/BAT?*; do
     # Prints the info
     printf "%s%s%d%%" "$status" "$warn" "$capacity"
     unset warn
-done && printf "\\n"
+done && printf '\n'

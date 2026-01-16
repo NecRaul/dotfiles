@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -n "$LF_UEBERZUG_FIFO" ]; then
     printf '{"action": "remove", "identifier": "PREVIEW"}\n' >"$LF_UEBERZUG_FIFO"

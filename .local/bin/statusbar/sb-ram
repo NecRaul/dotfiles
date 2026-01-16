@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 case $BLOCK_BUTTON in
 1) notify-send " Memory hogs" "$(ps axch -o cmd:15,%mem --sort=-%mem | head -n 7)" ;;

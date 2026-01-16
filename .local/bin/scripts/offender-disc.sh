@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 fd --type f --extension mp3 --extension song . | sort | while read -r song; do
     disc=$(ffprobe -v quiet -show_entries format_tags=disc -of default=noprint_wrappers=1:nokey=1 "$song")

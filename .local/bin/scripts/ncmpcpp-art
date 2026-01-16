@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     exec ncmpcpp --quiet --config "$XDG_CONFIG_HOME/ncmpcpp/config"

@@ -1,30 +1,32 @@
-#!/bin/bash
+#!/bin/sh
 
-mkv_files=()
+set -- *.mkv
 
-for file in *.mkv; do
-    mkv_files+=("$file")
-done
+if [ ! -e "$1" ]; then
+    echo "No MKV files found."
+    exit 1
+fi
 
 if [ ! -f "Titles" ]; then
     echo "File 'Titles' not found in the current directory."
     exit 1
 fi
 
-titles=()
+num_files=$#
+num_titles=$(wc -l <"Titles")
 
-while IFS= read -r line; do
-    titles+=("$line")
-done <"Titles"
-
-if [ ${#mkv_files[@]} -ne ${#titles[@]} ]; then
-    echo "Not enough MKV mkv_files for renaming."
+if [ "$num_files" -ne "$num_titles" ]; then
+    echo "Count mismatch: $num_files files vs $num_titles titles."
+    echo "Aborting renaming."
     exit 1
 fi
 
-for ((i = 0; i < ${#titles[@]}; i++)); do
-    old_title="${mkv_files[i]}"
-    new_title="$(printf "%02d" "$((i + 1))"). ${titles[i]}.mkv"
+i=1
+while IFS= read -r title; do
+    eval "old_title=\${$i}"
+    new_title="$(printf "%02d" "$i"). $title.mkv"
+    # shellcheck disable=SC2154
     mv -n "$old_title" "$new_title"
     echo "Renamed $old_title to $new_title"
-done
+    i=$((i + 1))
+done <"Titles"

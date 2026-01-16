@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Prints the current volume or 󰖁 if muted.
 

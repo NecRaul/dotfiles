@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 fd --type f --extension mp3 --extension flac . | sort | while read -r song; do
     track=$(ffprobe -v quiet -show_entries format_tags=track -of default=noprint_wrappers=1:nokey=1 "$song")

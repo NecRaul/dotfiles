@@ -1,41 +1,41 @@
-#!/bin/bash
+#!/bin/sh
 
 # Xresources
-if [[ -x "$(command -v xrdb)" ]]; then
+if command -v xrdb >/dev/null; then
     cp -f "$XDG_CACHE_HOME/wal/colors.Xresources" "$XDG_CONFIG_HOME/x11/xresources"
     xrdb "$XDG_CONFIG_HOME/x11/xresources"
 fi
 
 # Tmux
-if [[ -x "$(command -v tmux)" ]]; then
+if command -v tmux >/dev/null; then
     cp -f "$XDG_CACHE_HOME/wal/colors-tmux.conf" "$XDG_CONFIG_HOME/tmux/tmux.conf"
     tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf" 2>/dev/null
 fi
 
 # Qt / KDE Colors
-if [[ -x "$(command -v qt6ct)" ]]; then
+if command -v qt6ct >/dev/null; then
     mkdir -p "$XDG_DATA_HOME/color-schemes"
     cp -f "$XDG_CACHE_HOME/wal/colors-qt.colors" "$XDG_DATA_HOME/color-schemes/colors-qt.colors"
 fi
 
 # Konsole
-if [[ -x "$(command -v konsole)" ]]; then
+if command -v konsole >/dev/null; then
     mkdir -p "$XDG_DATA_HOME/konsole"
     cp -f "$XDG_CACHE_HOME/wal/colors-konsole.colorscheme" "$XDG_DATA_HOME/konsole/colors-konsole.colorscheme"
 fi
 
 # Dunst
-if [[ -x "$(command -v dunst)" ]]; then
+if command -v dunst >/dev/null; then
     cp -f "$XDG_CACHE_HOME/wal/colors-dunstrc" "$XDG_CONFIG_HOME/dunst/dunstrc"
     systemctl --user restart dunst.service
 fi
 
 # Zathura
-if [[ -x "$(command -v zathura-pywal)" ]]; then
+if command -v zathura-pywal >/dev/null; then
     zathura-pywal -a 0.8
 fi
 
 # Extensions
-[[ -x "$(command -v pywalfox)" ]] && pywalfox update
-[[ -x "$(command -v pywal-discord)" ]] && pywal-discord
-[[ -x "$(command -v 4chan-pywal.sh)" ]] && 4chan-pywal.sh
+command -v pywalfox >/dev/null && pywalfox update
+command -v pywal-discord >/dev/null && pywal-discord
+command -v 4chan-pywal.sh >/dev/null && 4chan-pywal.sh

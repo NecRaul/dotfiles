@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 speakers_id=$(wpctl status | grep Speakers | grep -oE '[0-9]+' | head -1)
 headphones_id=$(wpctl status | grep Headphones | grep -oE '[0-9]+' | head -1)

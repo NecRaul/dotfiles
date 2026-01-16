@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 for d in */; do
     d="${d%/}"

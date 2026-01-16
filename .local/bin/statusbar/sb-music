@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 filter() {
     if [ "$(mpc status | wc -l)" -gt 1 ]; then
-        sed "/^volume:/d;/\\[paused\\].*/d;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' - | sed "s/^/\[  /; s/$/ \]/"
+        sed '/^volume:/d;/\[paused\].*/d;/\[playing\].*/d;/^ERROR/Q' | paste -sd ' ' - | sed "s/^/\[  /; s/$/ \]/"
     fi
 }
 

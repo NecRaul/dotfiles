@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # A dmenu wrapper script for system functions.
 export WM="dwm"
@@ -24,17 +24,17 @@ renew_all() {
     kill -USR1 "$(picompid)" # Reload picom
 }
 
-actions=(
-    "lock"
-    "leave $WM"
-    "renew all"
-    "hibernate"
-    "reboot"
-    "shutdown"
-    "sleep"
-    "display off"
-)
-action=$(printf '%s\n' "${actions[@]}" | dmenu -p 'Action: ')
+actions="lock
+leave $WM
+renew all
+hibernate
+reboot
+shutdown
+sleep
+display off"
+
+action=$(printf '%s\n' "$actions" | dmenu -p 'Action: ')
+[ -z "$action" ] && exit 0
 
 case "$action" in
 "lock") slock ;;

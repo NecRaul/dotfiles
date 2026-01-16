@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 CACHE="$XDG_CACHE_HOME/dirlist.cache"
 if [ ! -f "$CACHE" ] || find "$CACHE" -mtime +7 | grep -q .; then
@@ -8,28 +8,20 @@ fi
 result=$(cat "$CACHE" | dmenu -l 20 -p "Choose directory:")
 [ -z "$result" ] && exit 0
 
-APPS=("Terminal" "LF" "Dolphin" "Visual Studio Code" "Neovim")
-app=$(printf "%s\n" "${APPS[@]}" | dmenu -l 10 -p "Open with:")
+apps="Terminal
+LF
+Dolphin
+Visual Studio Code
+Neovim"
+
+app=$(printf '%s\n' "$apps" | dmenu -p "Open with:")
 [ -z "$app" ] && exit 0
 
 case "$app" in
-"Terminal")
-    "$TERMINAL" -e sh -l -c "cd \"$result\" && exec \$SHELL"
-    ;;
-"LF")
-    "$TERMINAL" -e lfub "$result"
-    ;;
-"Dolphin")
-    dolphin "$result"
-    ;;
-"Visual Studio Code")
-    code "$result"
-    ;;
-"Neovim")
-    "$TERMINAL" -t "nvim" -e sh -c "cd \"$result\" && exec nvim"
-    ;;
-*)
-    echo "Unknown app: $app" >&2
-    exit 1
-    ;;
+"Terminal") "$TERMINAL" -e sh -l -c "cd \"$result\" && exec \$SHELL" ;;
+"LF") "$TERMINAL" -e lfub "$result" ;;
+"Dolphin") dolphin "$result" ;;
+"Visual Studio Code") code "$result" ;;
+"Neovim") "$TERMINAL" -t "nvim" -e sh -c "cd \"$result\" && exec nvim" ;;
+*) exit 1 ;;
 esac

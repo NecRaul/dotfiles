@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 for dir in */; do
     count=$(fd --max-depth 1 --min-depth 1 . "$dir" | wc -l)

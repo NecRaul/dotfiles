@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 output_dir="$HOME/Pictures/Screenshots"
 output="$(date '+%s%6N %d-%m-%Y %H-%M-%S').png"
@@ -18,20 +18,20 @@ get_monitor_geometry() {
     mouse_y=$Y
 
     # get all connected monitors
-    monitor_info=$(xrandr | grep -w connected)
+    monitor_info=$(xrandr | grep -w connected | grep -oE '[0-9]+x[0-9]+\+[0-9]+\+[0-9]+')
 
     # loop over each monitor in monitor info using the regex pattern
-    while [[ $monitor_info =~ [0-9]+x[0-9]+\+[0-9]+\+[0-9]+ ]]; do
-        monitor_geometry="${BASH_REMATCH[0]}"
-        # remove the matched pattern to avoid duplicate matches
-        monitor_info="${monitor_info#*"$monitor_geometry"}"
+    echo "$monitor_info" | while read -r monitor_geometry; do
+        [ -z "$monitor_geometry" ] && continue
+
+        # Parse geometry using 'cut' exactly like your original
         monitor_width=$(echo "$monitor_geometry" | cut -d "x" -f 1)
         monitor_height=$(echo "$monitor_geometry" | cut -d "x" -f 2 | cut -d "+" -f 1)
         monitor_x=$(echo "$monitor_geometry" | cut -d "+" -f 2)
         monitor_y=$(echo "$monitor_geometry" | cut -d "+" -f 3)
-        # find out which screen the mouse is on
-        if [ "$mouse_x" -ge "$monitor_x" ] && [ "$mouse_x" -le $((monitor_x + monitor_width)) ] &&
-            [ "$mouse_y" -ge "$monitor_y" ] && [ "$mouse_y" -le $((monitor_y + monitor_height)) ]; then
+
+        if [ "$mouse_x" -ge "$monitor_x" ] && [ "$mouse_x" -le "$((monitor_x + monitor_width))" ] &&
+            [ "$mouse_y" -ge "$monitor_y" ] && [ "$mouse_y" -le "$((monitor_y + monitor_height))" ]; then
             echo "$monitor_geometry"
             break
         fi
@@ -68,6 +68,6 @@ if [ "$#" -eq 1 ]; then
     area="$1"
     capture_screenshot
 else
-    area=$(printf "area\\nwindow\\nscreen\\nall screens" | dmenu -l 4 -p "Screenshot which area?")
+    area=$(printf 'area\nwindow\nscreen\nall screens' | dmenu -l 4 -p "Screenshot which area?")
     capture_screenshot
 fi
