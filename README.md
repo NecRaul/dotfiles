@@ -4,7 +4,7 @@ My dotfiles and post-install script for Arch Linux.
 
 ## Installation
 
-``` Bash
+```sh
 cd /path/to/where/you/keep/your/git/repositories
 git clone --recursive git@github.com:NecRaul/dotfiles.git
 cd dotfiles
@@ -16,13 +16,13 @@ source ~/.bashrc
 
 I excluded copying the sddm configuration, because it would cause a loop on my end. After rebooting your computer and logging in, to set the sddm settings run the command below (from this repo's root).
 
-```Bash
+```sh
 sudo cp -f $(pwd)/etc/sddm.conf /etc/sddm.conf
 ```
 
 I would also recommend uninstalling and reinstalling `zathura-pdf-mupdf` because `--noconfirm` flag automatically picks `afr` as the default `tessdata` (OCR data) language.
 
-```Bash
+```sh
 sudo pacman -Rncs zathura-pdf-mupdf
 sudo pacman -S zathura-pdf-mupdf
 # English is 30
