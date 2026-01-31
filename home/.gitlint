@@ -1,0 +1,10 @@
+[general]
+ignore=body-is-missing,title-min-length,body-min-length
+verbosity = 3
+contrib=contrib-title-conventional-commits
+
+[title-max-length]
+line-length=50
+
+[body-max-line-length]
+line-length=72
