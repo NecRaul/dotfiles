@@ -40,7 +40,7 @@ install_pacman_packages() {
   echo "==================================================="
   echo "Installing pacman packages."
   echo "==================================================="
-  # Note: pacman -Qenq gives explicitly installed pacman packages
+  # Note: pacman -Qneq gives explicitly installed pacman packages
   while IFS= read -r package || [ -n "$package" ]; do
     if ! pacman -Qq "$package" &>/dev/null; then
       ((attempted_packages++))
@@ -60,7 +60,7 @@ install_aur_packages() {
   echo "==================================================="
   echo "Installing AUR packages."
   echo "==================================================="
-  # Note: pacman -Qemq gives explicitly installed AUR packages
+  # Note: pacman -Qmeq gives explicitly installed AUR packages
   while IFS= read -r package || [ -n "$package" ]; do
     if ! pacman -Qm "$package" &>/dev/null; then
       ((attempted_packages++))
@@ -102,9 +102,9 @@ install_uv_packages() {
   echo "Installing uv packages."
   echo "==================================================="
   # Note: Command below gives installed uv packages.
-  # uv tool list --show-extras \
-  # | command grep -E '^[a-z]' \
-  # | command sed -E 's/ v[^ ]+//; s/ \[extras: ([^]]+)\]/[\1]/; s/, +/,/g'
+  # uv tool list --show-extras |
+  #   command grep -E '^[a-z]' |
+  #   command sed -E 's/ v[^ ]+//; s/ \[extras: ([^]]+)\]/[\1]/; s/, +/,/g'
   xargs -r -n1 uv tool install <install/uv.txt
   echo "==================================================="
   echo "Finished installing uv packages."
