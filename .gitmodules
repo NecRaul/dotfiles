@@ -98,22 +98,6 @@
 	path = .local/bin/kuroneko-themes
 	url = git@github.com:NecRaul/kuroneko-themes.git
 	branch = main
-[submodule ".local/bin/pywal-kde-plasma"]
-	path = .local/bin/pywal-kde-plasma
-	url = git@github.com:NecRaul/pywal-kde-plasma.git
-	branch = main
-[submodule ".local/bin/pyupload"]
-	path = .local/bin/pyupload
-	url = git@github.com:NecRaul/pyupload.git
-	branch = master
-[submodule ".local/bin/pywal-kde"]
-	path = .local/bin/pywal-kde
-	url = git@github.com:the404devs/pywal-kde.git
-	branch = master
-[submodule ".local/bin/unrpyc"]
-	path = .local/bin/unrpyc
-	url = git@github.com:CensoredUsername/unrpyc.git
-	branch = master
 [submodule ".local/bin/zathura-pywal"]
 	path = .local/bin/zathura-pywal
 	url = git@github.com:matthewlscarlson/zathura-pywal.git
