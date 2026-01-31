@@ -97,19 +97,17 @@ install_aur_packages_2_electric_boogaloo() {
   echo "$installed_packages/$attempted_packages installed."
 }
 
-install_pip_packages() {
+install_uv_packages() {
   echo "==================================================="
-  echo "Installing pip packages."
+  echo "Installing uv packages."
   echo "==================================================="
-  # Note: pip freeze | cut -d'=' -f1 gives installed pip packages
-  pip install --no-warn-script-location -r install/pip.txt
-  # optional
-  # pip install "$(pwd)/.local/bin/pyupload/"
-  # pip install "$(pwd)/.local/bin/pywal-kde/"
-  # pip install "$(pwd)/.local/bin/unrpyc/"
+  # Note: Command below gives installed uv packages.
+  # uv tool list --show-extras \
+  # | command grep -E '^[a-z]' \
+  # | command sed -E 's/ v[^ ]+//; s/ \[extras: ([^]]+)\]/[\1]/; s/, +/,/g'
+  xargs -r -n1 uv tool install <install/uv.txt
   echo "==================================================="
-  echo "Finished installing pip packages."
-  echo "$installed_packages/$attempted_packages installed."
+  echo "Finished installing uv packages."
 }
 
 clear_pacman_cache() {
@@ -259,10 +257,10 @@ enable_services() {
 }
 
 no_install_arrays() {
-  # Array to hold pacman, AUR and pip packages that couldn't be installed
+  # Array to hold pacman, AUR and uv packages that couldn't be installed
   declare -a no_install_pacman_packages=()
   declare -a no_install_aur_packages=()
-  declare -a no_install_pip_packages=()
+  declare -a no_install_uv_packages=()
 }
 
 reset_package_count() {
@@ -295,7 +293,7 @@ no_install_packages_to_txt() {
   mkdir -p no_install
   printf "%s\n" "${no_install_pacman_packages[@]}" >no_install/pacman.txt
   printf "%s\n" "${no_install_aur_packages[@]}" >no_install/aur.txt
-  printf "%s\n" "${no_install_pip_packages[@]}" >no_install/pip.txt
+  printf "%s\n" "${no_install_uv_packages[@]}" >no_install/uv.txt
   echo "==================================================="
   echo "Script has finished running. Packages that couldn't be installed were written into text files in the no_install folder."
   echo "==================================================="
@@ -335,7 +333,7 @@ install_zathura_pywal
 
 reset_package_count
 
-install_pip_packages
+install_uv_packages
 
 install_blesh
 

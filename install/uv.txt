@@ -1,0 +1,12 @@
+debugpy
+gallery-dl[extra]
+gist-neko
+git-neko
+lain-shorten[clipboard]
+lain-upload[clipboard]
+pre-commit
+pywal16
+pywalfox
+ruff
+ty
+yt-dlp[default,curl-cffi]
