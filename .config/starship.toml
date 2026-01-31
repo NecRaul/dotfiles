@@ -27,7 +27,9 @@ $nix_shell\
 $nodejs\
 $perl\
 $php\
-$python\
+${custom.uv-python}\
+${custom.uv-version}\
+${custom.uv-lock}\
 $ruby\
 $rust\
 $zig\
@@ -211,6 +213,97 @@ format = '[$symbol$version ]($style)'
 symbol = ' '
 style = 'bold yellow'
 format = '[$symbol$version (\($virtualenv\) )]($style)'
+
+[custom.uv-python]
+symbol = ' '
+style = 'bold yellow'
+command = """
+if [ -n "$VIRTUAL_ENV" ]; then
+  VERSION=$("$VIRTUAL_ENV/bin/python" --version 2>&1 | awk '{print $2}')
+  VENV_NAME=${VIRTUAL_ENV_PROMPT:-$(basename "$VIRTUAL_ENV")}
+  VENV_NAME=$(echo "$VENV_NAME" | tr -d "() ")
+  echo "$VERSION ($VENV_NAME)"
+  exit 0
+fi
+if command -v uv >/dev/null 2>&1; then
+  uv python find --show-version
+  exit 0
+fi
+if command -v python >/dev/null 2>&1; then
+  VERSION=$(python --version 2>&1 | awk '{print $2}')
+  echo "$VERSION"
+fi
+"""
+format = "[$symbol$output ]($style)"
+detect_extensions = ["py", "ipynb"]
+detect_files = [
+  ".python-version",
+  "Pipfile",
+  "__init__.py",
+  "pyproject.toml",
+  "requirements.txt",
+  "setup.py",
+  "tox.ini",
+  "uv.lock",
+  "pylock.toml",
+]
+detect_folders = [".venv", "venv"]
+
+[custom.uv-version]
+style = "bold fg:#dffe7c"
+shell = "bash"
+command = """
+if command -v uv >/dev/null 2>&1; then
+  echo "⚡️v$(uv --version 2>&1 | awk '{print $2}')"
+  exit 0
+fi
+"""
+format = "[($output )]($style)"
+detect_extensions = ["py", "ipynb"]
+detect_files = [
+  ".python-version",
+  "Pipfile",
+  "__init__.py",
+  "pyproject.toml",
+  "requirements.txt",
+  "setup.py",
+  "tox.ini",
+  "uv.lock",
+  "pylock.toml",
+]
+detect_folders = [".venv", "venv"]
+
+[custom.uv-lock]
+style = "bold fg:#cf67e2"
+shell = "bash"
+command = """
+if ! command -v uv >/dev/null; then
+  exit 1
+fi
+suffix=""
+if uv lock --check-exists >/dev/null; test $? -eq 2; then
+  suffix="?"
+elif uv lock --check >/dev/null; test $? -eq 2; then
+  suffix="!"
+fi
+if [ -n "$suffix" ]; then
+  echo ["$suffix"]
+fi
+"""
+format = "[($output )]($style)"
+detect_extensions = ["py", "ipynb"]
+detect_files = [
+  ".python-version",
+  "Pipfile",
+  "__init__.py",
+  "pyproject.toml",
+  "requirements.txt",
+  "setup.py",
+  "tox.ini",
+  "uv.lock",
+  "pylock.toml",
+]
+detect_folders = [".venv", "venv"]
 
 [ruby]
 symbol = ' '
