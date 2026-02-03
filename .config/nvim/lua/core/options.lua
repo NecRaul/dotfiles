@@ -17,6 +17,7 @@ vim.opt.breakindent = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 
 vim.opt.hlsearch = true
 vim.opt.ignorecase = false
@@ -28,10 +29,10 @@ vim.opt.confirm = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.background = "dark"
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 1000
 vim.opt.undofile = true
 
-vim.opt.updatetime = 250
+vim.opt.updatetime = 2000
 
 vim.opt.clipboard = "unnamedplus"
 vim.opt.encoding = "utf-8"

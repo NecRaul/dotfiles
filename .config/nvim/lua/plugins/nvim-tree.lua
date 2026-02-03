@@ -2,8 +2,8 @@ return {
     "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        local api = require("nvim-tree.api")
-        require("nvim-tree").setup({
+        local nvim_tree = require("nvim-tree")
+        nvim_tree.setup({
             filters = {
                 git_ignored = true,
                 custom = { ".git$" },
@@ -28,17 +28,13 @@ return {
                 },
             },
             on_attach = function(bufnr)
-                local function opts(desc)
-                    return {
-                        desc = "NvimTree: " .. desc,
-                        buffer = bufnr,
-                        noremap = true,
-                        silent = true,
-                        nowait = true,
-                    }
-                end
-                api.config.mappings.default_on_attach(bufnr)
-                vim.keymap.set("n", "<C-t>", api.tree.toggle, opts("Toggle Tree"))
+                vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>", {
+                    buffer = bufnr,
+                    noremap = true,
+                    silent = true,
+                    nowait = true,
+                    desc = "[T]oggle Tree",
+                })
             end,
         })
     end,

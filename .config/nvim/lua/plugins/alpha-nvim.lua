@@ -1,7 +1,10 @@
 return {
     "goolord/alpha-nvim",
-    dependencies = { "nvim-mini/mini.icons", "nvim-lua/plenary.nvim" },
+    dependencies = { "nvim-tree/nvim-web-devicons", "nvim-lua/plenary.nvim" },
+    event = "VimEnter",
     config = function()
-        require("alpha").setup(require("alpha.themes.theta").config)
+        local alpha = require("alpha")
+        local theta = require("alpha.themes.theta")
+        alpha.setup(theta.config)
     end,
 }

@@ -34,6 +34,29 @@ return {
                 },
             },
         })
+
+        vim.keymap.set("n", "<C-p>", function()
+            local git_ok = pcall(vim.fn.system, "git rev-parse --is-inside-work-tree")
+            if git_ok and vim.v.shell_error == 0 then
+                builtin.git_files()
+            else
+                builtin.find_files()
+            end
+        end, {
+            desc = "Telescope [P]review",
+        })
+        vim.keymap.set("n", "<C-s>", builtin.live_grep, {
+            desc = "Telescope [S]earch",
+        })
+        vim.keymap.set("n", "<C-f>", builtin.current_buffer_fuzzy_find, {
+            desc = "Telescope [F]uzzy Find",
+        })
+        vim.keymap.set("n", "<C-d><C-d>", builtin.diagnostics, {
+            desc = "Telescope [D]iagnostics",
+        })
+        vim.keymap.set("n", "<C-b>", builtin.buffers, {
+            desc = "Telescope [B]uffers",
+        })
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("telescope-lsp-attach", {
                 clear = true,
@@ -56,13 +79,13 @@ return {
                     buffer = buf,
                     desc = "[G]oto [T]ype Definition",
                 })
-                vim.keymap.set("n", "gW", builtin.lsp_dynamic_workspace_symbols, {
+                vim.keymap.set("n", "grw", builtin.lsp_dynamic_workspace_symbols, {
                     buffer = buf,
-                    desc = "Open Workspace Symbols",
+                    desc = "Open [W]orkspace Symbols",
                 })
-                vim.keymap.set("n", "gO", builtin.lsp_document_symbols, {
+                vim.keymap.set("n", "grs", builtin.lsp_document_symbols, {
                     buffer = buf,
-                    desc = "Open Document Symbols",
+                    desc = "Open Document [S]ymbols",
                 })
             end,
         })

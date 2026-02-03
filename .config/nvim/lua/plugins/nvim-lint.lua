@@ -11,7 +11,6 @@ return {
             "--config",
             vim.fn.expand("~/.config/nvim/luacheckrc"),
         })
-
         lint.linters_by_ft = {
             dockerfile = { "hadolint" },
             dotenv = { "dotenv_linter" },
@@ -35,9 +34,9 @@ return {
         }
         vim.api.nvim_create_autocmd({ "BufWritePost" }, {
             callback = function()
-                require("lint").try_lint()
-                require("lint").try_lint("typos")
-                require("lint").try_lint("gitleaks")
+                lint.try_lint()
+                lint.try_lint("typos")
+                lint.try_lint("gitleaks")
             end,
         })
     end,

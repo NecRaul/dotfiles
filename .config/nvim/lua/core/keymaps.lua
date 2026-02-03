@@ -26,17 +26,12 @@ vim.keymap.set("n", "<C-o>", function()
     local clients = vim.lsp.get_clients({
         name = name,
     })
-
     if #clients > 0 then
         for _, client in ipairs(clients) do
             client.stop()
         end
         vim.lsp.enable(name, false)
     else
-        local capabilities = require("blink.cmp").get_lsp_capabilities()
-        vim.lsp.config(name, {
-            capabilities = capabilities,
-        })
         vim.lsp.enable(name, true)
     end
 end, {
@@ -61,7 +56,6 @@ for i = 1, 9 do
         local bufs = vim.fn.getbufinfo({
             buflisted = 1,
         })
-
         local buf = bufs[i]
         if buf then
             vim.api.nvim_set_current_buf(buf.bufnr)
@@ -93,54 +87,11 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", {
 -- Nvim Tree keymaps
 vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>", {
     silent = true,
-    desc = "Toggle NvimTree",
-})
-
--- Git keymaps
-vim.keymap.set("n", "<C-g><C-d>", ":Gitsigns diffthis<CR>", {
-    silent = true,
-    desc = "Git Diff",
-})
-vim.keymap.set("n", "<C-g><C-b>", ":Gitsigns blame<CR>", {
-    silent = true,
-    desc = "Git Blame",
-})
-vim.keymap.set("n", "<C-g><C-l>", ":Flog<CR>", {
-    silent = true,
-    desc = "Git Log",
-})
-
--- Telescope keymaps
-vim.keymap.set("n", "<C-p>", function()
-    local git_ok = pcall(vim.fn.system, "git rev-parse --is-inside-work-tree")
-    if git_ok and vim.v.shell_error == 0 then
-        vim.cmd("Telescope git_files")
-    else
-        vim.cmd("Telescope find_files")
-    end
-end, {
-    silent = true,
-    desc = "Telescope smart find files",
-})
-vim.keymap.set("n", "<C-s>", ":Telescope live_grep<CR>", {
-    silent = true,
-    desc = "Telescope live grep",
-})
-vim.keymap.set("n", "<C-f>", ":Telescope current_buffer_fuzzy_find<CR>", {
-    silent = true,
-    desc = "Telescope current buffer fuzzy find",
-})
-vim.keymap.set("n", "<C-q>", ":Telescope diagnostics<CR>", {
-    silent = true,
-    desc = "Telescope diagnostics",
-})
-vim.keymap.set("n", "<C-b>", ":Telescope buffers<CR>", {
-    silent = true,
-    desc = "Telescope buffers",
+    desc = "[T]oggle NvimTree",
 })
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, {
+vim.keymap.set("n", "<C-d><C-l>", vim.diagnostic.setloclist, {
     silent = true,
-    desc = "Open diagnostic [Q]uickfix list",
+    desc = "Open [D]iagnostic Quickfix [L]ist",
 })

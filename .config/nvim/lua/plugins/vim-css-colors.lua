@@ -1,1 +1,7 @@
-return { "ap/vim-css-color" }
+return {
+    "ap/vim-css-color",
+    event = "BufReadPost",
+    config = function()
+        --
+    end,
+}

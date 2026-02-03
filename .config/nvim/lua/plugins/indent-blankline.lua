@@ -1,17 +1,20 @@
 return {
     "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    opts = {
-        indent = {
-            highlight = "GitSignsAdd",
-        },
-        whitespace = {
-            highlight = "GitSignsAdd",
-            remove_blankline_trail = false,
-        },
-        scope = {
-            enabled = true,
-            highlight = "GitSignsDelete",
-        },
-    },
+    event = { "BufReadPost", "BufNewFile" },
+    config = function()
+        local ibl = require("ibl")
+        ibl.setup({
+            indent = {
+                highlight = "GitSignsAdd",
+            },
+            whitespace = {
+                highlight = "GitSignsAdd",
+                remove_blankline_trail = false,
+            },
+            scope = {
+                enabled = true,
+                highlight = "GitSignsDelete",
+            },
+        })
+    end,
 }

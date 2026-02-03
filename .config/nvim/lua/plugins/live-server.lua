@@ -1,6 +1,9 @@
 return {
     "barrettruth/live-server.nvim",
-    cmd = "LiveServerToggle",
     build = "npm install -g live-server",
-    opts = {},
+    cmd = "LiveServerToggle",
+    config = function()
+        local live_server = require("live-server")
+        live_server.setup()
+    end,
 }
