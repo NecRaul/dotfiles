@@ -5,15 +5,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         local curr_pos = vim.api.nvim_win_get_cursor(0)
         vim.api.nvim_exec2(
             [[
-      %s/\s\+$//e
-      %s/\r\+$//e
-      %s/\n\+\%$//e
-    ]],
-            {
-                output = false,
-            }
+                %s/\s\+$//e
+                %s/\r\+$//e
+                %s/\n\+\%$//e
+            ]],
+            { output = false }
         )
-        vim.api.nvim_win_set_cursor(0, curr_pos)
+        local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+        local line = math.min(curr_pos[1], #lines)
+        local col = math.min(curr_pos[2], #lines[line] + 1)
+        vim.api.nvim_win_set_cursor(0, { line, col })
     end,
 })
 
