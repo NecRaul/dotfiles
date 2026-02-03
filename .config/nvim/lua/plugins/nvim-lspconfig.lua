@@ -8,7 +8,9 @@ return {
         "WhoIsSethDaniel/mason-tool-installer.nvim",
         {
             "j-hui/fidget.nvim",
-            opts = {},
+            opts = {
+                progress = { ignore = { "lua_ls", "jdtls" } },
+            },
         },
         "saghen/blink.cmp",
     },
@@ -68,89 +70,60 @@ return {
                 end
             end,
         })
-        local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-        local language_servers = { --
-            "autotools-language-server", -- Autotools/Make/Configure
-            "bash-language-server", -- Bash
-            "clangd", -- C/C++
-            "csharp-language-server", -- C#
-            "css-lsp", -- CSS
-            "diagnostic-languageserver", -- Diagnostics
-            "docker-language-server", -- Docker/Docker-Compose
-            "eslint-lsp", -- ESLint
-            "gh-actions-language-server", -- GitHub Actions
-            "gopls", -- Go
-            "gradle-language-server", -- Gradle
-            "groovy-language-server", -- Groovy
-            "html-lsp", -- HTML
-            "jdtls", -- Java
-            "jq-lsp", -- JQ
-            "json-lsp", -- JSON
-            "lemminx", -- XML
-            "lua-language-server", -- Lua
-            "marksman", -- Markdown
-            "perlnavigator", -- Perl
-            "phpactor", -- PHP
-            "postgres-language-server", -- SQL
-            "ruff", -- Python
-            "ty", -- Python
-            "rubocop", -- Ruby
-            "rust-analyzer", -- Rust
-            "some-sass-language-server", -- SASS
-            "stylua", -- Lua
-            "systemd-lsp", -- Systemd
-            "tailwindcss-language-server", -- Tailwind CSS
-            "taplo", -- TOML
-            "tsgo", -- Javascript, Typescript
-            "vue-language-server", -- Vue
-            "yaml-language-server", -- YAML
-            "zls", -- Zig
-        }
-
-        local dap_adapters = { --
-            "bash-debug-adapter", -- Bash
-            "codelldb", -- C/C++/Rust/Zig
-            "cpptools", -- C/C++/Rust
-            "debugpy", -- Python
-            "firefox-debug-adapter", -- Javascript/Typescript
-            "go-debug-adapter", -- Go
-            "java-debug-adapter", -- Java
-            "java-test", -- Java
-            "js-debug-adapter", -- Javascript/Typescript
-            "mockdebug", -- Mock
-            "perl-debug-adapter", -- Perl
-            "php-debug-adapter", -- PHP
-            "local-lua-debugger-vscode", -- Lua
-            "netcoredbg", -- C#
-            "vscode-java-decompiler", -- Java
-            "uv", -- Python
+        local language_servers = {
+            ["autotools-language-server"] = "autotools_ls", -- Autotools/Make/Configure
+            ["bash-language-server"] = "bashls", -- Bash
+            ["clangd"] = "clangd", -- C/C++
+            ["css-lsp"] = "cssls", -- CSS
+            ["diagnostic-languageserver"] = "diagnosticls", -- Diagnostics
+            ["docker-compose-language-service"] = "docker_compose_language_service", -- Docker-Compose
+            ["docker-language-server"] = "docker_language_server", -- Docker
+            ["eslint-lsp"] = "eslint", -- ESLint
+            ["gh-actions-language-server"] = "gh_actions_ls", -- Github Actions
+            ["gopls"] = "gopls", -- Go
+            ["gradle-language-server"] = "gradle_ls", -- Gradle
+            ["html-lsp"] = "html", -- HTML
+            ["jdtls"] = "jdtls", -- Java
+            ["jq-lsp"] = "jqls", -- JQ
+            ["json-lsp"] = "jsonls", -- JSON
+            ["kotlin-lsp"] = "kotlin_lsp", -- Kotlin
+            ["lemminx"] = "lemminx", -- XML
+            ["lua-language-server"] = "lua_ls", -- Lua
+            ["marksman"] = "marksman", -- Markdown
+            ["omnisharp"] = "omnisharp", -- C#
+            ["perlnavigator"] = "perlnavigator", -- Perl
+            ["postgres-language-server"] = "postgres_lsp", -- PostgreSQL
+            ["ruff"] = "ruff", -- Python
+            ["rust-analyzer"] = "rust_analyzer", -- Rust
+            ["some-sass-language-server"] = "somesass_ls", -- SCSS/SASS
+            ["stylua"] = "stylua", -- Lua
+            ["tailwindcss-language-server"] = "tailwindcss", -- TailwindCSS
+            ["taplo"] = "taplo", -- TOML
+            ["ty"] = "ty", -- Python
+            ["typescript-language-server"] = "ts_ls", -- Javascript/Typescript
+            ["vue-language-server"] = "vue_ls", -- Vue
+            ["yaml-language-server"] = "yamlls", -- YAML
+            ["zls"] = "zls", -- Zig
         }
 
         local linters = { --
             "actionlint", -- Github Actions
-            "bacon", -- Rust
             "checkmake", -- Make
-            "checkstyle", -- Java
-            "cmakelint", -- CMake
-            "gitlint", -- Git
             "dotenv-linter", -- dotenv
             "editorconfig-checker", -- editorconfig
             "eslint_d", -- Javascript/Typescript
             "gitleaks", -- git secrets
+            "gitlint", -- COMMIT_EDITMSG
             "hadolint", -- Dockerfile
             "htmlhint", -- HTML
             "jsonlint", -- JSON
+            "ktlint", -- Kotlin
             "luacheck", -- Lua
             "markdownlint-cli2", -- Markdown
-            "npm-groovy-lint", -- Groovy/Gradle
-            "phpstan", -- PHP
             "postgres-language-server", -- SQL
-            "rubocop", -- Ruby
             "shellcheck", -- Bash
-            "staticcheck", -- Go
-            "stylelint", -- CSS/SASS/SCSS/Less
-            "systemdlint", -- Systemd
+            "typos", -- Spellcheck
             "yamllint", -- YAML
         }
 
@@ -159,16 +132,11 @@ return {
             "csharpier", -- C#
             "gersemi", -- CMake
             "goimports", -- Go
-            "google-java-format", -- Java
             "jq", -- JQ
             "markdownlint-cli2", -- Markdown
-            "npm-groovy-lint", -- Groovy/Gradle
-            "phpcbf", -- PHP
             "prettier", -- HTML/CSS/Javascript/Typescript/JSX/TSX/Vue/JSON/JSON5/JSONC/YAML/SASS/SCSS/Less
-            "rubocop", -- Ruby
             "rustywind", -- Tailwind CSS
             "shfmt", -- Bash
-            "sqlfmt", -- SQL
             "stylua", -- Lua
             "taplo", -- TOML
             "xmlformatter", -- XML
@@ -178,9 +146,7 @@ return {
             "codebook", -- Spellcheck
         }
 
-        local ensure_installed = vim.tbl_keys({})
-        vim.list_extend(ensure_installed, language_servers)
-        vim.list_extend(ensure_installed, dap_adapters)
+        local ensure_installed = vim.tbl_keys(language_servers)
         vim.list_extend(ensure_installed, linters)
         vim.list_extend(ensure_installed, formatters)
         vim.list_extend(ensure_installed, optional)
@@ -189,13 +155,14 @@ return {
             ensure_installed = ensure_installed,
         })
 
-        local default_config = {
-            capabilities = vim.tbl_deep_extend("force", {}, capabilities, {}),
-        }
-        for _, name in ipairs(language_servers) do
-            vim.lsp.config(name, default_config)
-            vim.lsp.enable(name)
+        for _, lsp_name in pairs(language_servers) do
+            vim.lsp.enable(lsp_name)
         end
+
+        vim.lsp.config("taplo", {
+            filetypes = { "toml" },
+            root_dir = require("lspconfig.util").root_pattern("*.toml", ".git"),
+        })
 
         vim.lsp.config("lua_ls", {
             on_init = function(client)
@@ -225,6 +192,5 @@ return {
                 Lua = {},
             },
         })
-        vim.lsp.enable("lua_ls")
     end,
 }

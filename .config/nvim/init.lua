@@ -5,4 +5,5 @@ vim.g.have_nerd_font = true
 require("core.options")
 require("core.keymaps")
 require("core.autocmds")
+require("core.filetypes")
 require("config.lazy")
