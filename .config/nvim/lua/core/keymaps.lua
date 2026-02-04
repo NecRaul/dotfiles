@@ -7,6 +7,8 @@ for _, dir in ipairs(directions) do
     end
 end
 
+vim.keymap.set("n", "<C-c>", "<silent> <C-c>", { noremap = true, desc = "Pass Ctrl+C through (no quit prompt)" })
+
 -- Basic keymaps
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Escape insert mode" })
 vim.keymap.set("n", "c", [["_c]], { desc = "Change without yank" })

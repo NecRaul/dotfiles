@@ -33,8 +33,6 @@ return {
                         "buffers",
                         mode = 2,
                         filetype_names = {
-                            TelescopePrompt = "Telescope",
-                            fzf = "FZF",
                             NvimTree = "NvimTree",
                         },
                         symbols = {
