@@ -64,15 +64,7 @@ return {
                     buffer = event.buf,
                     desc = "[R]e[n]ame",
                 })
-                vim.keymap.set("n", "gra", vim.lsp.buf.code_action, {
-                    buffer = event.buf,
-                    desc = "[G]oto Code [A]ction",
-                })
-                vim.keymap.set("n", "grD", vim.lsp.buf.declaration, {
-                    buffer = event.buf,
-                    desc = "[G]oto [D]eclaration",
-                })
-                vim.keymap.set("n", "<leader>rf", vim.diagnostic.open_float, {
+                vim.keymap.set("n", "<C-d><C-f>", vim.diagnostic.open_float, {
                     buffer = event.buf,
                     desc = "Toggle [F]loating Diagnostic",
                 })

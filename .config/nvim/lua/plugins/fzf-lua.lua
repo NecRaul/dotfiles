@@ -508,9 +508,6 @@ return {
                     },
                 },
             },
-            vim.keymap.set("n", "<C-d><C-d>", fzf_lua.diagnostics_workspace, {
-                desc = "FzfLua [D]iagnostics",
-            }),
             diagnostics = {
                 prompt = "Diagnostics❯ ",
                 color_headings = true,
@@ -549,6 +546,53 @@ return {
                     enter = FzfLua.actions.cd,
                 },
             },
+            vim.api.nvim_create_autocmd("LspAttach", {
+                group = vim.api.nvim_create_augroup("fzflua-lsp-attach", {
+                    clear = true,
+                }),
+                callback = function(event)
+                    vim.keymap.set("n", "grr", fzf_lua.lsp_references, {
+                        buffer = event.buf,
+                        desc = "[G]oto [R]eferences",
+                    })
+                    vim.keymap.set("n", "gri", fzf_lua.lsp_implementations, {
+                        buffer = event.buf,
+                        desc = "[G]oto [I]mplementations",
+                    })
+                    vim.keymap.set("n", "grd", fzf_lua.lsp_definitions, {
+                        buffer = event.buf,
+                        desc = "[G]oto [D]efinitions",
+                    })
+                    vim.keymap.set("n", "grD", fzf_lua.lsp_declarations, {
+                        buffer = event.buf,
+                        desc = "[G]oto [D]eclaration",
+                    })
+                    vim.keymap.set("n", "grt", fzf_lua.lsp_typedefs, {
+                        buffer = event.buf,
+                        desc = "[G]oto [T]ype Definition",
+                    })
+                    vim.keymap.set("n", "gra", fzf_lua.lsp_code_actions, {
+                        buffer = event.buf,
+                        desc = "[G]oto Code [A]ction",
+                    })
+                    vim.keymap.set("n", "grs", fzf_lua.lsp_document_symbols, {
+                        buffer = event.buf,
+                        desc = "Open Document [S]ymbols",
+                    })
+                    vim.keymap.set("n", "grw", fzf_lua.lsp_workspace_symbols, {
+                        buffer = event.buf,
+                        desc = "Open [W]orkspace Symbols",
+                    })
+                    vim.keymap.set("n", "<C-d><C-d>", fzf_lua.lsp_document_diagnostics, {
+                        buffer = event.buf,
+                        desc = "Open [D]iagnostics for [D]ocument",
+                    })
+                    vim.keymap.set("n", "<C-d><C-w>", fzf_lua.lsp_workspace_diagnostics, {
+                        buffer = event.buf,
+                        desc = "Open [D]iagnostics for [W]orkspace",
+                    })
+                end,
+            }),
         })
     end,
 }
