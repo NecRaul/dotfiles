@@ -59,6 +59,22 @@ cmd on-cd &{{
 cmd delete ${{
     clear; tput cup $(($(tput lines)/3)); tput bold
     set -f
+    # !!! NO TRAILING SLASHES !!!
+    protected_paths=$(printf '%s\n' "$HOME" "$HOME/Documents" "$HOME/Downloads" "$HOME/Music" "$HOME/Pictures" "$HOME/Videos" "$HOME/.config" "$HOME/.local")
+    forbidden_paths=""
+    for x in $fx; do
+        clean_file=$(echo "$x" | sed 's:/*$::')
+        if echo "$protected_paths" | grep -qx "$clean_file"; then
+            forbidden_paths="$forbidden_paths$x\n"
+        fi
+    done
+    if [ -n "$forbidden_paths" ]; then
+        clear; tput cup $(($(tput lines)/3)); tput bold
+        printf "\033[31mERROR: The following paths are PROTECTED and cannot be deleted:\033[0m\n\n"
+        printf "$forbidden_paths"
+        read -p "Press any key to continue..."
+        return
+    fi
     printf "%s\n\t" "$fx"
     printf "delete?[y/N]"
     read ans
