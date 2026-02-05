@@ -150,9 +150,9 @@ return {
                     cmd = "git -c color.status=false --no-optional-locks status --porcelain=v1 -u",
                     previewer = "git_diff",
                     actions = {
-                        ["l"] = { fn = FzfLua.actions.git_unstage, reload = true },
-                        ["h"] = { fn = FzfLua.actions.git_stage, reload = true },
-                        ["r"] = { fn = FzfLua.actions.git_reset, reload = true },
+                        ["ctrl-l"] = { fn = FzfLua.actions.git_unstage, reload = true },
+                        ["ctrl-h"] = { fn = FzfLua.actions.git_stage, reload = true },
+                        ["ctrl-r"] = { fn = FzfLua.actions.git_reset, reload = true },
                     },
                 },
                 vim.keymap.set("n", "<C-g><C-d>", fzf_lua.git_diff, {
@@ -583,11 +583,11 @@ return {
                         buffer = event.buf,
                         desc = "Open [W]orkspace Symbols",
                     })
-                    vim.keymap.set("n", "<C-d><C-d>", fzf_lua.lsp_document_diagnostics, {
+                    vim.keymap.set("n", "<leader>dd", fzf_lua.lsp_document_diagnostics, {
                         buffer = event.buf,
                         desc = "Open [D]iagnostics for [D]ocument",
                     })
-                    vim.keymap.set("n", "<C-d><C-w>", fzf_lua.lsp_workspace_diagnostics, {
+                    vim.keymap.set("n", "<leader>dw", fzf_lua.lsp_workspace_diagnostics, {
                         buffer = event.buf,
                         desc = "Open [D]iagnostics for [W]orkspace",
                     })

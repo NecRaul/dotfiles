@@ -64,17 +64,9 @@ return {
                     buffer = event.buf,
                     desc = "[R]e[n]ame",
                 })
-                vim.keymap.set("n", "<C-d><C-f>", vim.diagnostic.open_float, {
+                vim.keymap.set("n", "<leader>df", vim.diagnostic.open_float, {
                     buffer = event.buf,
                     desc = "Toggle [F]loating Diagnostic",
-                })
-                vim.keymap.set("n", "<C-d><C-n>", vim.diagnostic.goto_next, {
-                    buffer = event.buf,
-                    desc = "[G]oto [N]ext Diagnostic",
-                })
-                vim.keymap.set("n", "<C-d><C-p>", vim.diagnostic.goto_prev, {
-                    buffer = event.buf,
-                    desc = "[G]oto Previous Diagnostic",
                 })
                 local client = vim.lsp.get_client_by_id(event.data.client_id)
                 if client and client:supports_method("textDocument/documentHighlight", event.buf) then
