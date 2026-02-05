@@ -1,6 +1,6 @@
 return {
     "folke/trouble.nvim",
-    lazy = false,
+    cmd = "Trouble",
     config = function()
         local trouble = require("trouble")
         trouble.setup({
@@ -19,8 +19,5 @@ return {
                 },
             },
         })
-        vim.keymap.set("n", "<leader>dt", function()
-            trouble.toggle("diagnostics")
-        end, { desc = "Open [D]iagnostics with [T]rouble" })
     end,
 }

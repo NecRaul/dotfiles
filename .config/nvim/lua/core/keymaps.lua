@@ -92,10 +92,30 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", {
     desc = "Move focus to the upper window",
 })
 
+-- Diagnostics Trouble
+vim.keymap.set("n", "<leader>dt", ":Trouble diagnostics toggle<CR>", {
+    silent,
+    desc = "Open [D]iagnostics with [T]rouble",
+})
+
 -- Nvim Tree keymaps
 vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>", {
     silent = true,
     desc = "[T]oggle NvimTree",
+})
+
+-- Git Log
+vim.keymap.set("n", "<C-g><C-l>", ":Flog<CR>", {
+    silent = true,
+    desc = "[G]it [L]og",
+})
+
+-- Todo Comments
+vim.keymap.set("n", "<leader>tdf", ":TodoFzfLua<CR>", {
+    desc = "[T]o[D]o [F]zfLua",
+})
+vim.keymap.set("n", "<leader>tdt", ":TodoTrouble<CR>", {
+    desc = "[T]o[D]o [T]rouble",
 })
 
 -- Spellcheck
