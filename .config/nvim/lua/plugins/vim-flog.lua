@@ -3,7 +3,7 @@ return {
     dependencies = {
         "tpope/vim-fugitive",
     },
-    cmd = "Flog",
+    cmd = { "Flog", "Git" },
     config = function()
         --
     end,

@@ -94,7 +94,7 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", {
 
 -- Diagnostics Trouble
 vim.keymap.set("n", "<leader>dt", ":Trouble diagnostics toggle<CR>", {
-    silent,
+    silent = true,
     desc = "Open [D]iagnostics with [T]rouble",
 })
 
@@ -104,17 +104,45 @@ vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>", {
     desc = "[T]oggle NvimTree",
 })
 
--- Git Log
+-- Git keymaps
 vim.keymap.set("n", "<C-g><C-l>", ":Flog<CR>", {
     silent = true,
     desc = "[G]it [L]og",
 })
+-- Push / pull / fetch
+vim.keymap.set("n", "<C-g><C-c><C-m>", ":Git commit<CR>", {
+    silent = true,
+    desc = "[G]it [C]o[m]mit",
+})
+vim.keymap.set("n", "<C-g><C-f>", ":Git fetch<CR>", {
+    silent = true,
+    desc = "[G]it [F]etch",
+})
+vim.keymap.set("n", "<C-g><C-p><C-l>", ":Git pull<CR>", {
+    silent = true,
+    desc = "[G]it [P]u[l]l",
+})
+vim.keymap.set("n", "<C-g><C-p><C-s>", ":Git push<CR>", {
+    silent = true,
+    desc = "[G]it [P]u[s]h",
+})
+vim.keymap.set("n", "<C-g><C-m>", ":Git merge<Space>", {
+    desc = "[G]it [M]erge",
+})
+vim.keymap.set("n", "<C-g><C-r><C-b>", ":Git rebase<Space>", {
+    desc = "[G]it [R]e[b]ase",
+})
+vim.keymap.set("n", "<C-g><C-r><C-v>", ":Git revert<Space>", {
+    desc = "[G]it [R]e[v]ert",
+})
 
 -- Todo Comments
 vim.keymap.set("n", "<leader>tdf", ":TodoFzfLua<CR>", {
+    silent = true,
     desc = "[T]o[D]o [F]zfLua",
 })
 vim.keymap.set("n", "<leader>tdt", ":TodoTrouble<CR>", {
+    silent = true,
     desc = "[T]o[D]o [T]rouble",
 })
 

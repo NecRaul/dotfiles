@@ -171,7 +171,7 @@ return {
                     prompt = "Git Hunks❯ ",
                     cmd = "git --no-pager diff --color=always",
                 },
-                vim.keymap.set("n", "<C-g><C-c>", fzf_lua.git_commits, {
+                vim.keymap.set("n", "<C-g><C-c><C-c>", fzf_lua.git_commits, {
                     desc = "FzfLua [G]it [C]ommits",
                 }),
                 commits = {
