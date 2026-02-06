@@ -68,7 +68,6 @@ git
 git-lfs
 glow
 gnome-epub-thumbnailer
-gnome-keyring
 gnumeric
 go
 gopls
@@ -140,6 +139,7 @@ nvtop
 nyancat
 obs-studio
 odt2txt
+openslide
 openssh
 openvpn
 pacman-contrib
@@ -158,6 +158,7 @@ pipewire-pulse
 playerctl
 polkit-kde-agent
 ponysay
+poppler-glib
 postgresql
 powerline-fonts
 ppsspp

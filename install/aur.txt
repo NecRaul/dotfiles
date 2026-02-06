@@ -10,6 +10,7 @@ epub-thumbnailer-git
 icu76
 krokiet-bin
 libva-vdpau-driver
+mcomix
 megasync-bin
 mpd-discord-rpc
 paru
