@@ -83,6 +83,7 @@ return {
                         ["png"] = { "ueberzug" },
                         ["jpg"] = { "ueberzug" },
                         ["jpeg"] = { "ueberzug" },
+                        ["gif"] = { "ueberzug" },
                         ueberzug_scaler = "cover",
                     },
                 },
