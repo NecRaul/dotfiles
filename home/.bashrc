@@ -97,7 +97,6 @@ export HISTFILE="$XDG_DATA_HOME/history"
 export NLTK_DATA="$XDG_DATA_HOME/nltk_data"
 export NODE_REPL_HISTORY="$XDG_DATA_HOME/node_repl_history"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
 
@@ -126,7 +125,6 @@ export MOZ_USE_XINPUT2="1"
 source "$XDG_CONFIG_HOME/zoxide/zoxide.sh"
 source "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
 source "$XDG_CONFIG_HOME/fzf/fzfrc"
-eval "$(pyenv init - bash)"
 
 # Start a tmux session when bash starts
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then
