@@ -4,6 +4,7 @@ gist-neko
 git-neko
 lain-shorten[clipboard]
 lain-upload[clipboard]
+lic-cli
 pre-commit
 pywal16
 pywalfox

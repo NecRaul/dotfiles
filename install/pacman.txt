@@ -172,7 +172,6 @@ reflector
 ripgrep
 rsync
 ruby
-rust-src
 rustup
 samba
 sddm
