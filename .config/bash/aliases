@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# General/convenience
+alias sudo="sudo "
+alias vim="nvim"
+alias mkdir="mkdir -p"
+alias diff="diff --color=auto"
+
+# Network/media
+alias pynps="pynps -c ps3 -r usa"
+# shellcheck disable=SC2139
+alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
+# shellcheck disable=SC2139
+alias yt-dlp="yt-dlp --cookies-from-browser '$BROWSER' --embed-metadata"
+
+# Docker
+alias dps="docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}'"
+alias dpsp="docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}\t{{.Ports}}'"
+
+# Coreutils replacements
+alias ls="eza --color=always --icons=always --no-quotes --group-directories-first -x"
+alias ld="eza --color=always --icons=always --no-quotes --group-directories-first -xa | grep \"^\.\""
+alias la="eza --color=always --icons=always --no-quotes --group-directories-first -xa"
+alias ll="eza --color=always --icons=always --no-quotes --group-directories-first -xlg --git"
+alias lt="eza --color=always --icons=always --no-quotes --group-directories-first -xTg -L 3"
+alias lla="eza --color=always --icons=always --no-quotes --group-directories-first -xalg --git"
+alias llt="eza --color=always --icons=always --no-quotes --group-directories-first -xlTg --git -I \".git\" -L 3"
+alias lta="eza --color=always --icons=always --no-quotes --group-directories-first -xaTg -I \".git\" -L 3"
+alias llta="eza --color=always --icons=always --no-quotes --group-directories-first -xalTg --git -I \".git\" -L 3"
+alias cat="bat --color=auto --theme base16-256"
+alias grep="rg"
+
+# Wrapper scripts
+alias lf="lfub"
+alias ncmpcpp="ncmpcpp-art"
+alias nsxiv="nsxiv-rifle"

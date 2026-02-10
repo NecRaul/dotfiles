@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# LESS
+export LESS="RF"
+# shellcheck disable=SC2155
+export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+# shellcheck disable=SC2155
+export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+# shellcheck disable=SC2155
+export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+# shellcheck disable=SC2155
+export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+# shellcheck disable=SC2155
+export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+# shellcheck disable=SC2155
+export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+# shellcheck disable=SC2155
+export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"

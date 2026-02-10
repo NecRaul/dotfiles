@@ -182,12 +182,10 @@ create_symlinks() {
   # # #
 
   # ~ #
-  cp -rf --remove-destination "$(pwd)/home/". "$HOME"
-  ln -sf "$(pwd)/home/.clang-format" "$HOME/.clang-format"
-  ln -sf "$(pwd)/home/.clangd" "$HOME/.clangd"
-  ln -sf "$(pwd)/home/.editorconfig" "$HOME/.editorconfig"
-  ln -sf "$(pwd)/home/.gitlint" "$HOME/.gitlint"
-  ln -sf "$(pwd)/home/.prettierrc" "$HOME/.prettierrc"
+  for item in "$(pwd)/home/".*; do
+    item_name=$(basename "$item")
+    ln -sf "$item" "$HOME/$item_name"
+  done
   # # #
 
   # config #
@@ -271,27 +269,6 @@ reset_package_count() {
   declare -i attempted_packages=0
 }
 
-pypi_token() {
-  echo "==================================================="
-  echo "Paste your PyPI token and press Enter to finish:"
-  echo "==================================================="
-  read -r pypi
-  sed -i "s/placeholder/$pypi/g" "$HOME/.pypirc"
-}
-
-github_credentials() {
-  echo "==================================================="
-  echo "Paste your Github username and press Enter to finish:"
-  echo "==================================================="
-  read -r gu
-  echo "==================================================="
-  echo "Paste your Github public access token and press Enter to finish: "
-  echo "==================================================="
-  read -r gpat
-  sed -i "s/gu/$gu/g" "$HOME/.bashrc"
-  sed -i "s/gpat/$gpat/g" "$HOME/.bashrc"
-}
-
 no_install_packages_to_txt() {
   mkdir -p no_install
   printf "%s\n" "${no_install_pacman_packages[@]}" >no_install/pacman.txt
@@ -343,9 +320,5 @@ install_blesh
 install_grub_theme
 
 enable_services
-
-pypi_token
-
-github_credentials
 
 no_install_packages_to_txt

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# shellcheck disable=SC1091
+source "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
+source "$XDG_CONFIG_HOME/zoxide/zoxide.sh"
+source "$XDG_CONFIG_HOME/fzf/fzfrc"
