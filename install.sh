@@ -20,6 +20,7 @@ create_folders() {
   mkdir -p "$HOME/Videos/Seasonals"
   mkdir -p "$HOME/Videos/Temp"
   sudo mkdir -p /etc/modprobe.d
+  sudo mkdir -p /etc/profile.d
   sudo mkdir -p /usr/share/xsessions
 }
 
