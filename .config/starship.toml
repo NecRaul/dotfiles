@@ -250,11 +250,11 @@ detect_files = [
 detect_folders = [".venv", "venv"]
 
 [custom.uv-version]
-style = "bold fg:#dffe7c"
+style = "bold fg:#de5fe9"
 shell = "bash"
 command = """
 if command -v uv >/dev/null 2>&1; then
-  echo "⚡️v$(uv --version 2>&1 | awk '{print $2}')"
+  echo "󰬂 v$(uv --version 2>&1 | awk '{print $2}')"
   exit 0
 fi
 """
@@ -274,7 +274,7 @@ detect_files = [
 detect_folders = [".venv", "venv"]
 
 [custom.uv-lock]
-style = "bold fg:#cf67e2"
+style = "bold fg:#d8ff64"
 shell = "bash"
 command = """
 if ! command -v uv >/dev/null; then
