@@ -10,7 +10,7 @@ square_alignment="top"
 font_height=17
 font_width=8
 
-cover_path="$XDG_CACHE_HOME/ncmpcpp/$(mpc --format "%albumartist%_%album%" current | sed "s/[\/:*~!?,.'\"<>| ]//g").jpg"
+cover_path="$XDG_CACHE_HOME/ncmpcpp/$(mpc --format "%albumartist%_%album%_%title%" current | sed "s/[\/:*~!?,.'\"<>| ]//g").jpg"
 
 kill_previous_instances() {
     script_name=$(basename "$0")

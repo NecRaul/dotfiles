@@ -3,7 +3,7 @@
 artist="$(mpc --format "%artist%" current)"
 title="$(mpc --format "%title%" current)"
 
-cover_path="$XDG_CACHE_HOME/ncmpcpp/$(mpc --format "%albumartist%_%album%" current | sed "s/[\/:*~!?,.'\"<>| ]//g").jpg"
+cover_path="$XDG_CACHE_HOME/ncmpcpp/$(mpc --format "%albumartist%_%album%_%title%" current | sed "s/[\/:*~!?,.'\"<>| ]//g").jpg"
 
 if [ ! -f "$cover_path" ]; then
     song="$(mpc --format "$MUSIC_DIR/"%file% current)"
