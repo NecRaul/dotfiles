@@ -91,9 +91,9 @@ return {
             vim.keymap.set("n", "<C-p>", function()
                 local git_ok = pcall(vim.fn.system, "git rev-parse --is-inside-work-tree")
                 if git_ok and vim.v.shell_error == 0 then
-                    fzf_lua.git_files()
+                    fzf_lua.git_files({ prompt = "Git Files❯ " })
                 else
-                    fzf_lua.files()
+                    fzf_lua.files({ prompt = "Files❯ " })
                 end
             end, {
                 desc = "FzfLua [P]review",
@@ -326,7 +326,7 @@ return {
                             --iglob "!**/target" \
                             --iglob "!**/tmp" \
                             --iglob "!**/vendor" \
-                            --regexp \
+                            --fixed-strings \
                           ]],
 
                 hidden = true,
