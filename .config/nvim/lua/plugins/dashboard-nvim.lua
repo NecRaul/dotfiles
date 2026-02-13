@@ -58,10 +58,17 @@ return {
             "",
             string.format("nvim %d.%d.%d", version.major, version.minor, version.patch),
         }
+        vim.api.nvim_set_hl(0, "DashboardHeader", { link = "GitSignsChange" })
+        vim.api.nvim_set_hl(0, "DashboardFooter", { link = "GitSignsDelete" })
+        vim.api.nvim_set_hl(0, "DashboardProjectTitle", { link = "GitSignsChange" })
+        vim.api.nvim_set_hl(0, "DashboardProjectTitleIcon", { link = "GitSignsChange" })
+        vim.api.nvim_set_hl(0, "DashboardProjectIcon", { link = "GitSignsAdd" })
+        vim.api.nvim_set_hl(0, "DashboardMruTitle", { link = "GitSignsChange" })
+        vim.api.nvim_set_hl(0, "DashboardMruIcon", { link = "GitSignsChange" })
         local dashboard = require("dashboard")
         dashboard.setup({
             theme = "hyper",
-            letter_list = "12345678abcdefghilmnopqrstuvwxyz",
+            letter_list = "12345678abcdefgimnopqrstuvwxyz",
             config = {
                 header = header,
                 footer = footer,
