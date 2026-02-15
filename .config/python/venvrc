@@ -1,0 +1,17 @@
+import os
+import sys
+
+venv = os.environ.get("VIRTUAL_ENV")
+if venv:
+    venv_name = os.path.basename(venv)
+    sys.ps1 = f"({venv_name}) >>> "
+    sys.ps2 = f"({venv_name}) ... "
+
+import os
+import sys
+import pathlib
+
+try:
+    from pprint import pprint
+except ImportError:
+    pass
