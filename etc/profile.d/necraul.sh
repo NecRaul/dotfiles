@@ -26,6 +26,9 @@ export VISUAL="nvim"
 export BROWSER="firefox"
 export MUSIC_DIR="$HOME/Music"
 
+# Sources
+source "$XDG_CONFIG_HOME/fzf/fzfrc"
+
 # Misc
 export QT_QPA_PLATFORMTHEME=qt6ct
 export NSXIV_OPTS="-aqb"
