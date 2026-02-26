@@ -4,7 +4,7 @@ day=$(date +'%e')
 
 case $BLOCK_BUTTON in
 1)
-    notify-send '      Calendar' "$(cal -m | sed -e "s/$day\b/<span color='red'>$day<\/span>/g")"
+    notify-send '      Calendar' "$(cal -m | sed -e "s/\b$day\b/<span color='red'>$day<\/span>/g")"
     ;;
 3) notify-send " Time/date module" "\- Left click to show the month via \`cal\`" ;;
 6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
