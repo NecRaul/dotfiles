@@ -17,6 +17,7 @@ M.language_servers = {
     ["jdtls"] = "jdtls", -- Java
     ["jq-lsp"] = "jqls", -- JQ
     ["json-lsp"] = "jsonls", -- JSON
+    ["just-lsp"] = "just", -- Just
     ["kotlin-lsp"] = "kotlin_lsp", -- Kotlin
     ["lemminx"] = "lemminx", -- XML
     ["lua-language-server"] = "lua_ls", -- Lua
