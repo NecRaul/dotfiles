@@ -6,6 +6,7 @@ lain-shorten[clipboard]
 lain-upload[clipboard]
 lic-cli
 pre-commit
+pynps
 pywal16
 pywalfox
 ruff

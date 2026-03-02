@@ -12,7 +12,6 @@ base
 base-devel
 bash-completion
 bat
-bc
 bind
 bitwarden
 breeze
@@ -85,6 +84,7 @@ iptraf-ng
 iwd
 jdk-openjdk
 jq
+just
 kdeconnect
 kdegraphics-thumbnailers
 kdesdk-thumbnailers

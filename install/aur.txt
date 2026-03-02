@@ -1,7 +1,6 @@
 activitywatch-bin
 asdf-vm
-azuredatastudio-bin
-borked3ds
+azaharplus-appimage
 cemu
 cht.sh-git
 downgrade
