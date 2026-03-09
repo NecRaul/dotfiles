@@ -26,7 +26,7 @@ return {
                 prompt = opts.prompt or "Project❯ ",
                 hidden = opts.hidden or true,
                 file_icons = opts.file_icons or false,
-                preview = 'eza --color=always --icons=always --no-quotes --group-directories-first -xlT --git -I ".git" -L 1 {}',
+                preview = 'cd {} && eza --color=always --icons=always --no-quotes --group-directories-first -xl --git -I ".git" .',
                 actions = {
                     ["default"] = function(selected)
                         local raw = selected[1]:gsub("^.%s+", "") -- removes first char + spaces

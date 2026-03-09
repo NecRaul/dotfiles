@@ -17,7 +17,7 @@ case "$path" in
 esac
 
 if [ -d "$path" ]; then
-    eza --color=always --icons=always --no-quotes --group-directories-first -xlT --git -I \".git\" -L 1 "$path" && exit 0
+    cd "$path" && eza --color=always --icons=always --no-quotes --group-directories-first -xl --git -I \".git\" . && exit 0
 fi
 
 case "$(file --dereference --brief --mime-type -- "$path")" in
