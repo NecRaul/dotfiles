@@ -90,6 +90,7 @@ kdegraphics-thumbnailers
 kdesdk-thumbnailers
 konsole
 kotlin
+krita
 lf
 lib32-libva
 lib32-mesa
@@ -143,6 +144,7 @@ openslide
 openssh
 openvpn
 pacman-contrib
+pandoc-cli
 patchelf
 perl
 perl-file-mimeinfo

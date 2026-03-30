@@ -1,5 +1,5 @@
 debugpy
-gallery-dl[extra]
+git+https://github.com/NecRaul/gallery-dl[extra]
 gist-neko
 git-neko
 lain-shorten[clipboard]
@@ -7,6 +7,7 @@ lain-upload[clipboard]
 lic-cli
 pre-commit
 pynps
+pytest
 pywal16
 pywalfox
 ruff
