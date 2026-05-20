@@ -17,6 +17,7 @@ bitwarden
 breeze
 breeze-gtk
 breeze-icons
+btop
 catdoc
 cava
 chromium
@@ -90,7 +91,6 @@ kdegraphics-thumbnailers
 kdesdk-thumbnailers
 konsole
 kotlin
-krita
 lf
 lib32-libva
 lib32-mesa
@@ -202,7 +202,6 @@ torbrowser-launcher
 torsocks
 traceroute
 ttf-hack-nerd
-ttf-hanazono
 ttf-liberation
 ttf-roboto
 ttf-sazanami

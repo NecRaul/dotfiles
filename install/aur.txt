@@ -22,6 +22,7 @@ rpcs3-bin
 rusty-psn-bin
 spicetify-cli
 sunshine-bin
+ttf-hanazono
 ttf-ms-fonts
 ventoy-bin
 vesktop
