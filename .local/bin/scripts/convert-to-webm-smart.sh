@@ -57,7 +57,7 @@ else
         video_bitrate=$((overall_bitrate * 19 / 20))
         audio_bitrate=$((overall_bitrate / 20))
         [ "$audio_bitrate" -lt 45 ] && audio_bitrate=45
-        video="-b:v ${video_bitrate}k"
+        video="${video_bitrate}k"
         audio="-c:a libopus -b:a ${audio_bitrate}k"
     else
         video="${overall_bitrate}k"
