@@ -1,0 +1,12 @@
+[Unit]
+Description=Disable X11 PRIMARY selection
+After=graphical-session.target
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/bin/bash -c 'while true; do xsel --follow --input --nodetach </dev/null; done'
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
