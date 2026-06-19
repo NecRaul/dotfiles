@@ -1,3 +1,4 @@
+7zip
 act
 adobe-source-han-sans-jp-fonts
 adobe-source-han-serif-jp-fonts
@@ -211,6 +212,7 @@ unclutter
 unzip
 uv
 vdpauinfo
+vulkan-headers
 vulkan-radeon
 vulkan-tools
 weechat
