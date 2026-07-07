@@ -32,8 +32,12 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 -- dwmblocks recompile
 vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = "~/Documents/Github/Repos/dwmblocks/config.h",
-    command = "!cd ~/Documents/Github/Repos/dwmblocks/ && sudo make install && { killall -q dwmblocks; setsid dwmblocks & }",
+    pattern = vim.fn.expand("~/Documents/Github/Repos/dwmblocks/config.h"),
+    callback = function()
+        vim.cmd(
+            "silent !cd ~/Documents/Github/Repos/dwmblocks && sudo make install && killall -q dwmblocks; setsid dwmblocks &"
+        )
+    end,
 })
 
 -- Treesitter parse on buffer read
