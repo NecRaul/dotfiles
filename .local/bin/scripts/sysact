@@ -1,30 +1,28 @@
 #!/bin/sh
 
-# A dmenu wrapper script for system functions.
-export WM="dwm"
-case "$(readlink -f /sbin/init)" in
-*systemd*) ctl="systemctl" ;;
-*) ctl="loginctl" ;;
-esac
+# sysact - dmenu wrapper to run a system action, optionally after a delay.
+# Usage examples:
+#   sysact                    -> action menu only, runs immediately
+#   sysact delay              -> action menu, then delay menu (explicit)
+#   sysact delay 10m          -> action menu, delay pre-set to 10m
+#   sysact shutdown           -> shuts down immediately, no menu
+#   sysact shutdown delay 10m -> shuts down in 10m, no menu
+#   sysact delay 10m shutdown -> same as above, any order works
+#   sysact cancel             -> cancels a pending timer
 
-wmpid() { # This function is needed if there are multiple instances of the window manager.
-    tree="$(pstree -ps $$)"
-    tree="${tree#*"$WM"(}"
-    echo "${tree%%)*}"
-}
+### --- Config -----------------------------------------------------------
 
-picompid() {
-    pid=$(pidof picom)
-    echo "$pid"
-}
+# Sets up globals: PID file location, WM name, which control command
+# (systemctl vs loginctl) this init system uses, and the two dmenu lists.
+init() {
+    PIDFILE="${XDG_RUNTIME_DIR:-/tmp}/dmenu-timer.pid"
+    WM="dwm"
+    case "$(readlink -f /sbin/init)" in
+    *systemd*) ctl="systemctl" ;;
+    *) ctl="loginctl" ;;
+    esac
 
-# Function to renew both dwm and picom
-renew_all() {
-    kill -HUP "$(wmpid)"     # Reload dwm
-    kill -USR1 "$(picompid)" # Reload picom
-}
-
-actions="lock
+    actions="lock
 leave $WM
 renew all
 hibernate
@@ -33,17 +31,184 @@ shutdown
 sleep
 display off"
 
-action=$(printf '%s\n' "$actions" | dmenu -p 'Action: ')
-[ -z "$action" ] && exit 0
+    delays="1m
+5m
+10m
+15m
+30m
+1h
+2h
+now"
+}
 
-case "$action" in
-"lock") slock ;;
-"leave $WM") kill -TERM "$(wmpid)" ;;
-"renew all") renew_all ;;
-"hibernate") slock $ctl hibernate -i ;;
-"reboot") $ctl reboot -i ;;
-"shutdown") $ctl poweroff -i ;;
-"sleep") slock $ctl suspend -i ;;
-"display off") xset dpms force off ;;
-*) exit 1 ;;
-esac
+### --- Parsing -----------------------------------------------------------
+
+# Parses all args, in any order, into $action / $delay / $want_delay_menu.
+parse_args() {
+    action=""
+    delay=""
+    want_delay_menu=0
+
+    for tok in "$@"; do
+        case "$tok" in
+        cancel)
+            cancel_timer
+            exit 0
+            ;;
+        delay) want_delay_menu=1 ;;
+        *)
+            if [ -z "$delay" ] && parse_delay "$tok" >/dev/null 2>&1; then
+                delay="$tok"
+            elif [ -z "$action" ] && parse_action "$tok"; then
+                action="$tok"
+            else
+                echo "Unrecognized argument: $tok" >&2
+                exit 1
+            fi
+            ;;
+        esac
+    done
+}
+
+# seconds-from-delay-string: "45m"->2700 "2h"->7200 "90s"->90 "10"->600 (bare = minutes)
+parse_delay() {
+    case "$1" in
+    *h)
+        n=${1%h}
+        case "$n" in *[!0-9]* | "") return 1 ;; esac
+        n=$(strip_zeros "$n")
+        echo $((n * 3600))
+        ;;
+    *m)
+        n=${1%m}
+        case "$n" in *[!0-9]* | "") return 1 ;; esac
+        n=$(strip_zeros "$n")
+        echo $((n * 60))
+        ;;
+    *s)
+        n=${1%s}
+        case "$n" in *[!0-9]* | "") return 1 ;; esac
+        strip_zeros "$n"
+        ;;
+    *)
+        case "$1" in *[!0-9]* | "") return 1 ;; esac
+        n=$(strip_zeros "$1")
+        echo $((n * 60))
+        ;;
+    esac
+}
+
+parse_action() {
+    case "$1" in
+    lock | "leave $WM" | "renew all" | hibernate | reboot | shutdown | sleep | "display off") return 0 ;;
+    *) return 1 ;;
+    esac
+}
+
+# Strip leading zeros (POSIX arithmetic expansion treats a leading-zero
+# literal as octal, which is undefined/broken once digits 8 or 9 appear -
+# e.g. "08" - so numbers must be normalized before hitting $(( )) ).
+strip_zeros() {
+    n="$1"
+    while [ "${#n}" -gt 1 ] && [ "${n%"${n#?}"}" = "0" ]; do
+        n="${n#0}"
+    done
+    echo "$n"
+}
+
+### --- Menus -----------------------------------------------------------
+
+# Prompts for a delay via dmenu, but only if one wasn't already given and
+# the person explicitly typed "delay". Sets the global $delay, or exits 0
+# if the menu was cancelled.
+resolve_delay() {
+    [ -n "$delay" ] && return
+    [ "$want_delay_menu" -eq 1 ] || return
+    delay=$(printf '%s\n' "$delays" | dmenu -p "After: ")
+    [ -z "$delay" ] && exit 0
+}
+
+# Prompts for an action via dmenu (adds "cancel timer" if one is pending).
+# Sets the global $action, or exits 0 if the menu was cancelled.
+resolve_action() {
+    [ -n "$action" ] && return
+    menu="$actions"
+    if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE" 2>/dev/null)" 2>/dev/null; then
+        menu="cancel timer
+$menu"
+    fi
+    action=$(printf '%s\n' "$menu" | dmenu -p 'Action: ')
+    [ -z "$action" ] && exit 0
+    [ "$action" = "cancel timer" ] && {
+        cancel_timer
+        exit 0
+    }
+}
+
+### --- System actions -----------------------------------------------------------
+
+do_action() {
+    case "$1" in
+    "lock") slock ;;
+    "leave $WM") kill -TERM "$(wmpid)" ;;
+    "renew all") renew_all ;;
+    "hibernate") slock $ctl hibernate -i ;;
+    "reboot") $ctl reboot -i ;;
+    "shutdown") $ctl poweroff -i ;;
+    "sleep") slock $ctl suspend -i ;;
+    "display off") xset dpms force off ;;
+    esac
+}
+
+wmpid() {
+    pgrep -x "$WM"
+}
+
+picompid() {
+    pidof picom
+}
+
+renew_all() {
+    kill -HUP "$(wmpid)"
+    kill -USR1 "$(picompid)"
+}
+
+cancel_timer() {
+    kill "$(cat "$PIDFILE")" 2>/dev/null
+    rm -f "$PIDFILE"
+    notify-send "Timer cancelled"
+}
+
+### --- Execution -----------------------------------------------------------
+
+# Runs the action immediately if no delay was given (or delay is "now").
+# Otherwise schedules it in the background, backgrounded so it survives
+# the script exiting, and records the PID so a later "cancel" can kill it.
+run_action() {
+    if [ -z "$delay" ] || [ "$delay" = "now" ]; then
+        do_action "$action"
+        exit 0
+    fi
+
+    seconds=$(parse_delay "$delay") || {
+        notify-send "sysact" "Invalid delay: $delay"
+        exit 1
+    }
+    (
+        notify-send "Timer set" "$action in $delay"
+        sleep "$seconds"
+        do_action "$action"
+        rm -f "$PIDFILE"
+    ) &
+    echo $! >"$PIDFILE"
+    # shellcheck disable=SC3044
+    disown
+}
+
+### --- Main -----------------------------------------------------------
+
+init
+parse_args "$@"
+resolve_delay
+resolve_action
+run_action
