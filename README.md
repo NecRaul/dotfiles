@@ -8,7 +8,7 @@ My dotfiles and post-install script for Arch Linux.
 cd /path/to/where/you/keep/your/git/repositories
 git clone --recursive git@github.com:NecRaul/dotfiles.git
 cd dotfiles
-bash install.sh
+./install.sh
 source ~/.bashrc
 ```
 
