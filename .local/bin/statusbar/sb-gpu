@@ -1,10 +1,17 @@
 #!/bin/sh
 
-gpu_json=$(nvtop -s)
+gpu_json=
+process_info=
 
-process_info=$(
-    printf '%s\n' "$gpu_json" |
-        jq -r '
+get_gpu_json() {
+    [ -n "$gpu_json" ] || gpu_json=$(nvtop -s)
+    printf '%s\n' "$gpu_json"
+}
+
+get_process_info() {
+    [ -n "$process_info" ] || process_info=$(
+        get_gpu_json |
+            jq -r '
             .[0].processes
             | sort_by(.gpu_mem_bytes_alloc | tonumber)
             | reverse
@@ -22,20 +29,21 @@ process_info=$(
             ) as $cmd
             | "\($cmd): \($mem) (\($usage))"
         '
-)
+    )
+    printf '%s\n' "$process_info"
+}
 
 case $BLOCK_BUTTON in
-1) notify-send " GPU usage" "$process_info" ;;
+1) notify-send " GPU usage" "$(get_process_info)" ;;
 2) setsid -f "$TERMINAL" -e nvtop ;;
-3) notify-send " GPU module" "\
-- Shows GPU VRAM usage.
+3) notify-send " GPU module" "\- Shows GPU VRAM usage.
 - Click to show GPU processes.
 - Middle click to open nvtop." ;;
 6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
 read -r used total <<EOF
-$(printf '%s\n' "$gpu_json" | jq -r '.[0] | [.mem_used, .mem_total] | @tsv')
+$(get_gpu_json | jq -r '.[0] | [.mem_used, .mem_total] | @tsv')
 EOF
 
 printf '[  GPU: %.1f%% ]\n' "$(awk "BEGIN { print $used * 100 / $total }")"

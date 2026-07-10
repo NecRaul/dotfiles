@@ -1,8 +1,11 @@
 #!/bin/sh
 
-process_info=$(
-    ps axch -o comm,%mem:5,rss --sort=-%mem |
-        awk '{
+process_info=
+
+get_process_info() {
+    [ -n "$process_info" ] || process_info=$(
+        ps axch -o comm,%mem:5,rss --sort=-%mem |
+            awk '{
             mem = sprintf("%.0f MiB", $3 / 1024)
             ram = sprintf("%d%%", $2 + 0.5)
             stats = length(mem) + length(ram)
@@ -12,13 +15,14 @@ process_info=$(
                 cmd = substr(cmd, 1, avail)
             printf "%s: %s (%s)\n", cmd, mem, ram
         }' | head -n 9
-)
+    )
+    printf '%s\n' "$process_info"
+}
 
 case $BLOCK_BUTTON in
-1) notify-send " Memory usage" "$process_info" ;;
+1) notify-send " Memory usage" "$(get_process_info)" ;;
 2) setsid -f "$TERMINAL" -e btop ;;
-3) notify-send " Memory module" "\
-- Shows memory usage.
+3) notify-send " Memory module" "\- Shows memory usage.
 - Click to show memory processes.
 - Middle click to open btop." ;;
 6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;

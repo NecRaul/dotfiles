@@ -1,29 +1,35 @@
 #!/bin/sh
 
 filter() {
-    if [ "$(mpc status | wc -l)" -gt 1 ]; then
-        sed '/^volume:/d;/\[paused\].*/d;/\[playing\].*/d;/^ERROR/Q' | paste -sd ' ' - | sed "s/^/\[  /; s/$/ \]/"
-    fi
+    awk '
+        /^ERROR/ { exit }
+        /^volume:/ { next }
+        /\[paused\]/ { next }
+        /\[playing\]/ { next }
+        { lines[++n] = $0 }
+
+        END {
+            if (n == 0)
+                exit
+
+            printf "[ "
+            for (i = 1; i <= n; i++)
+                printf " %s", lines[i]
+            printf " ]\n"
+        }
+    '
 }
 
 case $BLOCK_BUTTON in
-1)
-    mpc status | filter
-    setsid -f "$TERMINAL" -e ncmpcpp
-    ;;                    # right click, pause/unpause
-2) mpc toggle | filter ;; # right click, pause/unpause
-3)
-    mpc status | filter
-    notify-send "  Music module" "\- Shows mpd song playing.
+1) setsid -f "$TERMINAL" -e ncmpcpp ;;
+2) mpc toggle | filter ;;
+3) notify-send " Music module" "\- Shows mpd song playing.
 - Left click opens ncmpcpp.
-- Middle click pauses.
-- Scroll changes track."
-    ;;                  # right click, pause/unpause
-4) mpc prev | filter ;; # scroll up, previous
-5) mpc next | filter ;; # scroll down, next
-6)
-    mpc status | filter
-    setsid -f "$TERMINAL" -e "$EDITOR" "$0"
-    ;;
-*) mpc status | filter ;;
+- Middle click toggles play.
+- Scroll changes track." ;;
+4) mpc prev ;;
+5) mpc next ;;
+6) setsid -f "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
+
+mpc status | filter
