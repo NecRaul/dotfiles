@@ -1,0 +1,4 @@
+--cookies-from-browser firefox
+--format "bv+ba/b"
+--format-sort "res,vcodec:vp9,acodec:opus"
+--embed-metadata
