@@ -137,6 +137,7 @@ npm
 nsxiv
 ntfs-3g
 ntp
+nvm
 nvtop
 nyancat
 obs-studio
