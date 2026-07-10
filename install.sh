@@ -37,6 +37,15 @@ enable_pacman_color() {
     echo "Enabled colors on pacman and AUR helpers like paru and yay."
 }
 
+update_upgrade_packages() {
+    echo "==================================================="
+    echo "Updating and upgrading packages."
+    echo "==================================================="
+    sudo pacman -Syu --noconfirm
+    echo "==================================================="
+    echo "Updated and upgraded packages."
+}
+
 install_pacman_packages() {
     echo "==================================================="
     echo "Installing pacman packages."
@@ -288,6 +297,8 @@ enable_pacman_color
 no_install_arrays
 
 reset_package_count
+
+update_upgrade_packages
 
 install_pacman_packages
 
