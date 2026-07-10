@@ -51,4 +51,4 @@ else
     done
     nmcli connection up "$conn"
 fi
-pkill -RTMIN+10 dwmblocks
+pkill -RTMIN+4 dwmblocks
