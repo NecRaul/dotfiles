@@ -189,6 +189,7 @@ sshfs
 starship
 steam
 stylua
+syncplay
 syncthing
 tealdeer
 telegram-desktop
@@ -220,6 +221,7 @@ weechat
 wget
 wine
 winetricks
+wireguard-tools
 wireless_tools
 wireplumber
 wpa_supplicant
