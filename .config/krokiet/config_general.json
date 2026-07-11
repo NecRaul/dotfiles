@@ -19,5 +19,9 @@
   "dark_theme": true,
   "show_only_icons": false,
   "settings_load_windows_size_at_startup": true,
-  "settings_load_tabs_sizes_at_startup": true
+  "settings_load_tabs_sizes_at_startup": true,
+  "settings_limit_lines_of_messages": true,
+  "manual_application_scale": 1.0,
+  "use_manual_application_scale": false,
+  "play_audio_on_scan_completion": true
 }
