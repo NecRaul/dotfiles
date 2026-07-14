@@ -192,14 +192,14 @@ create_symlinks() {
 
     # ~ #
     for item in "$(pwd)/home/".*; do
-        item_name=$(basename "$item")
+        item_name="$(basename "$item")"
         ln -sf "$item" "$HOME/$item_name"
     done
     # # #
 
     # config #
     for item in "$(pwd)/.config/"*; do
-        item_name=$(basename "$item")
+        item_name="$(basename "$item")"
         [ "$item_name" = "systemd" ] && continue
         ln -sf "$item" "$HOME/.config/$item_name"
     done
@@ -258,7 +258,7 @@ enable_services() {
 
     sudo systemctl enable sddm.service
     for service in "$(pwd)/.config/systemd/user/"*; do
-        service_name=$(basename "$service")
+        service_name="$(basename "$service")"
         systemctl --user enable "$service_name"
     done
 
