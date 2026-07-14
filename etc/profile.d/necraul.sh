@@ -26,8 +26,19 @@ export VISUAL="nvim"
 export BROWSER="firefox"
 export MUSIC_DIR="$HOME/Music"
 
-# Sources
-source "$XDG_CONFIG_HOME/fzf/fzfrc"
+# Source Setup
+source_if_exists() {
+    local arg
+
+    for arg; do
+        [[ $arg == -* ]] && continue
+        [[ -f $arg ]] || return
+    done
+    # shellcheck disable=SC1090
+    source "$@"
+}
+
+source_if_exists "$XDG_CONFIG_HOME/fzf/fzfrc"
 
 # Misc
 export QT_QPA_PLATFORMTHEME=qt6ct
