@@ -21,6 +21,7 @@ create_folders() {
     mkdir -p "$HOME/Videos/Temp"
     sudo mkdir -p /etc/modprobe.d
     sudo mkdir -p /etc/profile.d
+    sudo mkdir -p /root/.config
     sudo mkdir -p /usr/share/xsessions
 }
 
@@ -189,6 +190,13 @@ create_symlinks() {
     sudo cp -rf "$(pwd)"/{etc,usr} /
     [ -f /etc/sddm.conf.bak ] && sudo mv /etc/sddm.conf.bak /etc/sddm.conf
     # # #
+
+    # root config #
+    for item in "$(pwd)/root/.config/"*; do
+        item_name="$(basename "$item")"
+        sudo ln -sf "$item" "/root/.config/$item_name"
+    done
+    # # # # # # # #
 
     # ~ #
     for item in "$(pwd)/home/".*; do

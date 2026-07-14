@@ -1,0 +1,1 @@
+../../../../../.config/nvim/lua/plugins/pywal16.lua
