@@ -194,14 +194,14 @@ create_symlinks() {
     # root config #
     for item in "$(pwd)/root/.config/"*; do
         item_name="$(basename "$item")"
-        sudo ln -sf "$item" "/root/.config/$item_name"
+        sudo ln -sfn "$item" "/root/.config/$item_name"
     done
     # # # # # # # #
 
     # ~ #
     for item in "$(pwd)/home/".*; do
         item_name="$(basename "$item")"
-        ln -sf "$item" "$HOME/$item_name"
+        ln -sfn "$item" "$HOME/$item_name"
     done
     # # #
 
@@ -209,10 +209,10 @@ create_symlinks() {
     for item in "$(pwd)/.config/"*; do
         item_name="$(basename "$item")"
         [ "$item_name" = "systemd" ] && continue
-        ln -sf "$item" "$HOME/.config/$item_name"
+        ln -sfn "$item" "$HOME/.config/$item_name"
     done
     mkdir -p "$HOME/.config/systemd/user"
-    ln -sf "$(pwd)/.config/systemd/user/"* "$HOME/.config/systemd/user"
+    ln -sfn "$(pwd)/.config/systemd/user/"* "$HOME/.config/systemd/user"
     # # # # # #
 
     # bin #
@@ -220,19 +220,19 @@ create_symlinks() {
         item_name="$(basename "$item")"
         [ "$item_name" = "pyupload" ] && continue
         mkdir -p "$HOME/.local/bin/$item_name"
-        ln -sf "$item/"* "$HOME/.local/bin/$item_name"
+        ln -sfn "$item/"* "$HOME/.local/bin/$item_name"
     done
     mkdir -p "$HOME/.local/bin/pyupload-devel"
-    ln -sf "$(pwd)/.local/bin/pyupload/"* "$HOME/.local/bin/pyupload-devel"
+    ln -sfn "$(pwd)/.local/bin/pyupload/"* "$HOME/.local/bin/pyupload-devel"
     # # # #
 
     # share #
     for item in "$(pwd)/.local/share/applications/"*; do
         item_name="$(basename "$item")"
-        ln -sf "$item" "$HOME/.local/share/applications/$item_name"
+        ln -sfn "$item" "$HOME/.local/share/applications/$item_name"
     done
-    ln -sf "$(pwd)/.local/share/kio" "$HOME/.local/share/kio"
-    ln -sf "$(pwd)/.local/share/bg" "$HOME/.local/share/bg"
+    ln -sfn "$(pwd)/.local/share/kio" "$HOME/.local/share/kio"
+    ln -sfn "$(pwd)/.local/share/bg" "$HOME/.local/share/bg"
     # # # # #
 
     echo "==================================================="
