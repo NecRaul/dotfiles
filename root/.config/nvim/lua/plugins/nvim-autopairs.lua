@@ -1,1 +1,1 @@
-../../../../../.config/nvim/lua/plugins/nvim-autopairs.lua
+../../../../../home/.config/nvim/lua/plugins/nvim-autopairs.lua

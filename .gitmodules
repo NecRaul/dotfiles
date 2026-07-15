@@ -1,28 +1,28 @@
 [submodule ".config/git"]
-	path = .config/git
+	path = home/.config/git
 	url = git@github.com:NecRaul/gitconfig.git
 	branch = main
 [submodule ".config/mpv"]
-	path = .config/mpv
+	path = home/.config/mpv
 	url = git@github.com:NecRaul/mpv-configs.git
 	branch = main
 [submodule ".local/bin/4chan-pywal"]
-	path = .local/bin/4chan-pywal
+	path = home/.local/bin/4chan-pywal
 	url = git@github.com:NecRaul/4chan-pywal.git
 	branch = main
 [submodule ".local/bin/kuroneko-themes"]
-	path = .local/bin/kuroneko-themes
+	path = home/.local/bin/kuroneko-themes
 	url = git@github.com:NecRaul/kuroneko-themes.git
 	branch = main
 [submodule ".config/tmux/plugins/tpm"]
-	path = .config/tmux/plugins/tpm
+	path = home/.config/tmux/plugins/tpm
 	url = git@github.com:tmux-plugins/tpm.git
 	branch = master
 [submodule ".config/tmux/plugins/tmux-power"]
-	path = .config/tmux/plugins/tmux-power
+	path = home/.config/tmux/plugins/tmux-power
 	url = git@github.com:wfxr/tmux-power.git
 	branch = master
 [submodule ".local/bin/zathura-pywal"]
-	path = .local/bin/zathura-pywal
+	path = home/.local/bin/zathura-pywal
 	url = git@github.com:matthewlscarlson/zathura-pywal.git
 	branch = master

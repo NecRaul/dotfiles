@@ -206,33 +206,33 @@ create_symlinks() {
     # # #
 
     # config #
-    for item in "$(pwd)/.config/"*; do
+    for item in "$(pwd)/home/.config/"*; do
         item_name="$(basename "$item")"
         [ "$item_name" = "systemd" ] && continue
         ln -sfn "$item" "$HOME/.config/$item_name"
     done
     mkdir -p "$HOME/.config/systemd/user"
-    ln -sfn "$(pwd)/.config/systemd/user/"* "$HOME/.config/systemd/user"
+    ln -sfn "$(pwd)/home/.config/systemd/user/"* "$HOME/.config/systemd/user"
     # # # # # #
 
     # bin #
-    for item in "$(pwd)/.local/bin/"*; do
+    for item in "$(pwd)/home/.local/bin/"*; do
         item_name="$(basename "$item")"
         [ "$item_name" = "pyupload" ] && continue
         mkdir -p "$HOME/.local/bin/$item_name"
         ln -sfn "$item/"* "$HOME/.local/bin/$item_name"
     done
     mkdir -p "$HOME/.local/bin/pyupload-devel"
-    ln -sfn "$(pwd)/.local/bin/pyupload/"* "$HOME/.local/bin/pyupload-devel"
+    ln -sfn "$(pwd)/home/.local/bin/pyupload/"* "$HOME/.local/bin/pyupload-devel"
     # # # #
 
     # share #
-    for item in "$(pwd)/.local/share/applications/"*; do
+    for item in "$(pwd)/home/.local/share/applications/"*; do
         item_name="$(basename "$item")"
         ln -sfn "$item" "$HOME/.local/share/applications/$item_name"
     done
-    ln -sfn "$(pwd)/.local/share/kio" "$HOME/.local/share/kio"
-    ln -sfn "$(pwd)/.local/share/bg" "$HOME/.local/share/bg"
+    ln -sfn "$(pwd)/home/.local/share/kio" "$HOME/.local/share/kio"
+    ln -sfn "$(pwd)/home/.local/share/bg" "$HOME/.local/share/bg"
     # # # # #
 
     echo "==================================================="
@@ -254,7 +254,7 @@ install_grub_theme() {
     echo "==================================================="
     echo "Installing GRUB theme."
 
-    sudo bash "$(pwd)/.local/bin/kuroneko-themes/install.sh"
+    sudo bash "$(pwd)/home/.local/bin/kuroneko-themes/install.sh"
 
     echo "==================================================="
     echo "Installed GRUB theme."
@@ -265,7 +265,7 @@ enable_services() {
     echo "Enabling systemd services."
 
     sudo systemctl enable sddm.service
-    for item in "$(pwd)/.config/systemd/user/"*; do
+    for item in "$(pwd)/home/.config/systemd/user/"*; do
         item_name="$(basename "$item")"
         systemctl --user enable "$item_name"
     done

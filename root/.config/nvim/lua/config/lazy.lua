@@ -1,1 +1,1 @@
-../../../../../.config/nvim/lua/config/lazy.lua
+../../../../../home/.config/nvim/lua/config/lazy.lua

@@ -1,1 +1,1 @@
-../../../../../.config/nvim/lua/plugins/guess-indent.lua
+../../../../../home/.config/nvim/lua/plugins/guess-indent.lua

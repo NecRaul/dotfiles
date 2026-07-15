@@ -1,1 +1,1 @@
-../../../../../.config/nvim/lua/plugins/no-trouble.lua
+../../../../../home/.config/nvim/lua/plugins/no-trouble.lua

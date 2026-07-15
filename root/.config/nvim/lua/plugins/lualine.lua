@@ -1,1 +1,1 @@
-../../../../../.config/nvim/lua/plugins/lualine.lua
+../../../../../home/.config/nvim/lua/plugins/lualine.lua

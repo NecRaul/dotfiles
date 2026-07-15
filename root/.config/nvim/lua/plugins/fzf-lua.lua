@@ -1,1 +1,1 @@
-../../../../../.config/nvim/lua/plugins/fzf-lua.lua
+../../../../../home/.config/nvim/lua/plugins/fzf-lua.lua

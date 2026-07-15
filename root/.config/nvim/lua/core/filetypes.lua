@@ -1,1 +1,1 @@
-../../../../../.config/nvim/lua/core/filetypes.lua
+../../../../../home/.config/nvim/lua/core/filetypes.lua

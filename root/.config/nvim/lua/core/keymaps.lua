@@ -1,1 +1,1 @@
-../../../../../.config/nvim/lua/core/keymaps.lua
+../../../../../home/.config/nvim/lua/core/keymaps.lua

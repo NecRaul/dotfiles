@@ -1,1 +1,1 @@
-../../../../../.config/nvim/lua/plugins/mason-tool-installer.lua
+../../../../../home/.config/nvim/lua/plugins/mason-tool-installer.lua
