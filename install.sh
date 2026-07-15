@@ -296,6 +296,11 @@ no_install_packages_to_txt() {
     echo "==================================================="
 }
 
+if [[ $# -gt 0 ]]; then
+    "$@"
+    exit
+fi
+
 create_folders
 
 no_password_sudoers
