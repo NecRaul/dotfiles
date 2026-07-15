@@ -216,20 +216,20 @@ create_symlinks() {
     # # # # # #
 
     # bin #
-    for dir in "$(pwd)/.local/bin/"*; do
-        dir_name="$(basename "$dir")"
-        [ "$dir_name" = "pyupload" ] && continue
-        mkdir -p "$HOME/.local/bin/$dir_name"
-        ln -sf "$dir/"* "$HOME/.local/bin/$dir_name"
+    for item in "$(pwd)/.local/bin/"*; do
+        item_name="$(basename "$item")"
+        [ "$item_name" = "pyupload" ] && continue
+        mkdir -p "$HOME/.local/bin/$item_name"
+        ln -sf "$item/"* "$HOME/.local/bin/$item_name"
     done
     mkdir -p "$HOME/.local/bin/pyupload-devel"
     ln -sf "$(pwd)/.local/bin/pyupload/"* "$HOME/.local/bin/pyupload-devel"
     # # # #
 
     # share #
-    for app in "$(pwd)/.local/share/applications/"*; do
-        app_name="$(basename "$app")"
-        ln -sf "$app" "$HOME/.local/share/applications/$app_name"
+    for item in "$(pwd)/.local/share/applications/"*; do
+        item_name="$(basename "$item")"
+        ln -sf "$item" "$HOME/.local/share/applications/$item_name"
     done
     ln -sf "$(pwd)/.local/share/kio" "$HOME/.local/share/kio"
     ln -sf "$(pwd)/.local/share/bg" "$HOME/.local/share/bg"
@@ -265,9 +265,9 @@ enable_services() {
     echo "Enabling systemd services."
 
     sudo systemctl enable sddm.service
-    for service in "$(pwd)/.config/systemd/user/"*; do
-        service_name="$(basename "$service")"
-        systemctl --user enable "$service_name"
+    for item in "$(pwd)/.config/systemd/user/"*; do
+        item_name="$(basename "$item")"
+        systemctl --user enable "$item_name"
     done
 
     echo "==================================================="
