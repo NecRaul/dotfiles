@@ -201,6 +201,10 @@ create_symlinks() {
     # ~ #
     for item in "$(pwd)/home/".*; do
         item_name="$(basename "$item")"
+        [ "$item_name" = "." ] && continue
+        [ "$item_name" = ".." ] && continue
+        [ "$item_name" = ".config" ] && continue
+        [ "$item_name" = ".local" ] && continue
         ln -sfnv "$item" "$HOME/$item_name"
     done
     # # #
