@@ -116,9 +116,18 @@ install_uv_packages() {
     # uv tool list --show-extras |
     #   command grep -E '^[a-z]' |
     #   command sed -E 's/ v[^ ]+//; s/ \[extras: ([^]]+)\]/[\1]/; s/, +/,/g'
-    xargs -r -n1 uv tool install <install/uv.txt
+    while IFS= read -r package || [ -n "$package" ]; do
+        [ -z "$package" ] && continue
+        ((attempted_packages++))
+        if uv tool install "$package"; then
+            ((installed_packages++))
+        else
+            no_install_uv_packages+=("$package")
+        fi
+    done <"install/uv.txt"
     echo "==================================================="
     echo "Finished installing uv packages."
+    echo "$installed_packages/$attempted_packages installed."
 }
 
 clear_pacman_cache() {
