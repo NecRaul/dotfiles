@@ -236,7 +236,7 @@ create_symlinks() {
         ln -sfnv "$item" "$HOME/.local/share/applications/$item_name"
     done
     ln -sfnv "$(pwd)/home/.local/share/kio" "$HOME/.local/share/kio"
-    ln -sfnv "$(pwd)/home/.local/share/bg" "$HOME/.local/share/bg"
+    [ -e "$HOME/.local/share/bg" ] || ln -sfnv "$(pwd)/home/.local/share/bg" "$HOME/.local/share/bg"
     # # # # #
 
     echo "==================================================="
