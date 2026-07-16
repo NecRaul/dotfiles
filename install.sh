@@ -191,6 +191,17 @@ create_symlinks() {
     [ -f /etc/sddm.conf.bak ] && sudo mv -v /etc/sddm.conf.bak /etc/sddm.conf
     # # #
 
+    # root home #
+    for item in "$(pwd)/root/".*; do
+        item_name="$(basename "$item")"
+        [ "$item_name" = "." ] && continue
+        [ "$item_name" = ".." ] && continue
+        [ "$item_name" = ".config" ] && continue
+        [ "$item_name" = ".local" ] && continue
+        sudo ln -sfnv "$item" "/root/$item_name"
+    done
+    # # # # # # # #
+
     # root config #
     for item in "$(pwd)/root/.config/"*; do
         item_name="$(basename "$item")"
