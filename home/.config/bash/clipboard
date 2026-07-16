@@ -1,4 +1,4 @@
-#!/bin/bash
+# shellcheck shell=bash
 
 # Macros to enable yanking, killing and putting
 # to and from the system clipboard in vi-mode.

@@ -61,7 +61,7 @@ capture_screenshot() {
     $capture_command $capture_command_args "$screenshot_output" >/dev/null
 
     # copy to clipboard
-    cat "$screenshot_output" | $xclip_cmd
+    $xclip_cmd <"$screenshot_output"
 }
 
 if [ "$#" -eq 1 ]; then

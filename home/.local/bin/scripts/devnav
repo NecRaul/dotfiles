@@ -5,7 +5,7 @@ if [ ! -f "$CACHE" ] || find "$CACHE" -mtime +7 | grep -q .; then
     find "$HOME" -maxdepth 4 -type d ! -path "*/.*" -print | sort >"$CACHE"
 fi
 
-result=$(cat "$CACHE" | dmenu -l 20 -p "Choose directory:")
+result=$(dmenu -l 20 -p "Choose directory:" <"$CACHE")
 [ -z "$result" ] && exit 0
 
 apps="Terminal

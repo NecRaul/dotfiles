@@ -1,4 +1,4 @@
-#!/bin/bash
+# shellcheck shell=bash
 
 # Append "$1" to $PATH when not already in.
 append_path() {

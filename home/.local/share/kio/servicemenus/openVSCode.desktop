@@ -5,7 +5,7 @@
  MimeType=inode/directory
  X-KDE-Priority=TopLevel
  Actions=openInVSCode
- 
+
  [Desktop Action openInVSCode]
  Name=Open in VS Code
  Name[nl]=Openen in VS Code

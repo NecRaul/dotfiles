@@ -104,8 +104,9 @@ function __zoxide_zi() {
 # Commands for zoxide. Disable these using --no-cmd.
 #
 
+# shellcheck disable=SC2046
 parent=$(ps -o comm= -p $(ps -o ppid= -p $$))
-if [[ "$parent" == "tmux: server" || "$parent" == "st" ]]; then
+if [[ $parent == "tmux: server" || $parent == "st" ]]; then
     \builtin unalias cd &>/dev/null || \builtin true
     function cd() {
         __zoxide_z "$@"

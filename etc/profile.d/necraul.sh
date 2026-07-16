@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # PATH Setup
 if [ -d "$HOME/.local/bin" ]; then
     append_path "$HOME/.local/bin"

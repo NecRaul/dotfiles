@@ -1,4 +1,4 @@
-#!/bin/bash
+# shellcheck shell=bash
 
 # General/convenience
 alias sudo="sudo "

@@ -1,4 +1,4 @@
-#!/bin/bash
+# shellcheck shell=bash
 
 # LESS
 export LESS="RF"
