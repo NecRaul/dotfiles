@@ -226,7 +226,7 @@ if [ -n "$VIRTUAL_ENV" ]; then
   exit 0
 fi
 if command -v uv >/dev/null 2>&1; then
-  uv python find --show-version
+  uv python find --show-version 2>&1
   exit 0
 fi
 if command -v python >/dev/null 2>&1; then
@@ -251,7 +251,6 @@ detect_folders = [".venv", "venv"]
 
 [custom.uv-version]
 style = "bold fg:#de5fe9"
-shell = "bash"
 command = """
 if command -v uv >/dev/null 2>&1; then
   echo "󰬂 v$(uv --version 2>&1 | awk '{print $2}')"
@@ -275,19 +274,18 @@ detect_folders = [".venv", "venv"]
 
 [custom.uv-lock]
 style = "bold fg:#d8ff64"
-shell = "bash"
 command = """
-if ! command -v uv >/dev/null; then
-  exit 1
-fi
-suffix=""
-if uv lock --check-exists >/dev/null; test $? -eq 2; then
-  suffix="?"
-elif uv lock --check >/dev/null; test $? -eq 2; then
-  suffix="!"
-fi
-if [ -n "$suffix" ]; then
-  echo ["$suffix"]
+if command -v uv >/dev/null 2>&1; then
+  uv lock --check-exists >/dev/null 2>&1
+  code=$?
+  if [ "$code" -eq 2 ]; then
+    echo "[?]"
+  else
+    uv lock --check >/dev/null 2>&1
+    if [ $? -eq 2 ]; then
+      echo "[!]"
+    fi
+  fi
 fi
 """
 format = "[($output )]($style)"
