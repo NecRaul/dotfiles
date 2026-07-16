@@ -130,6 +130,28 @@ install_uv_packages() {
     echo "$installed_packages/$attempted_packages installed."
 }
 
+install_npm_packages() {
+    echo "==================================================="
+    echo "Installing npm packages."
+    echo "==================================================="
+    # Note: Command below gives installed npm packages.
+    # npm list -g --depth=0 |
+    #   command grep -E '^[├└]' |
+    #   command sed -E 's/^[├└]── //; s/@[^@]+$//'
+    while IFS= read -r package || [ -n "$package" ]; do
+        [ -z "$package" ] && continue
+        ((attempted_packages++))
+        if npm install -g "$package"; then
+            ((installed_packages++))
+        else
+            no_install_npm_packages+=("$package")
+        fi
+    done <"install/npm.txt"
+    echo "==================================================="
+    echo "Finished installing npm packages."
+    echo "$installed_packages/$attempted_packages installed."
+}
+
 clear_pacman_cache() {
     echo "==================================================="
     echo "Clearing pacman cache."
@@ -299,10 +321,11 @@ enable_services() {
 }
 
 no_install_arrays() {
-    # Array to hold pacman, AUR and uv packages that couldn't be installed
+    # Array to hold pacman, AUR, uv, and npm packages that couldn't be installed
     declare -a no_install_pacman_packages=()
     declare -a no_install_aur_packages=()
     declare -a no_install_uv_packages=()
+    declare -a no_install_npm_packages=()
 }
 
 reset_package_count() {
@@ -315,6 +338,7 @@ no_install_packages_to_txt() {
     printf "%s\n" "${no_install_pacman_packages[@]}" >no_install/pacman.txt
     printf "%s\n" "${no_install_aur_packages[@]}" >no_install/aur.txt
     printf "%s\n" "${no_install_uv_packages[@]}" >no_install/uv.txt
+    printf "%s\n" "${no_install_npm_packages[@]}" >no_install/npm.txt
     echo "==================================================="
     echo "Script has finished running. Packages that couldn't be installed were written into text files in the no_install folder."
     echo "==================================================="
@@ -362,6 +386,10 @@ install_zathura_pywal
 reset_package_count
 
 install_uv_packages
+
+reset_package_count
+
+install_npm_packages
 
 install_blesh
 

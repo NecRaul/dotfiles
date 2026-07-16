@@ -6,3 +6,7 @@ uv tool list --show-extras |
     grep -E '^[a-z]' |
     sed -E 's/ v[^ ]+//; s/ \[extras: ([^]]+)\]/[\1]/; s/, +/,/g; s#^gallery-dl\[extra\]#git+https://github.com/NecRaul/gallery-dl[extra]#' \
         >~/Documents/Github/Repos/dotfiles/install/uv.txt
+npm list -g --depth=0 |
+    grep -E '^[├└]' |
+    sed -E 's/^[├└]── //; s/@[^@]+$//; /^tree-sitter$/d' \
+        >~/Documents/Github/Repos/dotfiles/install/npm.txt
