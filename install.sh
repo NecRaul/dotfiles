@@ -297,8 +297,8 @@ no_install_arrays() {
 }
 
 reset_package_count() {
-    declare -i installed_packages=0
-    declare -i attempted_packages=0
+    declare -gi installed_packages=0
+    declare -gi attempted_packages=0
 }
 
 no_install_packages_to_txt() {
