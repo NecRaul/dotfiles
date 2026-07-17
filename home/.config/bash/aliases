@@ -6,17 +6,6 @@ alias vim="nvim"
 alias mkdir="mkdir -p"
 alias diff="diff --color=auto"
 
-# Network/media
-alias pynps="pynps -c ps3 -r usa"
-# shellcheck disable=SC2139
-alias wget="wget --hsts-file='$XDG_CACHE_HOME/wget-hsts'"
-# shellcheck disable=SC2139
-# alias yt-dlp="yt-dlp --cookies-from-browser '$BROWSER' --format 'bv+ba/b' --format-sort 'res,ext:webm:opus' --embed-metadata"
-
-# Docker
-alias dps="docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}'"
-alias dpsp="docker ps -a --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}\t{{.Ports}}'"
-
 # Coreutils replacements
 alias ls="eza --color=auto --icons=auto --no-quotes --group-directories-first -x"
 alias ld="eza --color=auto --icons=auto --no-quotes --group-directories-first -xa | grep \"^\.\""

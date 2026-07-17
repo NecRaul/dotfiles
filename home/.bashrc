@@ -21,6 +21,8 @@ source "$XDG_CONFIG_HOME/bash/colors"
 # shellcheck disable=SC1091
 source "$XDG_CONFIG_HOME/bash/aliases"
 # shellcheck disable=SC1091
+source "$XDG_CONFIG_HOME/bash/functions"
+# shellcheck disable=SC1091
 source "$XDG_CONFIG_HOME/bash/clipboard"
 # shellcheck disable=SC1091
 source "$XDG_CONFIG_HOME/bash/history"
