@@ -19,3 +19,14 @@ dpsp() {
         --format 'table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}\t{{.Command}}\t{{.RunningFor}}\t{{.Ports}}' \
         "$@"
 }
+
+nvm_activate() {
+    source_if_exists "/usr/share/nvm/init-nvm.sh"
+}
+
+nvm_deactivate() {
+    unset -f nvm
+    unset NVM_DIR NVM_BIN NVM_INC
+    PATH=$(printf '%s' "$PATH" | awk -v RS=: -v ORS=: '$0 !~ /\/nvm\// {print}' | sed 's/:$//')
+    hash -r
+}

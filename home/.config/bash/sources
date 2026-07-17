@@ -13,4 +13,3 @@ source_if_exists() {
 
 source_if_exists "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
 source_if_exists "$XDG_CONFIG_HOME/zoxide/zoxide.sh"
-source_if_exists "/usr/share/nvm/init-nvm.sh"
