@@ -14,3 +14,9 @@ cargo install --list |
     grep -E '^[a-zA-Z0-9_-]+ v[0-9]' |
     sed -E 's/ v.*//' \
         >~/Documents/Github/Repos/dotfiles/install/cargo.txt
+for bin in "$(go env GOBIN)/"*; do
+    go version -m "$bin" 2>/dev/null
+done |
+    grep -E '^\s+path\s' |
+    sed -E 's/^[[:space:]]*path[[:space:]]+(.+)$/\1@latest/' \
+        >~/Documents/Github/Repos/dotfiles/install/go.txt

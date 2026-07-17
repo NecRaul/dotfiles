@@ -174,6 +174,30 @@ install_cargo_packages() {
     echo "$installed_packages/$attempted_packages installed."
 }
 
+install_go_packages() {
+    echo "==================================================="
+    echo "Installing go packages."
+    echo "==================================================="
+    # Note: Command below gives installed go packages.
+    # for bin in "$(go env GOBIN)/"*; do
+    #   go version -m "$bin" 2>/dev/null
+    # done |
+    #   command grep -E '^\s+path\s' |
+    #   command sed -E 's/^[[:space:]]*path[[:space:]]+(.+)$/\1@latest/'
+    while IFS= read -r package || [ -n "$package" ]; do
+        [ -z "$package" ] && continue
+        ((attempted_packages++))
+        if go install "$package"; then
+            ((installed_packages++))
+        else
+            no_install_go_packages+=("$package")
+        fi
+    done <"install/go.txt"
+    echo "==================================================="
+    echo "Finished installing go packages."
+    echo "$installed_packages/$attempted_packages installed."
+}
+
 clear_pacman_cache() {
     echo "==================================================="
     echo "Clearing pacman cache."
@@ -343,12 +367,13 @@ enable_services() {
 }
 
 no_install_arrays() {
-    # Array to hold pacman, AUR, uv, npm, and cargo packages that couldn't be installed
+    # Array to hold pacman, AUR, uv, npm, cargo, and go packages that couldn't be installed
     declare -a no_install_pacman_packages=()
     declare -a no_install_aur_packages=()
     declare -a no_install_uv_packages=()
     declare -a no_install_npm_packages=()
     declare -a no_install_cargo_packages=()
+    declare -a no_install_go_packages=()
 }
 
 reset_package_count() {
@@ -363,6 +388,7 @@ no_install_packages_to_txt() {
     printf "%s\n" "${no_install_uv_packages[@]}" >no_install/uv.txt
     printf "%s\n" "${no_install_npm_packages[@]}" >no_install/npm.txt
     printf "%s\n" "${no_install_cargo_packages[@]}" >no_install/cargo.txt
+    printf "%s\n" "${no_install_go_packages[@]}" >no_install/go.txt
     echo "==================================================="
     echo "Script has finished running. Packages that couldn't be installed were written into text files in the no_install folder."
     echo "==================================================="
@@ -418,6 +444,10 @@ install_npm_packages
 reset_package_count
 
 install_cargo_packages
+
+reset_package_count
+
+install_go_packages
 
 install_blesh
 
