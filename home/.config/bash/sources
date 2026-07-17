@@ -1,15 +1,4 @@
 # shellcheck shell=bash
 
-source_if_exists() {
-    local arg
-
-    for arg; do
-        [[ $arg == -* ]] && continue
-        [[ -f $arg ]] || return
-    done
-    # shellcheck disable=SC1090
-    source "$@"
-}
-
 source_if_exists "$XDG_DATA_HOME/blesh/ble.sh" --rcfile "$XDG_CONFIG_HOME/blesh/init.sh"
 source_if_exists "$XDG_CONFIG_HOME/zoxide/zoxide.sh"

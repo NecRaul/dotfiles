@@ -3,6 +3,16 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+source_if_exists() {
+    local arg
+    for arg; do
+        [[ $arg == -* ]] && continue
+        [[ -f $arg ]] || return
+    done
+    # shellcheck disable=SC1090
+    source "$@"
+}
+
 # vi mode
 set -o vi
 
@@ -10,31 +20,15 @@ set -o vi
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}:${PWD/#$HOME/\~}\007"'
 eval "$(starship init bash)"
 
-# shellcheck disable=SC1091
-source "$XDG_CONFIG_HOME/bash/xdg"
-# shellcheck disable=SC1091
-source "$XDG_CONFIG_HOME/bash/path"
-# shellcheck disable=SC1091
-source "$XDG_CONFIG_HOME/bash/sources"
-# shellcheck disable=SC1091
-source "$XDG_CONFIG_HOME/bash/colors"
-# shellcheck disable=SC1091
-source "$XDG_CONFIG_HOME/bash/aliases"
-# shellcheck disable=SC1091
-source "$XDG_CONFIG_HOME/bash/functions"
-# shellcheck disable=SC1091
-source "$XDG_CONFIG_HOME/bash/clipboard"
-# shellcheck disable=SC1091
-source "$XDG_CONFIG_HOME/bash/history"
-# shellcheck disable=SC1091
-source "$XDG_CONFIG_HOME/bash/less"
+source_if_exists "$XDG_CONFIG_HOME/bash/xdg"
+source_if_exists "$XDG_CONFIG_HOME/bash/path"
+source_if_exists "$XDG_CONFIG_HOME/bash/sources"
+source_if_exists "$XDG_CONFIG_HOME/bash/colors"
+source_if_exists "$XDG_CONFIG_HOME/bash/aliases"
+source_if_exists "$XDG_CONFIG_HOME/bash/functions"
+source_if_exists "$XDG_CONFIG_HOME/bash/clipboard"
+source_if_exists "$XDG_CONFIG_HOME/bash/history"
+source_if_exists "$XDG_CONFIG_HOME/bash/less"
+source_if_exists "$XDG_CONFIG_HOME/bash/personal"
 
-if [ -f "$XDG_CONFIG_HOME/bash/personal" ]; then
-    # shellcheck disable=SC1091
-    source "$XDG_CONFIG_HOME/bash/personal"
-fi
-
-if [ -z "$NO_TMUX" ]; then
-    # shellcheck disable=SC1091
-    source "$XDG_CONFIG_HOME/bash/tmux"
-fi
+[ -z "$NO_TMUX" ] && source_if_exists "$XDG_CONFIG_HOME/bash/tmux"
