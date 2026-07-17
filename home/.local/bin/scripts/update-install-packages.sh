@@ -10,3 +10,7 @@ npm list -g --depth=0 |
     grep -E '^[├└]' |
     sed -E 's/^[├└]── //; s/@[^@]+$//; /^tree-sitter$/d' \
         >~/Documents/Github/Repos/dotfiles/install/npm.txt
+cargo install --list |
+    grep -E '^[a-zA-Z0-9_-]+ v[0-9]' |
+    sed -E 's/ v.*//' \
+        >~/Documents/Github/Repos/dotfiles/install/cargo.txt

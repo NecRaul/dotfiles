@@ -152,6 +152,28 @@ install_npm_packages() {
     echo "$installed_packages/$attempted_packages installed."
 }
 
+install_cargo_packages() {
+    echo "==================================================="
+    echo "Installing cargo packages."
+    echo "==================================================="
+    # Note: Command below gives installed cargo packages.
+    # cargo install --list |
+    #   command grep -E '^[a-zA-Z0-9_-]+ v[0-9]' |
+    #   command sed -E 's/ v.*//'
+    while IFS= read -r package || [ -n "$package" ]; do
+        [ -z "$package" ] && continue
+        ((attempted_packages++))
+        if cargo install "$package"; then
+            ((installed_packages++))
+        else
+            no_install_cargo_packages+=("$package")
+        fi
+    done <"install/cargo.txt"
+    echo "==================================================="
+    echo "Finished installing cargo packages."
+    echo "$installed_packages/$attempted_packages installed."
+}
+
 clear_pacman_cache() {
     echo "==================================================="
     echo "Clearing pacman cache."
@@ -321,11 +343,12 @@ enable_services() {
 }
 
 no_install_arrays() {
-    # Array to hold pacman, AUR, uv, and npm packages that couldn't be installed
+    # Array to hold pacman, AUR, uv, npm, and cargo packages that couldn't be installed
     declare -a no_install_pacman_packages=()
     declare -a no_install_aur_packages=()
     declare -a no_install_uv_packages=()
     declare -a no_install_npm_packages=()
+    declare -a no_install_cargo_packages=()
 }
 
 reset_package_count() {
@@ -339,6 +362,7 @@ no_install_packages_to_txt() {
     printf "%s\n" "${no_install_aur_packages[@]}" >no_install/aur.txt
     printf "%s\n" "${no_install_uv_packages[@]}" >no_install/uv.txt
     printf "%s\n" "${no_install_npm_packages[@]}" >no_install/npm.txt
+    printf "%s\n" "${no_install_cargo_packages[@]}" >no_install/cargo.txt
     echo "==================================================="
     echo "Script has finished running. Packages that couldn't be installed were written into text files in the no_install folder."
     echo "==================================================="
@@ -390,6 +414,10 @@ install_uv_packages
 reset_package_count
 
 install_npm_packages
+
+reset_package_count
+
+install_cargo_packages
 
 install_blesh
 

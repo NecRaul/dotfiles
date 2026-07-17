@@ -1,0 +1,12 @@
+bacon
+cargo-info
+dua
+du-dust
+fselect
+hyperfine
+irust
+mask
+mprocs
+sccache
+tokei
+wiki-tui
