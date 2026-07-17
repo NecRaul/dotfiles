@@ -1,4 +1,5 @@
 # shellcheck shell=bash
+# vim: ft=bash
 
 # Start a tmux session when bash starts
 if [ -x "$(command -v tmux)" ] && [ -n "${DISPLAY}" ] && [ -z "${TMUX}" ]; then

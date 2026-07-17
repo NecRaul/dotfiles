@@ -1,4 +1,5 @@
 # shellcheck shell=bash
+# vim: ft=bash
 
 # LESS
 export LESS="RF"

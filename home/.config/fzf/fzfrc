@@ -1,4 +1,5 @@
-# shellcheck shell=bash
+# shellcheck shell=sh
+# vim: ft=sh
 
 FZF_LAYOUT="--layout=reverse \
 --style=full \

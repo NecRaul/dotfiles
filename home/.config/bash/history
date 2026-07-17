@@ -1,4 +1,5 @@
 # shellcheck shell=bash
+# vim: ft=bash
 
 # History
 # shellcheck disable=SC2155

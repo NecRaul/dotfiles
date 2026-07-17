@@ -1,4 +1,6 @@
 # shellcheck shell=bash
+# vim: ft=bash
+
 # PATH Setup
 if [ -d "$HOME/.local/bin" ]; then
     append_path "$HOME/.local/bin"

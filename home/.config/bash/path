@@ -1,4 +1,5 @@
 # shellcheck shell=bash
+# vim: ft=bash
 
 # Append "$1" to $PATH when not already in.
 append_path() {

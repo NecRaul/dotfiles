@@ -1,4 +1,5 @@
 # shellcheck shell=bash
+# vim: ft=bash
 
 # Macros to enable yanking, killing and putting
 # to and from the system clipboard in vi-mode.

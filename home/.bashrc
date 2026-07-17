@@ -1,4 +1,5 @@
 # shellcheck shell=bash
+# vim: ft=bash
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
