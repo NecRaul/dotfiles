@@ -2,8 +2,8 @@
 act
 adobe-source-han-sans-jp-fonts
 adobe-source-han-serif-jp-fonts
-amd-ucode
 amdgpu_top
+amd-ucode
 android-tools
 ark
 aspnet-runtime
@@ -170,7 +170,6 @@ prettier
 pulsemixer
 python
 python-pip
-qt5-graphicaleffects
 qt5ct
 reflector
 ripgrep
@@ -230,6 +229,7 @@ xdg-desktop-portal-kde
 xdotool
 xf86-video-amdgpu
 xorg-fonts-encodings
+xorgproto
 xorg-server
 xorg-server-common
 xorg-setxkbmap
@@ -242,11 +242,9 @@ xorg-xrandr
 xorg-xrdb
 xorg-xset
 xorg-xwininfo
-xorgproto
 xwallpaper
 zathura
 zathura-cb
 zathura-pdf-mupdf
-zig
 zip
 zoxide

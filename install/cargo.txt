@@ -1,4 +1,5 @@
 bacon
+cargo-binstall
 cargo-info
 dua
 du-dust
@@ -7,6 +8,7 @@ hyperfine
 irust
 mask
 mprocs
+nyaa
 sccache
 tokei
 wiki-tui
