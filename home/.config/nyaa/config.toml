@@ -1,0 +1,57 @@
+theme = "Default"
+default_source = "Nyaa"
+download_client = "qBittorrent"
+timeout = 30
+scroll_padding = 3
+cursor_padding = 4
+save_config_on_change = false
+hot_reload_config = true
+
+[notifications]
+position = "TopRight"
+duration = 3.0
+max_width = 75
+animation_speed = 4.0
+
+[clipboard]
+osc52 = false
+selection = "Clipboard"
+
+[client.command]
+cmd = 'curl "{torrent}" > /mnt/Other/Torrent/{file}'
+shell_cmd = "sh -c"
+
+[client.qBittorrent]
+base_url = "http://localhost:8080"
+username = "NecRaul"
+password_file = "/home/necraul/.config/nyaa/password"
+use_magnet = true
+savepath = "/downloads/seasonal"
+category = "seasonal"
+
+[client.default_app]
+use_magnet = true
+
+[client.download]
+save_dir = "/mnt/Other/Torrent/"
+filename = "{file}"
+overwrite = true
+create_root_folder = true
+
+[source.nyaa]
+base_url = "nyaa.si"
+default_sort = "Date"
+default_sort_dir = "Desc"
+default_filter = "NoFilter"
+default_category = "AllCategories"
+default_search = ""
+rss = false
+
+[source.sukebei]
+base_url = "https://sukebei.nyaa.si/"
+default_sort = "Date"
+default_sort_dir = "Desc"
+default_filter = "NoFilter"
+default_category = "AllCategories"
+default_search = ""
+rss = false
