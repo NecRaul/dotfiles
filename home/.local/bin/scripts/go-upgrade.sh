@@ -5,6 +5,7 @@ for bin in "$(go env GOBIN)/"*; do
 done |
     grep -E '^\s+path\s' |
     sed -E 's/^[[:space:]]*path[[:space:]]+(.+)$/\1@latest/' |
+    sort -i |
     while read -r tool; do
         echo "Upgrading $tool"
         go install "$tool"
