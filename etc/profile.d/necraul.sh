@@ -8,6 +8,42 @@ if [ -d "$HOME/.local/bin" ]; then
         [ -d "$d" ] && append_path "${d%/}"
     done
 fi
+if [ -d "$HOME/.local/bin/scripts" ]; then
+    append_path "$HOME/.local/bin/scripts"
+    for d in "$HOME/.local/bin/scripts"/*/; do
+        [ -d "$d" ] && append_path "${d%/}"
+    done
+fi
+if [ -d "$HOME/.local/bin/statusbar" ]; then
+    append_path "$HOME/.local/bin/statusbar"
+    for d in "$HOME/.local/bin/statusbar"/*/; do
+        [ -d "$d" ] && append_path "${d%/}"
+    done
+fi
+if [ -d "$HOME/.local/bin/statusbar" ]; then
+    append_path "$HOME/.local/bin/statusbar"
+    for d in "$HOME/.local/bin/statusbar"/*/; do
+        [ -d "$d" ] && append_path "${d%/}"
+    done
+fi
+if [ -d "$HOME/.local/share/npm/bin" ]; then
+    append_path "$HOME/.local/share/npm/bin"
+    for d in "$HOME/.local/share/npm/bin"/*/; do
+        [ -d "$d" ] && append_path "${d%/}"
+    done
+fi
+if [ -d "$HOME/.local/share/cargo/bin" ]; then
+    append_path "$HOME/.local/share/cargo/bin"
+    for d in "$HOME/.local/share/cargo/bin"/*/; do
+        [ -d "$d" ] && append_path "${d%/}"
+    done
+fi
+if [ -d "$HOME/.local/share/go/bin" ]; then
+    append_path "$HOME/.local/share/go/bin"
+    for d in "$HOME/.local/share/go/bin"/*/; do
+        [ -d "$d" ] && append_path "${d%/}"
+    done
+fi
 if [ -d "$HOME/Documents/Github/Gists" ]; then
     append_path "$HOME/Documents/Github/Gists"
     for d in "$HOME/Documents/Github/Gists"/*/; do
