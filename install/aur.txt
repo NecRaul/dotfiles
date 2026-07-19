@@ -1,5 +1,4 @@
 activitywatch-bin
-asdf-vm
 azaharplus-appimage
 cemu
 cht.sh-git
@@ -15,6 +14,7 @@ mpd-discord-rpc
 paru
 pcsx2-git
 pkg2zip-fork
+protonplus
 pywal-discord-git
 qt6ct-kde
 rar
