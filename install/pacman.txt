@@ -227,11 +227,8 @@ wpa_supplicant
 xclip
 xdg-desktop-portal-kde
 xdotool
-xf86-video-amdgpu
 xorg-fonts-encodings
 xorgproto
-xorg-server
-xorg-server-common
 xorg-setxkbmap
 xorg-xauth
 xorg-xfd

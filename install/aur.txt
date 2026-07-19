@@ -28,3 +28,5 @@ ventoy-bin
 vesktop
 visual-studio-code-bin
 where-is-my-sddm-theme-git
+xlibre-meta
+xlibre-video-amdgpu
