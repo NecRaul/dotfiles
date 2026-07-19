@@ -5,7 +5,6 @@ cht.sh-git
 downgrade
 duckstation-qt-bin
 epub-thumbnailer-git
-icu76
 krokiet-bin
 libva-vdpau-driver
 mcomix
