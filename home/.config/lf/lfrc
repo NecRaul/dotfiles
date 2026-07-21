@@ -11,7 +11,7 @@ set autoquit true
 
 # cmds/functions
 cmd open ${{
-    case $(xdg-mime query filetype "$(readlink -f $f)") in
+    case $(xdg-mime query filetype "$f") in
     text/markdown|text/x-markdown) glow -t $fx ;;
     text/*|application/json|application/pgp-encrypted|application/x-subrip|inode/x-empty) $EDITOR $fx ;;
     video/*|audio/*) mpv --no-terminal --quiet "$f" ;;
