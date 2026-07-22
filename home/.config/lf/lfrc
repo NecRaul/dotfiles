@@ -161,6 +161,7 @@ map X !$f
 map o open
 map O &mimeopen "$f"
 
+map r push i<c-u>
 map R push A<c-u>
 map i :rename
 map I :rename; cmd-home
