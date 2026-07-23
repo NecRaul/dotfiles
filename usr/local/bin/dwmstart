@@ -1,22 +1,12 @@
 #!/bin/sh
 
-dwmblocks &
+dbus-update-activation-environment --systemd \
+    DISPLAY \
+    XAUTHORITY \
+    XDG_CURRENT_DESKTOP \
+    XDG_SESSION_DESKTOP \
+    DESKTOP_SESSION
+
 setbg
-picom --config ~/.config/picom/dwm.conf &
-xrdb ~/.config/x11/xresources &
-xrdbpid=$!
 
-autostart="steam
-vesktop
-spotify-launcher"
-
-echo "$autostart" | while read -r program; do
-    [ -z "$program" ] && continue
-    cmd="${program%% *}"
-    pidof -sx "$cmd" || $program &
-done >/dev/null 2>&1
-
-[ -n "$xrdbpid" ] && wait "$xrdbpid"
-
-dbus-update-activation-environment --all
-exec ssh-agent dwm
+exec dwm

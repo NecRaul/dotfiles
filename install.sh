@@ -4,6 +4,7 @@ create_folders() {
     mkdir -p "$HOME/.config"
     mkdir -p "$HOME/.local/bin"
     mkdir -p "$HOME/.local/share/applications"
+    mkdir -p "$HOME/.local/share/dwm"
     mkdir -p "$HOME/Documents/Github/Gists"
     mkdir -p "$HOME/Documents/Github/Repos"
     mkdir -p "$HOME/Documents/LNs"
@@ -322,6 +323,10 @@ create_symlinks() {
     for item in "$(pwd)/home/.local/share/applications/"*; do
         item_name="$(basename "$item")"
         ln -sfnv "$item" "$HOME/.local/share/applications/$item_name"
+    done
+    for item in "$(pwd)/home/.local/share/dwm/"*; do
+        item_name="$(basename "$item")"
+        ln -sfnv "$item" "$HOME/.local/share/dwm/$item_name"
     done
     ln -sfnv "$(pwd)/home/.local/share/kio" "$HOME/.local/share/kio"
     [ -e "$HOME/.local/share/bg" ] || ln -sfnv "$(pwd)/home/.local/share/bg" "$HOME/.local/share/bg"
