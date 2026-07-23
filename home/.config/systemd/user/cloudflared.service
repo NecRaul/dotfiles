@@ -1,10 +1,11 @@
 [Unit]
 Description=Cloudflare Tunnel
-After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 TimeoutStartSec=0
-Type=notify
+Type=simple
 ExecStart=/usr/bin/cloudflared tunnel run kuroneko
 Restart=on-failure
 RestartSec=5s

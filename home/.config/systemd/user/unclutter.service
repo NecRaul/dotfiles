@@ -3,7 +3,6 @@ Description=Unclutter mouse cursor when idle
 After=graphical-session.target
 
 [Service]
-ExecStartPre=/bin/sleep 10
 ExecStart=/usr/bin/unclutter
 Restart=on-failure
 RestartSec=5

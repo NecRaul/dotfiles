@@ -1,9 +1,8 @@
 [Unit]
 Description=KDE PolicyKit Authentication Agent
-After=plasma-core.target
+After=graphical-session.target
 
 [Service]
-ExecStartPre=/bin/sleep 10
 ExecStart=/usr/lib/polkit-kde-authentication-agent-1
 TimeoutStopSec=5sec
 Restart=on-failure
