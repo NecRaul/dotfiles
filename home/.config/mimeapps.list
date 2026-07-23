@@ -49,6 +49,7 @@ video/mp4=mpv.desktop;
 video/quicktime=mpv.desktop;
 video/vnd.avi=mpv.desktop;
 video/webm=mpv.desktop;
+video/matroska=mpv.desktop;
 video/x-matroska=mpv.desktop;
 x-scheme-handler/chrome=firefox.desktop;
 x-scheme-handler/discord=vesktop.desktop
