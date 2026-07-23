@@ -5,6 +5,7 @@
 set -C -f
 IFS="$(printf '%b_' '\n')"
 IFS="${IFS%_}"
+export CLICOLOR_FORCE=1
 
 image() {
     if [ -f "$1" ] && [ -n "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && command -V ueberzug >/dev/null 2>&1; then
@@ -20,6 +21,9 @@ image/*)
     ;;
 text/troff)
     man ./ "$1" | col -b
+    ;;
+text/markdown | text/x-markdown)
+    glow -s "$XDG_CONFIG_HOME/glow/kuroneko.json" "$1"
     ;;
 text/* | */xml | application/json | application/javascript)
     bat --theme base16 --terminal-width "$(($4 - 2))" -f "$1"
