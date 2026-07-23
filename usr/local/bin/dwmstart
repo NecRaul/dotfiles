@@ -1,10 +1,17 @@
 #!/bin/sh
 
+export XDG_SESSION_TYPE=x11
+
 dbus-update-activation-environment --systemd \
     DISPLAY \
     XAUTHORITY \
-    XDG_CURRENT_DESKTOP \
-    XDG_SESSION_DESKTOP \
+    XDG_SESSION_TYPE \
+    DESKTOP_SESSION
+
+systemctl --user import-environment \
+    DISPLAY \
+    XAUTHORITY \
+    XDG_SESSION_TYPE \
     DESKTOP_SESSION
 
 setbg
