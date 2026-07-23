@@ -14,7 +14,7 @@ image() {
     fi
 }
 
-case "$(file --dereference --brief --mime-type -- "$1")" in
+case "$(xdg-mime query filetype "$1")" in
 image/*)
     image "$1" "$2" "$3" "$4" "$5" "$1"
     ;;
