@@ -14,6 +14,8 @@ source_if_exists() {
     source "$@"
 }
 
+[ -z "$NO_TMUX" ] && source_if_exists "$XDG_CONFIG_HOME/bash/tmux"
+
 # vi mode
 set -o vi
 
@@ -31,5 +33,3 @@ source_if_exists "$XDG_CONFIG_HOME/bash/clipboard"
 source_if_exists "$XDG_CONFIG_HOME/bash/history"
 source_if_exists "$XDG_CONFIG_HOME/bash/less"
 source_if_exists "$XDG_CONFIG_HOME/bash/personal"
-
-[ -z "$NO_TMUX" ] && source_if_exists "$XDG_CONFIG_HOME/bash/tmux"
