@@ -1,5 +1,6 @@
 # shellcheck shell=bash
 # vim: ft=bash
+# shellcheck disable=SC2139
 
 # General/convenience
 alias sudo="sudo "
