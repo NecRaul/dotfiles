@@ -1,11 +1,36 @@
 #!/bin/sh
 
-speakers_id=$(wpctl status | grep Speakers | grep -oE '[0-9]+' | head -1)
-headphones_id=$(wpctl status | grep Headphones | grep -oE '[0-9]+' | head -1)
-current_id=$(wpctl status | grep -F "*" | grep -oE '[0-9]+' | head -1)
+sinks=$(wpctl status | awk '
+/^[[:space:]]*├─ Sinks:/ {found=1; next}
+/^[[:space:]]*├─ Sources:/ {found=0}
+found && match($0, /[0-9]+\./) {
+    id=substr($0, RSTART, RLENGTH-1)
+    current=index($0, "*") ? 1 : 0
+    name=substr($0, RSTART + RLENGTH)
+    sub(/^[[:space:]]+/, "", name)
+    sub(/[[:space:]]+\[vol:.*/, "", name)
+    print id "|" current "|" name
+}
+')
 
-if [ "$current_id" = "$speakers_id" ]; then
-    wpctl set-default "$headphones_id"
-elif [ "$current_id" = "$headphones_id" ]; then
-    wpctl set-default "$speakers_id"
-fi
+[ -z "$sinks" ] && exit 1
+
+selected=$(printf '%s\n' "$sinks" |
+    awk -F'|' '{print $2 "|" $3}' |
+    sort -t'|' -k1,1 |
+    awk -F'|' '{print ($1 ? "*" : "") $2}' |
+    dmenu -l 5 -p "Output:")
+
+[ -z "$selected" ] && exit 0
+
+id=$(printf '%s\n' "$sinks" |
+    awk -F'|' -v name="$selected" '
+    {
+        display=($2 ? "*" : "") $3
+        if (display == name) {
+            print $1
+            exit
+        }
+    }')
+
+wpctl set-default "$id"
