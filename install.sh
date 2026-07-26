@@ -161,10 +161,12 @@ install_cargo_packages() {
     # cargo install --list |
     #   command grep -E '^[a-zA-Z0-9_-]+ v[0-9]' |
     #   command sed -E 's/ v.*//'
+    rustup default stable
+    cargo install cargo-binstall
     while IFS= read -r package || [ -n "$package" ]; do
         [ -z "$package" ] && continue
         ((attempted_packages++))
-        if cargo install "$package"; then
+        if cargo binstall "$package"; then
             ((installed_packages++))
         else
             no_install_cargo_packages+=("$package")
