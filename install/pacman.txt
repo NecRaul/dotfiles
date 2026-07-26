@@ -160,10 +160,10 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 playerctl
+pnpm
 polkit-kde-agent
 ponysay
 poppler-glib
-postgresql
 powerline-fonts
 ppsspp
 prettier
@@ -190,6 +190,7 @@ steam
 stylua
 syncplay
 syncthing
+tailspin
 tealdeer
 telegram-desktop
 texlive-basic

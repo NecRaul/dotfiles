@@ -18,6 +18,7 @@ pywal-discord-git
 qt6ct-kde
 rar
 rpcs3-bin
+rustdesk-bin
 rusty-psn-bin
 spicetify-cli
 sunshine-bin

@@ -1,5 +1,6 @@
 bacon
 cargo-binstall
+cargo-cache
 cargo-info
 dua
 du-dust
