@@ -20,7 +20,7 @@ if [ -d "$path" ]; then
     cd "$path" && eza --color=always --icons=always --no-quotes --group-directories-first -xl --git -I \".git\" . && exit 0
 fi
 
-case "$(file --dereference --brief --mime-type -- "$path")" in
+case "$(xdg-mime query filetype "$path")" in
 image/* | video/* | audio/* | application/octet-stream)
     mediainfo "$path"
     ;;
