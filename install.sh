@@ -1,5 +1,29 @@
 #!/bin/bash
 
+setup_xdg_environment() {
+    # XDG Setup
+    export XDG_CACHE_HOME="$HOME/.cache"
+    export XDG_CONFIG_HOME="$HOME/.config"
+    export XDG_DATA_HOME="$HOME/.local/share"
+    export XDG_STATE_HOME="$HOME/.local/state"
+
+    # XDG_CACHE_HOME
+    export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
+
+    # XDG_CONFIG_HOME
+    export OMNISHARPHOME="$XDG_CONFIG_HOME/omnisharp"
+
+    # XDG_DATA_HOME
+    export CARGO_HOME="$XDG_DATA_HOME/cargo"
+    export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
+    export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+    export GOPATH="$XDG_DATA_HOME/go"
+    export GOBIN="$XDG_DATA_HOME/go/bin"
+    export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+    export NPM_CONFIG_PREFIX="$XDG_DATA_HOME/npm"
+    export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+}
+
 create_folders() {
     mkdir -p "$HOME/.config"
     mkdir -p "$HOME/.local/bin"
@@ -161,6 +185,7 @@ install_cargo_packages() {
     # cargo install --list |
     #   command grep -E '^[a-zA-Z0-9_-]+ v[0-9]' |
     #   command sed -E 's/ v.*//'
+    export PATH="$CARGO_HOME/bin:$PATH"
     rustup default stable
     cargo install cargo-binstall
     while IFS= read -r package || [ -n "$package" ]; do
@@ -405,6 +430,8 @@ if [[ $# -gt 0 ]]; then
     "$@"
     exit
 fi
+
+setup_xdg_environment
 
 create_folders
 
