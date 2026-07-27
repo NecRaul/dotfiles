@@ -5,7 +5,7 @@ return {
         local lint = require("lint")
         vim.list_extend(lint.linters.gitlint.args, {
             "--config",
-            vim.fn.expand("~/.gitlint"),
+            vim.fn.expand("~/.config/gitlint/config.ini"),
         })
         vim.list_extend(lint.linters.luacheck.args, {
             "--config",
