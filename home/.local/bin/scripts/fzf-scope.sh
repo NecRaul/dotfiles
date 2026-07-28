@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Universal FZF previewer based on LF scope
 
 set -C -f
@@ -11,7 +11,8 @@ width="$2"
 height="$3"
 
 [ -z "$path" ] && exit 1
-[ -e "$path" ] || exit 1
+# shellcheck disable=SC3060
+[ -e "${path/#\~/$HOME}" ] || exit 1
 
 case "$path" in
 '~'*) path="$HOME${path#?}" ;;
