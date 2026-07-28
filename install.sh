@@ -235,7 +235,7 @@ clear_pacman_cache() {
     echo "==================================================="
     echo "Clearing pacman cache."
     echo "==================================================="
-    sudo pacman -Sc --noconfirm
+    sudo pacman -Scc --noconfirm
     paccache -rk0
     echo "==================================================="
     echo "Cleared pacman cache."
@@ -245,7 +245,7 @@ clear_aur_cache() {
     echo "==================================================="
     echo "Clearing AUR cache."
     echo "==================================================="
-    paru -Sc --noconfirm
+    paru -Scc --noconfirm
     paccache -rk0
     echo "==================================================="
     echo "Cleared AUR cache."
@@ -431,42 +431,111 @@ no_install_packages_to_txt() {
     echo "==================================================="
 }
 
+install_all_packages() {
+    setup_xdg_environment
+
+    no_install_arrays
+
+    reset_package_count
+    install_pacman_packages
+    clear_pacman_cache
+
+    install_paru
+
+    reset_package_count
+    install_aur_packages
+
+    reset_package_count
+    install_aur_packages_2_electric_boogaloo
+    clear_aur_cache
+
+    removing_unnecessary_dependencies
+
+    reset_package_count
+    install_uv_packages
+
+    reset_package_count
+    install_pnpm_packages
+
+    reset_package_count
+    install_cargo_packages
+
+    reset_package_count
+    install_go_packages
+
+    no_install_packages_to_txt
+}
+
 main() {
     setup_xdg_environment
     create_folders
+
     no_password_sudoers
     enable_pacman_color
-    no_install_arrays
-    reset_package_count
+
     update_upgrade_packages
+
+    no_install_arrays
+
+    reset_package_count
     install_pacman_packages
     clear_pacman_cache
+
     install_paru
+
     reset_package_count
     install_aur_packages
+
     reset_package_count
     install_aur_packages_2_electric_boogaloo
     clear_aur_cache
     removing_unnecessary_dependencies
-    create_symlinks
-    install_zathura_pywal
+
     reset_package_count
     install_uv_packages
+
     reset_package_count
     install_pnpm_packages
+
     reset_package_count
     install_cargo_packages
+
     reset_package_count
     install_go_packages
+
+    create_symlinks
+
+    install_zathura_pywal
+
     install_blesh
+
     install_grub_theme
+
     enable_services
+
     no_install_packages_to_txt
 }
 
-if [[ $# -gt 0 ]]; then
-    "$@"
-    exit
-else
+case "${1:-all}" in
+all)
     main
-fi
+    ;;
+packages)
+    update_upgrade_packages
+    install_all_packages
+    ;;
+links)
+    create_symlinks
+    ;;
+services)
+    enable_services
+    ;;
+*)
+    if declare -F "$1" >/dev/null; then
+        "$@"
+    else
+        echo "Usage: $0 [all|packages|links|services|function]"
+        exit 1
+    fi
+    ;;
+esac
