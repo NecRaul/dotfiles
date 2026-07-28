@@ -431,67 +431,42 @@ no_install_packages_to_txt() {
     echo "==================================================="
 }
 
+main() {
+    setup_xdg_environment
+    create_folders
+    no_password_sudoers
+    enable_pacman_color
+    no_install_arrays
+    reset_package_count
+    update_upgrade_packages
+    install_pacman_packages
+    clear_pacman_cache
+    install_paru
+    reset_package_count
+    install_aur_packages
+    reset_package_count
+    install_aur_packages_2_electric_boogaloo
+    clear_aur_cache
+    removing_unnecessary_dependencies
+    create_symlinks
+    install_zathura_pywal
+    reset_package_count
+    install_uv_packages
+    reset_package_count
+    install_pnpm_packages
+    reset_package_count
+    install_cargo_packages
+    reset_package_count
+    install_go_packages
+    install_blesh
+    install_grub_theme
+    enable_services
+    no_install_packages_to_txt
+}
+
 if [[ $# -gt 0 ]]; then
     "$@"
     exit
+else
+    main
 fi
-
-setup_xdg_environment
-
-create_folders
-
-no_password_sudoers
-
-enable_pacman_color
-
-no_install_arrays
-
-reset_package_count
-
-update_upgrade_packages
-
-install_pacman_packages
-
-clear_pacman_cache
-
-install_paru
-
-reset_package_count
-
-install_aur_packages
-
-reset_package_count
-
-install_aur_packages_2_electric_boogaloo
-
-clear_aur_cache
-
-removing_unnecessary_dependencies
-
-create_symlinks
-
-install_zathura_pywal
-
-reset_package_count
-
-install_uv_packages
-
-reset_package_count
-
-install_pnpm_packages
-
-reset_package_count
-
-install_cargo_packages
-
-reset_package_count
-
-install_go_packages
-
-install_blesh
-
-install_grub_theme
-
-enable_services
-
-no_install_packages_to_txt
