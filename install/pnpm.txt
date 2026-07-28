@@ -1,0 +1,11 @@
+depcheck
+eslint
+license-checker
+live-server
+npm-check
+npm-check-updates
+prettier
+trash-cli
+tsx
+typescript
+vite

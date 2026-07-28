@@ -14,14 +14,9 @@ setup_xdg_environment() {
     export OMNISHARPHOME="$XDG_CONFIG_HOME/omnisharp"
 
     # XDG_DATA_HOME
-    export CARGO_HOME="$XDG_DATA_HOME/cargo"
     export DOTNET_CLI_HOME="$XDG_DATA_HOME"/dotnet
     export GNUPGHOME="$XDG_DATA_HOME/gnupg"
-    export GOPATH="$XDG_DATA_HOME/go"
-    export GOBIN="$XDG_DATA_HOME/go/bin"
     export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
-    export NPM_CONFIG_PREFIX="$XDG_DATA_HOME/npm"
-    export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 }
 
 create_folders() {
@@ -155,25 +150,30 @@ install_uv_packages() {
     echo "$installed_packages/$attempted_packages installed."
 }
 
-install_npm_packages() {
+install_pnpm_packages() {
     echo "==================================================="
-    echo "Installing npm packages."
+    echo "Installing pnpm packages."
     echo "==================================================="
-    # Note: Command below gives installed npm packages.
-    # npm list -g --depth=0 |
+    # Note: Command below gives installed pnpm packages.
+    # pnpm list -g --depth=0 |
     #   command grep -E '^[├└]' |
     #   command sed -E 's/^[├└]── //; s/@[^@]+$//'
+    export NPM_CONFIG_PREFIX="$XDG_DATA_HOME/npm"
+    export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+    export PATH="$NPM_CONFIG_PREFIX/bin:$PATH"
+    export PATH="$PNPM_HOME/bin:$PATH"
+    npm install -g pnpm
     while IFS= read -r package || [ -n "$package" ]; do
         [ -z "$package" ] && continue
         ((attempted_packages++))
-        if npm install -g "$package"; then
+        if pnpm install -g "$package"; then
             ((installed_packages++))
         else
-            no_install_npm_packages+=("$package")
+            no_install_pnpm_packages+=("$package")
         fi
-    done <"install/npm.txt"
+    done <"install/pnpm.txt"
     echo "==================================================="
-    echo "Finished installing npm packages."
+    echo "Finished installing pnpm packages."
     echo "$installed_packages/$attempted_packages installed."
 }
 
@@ -185,6 +185,8 @@ install_cargo_packages() {
     # cargo install --list |
     #   command grep -E '^[a-zA-Z0-9_-]+ v[0-9]' |
     #   command sed -E 's/ v.*//'
+    export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+    export CARGO_HOME="$XDG_DATA_HOME/cargo"
     export PATH="$CARGO_HOME/bin:$PATH"
     rustup default stable
     cargo install cargo-binstall
@@ -212,6 +214,9 @@ install_go_packages() {
     # done |
     #   command grep -E '^\s+path\s' |
     #   command sed -E 's/^[[:space:]]*path[[:space:]]+(.+)$/\1@latest/'
+    export GOPATH="$XDG_DATA_HOME/go"
+    export GOBIN="$XDG_DATA_HOME/go/bin"
+    export PATH="$GOBIN:$PATH"
     while IFS= read -r package || [ -n "$package" ]; do
         [ -z "$package" ] && continue
         ((attempted_packages++))
@@ -399,11 +404,11 @@ enable_services() {
 }
 
 no_install_arrays() {
-    # Array to hold pacman, AUR, uv, npm, cargo, and go packages that couldn't be installed
+    # Array to hold pacman, AUR, uv, pnpm, cargo, and go packages that couldn't be installed
     declare -a no_install_pacman_packages=()
     declare -a no_install_aur_packages=()
     declare -a no_install_uv_packages=()
-    declare -a no_install_npm_packages=()
+    declare -a no_install_pnpm_packages=()
     declare -a no_install_cargo_packages=()
     declare -a no_install_go_packages=()
 }
@@ -418,7 +423,7 @@ no_install_packages_to_txt() {
     printf "%s\n" "${no_install_pacman_packages[@]}" >no_install/pacman.txt
     printf "%s\n" "${no_install_aur_packages[@]}" >no_install/aur.txt
     printf "%s\n" "${no_install_uv_packages[@]}" >no_install/uv.txt
-    printf "%s\n" "${no_install_npm_packages[@]}" >no_install/npm.txt
+    printf "%s\n" "${no_install_pnpm_packages[@]}" >no_install/pnpm.txt
     printf "%s\n" "${no_install_cargo_packages[@]}" >no_install/cargo.txt
     printf "%s\n" "${no_install_go_packages[@]}" >no_install/go.txt
     echo "==================================================="
@@ -473,7 +478,7 @@ install_uv_packages
 
 reset_package_count
 
-install_npm_packages
+install_pnpm_packages
 
 reset_package_count
 

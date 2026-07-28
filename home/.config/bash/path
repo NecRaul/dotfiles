@@ -15,6 +15,7 @@ append_path() {
 append_path "$XDG_DATA_HOME/cargo/bin"
 append_path "$XDG_DATA_HOME/go/bin"
 append_path "$XDG_DATA_HOME/npm/bin"
+append_path "$XDG_DATA_HOME/pnpm/bin"
 
 # Export updated PATH
 export PATH

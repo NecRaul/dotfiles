@@ -12,11 +12,11 @@ uv tool list --show-extras |
     sort -i |
     sed -E 's/ v[^ ]+//; s/ \[extras: ([^]]+)\]/[\1]/; s/, +/,/g; s#^gallery-dl\[extra\]#git+https://github.com/NecRaul/gallery-dl[extra]#' \
         >~/Documents/Github/Repos/dotfiles/install/uv.txt
-npm list -g --depth=0 |
+pnpm list -g --depth=0 |
     grep -E '^[├└]' |
-    sed -E 's/^[├└]── //; s/@[^@]+$//; /^tree-sitter$/d' |
+    sed -E 's/^[├└]── //; s/@[^@]+$//; /^tree-sitter$/d; /^pnpm$/d' |
     sort -i \
-        >~/Documents/Github/Repos/dotfiles/install/npm.txt
+        >~/Documents/Github/Repos/dotfiles/install/pnpm.txt
 cargo install --list |
     grep -E '^[a-zA-Z0-9_-]+ v[0-9]' |
     sed -E 's/ v.*//' |

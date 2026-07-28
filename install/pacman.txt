@@ -13,7 +13,6 @@ base
 base-devel
 bash-completion
 bat
-bind
 bitwarden
 breeze
 breeze-gtk
@@ -136,7 +135,6 @@ noto-fonts-emoji
 npm
 nsxiv
 ntfs-3g
-ntp
 nvm
 nvtop
 nyancat
@@ -160,13 +158,11 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 playerctl
-pnpm
 polkit-kde-agent
 ponysay
 poppler-glib
 powerline-fonts
 ppsspp
-prettier
 pulsemixer
 python
 python-pip
@@ -209,7 +205,6 @@ ttf-liberation
 ttf-roboto
 ttf-sazanami
 ueberzugpp
-ufw
 unclutter
 unzip
 uv

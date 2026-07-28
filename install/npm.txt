@@ -1,3 +1,0 @@
-live-server
-tsx
-typescript

@@ -20,15 +20,15 @@ if [ -d "$HOME/.local/bin/statusbar" ]; then
         [ -d "$d" ] && append_path "${d%/}"
     done
 fi
-if [ -d "$HOME/.local/bin/statusbar" ]; then
-    append_path "$HOME/.local/bin/statusbar"
-    for d in "$HOME/.local/bin/statusbar"/*/; do
-        [ -d "$d" ] && append_path "${d%/}"
-    done
-fi
 if [ -d "$HOME/.local/share/npm/bin" ]; then
     append_path "$HOME/.local/share/npm/bin"
     for d in "$HOME/.local/share/npm/bin"/*/; do
+        [ -d "$d" ] && append_path "${d%/}"
+    done
+fi
+if [ -d "$HOME/.local/share/pnpm/bin" ]; then
+    append_path "$HOME/.local/share/pnpm/bin"
+    for d in "$HOME/.local/share/pnpm/bin"/*/; do
         [ -d "$d" ] && append_path "${d%/}"
     done
 fi
