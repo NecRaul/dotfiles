@@ -6,14 +6,15 @@ return {
         local function SmartFiles(opts)
             opts = opts or {}
             local fzf = require("fzf-lua")
-            local dir = vim.fn.expand(opts.cwd) or vim.fn.getcwd()
-            if opts.cwd then
-                vim.fn.chdir(dir)
-            end
-            local git_ok = pcall(vim.fn.system, { "git", "-C", dir, "rev-parse", "--is-inside-work-tree" })
-            if git_ok and vim.v.shell_error == 0 then
+            local dir = opts.cwd and vim.fn.expand(opts.cwd) or vim.fn.getcwd()
+            local git_root = vim.fn.system({ "git", "-C", dir, "rev-parse", "--show-toplevel" })
+            if vim.v.shell_error == 0 then
+                opts.cwd = vim.trim(git_root)
+                opts.prompt = opts.prompt or "GitFiles❯ "
                 fzf.git_files(opts)
             else
+                opts.cwd = dir
+                opts.prompt = opts.prompt or "Files❯ "
                 fzf.files(opts)
             end
         end
