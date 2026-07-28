@@ -15,6 +15,21 @@ found && match($0, /[0-9]+\./) {
 
 [ -z "$sinks" ] && exit 1
 
+count=$(printf '%s\n' "$sinks" | wc -l)
+
+case "$count" in
+0) exit 1 ;;
+1) exit 0 ;;
+2)
+    id=$(
+        printf '%s\n' "$sinks" |
+            awk -F'|' '$2 == 0 { print $1; exit }'
+    )
+    wpctl set-default "$id"
+    exit 0
+    ;;
+esac
+
 selected=$(printf '%s\n' "$sinks" |
     awk -F'|' '{print $2 "|" $3}' |
     sort -t'|' -k1,1 |
