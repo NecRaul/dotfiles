@@ -11,6 +11,7 @@ width="$2"
 height="$3"
 
 [ -z "$path" ] && exit 1
+[ -e "$path" ] || exit 1
 
 case "$path" in
 '~'*) path="$HOME${path#?}" ;;
