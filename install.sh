@@ -251,6 +251,52 @@ clear_aur_cache() {
     echo "Cleared AUR cache."
 }
 
+clear_uv_cache() {
+    echo "==================================================="
+    echo "Clearing uv cache."
+    echo "==================================================="
+    uv cache clean
+    uv cache prune
+    echo "==================================================="
+    echo "Cleared uv cache."
+}
+
+clear_pnpm_cache() {
+    echo "==================================================="
+    echo "Clearing pnpm cache."
+    echo "==================================================="
+    export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+    export PATH="$PNPM_HOME/bin:$PATH"
+    pnpm cache delete
+    pnpm store prune
+    echo "==================================================="
+    echo "Cleared pnpm cache."
+}
+
+clear_cargo_cache() {
+    echo "==================================================="
+    echo "Clearing cargo cache."
+    echo "==================================================="
+    export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+    export CARGO_HOME="$XDG_DATA_HOME/cargo"
+    export PATH="$CARGO_HOME/bin:$PATH"
+    cargo cache --autoclean
+    echo "==================================================="
+    echo "Cleared cargo cache."
+}
+
+clear_go_cache() {
+    echo "==================================================="
+    echo "Clearing go cache."
+    echo "==================================================="
+    export GOPATH="$XDG_DATA_HOME/go"
+    export GOBIN="$XDG_DATA_HOME/go/bin"
+    export PATH="$GOBIN:$PATH"
+    go clean -cache -modcache
+    echo "==================================================="
+    echo "Cleared go cache."
+}
+
 removing_unnecessary_dependencies() {
     echo "==================================================="
     echo "Removing unnecessary dependencies."
@@ -453,15 +499,19 @@ install_all_packages() {
 
     reset_package_count
     install_uv_packages
+    clear_uv_cache
 
     reset_package_count
     install_pnpm_packages
+    clear_pnpm_cache
 
     reset_package_count
     install_cargo_packages
+    clear_cargo_cache
 
     reset_package_count
     install_go_packages
+    clear_go_cache
 
     no_install_packages_to_txt
 }
@@ -493,15 +543,19 @@ main() {
 
     reset_package_count
     install_uv_packages
+    clear_uv_cache
 
     reset_package_count
     install_pnpm_packages
+    clear_pnpm_cache
 
     reset_package_count
     install_cargo_packages
+    clear_cargo_cache
 
     reset_package_count
     install_go_packages
+    clear_go_cache
 
     create_symlinks
 
