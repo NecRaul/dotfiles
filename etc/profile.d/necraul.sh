@@ -8,18 +8,6 @@ if [ -d "$HOME/.local/bin" ]; then
         [ -d "$d" ] && append_path "${d%/}"
     done
 fi
-if [ -d "$HOME/.local/bin/scripts" ]; then
-    append_path "$HOME/.local/bin/scripts"
-    for d in "$HOME/.local/bin/scripts"/*/; do
-        [ -d "$d" ] && append_path "${d%/}"
-    done
-fi
-if [ -d "$HOME/.local/bin/statusbar" ]; then
-    append_path "$HOME/.local/bin/statusbar"
-    for d in "$HOME/.local/bin/statusbar"/*/; do
-        [ -d "$d" ] && append_path "${d%/}"
-    done
-fi
 if [ -d "$HOME/.local/share/npm/bin" ]; then
     append_path "$HOME/.local/share/npm/bin"
     for d in "$HOME/.local/share/npm/bin"/*/; do
