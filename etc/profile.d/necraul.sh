@@ -8,6 +8,12 @@ if [ -d "$HOME/.local/bin" ]; then
         [ -d "$d" ] && append_path "${d%/}"
     done
 fi
+if [ -d "$HOME/.local/share/nvim/mason/bin" ]; then
+    append_path "$HOME/.local/share/nvim/mason/bin"
+    for d in "$HOME/.local/share/nvim/mason/bin"/*/; do
+        [ -d "$d" ] && append_path "${d%/}"
+    done
+fi
 if [ -d "$HOME/.local/share/npm/bin" ]; then
     append_path "$HOME/.local/share/npm/bin"
     for d in "$HOME/.local/share/npm/bin"/*/; do
