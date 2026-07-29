@@ -1,30 +1,28 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
+    branch = "main",
     build = ":TSUpdate",
     lazy = false,
     config = function()
-        local nvim_tree_sitter_configs = require("nvim-treesitter.configs")
-        nvim_tree_sitter_configs.setup({
-            ensure_installed = { --
-                "bash", --
-                "diff", --
-                "dockerfile", --
-                "editorconfig", --
-                "ini", --
-                "json", --
-                "json5", --
-                "ssh_config", --
-                "toml", --
-                "yaml", --
-            },
-            auto_install = true,
-            highlight = {
-                enable = true,
-            },
-            indent = {
-                enable = true,
-            },
+        require("nvim-treesitter").setup()
+        require("nvim-treesitter").install({ --
+            "bash", --
+            "diff", --
+            "dockerfile", --
+            "editorconfig", --
+            "ini", --
+            "json", --
+            "json5", --
+            "ssh_config", --
+            "toml", --
+            "yaml", --
+        })
+
+        vim.api.nvim_create_autocmd("FileType", {
+            callback = function()
+                pcall(vim.treesitter.start)
+                vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            end,
         })
     end,
 }

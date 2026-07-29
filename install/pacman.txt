@@ -200,6 +200,7 @@ toilet
 torbrowser-launcher
 torsocks
 traceroute
+tree-sitter-cli
 ttf-hack-nerd
 ttf-liberation
 ttf-roboto

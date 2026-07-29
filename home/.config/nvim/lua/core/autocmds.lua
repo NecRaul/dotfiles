@@ -39,20 +39,3 @@ vim.api.nvim_create_autocmd("BufWritePost", {
         )
     end,
 })
-
--- Treesitter parse on buffer read
-vim.api.nvim_create_autocmd("BufReadPost", {
-    callback = function()
-        local ok, ts_parsers = pcall(require, "nvim-treesitter.parsers")
-        if ok then
-            local bufnr = vim.api.nvim_get_current_buf()
-            local lang = ts_parsers.get_buf_lang(bufnr)
-            if lang then
-                local parser = ts_parsers.get_parser(bufnr, lang)
-                if parser then
-                    parser:parse()
-                end
-            end
-        end
-    end,
-})
