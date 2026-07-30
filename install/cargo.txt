@@ -12,4 +12,5 @@ mprocs
 nyaa
 sccache
 tokei
+wallpapers
 wiki-tui

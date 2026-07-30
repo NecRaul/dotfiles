@@ -213,6 +213,7 @@ vdpauinfo
 vulkan-headers
 vulkan-radeon
 vulkan-tools
+waifu2x-ncnn-vulkan
 weechat
 wget
 wine

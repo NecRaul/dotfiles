@@ -12,7 +12,9 @@ cargo install --list |
     sort -i |
     while read -r tool; do
         echo "Upgrading $tool"
-        if $use_binstall; then
+        if [ "$tool" = "wallpapers" ]; then
+            cargo install --git https://github.com/awused/wallpapers --locked --no-default-features --features x11
+        elif $use_binstall; then
             cargo binstall "$tool"
         else
             cargo install "$tool" --locked

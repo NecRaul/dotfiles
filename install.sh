@@ -20,6 +20,7 @@ setup_xdg_environment() {
 }
 
 create_folders() {
+    mkdir -p "$HOME/.cache/wallpapers"
     mkdir -p "$HOME/.config"
     mkdir -p "$HOME/.local/bin"
     mkdir -p "$HOME/.local/share/applications"
@@ -193,7 +194,13 @@ install_cargo_packages() {
     while IFS= read -r package || [ -n "$package" ]; do
         [ -z "$package" ] && continue
         ((attempted_packages++))
-        if cargo binstall "$package"; then
+        if [ "$package" = "wallpapers" ]; then
+            if cargo install --git https://github.com/awused/wallpapers --locked --no-default-features --features x11; then
+                ((installed_packages++))
+            else
+                no_install_cargo_packages+=("$package")
+            fi
+        elif cargo binstall "$package"; then
             ((installed_packages++))
         else
             no_install_cargo_packages+=("$package")
