@@ -58,6 +58,13 @@ vim.diagnostic.config({
     virtual_text = true,
     virtual_lines = false,
     jump = {
-        float = true,
+        on_jump = function(_, bufnr)
+            vim.diagnostic.open_float({
+                bufnr = bufnr,
+                border = "rounded",
+                source = "if_many",
+                focus = false,
+            })
+        end,
     },
 })

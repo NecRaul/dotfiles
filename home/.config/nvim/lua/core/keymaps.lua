@@ -154,7 +154,7 @@ vim.keymap.set("n", "<C-o>", function()
     })
     if #clients > 0 then
         for _, client in ipairs(clients) do
-            client.stop()
+            client:stop()
         end
         vim.lsp.enable(name, false)
     else

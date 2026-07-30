@@ -59,10 +59,10 @@ return {
             actions = {
                 files = {
                     -- true, -- inherit defaults
-                    ["enter"] = FzfLua.actions.file_edit,
-                    ["ctrl-s"] = FzfLua.actions.file_split,
-                    ["ctrl-v"] = FzfLua.actions.file_vsplit,
-                    ["ctrl-h"] = FzfLua.actions.toggle_hidden,
+                    ["enter"] = fzf_lua.actions.file_edit,
+                    ["ctrl-s"] = fzf_lua.actions.file_split,
+                    ["ctrl-v"] = fzf_lua.actions.file_vsplit,
+                    ["ctrl-h"] = fzf_lua.actions.toggle_hidden,
                 },
             },
             fzf_opts = {
@@ -151,9 +151,9 @@ return {
                     cmd = "git -c color.status=false --no-optional-locks status --porcelain=v1 -u",
                     previewer = "git_diff",
                     actions = {
-                        ["ctrl-l"] = { fn = FzfLua.actions.git_unstage, reload = true },
-                        ["ctrl-h"] = { fn = FzfLua.actions.git_stage, reload = true },
-                        ["ctrl-r"] = { fn = FzfLua.actions.git_reset, reload = true },
+                        ["ctrl-l"] = { fn = fzf_lua.actions.git_unstage, reload = true },
+                        ["ctrl-h"] = { fn = fzf_lua.actions.git_stage, reload = true },
+                        ["ctrl-r"] = { fn = fzf_lua.actions.git_reset, reload = true },
                     },
                 },
                 vim.keymap.set("n", "<C-g><C-d>", fzf_lua.git_diff, {
@@ -181,9 +181,9 @@ return {
                         .. [[%Cgreen(%><(12)%cr%><|(12))%Creset %s %C(blue)<%an>%Creset"]],
                     preview = "git show --color {1}",
                     actions = {
-                        ["enter"] = FzfLua.actions.git_checkout,
+                        ["enter"] = fzf_lua.actions.git_checkout,
                         -- remove `exec_silent` or set to `false` to exit after yank
-                        ["ctrl-y"] = { fn = FzfLua.actions.git_yank_commit, exec_silent = true },
+                        ["ctrl-y"] = { fn = fzf_lua.actions.git_yank_commit, exec_silent = true },
                     },
                 },
                 vim.keymap.set("n", "<C-g><C-b><C-c>", fzf_lua.git_bcommits, {
@@ -195,10 +195,10 @@ return {
                         .. [[%Cgreen(%><(12)%cr%><|(12))%Creset %s %C(blue)<%an>%Creset" {file}]],
                     preview = "git show --color {1} -- {file}",
                     actions = {
-                        ["enter"] = FzfLua.actions.git_buf_edit,
-                        ["ctrl-s"] = FzfLua.actions.git_buf_split,
-                        ["ctrl-v"] = FzfLua.actions.git_buf_vsplit,
-                        ["ctrl-y"] = { fn = FzfLua.actions.git_yank_commit, exec_silent = true },
+                        ["enter"] = fzf_lua.actions.git_buf_edit,
+                        ["ctrl-s"] = fzf_lua.actions.git_buf_split,
+                        ["ctrl-v"] = fzf_lua.actions.git_buf_vsplit,
+                        ["ctrl-y"] = { fn = fzf_lua.actions.git_yank_commit, exec_silent = true },
                     },
                 },
                 vim.keymap.set("n", "<C-g><C-b><C-l>", fzf_lua.git_blame, {
@@ -209,11 +209,11 @@ return {
                     cmd = [[git blame --color-lines {file}]],
                     preview = "git show --color {1} -- {file}",
                     actions = {
-                        ["enter"] = FzfLua.actions.git_goto_line,
-                        ["ctrl-s"] = FzfLua.actions.git_buf_split,
-                        ["ctrl-v"] = FzfLua.actions.git_buf_vsplit,
-                        ["ctrl-t"] = FzfLua.actions.git_buf_tabedit,
-                        ["ctrl-y"] = { fn = FzfLua.actions.git_yank_commit, exec_silent = true },
+                        ["enter"] = fzf_lua.actions.git_goto_line,
+                        ["ctrl-s"] = fzf_lua.actions.git_buf_split,
+                        ["ctrl-v"] = fzf_lua.actions.git_buf_vsplit,
+                        ["ctrl-t"] = fzf_lua.actions.git_buf_tabedit,
+                        ["ctrl-y"] = { fn = fzf_lua.actions.git_yank_commit, exec_silent = true },
                     },
                 },
                 vim.keymap.set("n", "<C-g><C-b><C-r>", fzf_lua.git_branches, {
@@ -225,9 +225,9 @@ return {
                     preview = "git log --graph --pretty=oneline --abbrev-commit --color {1}",
                     remotes = "local",
                     actions = {
-                        ["enter"] = FzfLua.actions.git_switch,
-                        ["ctrl-a"] = { fn = FzfLua.actions.git_branch_add, field_index = "{q}", reload = true },
-                        ["ctrl-d"] = { fn = FzfLua.actions.git_branch_del, reload = true },
+                        ["enter"] = fzf_lua.actions.git_switch,
+                        ["ctrl-a"] = { fn = fzf_lua.actions.git_branch_add, field_index = "{q}", reload = true },
+                        ["ctrl-d"] = { fn = fzf_lua.actions.git_branch_del, reload = true },
                     },
                     -- If you wish to add branch and switch immediately
                     -- cmd_add  = { "git", "checkout", "-b" },
@@ -242,8 +242,8 @@ return {
                 worktrees = {
                     prompt = "Git Worktrees❯ ",
                     actions = {
-                        ["ctrl-a"] = { fn = FzfLua.actions.git_worktree_add, field_index = "{q}", reload = true },
-                        ["ctrl-d"] = { fn = FzfLua.actions.git_worktree_del, reload = true },
+                        ["ctrl-a"] = { fn = fzf_lua.actions.git_worktree_add, field_index = "{q}", reload = true },
+                        ["ctrl-d"] = { fn = fzf_lua.actions.git_worktree_del, reload = true },
                     },
                 },
                 vim.keymap.set("n", "<C-g><C-t>", fzf_lua.git_tags, {
@@ -257,7 +257,7 @@ return {
                         .. [[ %(subject) %(color:blue)%(taggername)%(color:reset)" refs/tags]],
                     preview = [[git log --graph --color --pretty=format:"%C(yellow)%h%Creset ]]
                         .. [[%Cgreen(%><(12)%cr%><|(12))%Creset %s %C(blue)<%an>%Creset" {1}]],
-                    actions = { ["enter"] = FzfLua.actions.git_checkout },
+                    actions = { ["enter"] = fzf_lua.actions.git_checkout },
                 },
                 vim.keymap.set("n", "<C-g><C-s><C-t>", fzf_lua.git_stash, {
                     desc = "FzfLua [G]it [S]tashes",
@@ -267,8 +267,8 @@ return {
                     cmd = "git --no-pager stash list",
                     preview = "git --no-pager stash show --patch --color {1}",
                     actions = {
-                        ["enter"] = FzfLua.actions.git_stash_apply,
-                        ["ctrl-d"] = { fn = FzfLua.actions.git_stash_drop, reload = true },
+                        ["enter"] = fzf_lua.actions.git_stash_apply,
+                        ["ctrl-d"] = { fn = fzf_lua.actions.git_stash_drop, reload = true },
                     },
                 },
                 icons = {
@@ -341,7 +341,7 @@ return {
                 prompt = "Args❯ ",
                 files_only = true,
                 actions = {
-                    ["ctrl-d"] = { fn = FzfLua.actions.arg_del, reload = true },
+                    ["ctrl-d"] = { fn = fzf_lua.actions.arg_del, reload = true },
                 },
             },
             oldfiles = {
@@ -353,7 +353,7 @@ return {
             buffers = {
                 prompt = "Buffers❯ ",
                 actions = {
-                    ["ctrl-d"] = { fn = FzfLua.actions.buf_del, reload = true },
+                    ["ctrl-d"] = { fn = fzf_lua.actions.buf_del, reload = true },
                 },
             },
             tabs = {
@@ -361,8 +361,8 @@ return {
                 tab_title = "Tab",
                 tab_marker = "<<",
                 actions = {
-                    ["enter"] = FzfLua.actions.buf_switch,
-                    ["ctrl-d"] = { fn = FzfLua.actions.buf_del, reload = true },
+                    ["enter"] = fzf_lua.actions.buf_switch,
+                    ["ctrl-d"] = { fn = fzf_lua.actions.buf_del, reload = true },
                 },
             },
             lines = {
@@ -394,7 +394,7 @@ return {
                     width = 0.30,
                 },
                 actions = {
-                    ["enter"] = FzfLua.actions.colorscheme,
+                    ["enter"] = fzf_lua.actions.colorscheme,
                 },
             },
             awesome_colorschemes = {
@@ -406,10 +406,10 @@ return {
                     width = 0.50,
                 },
                 actions = {
-                    ["enter"] = FzfLua.actions.colorscheme,
-                    ["ctrl-g"] = { fn = FzfLua.actions.toggle_bg, exec_silent = true },
-                    ["ctrl-r"] = { fn = FzfLua.actions.cs_update, reload = true },
-                    ["ctrl-d"] = { fn = FzfLua.actions.cs_delete, reload = true },
+                    ["enter"] = fzf_lua.actions.colorscheme,
+                    ["ctrl-g"] = { fn = fzf_lua.actions.toggle_bg, exec_silent = true },
+                    ["ctrl-r"] = { fn = fzf_lua.actions.cs_update, reload = true },
+                    ["ctrl-d"] = { fn = fzf_lua.actions.cs_delete, reload = true },
                 },
             },
             keymaps = {
@@ -423,9 +423,9 @@ return {
                 show_desc = true,
                 show_details = true,
                 actions = {
-                    ["enter"] = FzfLua.actions.keymap_apply,
-                    ["ctrl-s"] = FzfLua.actions.keymap_split,
-                    ["ctrl-v"] = FzfLua.actions.keymap_vsplit,
+                    ["enter"] = fzf_lua.actions.keymap_apply,
+                    ["ctrl-s"] = fzf_lua.actions.keymap_split,
+                    ["ctrl-v"] = fzf_lua.actions.keymap_vsplit,
                 },
             },
             nvim_options = {
@@ -433,8 +433,8 @@ return {
                 separator = "│",
                 color_values = true,
                 actions = {
-                    ["enter"] = { fn = FzfLua.actions.nvim_opt_edit_local, reload = true },
-                    ["alt-enter"] = { fn = FzfLua.actions.nvim_opt_edit_global, reload = true },
+                    ["enter"] = { fn = fzf_lua.actions.nvim_opt_edit_local, reload = true },
+                    ["alt-enter"] = { fn = fzf_lua.actions.nvim_opt_edit_global, reload = true },
                 },
             },
             quickfix = {
@@ -524,13 +524,13 @@ return {
             complete_path = {
                 cmd = nil,
                 complete = {
-                    ["enter"] = FzfLua.actions.complete,
+                    ["enter"] = fzf_lua.actions.complete,
                 },
             },
             complete_file = {
                 cmd = nil,
                 actions = {
-                    ["enter"] = FzfLua.actions.complete,
+                    ["enter"] = fzf_lua.actions.complete,
                 },
                 winopts = {
                     preview = {
@@ -544,7 +544,7 @@ return {
                 git_root = false,
                 formatter = "path.dirname_first",
                 actions = {
-                    enter = FzfLua.actions.cd,
+                    enter = fzf_lua.actions.cd,
                 },
             },
             vim.api.nvim_create_autocmd("LspAttach", {

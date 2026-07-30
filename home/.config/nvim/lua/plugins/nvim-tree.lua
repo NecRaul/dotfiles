@@ -17,11 +17,10 @@ return {
             sync_root_with_cwd = true,
             update_focused_file = {
                 enable = true,
-                update_root = false,
             },
             renderer = {
                 group_empty = true,
-                highlight_git = true,
+                highlight_git = "all",
                 highlight_modified = "all",
                 root_folder_modifier = "~",
                 indent_markers = {
