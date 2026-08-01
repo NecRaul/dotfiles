@@ -16,6 +16,10 @@ done
 
 shift $((OPTIND - 1))
 
+if [ -n "$silent" ]; then
+    exec >/dev/null 2>&1
+fi
+
 notify() {
     [ -z "$silent" ] && notify-send -i "$bgloc" "$1"
 }

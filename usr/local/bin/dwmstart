@@ -14,6 +14,6 @@ systemctl --user import-environment \
     XDG_SESSION_TYPE \
     DESKTOP_SESSION
 
-setbg
+setbg -s
 
 exec dwm
