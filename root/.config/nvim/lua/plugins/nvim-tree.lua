@@ -1,1 +1,0 @@
-../../../../../home/.config/nvim/lua/plugins/nvim-tree.lua

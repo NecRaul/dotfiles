@@ -98,10 +98,10 @@ vim.keymap.set("n", "<leader>dt", ":Trouble diagnostics toggle<CR>", {
     desc = "Open [D]iagnostics with [T]rouble",
 })
 
--- Nvim Tree keymaps
-vim.keymap.set("n", "<C-t>", ":NvimTreeToggle<CR>", {
+-- NeoTree Tree keymaps
+vim.keymap.set("n", "<C-t>", ":Neotree toggle dir=.<CR>", {
     silent = true,
-    desc = "[T]oggle NvimTree",
+    desc = "[T]oggle NeoTree",
 })
 
 -- Git keymaps
