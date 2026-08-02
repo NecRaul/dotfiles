@@ -38,6 +38,12 @@ if [ -d "$HOME/.local/share/go/bin" ]; then
         [ -d "$d" ] && append_path "${d%/}"
     done
 fi
+if [ -d "$HOME/.local/share/luarocks/bin" ]; then
+    append_path "$HOME/.local/share/luarocks/bin"
+    for d in "$HOME/.local/share/luarocks/bin"/*/; do
+        [ -d "$d" ] && append_path "${d%/}"
+    done
+fi
 if [ -d "$HOME/Documents/Github/Gists" ]; then
     append_path "$HOME/Documents/Github/Gists"
     for d in "$HOME/Documents/Github/Gists"/*/; do
