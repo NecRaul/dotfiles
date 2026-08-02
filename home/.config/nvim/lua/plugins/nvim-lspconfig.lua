@@ -1,23 +1,5 @@
 return {
     "neovim/nvim-lspconfig",
-    dependencies = {
-        {
-            "j-hui/fidget.nvim",
-            config = function()
-                local fidget = require("fidget")
-                fidget.setup({
-                    notification = {
-                        window = {
-                            winblend = 0,
-                        },
-                    },
-                    progress = {
-                        suppress_on_insert = true,
-                    },
-                })
-            end,
-        },
-    },
     event = { "BufReadPre", "BufNewFile", "BufWritePre" },
     config = function()
         for _, lsp_name in pairs(require("core.dev-tools").language_servers) do
