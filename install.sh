@@ -37,9 +37,9 @@ create_folders() {
     mkdir -p "$HOME/Pictures/mpv"
     mkdir -p "$HOME/Pictures/Screenshots"
     mkdir -p "$HOME/Pictures/Wallpapers"
+    mkdir -p "$HOME/Videos/mpv"
     mkdir -p "$HOME/Videos/Recordings"
     mkdir -p "$HOME/Videos/Seasonals"
-    mkdir -p "$HOME/Videos/Temp"
     sudo mkdir -p /etc/modprobe.d
     sudo mkdir -p /etc/profile.d
     sudo mkdir -p /root/.config
