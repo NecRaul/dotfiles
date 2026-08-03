@@ -109,6 +109,8 @@ cmd copyto ${{
 
 cmd setbg "$1"
 
+cmd lain-upload $lain-upload $fx
+
 cmd bulkrename ${{
     tmpfile_old="$(mktemp)"
     tmpfile_new="$(mktemp)"
@@ -153,6 +155,7 @@ map M moveto
 map <c-n> push :mkdir<space>
 map <c-r> reload
 map <c-h> set hidden!
+map <c-l> lain-upload
 map . set hidden!
 map <enter> shell
 map b $setbg $f
