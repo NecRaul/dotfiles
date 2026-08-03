@@ -5,8 +5,8 @@ Pictures ~/Pictures
 Music ~/Music
 Videos ~/Videos
 
+Books ~/Documents/Books
 Github ~/Documents/Github
-LNs ~/Documents/LNs
 Notes ~/Documents/Notes
 Papers ~/Documents/Papers
 Gists ~/Documents/Github/Gists
@@ -21,6 +21,7 @@ Wallpapers ~/Pictures/Wallpapers
 
 Anime ~/Videos/Anime
 Movies ~/Videos/Movies
+mpv ~/Videos/mpv
 Recordings ~/Videos/Recordings
 Seasonals ~/Videos/Seasonals
 
