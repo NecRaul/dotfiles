@@ -8,3 +8,4 @@ rocks_trees = {
         root = "/usr",
     },
 }
+local_by_default = "true"
