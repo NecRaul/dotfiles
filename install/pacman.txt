@@ -140,6 +140,7 @@ nvtop
 nyancat
 obs-studio
 odt2txt
+onefetch
 openslide
 openssh
 openvpn

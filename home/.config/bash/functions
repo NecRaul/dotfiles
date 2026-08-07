@@ -7,6 +7,17 @@ smallfetch() {
         "$@"
 }
 
+onefetch() {
+    command onefetch \
+        --disabled-fields churn \
+        --number-of-authors 10 \
+        --email \
+        --include-hidden \
+        --no-color-palette \
+        --nerd-fonts \
+        "$@"
+}
+
 wget() {
     command wget \
         --hsts-file="$XDG_CACHE_HOME/wget-hsts" \
