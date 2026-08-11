@@ -16,7 +16,7 @@ set autoquit true
 cmd open ${{
     case $(xdg-mime query filetype "$f") in
     text/markdown | text/x-markdown) glow -t $fx ;;
-    text/* | */xml | application/json | application/javascript | application/vnd.ms-publisher | application/pgp-encrypted | application/x-subrip | inode/x-empty) $EDITOR $fx ;;
+    text/* | */xml | application/javascript | application/json | application/yaml | application/toml | application/vnd.ms-publisher | application/pgp-encrypted | application/x-subrip | audio/x-mod | inode/x-empty) $EDITOR $fx ;;
     video/* | audio/*) mpv --no-terminal --quiet "$f" ;;
     image/*) nsxiv-rifle "$f" ;;
     application/pdf | application/epub+zip | application/octet-stream | application/postscript | application/vnd.djvu | image/vnd.djvu) zathura $fx ;;
