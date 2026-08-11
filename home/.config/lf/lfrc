@@ -7,6 +7,8 @@ set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml:lost+found"
 set cleaner '~/.config/lf/cleaner'
 set previewer '~/.config/lf/scope'
+set rulerfile '~/.config/lf/ruler'
+set timefmt '02 Jan 2006 15:04'
 set autoquit true
 
 # cmds/functions
@@ -46,14 +48,6 @@ cmd extract ${{
             *.Z)         uncompress $fx  ;;
         esac
     }
-}}
-
-cmd on-init &{{
-    lf -remote "send $id set statfmt \"$(eza -ld --no-quotes --color=always -g "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
-}}
-
-cmd on-select &{{
-    lf -remote "send $id set statfmt \"$(eza -ld --no-quotes --color=always -g "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
 
 cmd on-cd &{{
@@ -142,7 +136,21 @@ cmd zi ${{
     lf -remote "send $id cd \"$result\""
 }}
 
+cmd totalsize &{{
+    if [ -z "$fs" ]; then
+        s=""
+    else
+        s=$(du -ch $fx | tail -n 1 | cut -f 1)
+    fi
+    lf -remote "send $id set user_selected_size $s"
+}}
+
+
 # Bindings
+map <space> :toggle; down; totalsize
+map v :invert; totalsize
+map u :unselect; totalsize
+
 map <c-f> $lf -remote "send $id select \"$(fd . -L -d 5 -H -I | fzf)\""
 map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' $XDG_CONFIG_HOME/shell/bm-dirs | fzf)"
 map H cd ~

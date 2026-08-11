@@ -1,0 +1,25 @@
+{{with .Message -}}
+    {{. -}}
+{{else with .Stat -}}
+    {{.Permissions | printf "\033[7;33m %s \033[0m" -}}
+    {{printf "\033[33;41m \033[0m" -}}
+    {{.Size | humanize | printf "\033[30;41m%5s \033[0m" -}}
+    {{printf "\033[31;45m \033[0m" -}}
+    {{.User | printf "\033[30;45m%s " -}}
+    {{.Group | printf "%s \033[0m" -}}
+    {{printf "\033[35;42m \033[0m" -}}
+    {{.ModTime | printf "\033[30;42m%s \033[0m" -}}
+    {{printf "\033[32;49m\033[0m" -}}
+    {{with .Target}} {{printf "\033[91;49m-> "}}{{.}}{{printf "\033[0m"}}{{end -}}
+{{end -}}
+
+{{.SPACER -}}
+
+{{with .Keys}}  {{.}} {{end -}}
+{{with .Progress}}  {{join . " "}}{{end -}}
+{{with .Copy}}  {{len . | printf "\033[30;43m copy: %d \033[0m"}}{{end -}}
+{{with .Cut}}  {{len . | printf "\033[7;31m cut: %d \033[0m"}}{{end -}}
+{{with .Select}}  {{len . | printf "\033[30;45m select: %d \033[0m"}}{{end -}}
+{{with .Filter}}  {{join . " " | printf "\033[7;34m %s \033[0m"}}{{end -}}
+{{printf "\033[30;44m %d/%d \033[0m" .Index .Total}}
+{{with $.UserOptions.selected_size -}}{{printf "\033[30;42m %s \033[0m" .}}{{end -}}
