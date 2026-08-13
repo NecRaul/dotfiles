@@ -24,19 +24,19 @@ else
 fi
 
 overall_bitrate=$(ffprobe -v error -show_entries format=bit_rate -of default=noprint_wrappers=1:nokey=1 "$input")
-video_bitrate=$(ffprobe -v error -select_streams v:0 -show_entries stream=bit_rate -of default=noprint_wrappers=1:nokey=1 "$input")
+video_bitrate=$(ffprobe -v error -select_streams v:0 -show_entries stream=bit_rate -of default=noprint_wrappers=1:nokey=1 "$input" | head -n1)
 audio_exists=$(ffprobe -v error -select_streams a -show_entries stream=codec_type -of csv=p=0 "$input" | grep -q . && echo 1 || echo 0)
 
 if [ "$audio_exists" -eq 1 ]; then
-    audio_bitrate=$(ffprobe -v error -select_streams a:0 -show_entries stream=bit_rate -of default=noprint_wrappers=1:nokey=1 "$input")
+    audio_bitrate=$(ffprobe -v error -select_streams a:0 -show_entries stream=bit_rate -of default=noprint_wrappers=1:nokey=1 "$input" | head -n1)
 else
     audio_bitrate=""
 fi
 
-if [ "$video_bitrate" != "N/A" ]; then
+if [ -n "$video_bitrate" ] && [ "$video_bitrate" != "N/A" ]; then
     video="$((video_bitrate / 1000))k"
     if [ "$audio_exists" -eq 1 ]; then
-        if [ "$audio_bitrate" != "N/A" ]; then
+        if [ -n "$audio_bitrate" ] && [ "$audio_bitrate" != "N/A" ]; then
             audio_bitrate=$((audio_bitrate / 1000))
             [ "$audio_bitrate" -lt 45 ] && audio_bitrate=45
         else
