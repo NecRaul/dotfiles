@@ -16,7 +16,7 @@
 # (systemctl vs loginctl) this init system uses, and the two dmenu lists.
 init() {
     PIDFILE="${XDG_RUNTIME_DIR:-/tmp}/dmenu-timer.pid"
-    WM="dwm"
+    WM="${DESKTOP_SESSION:-dwm}"
     case "$(readlink -f /sbin/init)" in
     *systemd*) ctl="systemctl" ;;
     *) ctl="loginctl" ;;
