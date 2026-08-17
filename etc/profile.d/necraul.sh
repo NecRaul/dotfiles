@@ -2,54 +2,22 @@
 # vim: ft=bash
 
 # PATH Setup
-if [ -d "$HOME/.local/bin" ]; then
-    append_path "$HOME/.local/bin"
-    for d in "$HOME/.local/bin"/*/; do
+append_path_tree() {
+    local base="$1"
+    [ -d "$base" ] || return
+    append_path "$base"
+    for d in "$base"/*/; do
         [ -d "$d" ] && append_path "${d%/}"
     done
-fi
-if [ -d "$HOME/.local/share/nvim/mason/bin" ]; then
-    append_path "$HOME/.local/share/nvim/mason/bin"
-    for d in "$HOME/.local/share/nvim/mason/bin"/*/; do
-        [ -d "$d" ] && append_path "${d%/}"
-    done
-fi
-if [ -d "$HOME/.local/share/npm/bin" ]; then
-    append_path "$HOME/.local/share/npm/bin"
-    for d in "$HOME/.local/share/npm/bin"/*/; do
-        [ -d "$d" ] && append_path "${d%/}"
-    done
-fi
-if [ -d "$HOME/.local/share/pnpm/bin" ]; then
-    append_path "$HOME/.local/share/pnpm/bin"
-    for d in "$HOME/.local/share/pnpm/bin"/*/; do
-        [ -d "$d" ] && append_path "${d%/}"
-    done
-fi
-if [ -d "$HOME/.local/share/cargo/bin" ]; then
-    append_path "$HOME/.local/share/cargo/bin"
-    for d in "$HOME/.local/share/cargo/bin"/*/; do
-        [ -d "$d" ] && append_path "${d%/}"
-    done
-fi
-if [ -d "$HOME/.local/share/go/bin" ]; then
-    append_path "$HOME/.local/share/go/bin"
-    for d in "$HOME/.local/share/go/bin"/*/; do
-        [ -d "$d" ] && append_path "${d%/}"
-    done
-fi
-if [ -d "$HOME/.local/share/luarocks/bin" ]; then
-    append_path "$HOME/.local/share/luarocks/bin"
-    for d in "$HOME/.local/share/luarocks/bin"/*/; do
-        [ -d "$d" ] && append_path "${d%/}"
-    done
-fi
-if [ -d "$HOME/Documents/Github/Gists" ]; then
-    append_path "$HOME/Documents/Github/Gists"
-    for d in "$HOME/Documents/Github/Gists"/*/; do
-        [ -d "$d" ] && append_path "${d%/}"
-    done
-fi
+}
+append_path_tree "$HOME/.local/bin"
+append_path_tree "$HOME/.local/share/nvim/mason/bin"
+append_path_tree "$HOME/.local/share/npm/bin"
+append_path_tree "$HOME/.local/share/pnpm/bin"
+append_path_tree "$HOME/.local/share/cargo/bin"
+append_path_tree "$HOME/.local/share/go/bin"
+append_path_tree "$HOME/.local/share/luarocks/bin"
+append_path_tree "$HOME/Documents/Github/Gists"
 export PATH
 
 # XDG Setup
