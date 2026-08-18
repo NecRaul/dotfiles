@@ -3,7 +3,7 @@
 # shellcheck disable=SC2139
 
 # General/convenience
-alias sudo="sudo "
+alias sudo="doas "
 alias vim="nvim"
 alias mkdir="mkdir -p"
 alias grep="grep --color=auto"

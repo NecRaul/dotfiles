@@ -141,6 +141,7 @@ nyancat
 obs-studio
 odt2txt
 onefetch
+opendoas
 openslide
 openssh
 openvpn
