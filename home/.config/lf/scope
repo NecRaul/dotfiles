@@ -26,7 +26,7 @@ text/markdown | text/x-markdown)
     glow -s "$XDG_CONFIG_HOME/glow/kuroneko.json" "$1"
     ;;
 text/* | */xml | application/javascript | application/json | application/yaml | application/toml | application/vnd.ms-publisher | application/x-subrip | audio/x-mod | inode/x-empty)
-    bat --theme base16 --terminal-width "$(($4 - 2))" -f "$1"
+    bat --terminal-width "$(($4 - 2))" -f "$1"
     ;;
 audio/* | application/octet-stream)
     mediainfo "$1" || exit 1
