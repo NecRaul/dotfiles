@@ -10,4 +10,5 @@ export PURPLE="\[\e[1;95m\]"
 export RESET="\[\e[0m\]"
 
 # LS_COLORS
-export LS_COLORS="$LS_COLORS:su=30;41:ow=30;42:st=30;44:"
+# shellcheck disable=SC2155
+export LS_COLORS="LS_COLORS:$(vivid generate ansi):su=30;41:ow=30;42:st=30;44:"

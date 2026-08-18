@@ -211,6 +211,7 @@ unclutter
 unzip
 uv
 vdpauinfo
+vivid
 vulkan-headers
 vulkan-radeon
 vulkan-tools
