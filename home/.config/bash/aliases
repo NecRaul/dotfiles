@@ -5,6 +5,7 @@
 # General/convenience
 alias sudo="doas "
 alias vim="nvim"
+alias vimdiff="nvim -d"
 alias mkdir="mkdir -p"
 alias grep="grep --color=auto"
 alias diff="diff --color=auto"
