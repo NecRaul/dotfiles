@@ -15,6 +15,7 @@ return {
             else
                 opts.cwd = dir
                 opts.prompt = opts.prompt or "Files❯ "
+                vim.cmd("cd " .. vim.fn.fnameescape(dir))
                 fzf.files(opts)
             end
         end
