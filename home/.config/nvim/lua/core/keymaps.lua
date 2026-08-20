@@ -47,6 +47,10 @@ vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi", { silent = true, desc = "Mov
 vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi", { silent = true, desc = "Move line up (Insert)" })
 
 -- Buffer navigation keymaps
+vim.keymap.set("n", "<leader>q", ":bd<CR>", {
+    silent = true,
+    desc = "Close current buffer",
+})
 vim.keymap.set("n", "<leader><Tab>", "<C-^>", {
     silent = true,
     desc = "Last buffer",
