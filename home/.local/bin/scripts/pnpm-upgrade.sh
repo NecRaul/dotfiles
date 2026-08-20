@@ -1,5 +1,6 @@
 #!/bin/sh
 
+npm update -g pnpm
 pnpm list -g --depth=0 |
     grep -E '^[├└]' |
     sed -E 's/^[├└]── //; s/@[^@]+$//; /^tree-sitter$/d' |
