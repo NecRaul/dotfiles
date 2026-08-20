@@ -124,6 +124,7 @@ mkvtoolnix-gui
 mpc
 mpd
 mpv
+mpv-mpris
 ncmpcpp
 neovim
 netstandard-targeting-pack
