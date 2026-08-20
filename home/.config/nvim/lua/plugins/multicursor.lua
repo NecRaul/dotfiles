@@ -5,21 +5,13 @@ return {
         local multicursor = require("multicursor-nvim")
         multicursor.setup()
 
-        vim.keymap.set("n", "<Esc><C-k>", function()
-            multicursor.lineAddCursor(-1)
-        end, { desc = "Add cursor above" })
-
-        vim.keymap.set("n", "<Esc><C-j>", function()
+        vim.keymap.set("n", "<C-A-j>", function()
             multicursor.lineAddCursor(1)
         end, { desc = "Add cursor below" })
 
-        vim.keymap.set("n", "<C-k>", function()
-            multicursor.lineSkipCursor(-1)
-        end, { desc = "Skip cursor above" })
-
-        vim.keymap.set("n", "<C-j>", function()
-            multicursor.lineSkipCursor(1)
-        end, { desc = "Skip cursor below" })
+        vim.keymap.set("n", "<C-A-k>", function()
+            multicursor.lineAddCursor(-1)
+        end, { desc = "Add cursor above" })
 
         vim.keymap.set("n", "<leader>mn", function()
             multicursor.matchAddCursor(1)
@@ -44,9 +36,20 @@ return {
         vim.keymap.set("n", "<C-leftrelease>", multicursor.handleMouseRelease, { desc = "Multicursor: mouse release" })
 
         multicursor.addKeymapLayer(function(layerSet)
-            layerSet("n", "h", multicursor.prevCursor, { desc = "Select prev cursor" })
-            layerSet("n", "l", multicursor.nextCursor, { desc = "Select next cursor" })
+            layerSet("n", "<C-j>", function()
+                multicursor.lineSkipCursor(1)
+            end, { desc = "Skip cursor below" })
+
+            layerSet("n", "<C-k>", function()
+                multicursor.lineSkipCursor(-1)
+            end, { desc = "Skip cursor above" })
+
+            layerSet("n", "n", multicursor.nextCursor, { desc = "Select next cursor" })
+
+            layerSet("n", "p", multicursor.prevCursor, { desc = "Select prev cursor" })
+
             layerSet("n", "<leader>x", multicursor.deleteCursor, { desc = "Delete main cursor" })
+
             layerSet("n", "<esc>", function()
                 if not multicursor.cursorsEnabled() then
                     multicursor.enableCursors()
