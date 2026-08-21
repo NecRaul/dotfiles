@@ -1,5 +1,9 @@
 #!/bin/sh
 
+refresh() {
+    pkill -RTMIN+10 dwmblocks
+}
+
 sinks=$(wpctl status | awk '
 /^[[:space:]]*├─ Sinks:/ {found=1; next}
 /^[[:space:]]*├─ Sources:/ {found=0}
@@ -26,6 +30,7 @@ case "$count" in
             awk -F'|' '$2 == 0 { print $1; exit }'
     )
     wpctl set-default "$id"
+    refresh
     exit 0
     ;;
 esac
@@ -49,3 +54,4 @@ id=$(printf '%s\n' "$sinks" |
     }')
 
 wpctl set-default "$id"
+refresh

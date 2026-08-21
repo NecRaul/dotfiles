@@ -1,8 +1,7 @@
 #!/bin/sh
 
-# Prints the current volume or 󰖁 if muted.
 refresh() {
-    pkill -RTMIN+10 "${STATUSBAR:-dwmblocks}"
+    pkill -RTMIN+10 dwmblocks
 }
 
 case $BLOCK_BUTTON in
