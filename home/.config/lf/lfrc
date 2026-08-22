@@ -197,9 +197,9 @@ map u :unselect; clearsize
 map y :copy; totalsize
 map d :cut; totalsize
 map p :paste; clearsize
-map c :clear; clearsize
+map c :clear; totalsize
 map D delete; clearsize
-map C copyto; clearsize
+map C copyto
 map M moveto; clearsize
 
 map <c-f> $lf -remote "send $id select \"$(fd . -L -d 5 -H -I | fzf)\""
