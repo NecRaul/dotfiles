@@ -1,0 +1,156 @@
+# ~/.config/halloy/config.toml
+
+# Theme
+theme = "Kanagawa"
+
+
+# Keyboard
+[keyboard]
+# General
+command_bar = "ctrl+shift+p"
+reload_configuration = "ctrl+shift+r"
+file_transfers = "ctrl+shift+j"
+highlights = "ctrl+shift+i"
+logs = "ctrl+shift+l"
+
+# Buffer navigation
+cycle_next_buffer = "ctrl+j"
+cycle_previous_buffer = "ctrl+k"
+
+# Panes
+new_horizontal_buffer = "ctrl+shift+h"
+new_vertical_buffer = "ctrl+shift+v"
+close_buffer = "ctrl+w"
+leave_buffer = "ctrl+shift+w"
+
+# Pane focus
+move_left = "alt+h"
+move_down = "alt+j"
+move_up = "alt+k"
+move_right = "alt+l"
+
+# Scrolling
+scroll_down_page = "ctrl+alt+j"
+scroll_up_page = "ctrl+alt+k"
+
+
+# Sidebar
+[sidebar]
+order_by = "config"
+order_channels_by = "config"
+
+[actions.sidebar]
+buffer = "replace-pane"
+
+
+# Buffer
+[buffer.timestamp]
+format = "%T"
+brackets = { left = "[", right = "]" }
+
+[buffer.nickname]
+brackets = { left = "<", right = ">" }
+
+[buffer.text_input]
+auto_format = "markdown"
+
+[buffer.server_messages.join]
+enabled = true
+dimmed = false
+
+[buffer.server_messages.away]
+enabled = true
+dimmed = false
+
+[buffer.server_messages.part]
+enabled = true
+dimmed = false
+
+[buffer.server_messages.quit]
+enabled = true
+dimmed = false
+
+[buffer.server_messages.kick]
+enabled = true
+dimmed = false
+
+[buffer.server_messages.change_nick]
+enabled = true
+dimmed = false
+
+
+[buffer.server_messages.change_mode]
+enabled = true
+dimmed = false
+
+[buffer.server_messages.change_topic]
+enabled = true
+dimmed = false
+
+[buffer.server_messages.condense]
+messages = []
+
+
+# Preview
+[preview.image]
+action = "open-url"
+
+
+# Notifications
+[notifications]
+highlight = { sound = "dong", show_toast = true, show_content = true, request_attention = true }
+direct_message = { sound = "peck", show_toast = true, show_content = true, request_attention = true }
+file_transfer_request = { sound = "zone", show_toast = true, show_content = true, request_attention = true }
+disconnected = { sound = "bonk", show_toast = true }
+reconnected = { sound = "bloop", show_toast = true }
+
+# Rizon
+[servers.Rizon]
+server = "rizonbnc.eu.rizon.net"
+port = 12345
+use_tls = true
+autoconnect = true
+
+nickname = "necraul"
+username = "necraul"
+realname = "necraul"
+alt_nicks = ["necraul2", "necraul3", "necraul4", "necraul5"]
+
+# BNC authentication
+password_file = "~/.config/halloy/password/rizon-bnc"
+
+# NickServ
+nick_password_file = "~/.config/halloy/password/rizon"
+
+channels = ["#r/a/dio", "#soranowoto", "#madokami", "#NIBL", "#subsplease"]
+
+queries = ["Hanyuu-sama"]
+
+reconnect_delay = 10
+anti_flood = 2000
+ping_time = 60
+ping_timeout = 20
+
+
+# Libera
+[servers.Libera]
+server = "irc.libera.chat"
+port = 6697
+use_tls = true
+autoconnect = true
+
+nickname = "necraul"
+username = "necraul"
+realname = "necraul"
+alt_nicks = ["necraul2", "necraul3", "necraul4", "necraul5"]
+
+# SASL
+sasl.plain.username = "necraul"
+sasl.plain.password_file = "~/.config/halloy/password/libera"
+
+channels = ["#mpv", "#mpv-devel", "#mpv-offtopic"]
+
+reconnect_delay = 10
+anti_flood = 2000
+ping_time = 60
+ping_timeout = 20

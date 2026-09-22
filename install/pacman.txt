@@ -78,6 +78,7 @@ gparted
 gradle
 grub
 gst-plugin-pipewire
+halloy
 helvum
 highlight
 htop
