@@ -95,7 +95,7 @@ cmd delete ${{
     forbidden_paths=""
     for x in $fx; do
         clean_file=$(echo "$x" | sed 's:/*$::')
-        if echo "$protected_paths" | grep -qx "$clean_file"; then
+        if echo "$protected_paths" | grep -Fqx -- "$clean_file"; then
             forbidden_paths="$forbidden_paths$x\n"
         fi
     done
