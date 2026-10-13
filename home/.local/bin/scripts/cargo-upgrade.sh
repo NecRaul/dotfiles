@@ -15,7 +15,7 @@ cargo install --list |
         if [ "$tool" = "wallpapers" ]; then
             cargo install --git https://github.com/awused/wallpapers --locked --no-default-features --features x11
         elif $use_binstall; then
-            cargo binstall "$tool"
+            cargo binstall "$tool" --no-confirm
         else
             cargo install "$tool" --locked
         fi
