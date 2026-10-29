@@ -275,6 +275,7 @@ clear_pnpm_cache() {
     export PNPM_HOME="$XDG_DATA_HOME/pnpm"
     export PATH="$PNPM_HOME/bin:$PATH"
     pnpm cache delete
+    pnpm cache prune
     pnpm store prune
     echo "==================================================="
     echo "Cleared pnpm cache."
