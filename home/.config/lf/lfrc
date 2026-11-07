@@ -115,10 +115,11 @@ cmd delete ${{
 cmd moveto ${{
     clear; tput cup $(($(tput lines)/3)); tput bold
     set -f
+    IFS="$(printf '\n\t')"
     clear; echo "Move to where?"
-    dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' $XDG_CONFIG_HOME/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
+    dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' "$XDG_CONFIG_HOME/shell/bm-dirs" | fzf | sed "s|^~|$HOME|")" &&
     for x in $fx; do
-        eval mv -iv \"$x\" \"$dest\"
+        mv -iv -- "$x" "$dest"
     done &&
     notify-send "File(s) moved." "File(s) moved to $dest."
 }}
@@ -126,12 +127,13 @@ cmd moveto ${{
 cmd copyto ${{
     clear; tput cup $(($(tput lines)/3)); tput bold
     set -f
+    IFS="$(printf '\n\t')"
     clear; echo "Copy to where?"
-    dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' $XDG_CONFIG_HOME/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
+    dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' "$XDG_CONFIG_HOME/shell/bm-dirs" | fzf | sed "s|^~|$HOME|")" &&
     for x in $fx; do
-        eval cp -ivr \"$x\" \"$dest\"
+        cp -ivr -- "$x" "$dest"
     done &&
-    notify-send "File(s) copied." "File(s) copies to $dest."
+    notify-send "File(s) copied." "File(s) copied to $dest."
 }}
 
 cmd setbg "$1"
