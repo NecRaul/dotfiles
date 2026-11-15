@@ -49,5 +49,6 @@ source_if_exists "$XDG_CONFIG_HOME/fzf/fzfrc"
 
 # Misc
 export QT_QPA_PLATFORMTHEME=qt6ct
+export SLINT_BACKEND=winit-femtovg
 export NSXIV_OPTS="-aqb"
 export MOZ_USE_XINPUT2="1"
